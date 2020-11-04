@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projectConfiguration>
+    <configVersion>2</configVersion>
+    <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="JSONLibrary" path="Bapacho/site-packages/JSONLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SikuliLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SikuliLibrary/__init__.py" dynamic="false"/>
+    <pythonpath>
+        <path location="C:\Users\Nisha\AppData\Local\Programs\Python\Python38-32"/>
+    </pythonpath>
+    <classpath/>
+    <excludedForValidation/>
+    <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>
+    <validatedFileMaxSize>1024</validatedFileMaxSize>
+</projectConfiguration>
