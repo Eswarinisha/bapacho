@@ -5,6 +5,8 @@
     <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="JSONLibrary" path="Bapacho/site-packages/JSONLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="SikuliLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SikuliLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="ImageHorizonLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/ImageHorizonLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="pyautogui" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/pyautogui/__init__.py" dynamic="false"/>
     <pythonpath>
         <path location="C:\Users\Nisha\AppData\Local\Programs\Python\Python38-32"/>
     </pythonpath>

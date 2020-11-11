@@ -16,14 +16,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>libspecs/SeleniumLibrary.py</name>
+			<name>libspecs/pyautogui.py</name>
 			<type>1</type>
-			<location>C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SeleniumLibrary/__init__.py</location>
-		</link>
-		<link>
-			<name>libspecs/SikuliLibrary.py</name>
-			<type>1</type>
-			<location>C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SikuliLibrary/sikuli.py</location>
+			<location>C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/pyautogui/__init__.py</location>
 		</link>
 	</linkedResources>
 </projectDescription>
