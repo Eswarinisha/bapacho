@@ -220,16 +220,19 @@ Step_3_Merchant without online payment
         Input Text    name=columns[website]    https://www.multivlaai.nl/
         Input Text    name=columns[facebook]    https://www.multivlaai.nl/    
         Click Element    (//button[contains(.,'Next')])[3]
-      #  Choose File    (//button[contains(.,'Next')])[3]    file_path
+       # Choose File    (//button[contains(.,'Next')])[3]    ${CURDIR}\\chef.jpg
         Wait Until Page Contains       Step 4: Product Assortment   
         
 Step_4_Merchant without online payment
         BuiltIn.Sleep    5    
+        Capture Page Screenshot    
         Select From List By Label    //select[contains(@name,'category_id')]    Pies
-        Scroll Element Into View    (//button[contains(.,'Choose product')])[6]       
-        Double Click Element    (//button[contains(.,'Choose product')])[6]
+        Capture Page Screenshot    
+        BuiltIn.Sleep    2    
+        Scroll Element Into View    (//button[contains(.,'Choose product')])[4]       
+        Double Click Element    (//button[contains(.,'Choose product')])[4]
         Set Browser Implicit Wait    10     
-        Double Click Element    (//button[contains(.,'Choose product')])[11] 
+        Double Click Element    (//button[contains(.,'Choose product')])[9] 
         Set Browser Implicit Wait    10    
         Capture Page Screenshot    
         Set Focus To Element    (//button[contains(.,'Next')])[4] 
@@ -268,9 +271,34 @@ Step_6_Merchant without online payment
         Click Element    //button[contains(.,'Skip')]
     
 Step_10_Merchant without online payment
-        Wait Until Page Contains    Done    
+        BuiltIn.Sleep    2       
         Click Element    (//button[contains(.,'Next')])[10] 
-        
+
+Merchant Activation (Without Online payment)
+        CMSAdmin_Login
+        Click_Outlets/Stores
+        Create_NewMerchant_without Payment
+        Send activation mail from CMS to Merchant       
+        Capture Page Screenshot  
+        OpenYopMailinchrome
+        Check Merchant Activation mail_without Payment  
+        #Wait Until Page Contains    Setup your online Shop     
+        Select Window    NEW 
+        Step_1_Merchant without online payment
+        Close All Browsers
+
+Merchant Onboarding without Online Payment
+        Login_as_Merchant without online payment
+        Step_1_Merchant without online payment
+        Step_2_Merchant without online payment
+        Step_3_Merchant without online payment
+        Step_4_Merchant without online payment
+        Step_5_Merchant without online payment
+        Step_6_Merchant without online payment    
+        Step_10_Merchant without online payment
+        Capture Page Screenshot
+
+
 Type_To_Search_bakery_Merchant
         Click_bakeries
         Click Element    //button[2]/i
@@ -288,3 +316,40 @@ Scroll to Download Order Confirmation
      
 Print all orders
      Click Element   //a[contains(.,'Print all orders')]
+     
+Create new product category
+     Click Element    //a[contains(.,'My product categories')]    
+     Click Element     //div[@class='btn btn-default'][contains(.,'Add category')]
+     Input Text    name=titles[nl]    ${ProductCategoryName}     
+     Input Text    name=titles[be]    ${ProductCategoryName} 
+     Input Text    name=titles[it]    ${ProductCategoryName}     
+     Click Button    //button[contains(.,'Submit')]   
+     BuiltIn.Sleep    2    
+     Click Element    //button[contains(.,'OK')]  
+     BuiltIn.Sleep    2   
+     Capture Page Screenshot  
+     
+
+Create new own product 
+
+    Click Element   //a[contains(.,'My products')]
+    Click Element    (//a[contains(.,'Add product')])[3]    
+    Input Text    name=columns_local[nl][title]    ${Productname}  
+    Input Text    name=columns_local[nl][subtitle]    ${Productname}     
+    Input Text    name=columns_local[nl][text]        ${Productname}
+    Input Text    name=columns_local[nl][ingredientsText]    ${Productingredients} 
+    Input Text    name=columns_local[nl][unit]    ${ProductUnit}
+    Click Element    //button[contains(.,'Copy information from English')]    
+    Select From List By Label    name=category_id      ${ProductCategoryName}
+    Select From List By Label    name=columns[featured]    Yes
+    Input Text    name=columns[price]    ${PricewithVAT}
+    Select From List By Label    name=columns[vat_id]    9%
+    Click Element    name=columns[availableFrom]    
+    Input Text    name=columns[daily_production]     10
+    Input Text    name=columns[customPreparationTime]    04:00 
+    Select From List By Label    name=columns[active]       Yes
+    Click Element    //input[@value='3']    
+    Input Text    name=nutritions[11]    0.5    
+    Click Element    //input[contains(@type,'submit')]    
+                        
+    

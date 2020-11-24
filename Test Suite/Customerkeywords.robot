@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 
 Resource    BapachoVariables.robot
+Resource     Merchantkeywords.robot
 
 ***Keyword***
 
@@ -42,6 +43,15 @@ FacebookLogin
         Click Element    ${FBSubmit}       
         Set Browser Implicit Wait    10   
         
+FacebookLogin_in_Checkoutpage
+        Wait Until Page Contains    Accept cookies from Facebook on this browser?
+        Set Selenium Implicit Wait    10
+        Click Button    //*[@id="u_0_g"]              
+        SeleniumLibrary.Input Text      ${FBemailid}    ${FBCredentials}[0]    
+        Input Password    ${FBpassword}    ${FBCredentials}[1]    
+        Click Element    ${FBSubmit}       
+        Set Browser Implicit Wait    10   
+
 EmailLogin   
         Set Browser Implicit Wait    5    
         SeleniumLibrary.Input Text    //input[@id='name']    ${LoginCredentials}[0]    
@@ -284,8 +294,14 @@ User_Fill_Checkoutpage
          Wait Until Page Contains Element    //select[@id='time']    
          Select From List By Index      //select[@id='time']    4  
          
-        
-
+Guestuser_Login_in_Checkoutpage         
+         Wait Until Page Contains    Choose pickup or delivery   
+         Wait Until Page Contains    Choose a date for Pickup   
+         Select From List By Index     //select[@id='date']   0  
+         Select From List By Index      //select[@id='time']    4   
+         Scroll Element Into View    //a[contains(text(),'Login using Facebook')]
+         Click Element   //a[contains(text(),'Login using Facebook')]    
+         FacebookLogin_in_Checkoutpage
   
        
 Click_Terms&Condition
@@ -342,7 +358,7 @@ iDEAL_Online_payment_process
          Wait Until Page Contains    Contact information
          Click Element    //button[contains(@id,'ideal-tab')]   
          Select From List By Label      //select[contains(@id,'idealBank')]     ABN Amro   
-         Set Browser Implicit Wait    10      
+         BuiltIn.Sleep    1         
          SeleniumLibrary.Input Text    name=billingName    Eswari Nisha Balakrishnan     
          Click Element    //div[contains(@class,'SubmitButton-IconContainer')]  
          Set Browser Implicit Wait    10
@@ -532,7 +548,19 @@ Check_ForgtPassword_mail
         Click Element    //a[contains(text(),'https://staging.bapacho.com/nl/reset-password/cust')] 
         Select Window    NEW
         
-           
+Guest user placing a Cash pay order
+         Open_Bapachosite
+         Click_bakeries
+         Type_To_Search_bakery_Merchant
+         BuiltIn.Sleep    2    
+         Select a bakery from list
+         PDP_AddtoCart
+         Set Browser Implicit Wait    5
+         PDP_Click_Checkout
+         Guestuser_Fill_Checkoutpage
+         Cashpay_OrderNow
+         Capture Page Screenshot    
+         Close Browser           
               
                         
             

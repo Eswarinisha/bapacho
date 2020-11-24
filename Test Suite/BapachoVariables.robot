@@ -1,7 +1,7 @@
 ***Variables***
 ${Bapacho_URL}     https://bapacho:bapacho@staging.bapacho.com/nl/
 
-#Login 
+#CustomerLogin 
 ${Login_Button}    //*/text()[normalize-space(.)='Login']/parent::* 
 @{LoginCredentials}    testemailcustomer001@gmail.com    bapachocustomerpwd
 ${Submit_Login}    //button[@onclick="$('#loginForm').submit()"]  
@@ -32,4 +32,18 @@ ${MerchantName without payment}    Nisha's Automated Bakery002
 
 #Account_Number
 ${NL_Account_Number}    NL39RABO0300065264
+
+#SalesAgentLogin
+@{SalesAgentCredentials}    nisha@inqadigital.com    Jishannaresh29
+
+#Product Category
+${ProductCategoryName}    Beverages
+
+#Add Product 
+${Productname}     Lemon Mojito
+${Productingredients}    Lemon,mint,salt,sugar,soda
+${ProductUnit}    20ml
+${PricewithVAT}    15.00
+
+
 

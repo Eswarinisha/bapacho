@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>libspecs/pyautogui.py</name>
-			<type>1</type>
-			<location>C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/pyautogui/__init__.py</location>
-		</link>
-	</linkedResources>
 </projectDescription>

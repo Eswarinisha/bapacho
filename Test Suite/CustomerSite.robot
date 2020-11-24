@@ -78,6 +78,22 @@ CS003TC002
       
         FacebookLogin
         Close Browser
+        
+CS003TC003	# User must be able to login during checkout 
+    
+         Open_Bapachosite
+         Click_bakeries
+         Type_To_Search_bakery
+         BuiltIn.Sleep    2    
+         Select a bakery from list
+         PDP_AddtoCart
+         Set Browser Implicit Wait    5
+         PDP_Click_Checkout
+         Guestuser_Login_in_Checkoutpage
+         BuiltIn.Sleep    2    
+         Cashpay_OrderNow
+         Capture Page Screenshot    
+         Close Browser
              
 CS004TC001
 	# User must be able to click on forgot password

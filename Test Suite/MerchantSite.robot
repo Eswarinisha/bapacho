@@ -162,71 +162,54 @@ MO014TC001	# Merchant must be able to click on Next and view Merchant dashboard
     
 MO015TC001	# Merchant must be able to click skip on Step 6 
     Open_CMS
-    CMSAdmin_Login
-    Click_Outlets/Stores
-    Create_NewMerchant_without Payment
-    Send activation mail from CMS to Merchant       
-    Capture Page Screenshot  
-    OpenYopMailinchrome
-    Check Merchant Activation mail_without Payment  
-    #Wait Until Page Contains    Setup your online Shop     
-    Select Window    NEW 
-    Step_1_Merchant without online payment
-    Close All Browsers
+    Merchant Activation (Without Online payment)
     Open_Bapachosite
-    Login_as_Merchant without online payment
-    Step_1_Merchant without online payment
-    Step_2_Merchant without online payment
-    Step_3_Merchant without online payment
-    Step_4_Merchant without online payment
-    Step_5_Merchant without online payment
-    Step_6_Merchant without online payment    
-    Step_10_Merchant without online payment
-    Capture Page Screenshot   
+    Merchant Onboarding without Online Payment   
     Close Browser 
   
     # MO017	    Dashboard
 
 MO017TC001	# Merchant must be able to view orders for pickup today
-         Open_Bapachosite
-         Click_bakeries
-         Type_To_Search_bakery_Merchant
-         BuiltIn.Sleep    2    
-         Select a bakery from list
-         PDP_AddtoCart
-         Set Browser Implicit Wait    5
-         PDP_Click_Checkout
-         Guestuser_Fill_Checkoutpage
-         Cashpay_OrderNow
-         Capture Page Screenshot    
-         Close Browser
-        Open_Bapachosite
-        Login_as_Merchant without online payment
-        Capture Page Screenshot    
-        View Orders for pickup today
-        Capture Page Screenshot    
-        Close Browser
+    Guest user placing a Cash pay order
+    Open_Bapachosite
+    Login_as_Merchant without online payment
+    Capture Page Screenshot    
+    View Orders for pickup today
+    Capture Page Screenshot    
+    Close Browser
         
 MO017TC002	# Merchant must be able to view orders for future days  
     
-        Open_Bapachosite
-        Login_as_Merchant without online payment
-        Capture Page Screenshot   
-        View Orders for future today     
+    Open_Bapachosite
+    Login_as_Merchant without online payment
+    Capture Page Screenshot   
+    View Orders for future today     
          
 MO017TC003	# Merchant must be able to click the order and view in separate page
-        Open_Bapachosite
-        Login_as_Merchant without online payment
-        Capture Page Screenshot   
-        View Orders for pickup today 
-        Scroll to Download Order Confirmation  
+    Open_Bapachosite
+    Login_as_Merchant without online payment
+    Capture Page Screenshot   
+    View Orders for pickup today 
+    Scroll to Download Order Confirmation  
          
 MO017TC004	# Merchant must be able to Print all orders 
-        Open_Bapachosite
-        Login_as_Merchant without online payment
-        Capture Page Screenshot   
-        View Orders for pickup today
-        Print all orders
-        Capture Page Screenshot    
+    Guest user placing a Cash pay order
+    Open_Bapachosite
+    Login_as_Merchant without online payment
+    Capture Page Screenshot   
+    View Orders for pickup today
+    Print all orders
+    Capture Page Screenshot    
     
+MO018TC001	# Merchant must be able to create new product category
+    Open_Bapachosite
+    Login_as_Merchant without online payment
+    Create new product category
+    
+MO018TC002	# Merchant must be able to add product details
+    Open_Bapachosite
+    Login_as_Merchant without online payment
+    Create new own product
+    
+       
     

@@ -7,6 +7,16 @@
     <referencedLibrary type="PYTHON" name="SikuliLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SikuliLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="ImageHorizonLibrary" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/ImageHorizonLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="pyautogui" path="C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/pyautogui/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.compat" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.exceptions" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.exceptions.InvalidResponse" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.exceptions.UnknownStatusError" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.log" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.RequestsKeywords" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.RequestsKeywords.WritableObject" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.utils" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary.version" path="Bapacho/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
     <pythonpath>
         <path location="C:\Users\Nisha\AppData\Local\Programs\Python\Python38-32"/>
     </pythonpath>
