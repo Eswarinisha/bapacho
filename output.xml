@@ -1,141 +1,1261 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20201124 14:45:14.809" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20201126 11:34:17.283" rpa="false">
 <suite id="s1" name="Bapacho" source="C:\Users\Nisha\git\ta-bapacho\Bapacho">
 <suite id="s1-s1" name="Test Suite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite">
-<suite id="s1-s1-s1" name="APITesting" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite\APITesting.robot">
-<test id="s1-s1-s1-t1" name="Testcase1">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
+<suite id="s1-s1-s1" name="Basic Regression Suite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite\Basic Regression Suite.robot">
+<test id="s1-s1-s1-t1" name="BRC001">
+<kw name="Open_CMS" library="CMSkeywords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>testemailcustomer001@gmail.com</arg>
-<arg>bapachocustomerpwd</arg>
+<arg>https://bapacho:bapacho@staging.bapacho.com/admin</arg>
+<arg>chrome</arg>
 </arguments>
-<assign>
-<var>${auth}</var>
-</assign>
-<msg timestamp="20201124 14:45:15.096" level="INFO">${auth} = ['testemailcustomer001@gmail.com', 'bapachocustomerpwd']</msg>
-<status status="PASS" starttime="20201124 14:45:15.096" endtime="20201124 14:45:15.096"></status>
+<msg timestamp="20201126 11:34:17.989" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@staging.bapacho.com/admin'.</msg>
+<status status="PASS" starttime="20201126 11:34:17.988" endtime="20201126 11:34:24.037"></status>
 </kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:34:24.037" endtime="20201126 11:34:26.157"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:17.987" endtime="20201126 11:34:26.157"></status>
+</kw>
+<kw name="Merchant Activation (Without Online payment)" library="Merchantkeywords">
+<kw name="CMSAdmin_Login" library="CMSkeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>x-clientguid=D29FE23F-5FFC-0EF9-13E8-8ADC4D0A3654</arg>
-<arg>Content-Type=application/json</arg>
-<arg>Accept=application/json</arg>
-<arg>x-lang=nl</arg>
+<arg>name=email</arg>
+<arg>nisha@inqadigital.com</arg>
 </arguments>
-<assign>
-<var>${header}</var>
-</assign>
-<msg timestamp="20201124 14:45:15.097" level="INFO">${header} = {'x-clientguid': 'D29FE23F-5FFC-0EF9-13E8-8ADC4D0A3654', 'Content-Type': 'application/json', 'Accept': 'application/json', 'x-lang': 'nl'}</msg>
-<status status="PASS" starttime="20201124 14:45:15.097" endtime="20201124 14:45:15.097"></status>
+<msg timestamp="20201126 11:34:26.162" level="INFO">Typing text 'nisha@inqadigital.com' into text field 'name=email'.</msg>
+<status status="PASS" starttime="20201126 11:34:26.161" endtime="20201126 11:34:26.468"></status>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>{"fields":{"pfid":"109","lang_id":"nl","client_id":"176","related_id":"0","supplier_id":"6882","location_id":"6882","transaction_id":null,"profile_id":null,"total":"8.00000","vat":"0.66055","subtotal":"7.33945","persons":"0","status":"1","company":"","name":null,"firstname":"EswariNisha","lastname":"Balakrishnan","address":"Justinedegouwerhof","housenr":"54","housenradd":"","postal":"2011GP","city":"Haarlem","country":null,"countryCode":"","phone":"+31612809787","comments":"","archive":"0","quote_text":null,"payment_date":"2020-11-2109:49:32","def":"1","lastStatus":"open","payment_method":"manual","hasVersenfijnDelivery":"0","quickCheckout":"0","popupId":"0","orderAcceptance":"pickup","deliveryDate":"2020-11-2106:00"}}</arg>
+<arg>name=password</arg>
+<arg>Jishannaresh29</arg>
 </arguments>
-<assign>
-<var>${File}</var>
-</assign>
-<msg timestamp="20201124 14:45:15.098" level="INFO">${File} = {"fields":{"pfid":"109","lang_id":"nl","client_id":"176","related_id":"0","supplier_id":"6882","location_id":"6882","transaction_id":null,"profile_id":null,"total":"8.00000","vat":"0.66055","subtotal"...</msg>
-<status status="PASS" starttime="20201124 14:45:15.097" endtime="20201124 14:45:15.098"></status>
+<msg timestamp="20201126 11:34:26.469" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg timestamp="20201126 11:34:26.525" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:34:26.614" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:34:26.468" endtime="20201126 11:34:26.615"></status>
 </kw>
-<kw name="Convert String to JSON" library="JSONLibrary">
-<doc>Convert String to JSON object</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>${File}</arg>
+<arg>//button[@type='submit'][contains(.,'Login')]</arg>
 </arguments>
-<assign>
-<var>${JSONinsertorder}</var>
-</assign>
-<msg timestamp="20201124 14:45:15.098" level="INFO">${JSONinsertorder} = {'fields': {'pfid': '109', 'lang_id': 'nl', 'client_id': '176', 'related_id': '0', 'supplier_id': '6882', 'location_id': '6882', 'transaction_id': None, 'profile_id': None, 'total': '8.00000', 'vat': ...</msg>
-<status status="PASS" starttime="20201124 14:45:15.098" endtime="20201124 14:45:15.098"></status>
+<msg timestamp="20201126 11:34:26.616" level="INFO">Clicking button '//button[@type='submit'][contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:26.615" endtime="20201126 11:34:27.402"></status>
 </kw>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
-<arg>session</arg>
-<arg>https://dev.api.bapacho.com</arg>
-<arg>auth=${auth}</arg>
+<arg>Nisha</arg>
 </arguments>
-<msg timestamp="20201124 14:45:15.099" level="INFO">Creating Session using : alias=session, url=https://dev.api.bapacho.com, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x046EE8E0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20201124 14:45:15.098" endtime="20201124 14:45:15.099"></status>
+<status status="PASS" starttime="20201126 11:34:27.403" endtime="20201126 11:34:27.434"></status>
 </kw>
-<kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the
-given `alias`</doc>
+<status status="PASS" starttime="20201126 11:34:26.160" endtime="20201126 11:34:27.434"></status>
+</kw>
+<kw name="Click_Outlets/Stores" library="CMSkeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>session</arg>
-<arg>/order/insert/</arg>
-<arg>json=${JSONinsertorder}</arg>
-<arg>headers=${header}</arg>
+<arg>//a[contains(.,'Outlets / stores')]</arg>
 </arguments>
-<assign>
-<var>${orderinsert}</var>
-</assign>
-<msg timestamp="20201124 14:45:15.328" level="INFO">POST Request : url=https://dev.api.bapacho.com/order/insert/ 
- path_url=/order/insert/ 
- headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'x-clientguid': 'D29FE23F-5FFC-0EF9-13E8-8ADC4D0A3654', 'Content-Type': 'application/json', 'x-lang': 'nl', 'Content-Length': '802', 'Authorization': 'Basic dGVzdGVtYWlsY3VzdG9tZXIwMDFAZ21haWwuY29tOmJhcGFjaG9jdXN0b21lcnB3ZA=='} 
- body=b'{"fields": {"pfid": "109", "lang_id": "nl", "client_id": "176", "related_id": "0", "supplier_id": "6882", "location_id": "6882", "transaction_id": null, "profile_id": null, "total": "8.00000", "vat": "0.66055", "subtotal": "7.33945", "persons": "0", "status": "1", "company": "", "name": null, "firstname": "EswariNisha", "lastname": "Balakrishnan", "address": "Justinedegouwerhof", "housenr": "54", "housenradd": "", "postal": "2011GP", "city": "Haarlem", "country": null, "countryCode": "", "phone": "+31612809787", "comments": "", "archive": "0", "quote_text": null, "payment_date": "2020-11-2109:49:32", "def": "1", "lastStatus": "open", "payment_method": "manual", "hasVersenfijnDelivery": "0", "quickCheckout": "0", "popupId": "0", "orderAcceptance": "pickup", "deliveryDate": "2020-11-2106:00"}}' 
- </msg>
-<msg timestamp="20201124 14:45:15.329" level="INFO">POST Response : url=https://dev.api.bapacho.com/order/insert/ 
- status=200, reason=OK 
- body={"status":"ok","results":{"id":"635","guid":"428A939C-F2EE-0ED2-7E1C-6710D6E250AB","pfid":"109","lang_id":"nl","client_id":"176","related_id":"0","supplier_id":"6882","location_id":"6882","transaction_id":"","profile_id":"","refund_id":null,"total":"8.00000","vat":"0.66055","subtotal":"7.33945","transaction_fees":"0.00000","persons":"0","added_date":"2020-11-24 14:45:16","update_date":"2020-11-24 14:45:16","status":"1","company":"","name":"","firstname":"EswariNisha","lastname":"Balakrishnan","address":"Justinedegouwerhof","addressLine2":null,"housenr":"54","housenradd":"","postal":"2011GP","city":"Haarlem","country":"","countryCode":"","email":null,"phone":"+31612809787","comments":"","archive":"0","quote_text":"","payment_date":"0000-00-00 00:00:00","def":"1","lastStatus":"open","orderStatus":"new","status_comment":null,"payment_method":"manual","hasVersenfijnDelivery":"0","quickCheckout":"0","popupId":"0","orderAcceptance":"pickup","deliveryDate":"2020-11-2106:00","source":"website"}} 
- </msg>
-<msg timestamp="20201124 14:45:15.329" level="INFO">C:\Users\Nisha\AppData\Local\Programs\Python\Python38-32\Lib\site-packages\urllib3\connectionpool.py:981: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dev.api.bapacho.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(</msg>
-<msg timestamp="20201124 14:45:15.329" level="INFO">${orderinsert} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20201124 14:45:15.099" endtime="20201124 14:45:15.329"></status>
+<msg timestamp="20201126 11:34:27.436" level="INFO">Clicking element '//a[contains(.,'Outlets / stores')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:27.435" endtime="20201126 11:34:27.545"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
+<status status="PASS" starttime="20201126 11:34:27.435" endtime="20201126 11:34:27.546"></status>
+</kw>
+<kw name="Create_NewMerchant_without Payment" library="CMSkeywords">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
 <arguments>
-<arg>${orderinsert}</arg>
+<arg>//button[@type='button'][contains(.,'New')]</arg>
 </arguments>
-<msg timestamp="20201124 14:45:15.330" level="INFO">&lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20201124 14:45:15.329" endtime="20201124 14:45:15.330"></status>
+<status status="PASS" starttime="20201126 11:34:27.548" endtime="20201126 11:34:30.065"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>${orderinsert.text}</arg>
+<arg>//button[@type='button'][contains(.,'New')]</arg>
 </arguments>
-<msg timestamp="20201124 14:45:15.330" level="INFO">{"status":"ok","results":{"id":"635","guid":"428A939C-F2EE-0ED2-7E1C-6710D6E250AB","pfid":"109","lang_id":"nl","client_id":"176","related_id":"0","supplier_id":"6882","location_id":"6882","transaction_id":"","profile_id":"","refund_id":null,"total":"8.00000","vat":"0.66055","subtotal":"7.33945","transaction_fees":"0.00000","persons":"0","added_date":"2020-11-24 14:45:16","update_date":"2020-11-24 14:45:16","status":"1","company":"","name":"","firstname":"EswariNisha","lastname":"Balakrishnan","address":"Justinedegouwerhof","addressLine2":null,"housenr":"54","housenradd":"","postal":"2011GP","city":"Haarlem","country":"","countryCode":"","email":null,"phone":"+31612809787","comments":"","archive":"0","quote_text":"","payment_date":"0000-00-00 00:00:00","def":"1","lastStatus":"open","orderStatus":"new","status_comment":null,"payment_method":"manual","hasVersenfijnDelivery":"0","quickCheckout":"0","popupId":"0","orderAcceptance":"pickup","deliveryDate":"2020-11-2106:00","source":"website"}}</msg>
-<status status="PASS" starttime="20201124 14:45:15.330" endtime="20201124 14:45:15.331"></status>
+<msg timestamp="20201126 11:34:30.068" level="INFO">Clicking button '//button[@type='button'][contains(.,'New')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:30.066" endtime="20201126 11:34:30.289"></status>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
-<arg>${orderinsert.status_code}</arg>
-<arg>200</arg>
+<arg>New</arg>
 </arguments>
-<msg timestamp="20201124 14:45:15.331" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20201124 14:45:15.331" endtime="20201124 14:45:15.331"></status>
+<status status="PASS" starttime="20201126 11:34:30.290" endtime="20201126 11:34:30.311"></status>
 </kw>
-<status status="PASS" starttime="20201124 14:45:15.095" endtime="20201124 14:45:15.331" critical="yes"></status>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>name=fields[title]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:30.312" endtime="20201126 11:34:30.540"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=fields[title]</arg>
+<arg>${MerchantName without payment}</arg>
+</arguments>
+<msg timestamp="20201126 11:34:30.542" level="INFO">Typing text 'Nisha's Automated Bakery003' into text field 'name=fields[title]'.</msg>
+<status status="PASS" starttime="20201126 11:34:30.541" endtime="20201126 11:34:30.722"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=fields[username]</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[0]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:30.723" level="INFO">Typing text 'automatedmerchant003@yopmail.com' into text field 'name=fields[username]'.</msg>
+<status status="PASS" starttime="20201126 11:34:30.722" endtime="20201126 11:34:30.914"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Save')]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:30.916" level="INFO">Clicking button '//button[contains(.,'Save')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:30.915" endtime="20201126 11:34:31.019"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:27.547" endtime="20201126 11:34:31.019"></status>
+</kw>
+<kw name="Send activation mail from CMS to Merchant" library="CMSkeywords">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//button[contains(.,'Send activation email')]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:31.021" endtime="20201126 11:34:31.477"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Send activation email')]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:31.478" level="INFO">Clicking element '//button[contains(.,'Send activation email')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:31.478" endtime="20201126 11:34:31.695"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//button[contains(.,'Yes, send it!')]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:31.695" endtime="20201126 11:34:31.722"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Yes, send it!')]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:31.724" level="INFO">Clicking element '//button[contains(.,'Yes, send it!')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:31.723" endtime="20201126 11:34:31.802"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:31.804" endtime="20201126 11:34:31.808"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//button[contains(.,'OK')]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:31.809" endtime="20201126 11:34:32.556"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'OK')]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:32.557" level="INFO">Clicking element '//button[contains(.,'OK')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:32.557" endtime="20201126 11:34:32.627"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:31.020" endtime="20201126 11:34:32.627"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:34:33.026" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-47.png"&gt;&lt;img src="selenium-screenshot-47.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:34:32.628" endtime="20201126 11:34:33.026"></status>
+</kw>
+<kw name="OpenYopMailinchrome" library="Customerkeywords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://www.yopmail.com/en/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20201126 11:34:33.028" level="INFO">Opening browser 'chrome' to base url 'http://www.yopmail.com/en/'.</msg>
+<status status="PASS" starttime="20201126 11:34:33.027" endtime="20201126 11:34:36.793"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:33.027" endtime="20201126 11:34:36.793"></status>
+</kw>
+<kw name="Check Merchant Activation mail_without Payment" library="CMSkeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[0]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:36.798" level="INFO">Typing text 'automatedmerchant003@yopmail.com' into text field 'name=login'.</msg>
+<status status="PASS" starttime="20201126 11:34:36.795" endtime="20201126 11:34:37.000"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//input[contains(@class,'sbut')]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:37.002" level="INFO">Clicking button '//input[contains(@class,'sbut')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:37.001" endtime="20201126 11:34:37.698"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Inbox</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:37.699" endtime="20201126 11:34:37.717"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollBy(0, document.body.scrollHeight)</arg>
+</arguments>
+<msg timestamp="20201126 11:34:37.719" level="INFO">Executing JavaScript:
+window.scrollBy(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201126 11:34:37.718" endtime="20201126 11:34:37.727"></status>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<arguments>
+<arg>//iframe[@id='ifmail']</arg>
+</arguments>
+<msg timestamp="20201126 11:34:37.729" level="INFO">Selecting frame '//iframe[@id='ifmail']'.</msg>
+<status status="PASS" starttime="20201126 11:34:37.728" endtime="20201126 11:34:37.775"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[contains(.,'https://staging.bapacho.com/activateShop.php?')]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:37.775" level="INFO">Clicking element '//a[contains(.,'https://staging.bapacho.com/activateShop.php?')]'.</msg>
+<status status="PASS" starttime="20201126 11:34:37.775" endtime="20201126 11:34:37.963"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:36.794" endtime="20201126 11:34:37.963"></status>
+</kw>
+<kw name="Select Window" library="SeleniumLibrary">
+<doc>DEPRECATED in SeleniumLibrary 4.0. , use `Switch Window` instead.</doc>
+<arguments>
+<arg>NEW</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:37.964" endtime="20201126 11:34:37.985"></status>
+</kw>
+<kw name="Step_1_Merchant without online payment" library="Merchantkeywords">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:34:37.986" endtime="20201126 11:34:43.818"></status>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>name=password</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:43.820" endtime="20201126 11:34:44.126"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:44.127" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg timestamp="20201126 11:34:44.165" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:34:44.283" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:34:44.127" endtime="20201126 11:34:44.284"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password_chk</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:44.285" level="INFO">Typing password into text field 'name=password_chk'.</msg>
+<msg timestamp="20201126 11:34:44.344" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:34:44.423" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:34:44.284" endtime="20201126 11:34:44.423"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='acceptTermsAndConditions']</arg>
+</arguments>
+<msg timestamp="20201126 11:34:44.424" level="INFO">Selecting checkbox '//input[@id='acceptTermsAndConditions']'.</msg>
+<status status="PASS" starttime="20201126 11:34:44.423" endtime="20201126 11:34:44.532"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:34:45.177" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-48.png"&gt;&lt;img src="selenium-screenshot-48.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:34:44.533" endtime="20201126 11:34:45.177"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:45.178" level="INFO">Clicking element '(//button[contains(.,'Next')])[1]'.</msg>
+<status status="PASS" starttime="20201126 11:34:45.177" endtime="20201126 11:34:45.238"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Step 2: Company Information</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:45.239" endtime="20201126 11:34:45.283"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:37.986" endtime="20201126 11:34:45.284"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201126 11:34:45.285" endtime="20201126 11:34:49.681"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:26.157" endtime="20201126 11:34:49.681"></status>
+</kw>
+<kw name="Open_Bapachosite" library="Customerkeywords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${Bapacho_URL}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20201126 11:34:49.683" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@staging.bapacho.com/nl/'.</msg>
+<status status="PASS" starttime="20201126 11:34:49.682" endtime="20201126 11:34:55.587"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:34:55.588" endtime="20201126 11:34:57.706"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:49.682" endtime="20201126 11:34:57.707"></status>
+</kw>
+<kw name="Merchant Onboarding without Online Payment" library="Merchantkeywords">
+<kw name="Login_as_Merchant without online payment" library="Merchantkeywords">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:57.708" endtime="20201126 11:34:57.711"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//a[contains(.,'Login as Merchant')])[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:57.712" level="INFO">Clicking element '(//a[contains(.,'Login as Merchant')])[1]'.</msg>
+<status status="PASS" starttime="20201126 11:34:57.711" endtime="20201126 11:34:57.926"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='name']</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[0]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:57.929" level="INFO">Typing text 'automatedmerchant003@yopmail.com' into text field '//input[@id='name']'.</msg>
+<status status="PASS" starttime="20201126 11:34:57.927" endtime="20201126 11:34:58.352"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>(//input[@id='name'])[2]</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:34:58.354" level="INFO">Typing password into text field '(//input[@id='name'])[2]'.</msg>
+<msg timestamp="20201126 11:34:58.423" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:34:58.533" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:34:58.353" endtime="20201126 11:34:58.533"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Submit_Login}</arg>
+</arguments>
+<msg timestamp="20201126 11:34:58.535" level="INFO">Clicking button '//button[@onclick="$('#loginForm').submit()"]'.</msg>
+<status status="PASS" starttime="20201126 11:34:58.534" endtime="20201126 11:34:58.628"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>My Account</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:34:58.629" endtime="20201126 11:35:02.243"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:57.708" endtime="20201126 11:35:02.244"></status>
+</kw>
+<kw name="Step_1_Merchant without online payment" library="Merchantkeywords">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:35:02.245" endtime="20201126 11:35:02.248"></status>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>name=password</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:02.249" endtime="20201126 11:35:02.531"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:02.532" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg timestamp="20201126 11:35:02.583" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:35:02.712" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:35:02.531" endtime="20201126 11:35:02.713"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password_chk</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:02.714" level="INFO">Typing password into text field 'name=password_chk'.</msg>
+<msg timestamp="20201126 11:35:02.784" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:35:02.881" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:35:02.713" endtime="20201126 11:35:02.881"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='acceptTermsAndConditions']</arg>
+</arguments>
+<msg timestamp="20201126 11:35:02.882" level="INFO">Selecting checkbox '//input[@id='acceptTermsAndConditions']'.</msg>
+<status status="PASS" starttime="20201126 11:35:02.882" endtime="20201126 11:35:03.033"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:03.593" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-49.png"&gt;&lt;img src="selenium-screenshot-49.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:03.034" endtime="20201126 11:35:03.593"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:03.594" level="INFO">Clicking element '(//button[contains(.,'Next')])[1]'.</msg>
+<status status="PASS" starttime="20201126 11:35:03.593" endtime="20201126 11:35:03.671"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Step 2: Company Information</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:03.672" endtime="20201126 11:35:03.720"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:02.244" endtime="20201126 11:35:03.720"></status>
+</kw>
+<kw name="Step_2_Merchant without online payment" library="Merchantkeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns_local[nl][title]</arg>
+<arg>${MerchantName without payment}</arg>
+</arguments>
+<msg timestamp="20201126 11:35:03.722" level="INFO">Typing text 'Nisha's Automated Bakery003' into text field 'name=columns_local[nl][title]'.</msg>
+<status status="PASS" starttime="20201126 11:35:03.722" endtime="20201126 11:35:04.426"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=locationColumns_local[nl][address]</arg>
+<arg>Damstraat 20</arg>
+</arguments>
+<msg timestamp="20201126 11:35:04.429" level="INFO">Typing text 'Damstraat 20' into text field 'name=locationColumns_local[nl][address]'.</msg>
+<status status="PASS" starttime="20201126 11:35:04.427" endtime="20201126 11:35:04.663"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=locationColumns_local[nl][addressLine2]</arg>
+<arg>Amsterdam</arg>
+</arguments>
+<msg timestamp="20201126 11:35:04.664" level="INFO">Typing text 'Amsterdam' into text field 'name=locationColumns_local[nl][addressLine2]'.</msg>
+<status status="PASS" starttime="20201126 11:35:04.663" endtime="20201126 11:35:04.839"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>locationColumns_local[nl][postal]</arg>
+<arg>2011GP</arg>
+</arguments>
+<msg timestamp="20201126 11:35:04.840" level="INFO">Typing text '2011GP' into text field 'locationColumns_local[nl][postal]'.</msg>
+<status status="PASS" starttime="20201126 11:35:04.840" endtime="20201126 11:35:04.984"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=locationColumns_local[nl][city]</arg>
+<arg>Netherlands</arg>
+</arguments>
+<msg timestamp="20201126 11:35:04.985" level="INFO">Typing text 'Netherlands' into text field 'name=locationColumns_local[nl][city]'.</msg>
+<status status="PASS" starttime="20201126 11:35:04.985" endtime="20201126 11:35:05.153"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Copy information from English')])[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.153" level="INFO">Clicking button '(//button[contains(.,'Copy information from English')])[1]'.</msg>
+<status status="PASS" starttime="20201126 11:35:05.153" endtime="20201126 11:35:05.258"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[emailOrders]</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[0]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.259" level="INFO">Typing text 'automatedmerchant003@yopmail.com' into text field 'name=columns[emailOrders]'.</msg>
+<status status="PASS" starttime="20201126 11:35:05.259" endtime="20201126 11:35:05.477"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[phoneOrders]</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[2]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.478" level="INFO">Typing text '+31612809787' into text field 'name=columns[phoneOrders]'.</msg>
+<status status="PASS" starttime="20201126 11:35:05.477" endtime="20201126 11:35:05.651"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[phone]</arg>
+<arg>${Merchant_Without_OnlinePayment_Credentials}[2]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.652" level="INFO">Typing text '+31612809787' into text field 'name=columns[phone]'.</msg>
+<status status="PASS" starttime="20201126 11:35:05.651" endtime="20201126 11:35:05.814"></status>
+</kw>
+<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<arguments>
+<arg>name=columns[notification_sms]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.815" level="INFO">Verifying checkbox 'name=columns[notification_sms]' is selected.</msg>
+<status status="PASS" starttime="20201126 11:35:05.815" endtime="20201126 11:35:05.861"></status>
+</kw>
+<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<arguments>
+<arg>name=columns[notification_email]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.862" level="INFO">Verifying checkbox 'name=columns[notification_email]' is selected.</msg>
+<status status="PASS" starttime="20201126 11:35:05.861" endtime="20201126 11:35:05.915"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollBy(1000,247)</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.916" level="INFO">Executing JavaScript:
+window.scrollBy(1000,247)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201126 11:35:05.916" endtime="20201126 11:35:05.926"></status>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>//select[contains(@name,'openTimes[0][from]')]</arg>
+<arg>06:00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:05.927" level="INFO">Selecting options from selection list '//select[contains(@name,'openTimes[0][from]')]' by label 06:00.</msg>
+<status status="PASS" starttime="20201126 11:35:05.927" endtime="20201126 11:35:06.065"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>//select[contains(@name,'openTimes[0][to]')]</arg>
+<arg>23:30</arg>
+</arguments>
+<msg timestamp="20201126 11:35:06.066" level="INFO">Selecting options from selection list '//select[contains(@name,'openTimes[0][to]')]' by value 23:30.</msg>
+<status status="PASS" starttime="20201126 11:35:06.066" endtime="20201126 11:35:06.197"></status>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>openBreakTimes[0][from]</arg>
+<arg>12:00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:06.199" level="INFO">Selecting options from selection list 'openBreakTimes[0][from]' by label 12:00.</msg>
+<status status="PASS" starttime="20201126 11:35:06.199" endtime="20201126 11:35:06.319"></status>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>openBreakTimes[0][to]</arg>
+<arg>12:30</arg>
+</arguments>
+<msg timestamp="20201126 11:35:06.320" level="INFO">Selecting options from selection list 'openBreakTimes[0][to]' by label 12:30.</msg>
+<status status="PASS" starttime="20201126 11:35:06.319" endtime="20201126 11:35:06.440"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Apply to all')])[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:06.441" level="INFO">Clicking button '(//button[contains(.,'Apply to all')])[1]'.</msg>
+<status status="PASS" starttime="20201126 11:35:06.440" endtime="20201126 11:35:06.548"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:06.549" endtime="20201126 11:35:06.551"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[2]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:06.552" level="INFO">Clicking element '(//button[contains(.,'Next')])[2]'.</msg>
+<status status="PASS" starttime="20201126 11:35:06.552" endtime="20201126 11:35:06.625"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:03.721" endtime="20201126 11:35:06.626"></status>
+</kw>
+<kw name="Step_3_Merchant without online payment" library="Merchantkeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>locationColumns_local[nl][text]</arg>
+<arg>"Nisha's Automated Bakery Number 1"</arg>
+</arguments>
+<msg timestamp="20201126 11:35:06.628" level="INFO">Typing text '"Nisha's Automated Bakery Number 1"' into text field 'locationColumns_local[nl][text]'.</msg>
+<status status="PASS" starttime="20201126 11:35:06.627" endtime="20201126 11:35:08.994"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Copy information from English')])[2]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:08.995" level="INFO">Clicking element '(//button[contains(.,'Copy information from English')])[2]'.</msg>
+<status status="PASS" starttime="20201126 11:35:08.994" endtime="20201126 11:35:09.079"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[website]</arg>
+<arg>https://www.multivlaai.nl/</arg>
+</arguments>
+<msg timestamp="20201126 11:35:09.080" level="INFO">Typing text 'https://www.multivlaai.nl/' into text field 'name=columns[website]'.</msg>
+<status status="PASS" starttime="20201126 11:35:09.080" endtime="20201126 11:35:09.297"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[facebook]</arg>
+<arg>https://www.multivlaai.nl/</arg>
+</arguments>
+<msg timestamp="20201126 11:35:09.298" level="INFO">Typing text 'https://www.multivlaai.nl/' into text field 'name=columns[facebook]'.</msg>
+<status status="PASS" starttime="20201126 11:35:09.298" endtime="20201126 11:35:09.459"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[3]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:09.460" level="INFO">Clicking element '(//button[contains(.,'Next')])[3]'.</msg>
+<status status="PASS" starttime="20201126 11:35:09.460" endtime="20201126 11:35:09.545"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Step 4: Product Assortment</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:09.546" endtime="20201126 11:35:09.597"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:06.626" endtime="20201126 11:35:09.597"></status>
+</kw>
+<kw name="Step_4_Merchant without online payment" library="Merchantkeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20201126 11:35:14.600" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20201126 11:35:09.598" endtime="20201126 11:35:14.600"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:14.927" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-50.png"&gt;&lt;img src="selenium-screenshot-50.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:14.600" endtime="20201126 11:35:14.927"></status>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>//select[contains(@name,'category_id')]</arg>
+<arg>Pies</arg>
+</arguments>
+<msg timestamp="20201126 11:35:14.928" level="INFO">Selecting options from selection list '//select[contains(@name,'category_id')]' by label Pies.</msg>
+<status status="PASS" starttime="20201126 11:35:14.928" endtime="20201126 11:35:15.005"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:15.403" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:15.006" endtime="20201126 11:35:15.404"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20201126 11:35:17.405" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201126 11:35:15.404" endtime="20201126 11:35:17.406"></status>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>(//button[contains(.,'Choose product')])[4]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:17.406" endtime="20201126 11:35:17.683"></status>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<doc>Double clicks the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Choose product')])[4]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:17.684" level="INFO">Double clicking element '(//button[contains(.,'Choose product')])[4]'.</msg>
+<status status="PASS" starttime="20201126 11:35:17.684" endtime="20201126 11:35:17.971"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:17.972" endtime="20201126 11:35:17.974"></status>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<doc>Double clicks the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Choose product')])[9]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:17.975" level="INFO">Double clicking element '(//button[contains(.,'Choose product')])[9]'.</msg>
+<status status="PASS" starttime="20201126 11:35:17.974" endtime="20201126 11:35:18.278"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:18.279" endtime="20201126 11:35:18.280"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:18.651" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:18.281" endtime="20201126 11:35:18.651"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[4]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:18.651" endtime="20201126 11:35:18.673"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[4]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:18.674" level="INFO">Clicking element '(//button[contains(.,'Next')])[4]'.</msg>
+<status status="PASS" starttime="20201126 11:35:18.674" endtime="20201126 11:35:18.734"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Allergen information</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:18.735" endtime="20201126 11:35:18.783"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'OK')]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:18.783" level="INFO">Clicking element '//button[contains(.,'OK')]'.</msg>
+<status status="PASS" starttime="20201126 11:35:18.783" endtime="20201126 11:35:19.001"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.004" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20201126 11:35:19.002" endtime="20201126 11:35:24.004"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:09.598" endtime="20201126 11:35:24.004"></status>
+</kw>
+<kw name="Step_5_Merchant without online payment" library="Merchantkeywords">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>name=columns[hasPickup]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:24.006" endtime="20201126 11:35:24.021"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[hasPickup]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.022" level="INFO">Selecting checkbox 'name=columns[hasPickup]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.021" endtime="20201126 11:35:24.095"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=handlingFee[pickup]</arg>
+<arg>5.00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.096" level="INFO">Typing text '5.00' into text field 'name=handlingFee[pickup]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.096" endtime="20201126 11:35:24.234"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='paymentMethodPickup6']</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.234" level="INFO">Clicking element '//input[@id='paymentMethodPickup6']'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.234" endtime="20201126 11:35:24.298"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='paymentMethodPickup7']</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.300" level="INFO">Clicking element '//input[@id='paymentMethodPickup7']'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.298" endtime="20201126 11:35:24.363"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[hasDelivery]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.364" level="INFO">Selecting checkbox 'name=columns[hasDelivery]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.363" endtime="20201126 11:35:24.467"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[deliveryPrice]</arg>
+<arg>10.00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.469" level="INFO">Typing text '10.00' into text field 'name=columns[deliveryPrice]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.468" endtime="20201126 11:35:24.612"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[deliveryAbove]</arg>
+<arg>30.00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.613" level="INFO">Typing text '30.00' into text field 'name=columns[deliveryAbove]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.613" endtime="20201126 11:35:24.761"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=columns[deliveryFreeAbove]</arg>
+<arg>70.00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.762" level="INFO">Typing text '70.00' into text field 'name=columns[deliveryFreeAbove]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.761" endtime="20201126 11:35:24.906"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=handlingFee[deliver]</arg>
+<arg>6.00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:24.907" level="INFO">Typing text '6.00' into text field 'name=handlingFee[deliver]'.</msg>
+<status status="PASS" starttime="20201126 11:35:24.907" endtime="20201126 11:35:25.065"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>name=deliveryTimes[0][from]</arg>
+<arg>06:00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.066" level="INFO">Selecting options from selection list 'name=deliveryTimes[0][from]' by value 06:00.</msg>
+<status status="PASS" starttime="20201126 11:35:25.065" endtime="20201126 11:35:25.184"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>name=deliveryTimes[0][to]</arg>
+<arg>23:30</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.185" level="INFO">Selecting options from selection list 'name=deliveryTimes[0][to]' by value 23:30.</msg>
+<status status="PASS" starttime="20201126 11:35:25.184" endtime="20201126 11:35:25.326"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>name=deliveryBreakTimes[0][from]</arg>
+<arg>06:00</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.327" level="INFO">Selecting options from selection list 'name=deliveryBreakTimes[0][from]' by value 06:00.</msg>
+<status status="PASS" starttime="20201126 11:35:25.326" endtime="20201126 11:35:25.426"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>name=deliveryBreakTimes[0][to]</arg>
+<arg>23:30</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.427" level="INFO">Selecting options from selection list 'name=deliveryBreakTimes[0][to]' by value 23:30.</msg>
+<status status="PASS" starttime="20201126 11:35:25.427" endtime="20201126 11:35:25.532"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Apply to all')])[8]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.533" level="INFO">Clicking element '(//button[contains(.,'Apply to all')])[8]'.</msg>
+<status status="PASS" starttime="20201126 11:35:25.532" endtime="20201126 11:35:25.623"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='paymentMethodDelivery6']</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.624" level="INFO">Clicking element '//input[@id='paymentMethodDelivery6']'.</msg>
+<status status="PASS" starttime="20201126 11:35:25.624" endtime="20201126 11:35:25.709"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@id='paymentMethodDelivery7']</arg>
+</arguments>
+<msg timestamp="20201126 11:35:25.709" level="INFO">Clicking element '//input[@id='paymentMethodDelivery7']'.</msg>
+<status status="PASS" starttime="20201126 11:35:25.709" endtime="20201126 11:35:25.784"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:26.130" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-53.png"&gt;&lt;img src="selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:25.785" endtime="20201126 11:35:26.130"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[5]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:26.131" level="INFO">Clicking element '(//button[contains(.,'Next')])[5]'.</msg>
+<status status="PASS" starttime="20201126 11:35:26.131" endtime="20201126 11:35:26.198"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:24.005" endtime="20201126 11:35:26.198"></status>
+</kw>
+<kw name="Step_6_Merchant without online payment" library="Merchantkeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20201126 11:35:28.203" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201126 11:35:26.200" endtime="20201126 11:35:28.203"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+</arguments>
+<msg timestamp="20201126 11:35:28.204" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201126 11:35:28.203" endtime="20201126 11:35:28.212"></status>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>//button[contains(.,'Skip')]</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:28.212" endtime="20201126 11:35:28.508"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Skip')]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:28.509" level="INFO">Clicking element '//button[contains(.,'Skip')]'.</msg>
+<status status="PASS" starttime="20201126 11:35:28.509" endtime="20201126 11:35:28.562"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:26.198" endtime="20201126 11:35:28.562"></status>
+</kw>
+<kw name="Step_10_Merchant without online payment" library="Merchantkeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20201126 11:35:30.565" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201126 11:35:28.563" endtime="20201126 11:35:30.565"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Next')])[10]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:30.566" level="INFO">Clicking element '(//button[contains(.,'Next')])[10]'.</msg>
+<status status="PASS" starttime="20201126 11:35:30.566" endtime="20201126 11:35:30.623"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:28.563" endtime="20201126 11:35:30.623"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:30.977" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-54.png"&gt;&lt;img src="selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:30.624" endtime="20201126 11:35:30.978"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:34:57.707" endtime="20201126 11:35:30.978"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201126 11:35:30.978" endtime="20201126 11:35:33.176"></status>
+</kw>
+<kw name="Open_Bapachosite" library="Customerkeywords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${Bapacho_URL}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20201126 11:35:33.177" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@staging.bapacho.com/nl/'.</msg>
+<status status="PASS" starttime="20201126 11:35:33.177" endtime="20201126 11:35:42.834"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:35:42.834" endtime="20201126 11:35:44.956"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:33.176" endtime="20201126 11:35:44.957"></status>
+</kw>
+<kw name="Click_bakeries" library="Customerkeywords">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:35:44.967" endtime="20201126 11:35:44.971"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[contains(text(),'Bakeries')]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:44.972" level="INFO">Clicking element '//a[contains(text(),'Bakeries')]'.</msg>
+<status status="PASS" starttime="20201126 11:35:44.972" endtime="20201126 11:35:47.462"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Order from your favorite bakery</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:47.462" endtime="20201126 11:35:47.492"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:44.961" endtime="20201126 11:35:47.492"></status>
+</kw>
+<kw name="Type_To_Search_bakery_MerchantwithoutOnlinePayment" library="BasicRegressionKeywords">
+<kw name="Click_bakeries" library="Customerkeywords">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:35:47.493" endtime="20201126 11:35:47.498"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[contains(text(),'Bakeries')]</arg>
+</arguments>
+<msg timestamp="20201126 11:35:47.499" level="INFO">Clicking element '//a[contains(text(),'Bakeries')]'.</msg>
+<status status="PASS" starttime="20201126 11:35:47.498" endtime="20201126 11:35:48.950"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Order from your favorite bakery</arg>
+</arguments>
+<status status="PASS" starttime="20201126 11:35:48.950" endtime="20201126 11:35:49.536"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:47.493" endtime="20201126 11:35:49.536"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[2]/i</arg>
+</arguments>
+<msg timestamp="20201126 11:35:49.537" level="INFO">Clicking element '//button[2]/i'.</msg>
+<status status="PASS" starttime="20201126 11:35:49.536" endtime="20201126 11:35:49.613"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@name='keywordInput']</arg>
+<arg>${MerchantName without payment}</arg>
+</arguments>
+<msg timestamp="20201126 11:35:49.614" level="INFO">Typing text 'Nisha's Automated Bakery003' into text field '//input[@name='keywordInput']'.</msg>
+<status status="PASS" starttime="20201126 11:35:49.613" endtime="20201126 11:35:49.767"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[2]/i</arg>
+</arguments>
+<msg timestamp="20201126 11:35:49.768" level="INFO">Clicking element '//button[2]/i'.</msg>
+<status status="PASS" starttime="20201126 11:35:49.768" endtime="20201126 11:35:49.821"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:47.492" endtime="20201126 11:35:49.821"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:35:50.531" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-55.png"&gt;&lt;img src="selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201126 11:35:49.822" endtime="20201126 11:35:50.532"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201126 11:35:50.532" endtime="20201126 11:35:52.759"></status>
+</kw>
+<kw name="Open SalesagentPortal" library="SalesAgentkeywords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://bapacho:bapacho@sales.bapacho.com/nl/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20201126 11:35:52.760" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@sales.bapacho.com/nl/'.</msg>
+<status status="PASS" starttime="20201126 11:35:52.760" endtime="20201126 11:35:58.116"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201126 11:35:58.117" endtime="20201126 11:36:00.240"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:35:52.759" endtime="20201126 11:36:00.241"></status>
+</kw>
+<kw name="Login as SalesAgent" library="SalesAgentkeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${SalesAgentCredentials}[0]</arg>
+</arguments>
+<msg timestamp="20201126 11:36:00.243" level="INFO">Typing text 'nisha@inqadigital.com' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20201126 11:36:00.243" endtime="20201126 11:36:00.409"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${SalesAgentCredentials}[1]</arg>
+</arguments>
+<msg timestamp="20201126 11:36:00.410" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg timestamp="20201126 11:36:00.467" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201126 11:36:00.538" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201126 11:36:00.409" endtime="20201126 11:36:00.538"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Login')]</arg>
+</arguments>
+<msg timestamp="20201126 11:36:00.539" level="INFO">Clicking button '//button[contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20201126 11:36:00.539" endtime="20201126 11:36:00.635"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:36:00.241" endtime="20201126 11:36:00.636"></status>
+</kw>
+<kw name=" Search Merchant" library="SalesAgentkeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20201126 11:36:02.637" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201126 11:36:00.637" endtime="20201126 11:36:02.637"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[contains(@type,'text')]</arg>
+<arg>${MerchantName without payment}</arg>
+</arguments>
+<msg timestamp="20201126 11:36:02.638" level="INFO">Typing text 'Nisha's Automated Bakery003' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20201126 11:36:02.637" endtime="20201126 11:36:02.749"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Search')]</arg>
+</arguments>
+<msg timestamp="20201126 11:36:02.751" level="INFO">Clicking button '//button[contains(.,'Search')]'.</msg>
+<status status="PASS" starttime="20201126 11:36:02.750" endtime="20201126 11:36:02.810"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>7</arg>
+</arguments>
+<msg timestamp="20201126 11:36:09.811" level="INFO">Slept 7 seconds</msg>
+<status status="PASS" starttime="20201126 11:36:02.811" endtime="20201126 11:36:09.811"></status>
+</kw>
+<status status="PASS" starttime="20201126 11:36:00.636" endtime="20201126 11:36:09.811"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201126 11:36:33.858" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=86.0.4240.198)
+</msg>
+<status status="FAIL" starttime="20201126 11:36:21.831" endtime="20201126 11:36:33.859"></status>
+</kw>
+<msg timestamp="20201126 11:36:33.859" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=86.0.4240.198)
+</msg>
+<msg timestamp="20201126 11:36:33.860" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=86.0.4240.198)
+</msg>
+<status status="FAIL" starttime="20201126 11:36:09.812" endtime="20201126 11:36:33.860"></status>
+</kw>
+<tags>
+<tag>RegressionTest</tag>
+</tags>
+<status status="FAIL" starttime="20201126 11:34:17.986" endtime="20201126 11:36:33.860" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=86.0.4240.198)
+</status>
 </test>
-<status status="PASS" starttime="20201124 14:45:14.866" endtime="20201124 14:45:15.332"></status>
+<status status="FAIL" starttime="20201126 11:34:17.380" endtime="20201126 11:36:33.861"></status>
 </suite>
-<status status="PASS" starttime="20201124 14:45:14.863" endtime="20201124 14:45:15.333"></status>
+<status status="FAIL" starttime="20201126 11:34:17.375" endtime="20201126 11:36:33.863"></status>
 </suite>
-<status status="PASS" starttime="20201124 14:45:14.841" endtime="20201124 14:45:15.334"></status>
+<status status="FAIL" starttime="20201126 11:34:17.340" endtime="20201126 11:36:33.865"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1">RegressionTest</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Bapacho">Bapacho</stat>
-<stat pass="1" fail="0" id="s1-s1" name="Test Suite">Bapacho.Test Suite</stat>
-<stat pass="1" fail="0" id="s1-s1-s1" name="APITesting">Bapacho.Test Suite.APITesting</stat>
+<stat pass="0" fail="1" id="s1" name="Bapacho">Bapacho</stat>
+<stat pass="0" fail="1" id="s1-s1" name="Test Suite">Bapacho.Test Suite</stat>
+<stat pass="0" fail="1" id="s1-s1-s1" name="Basic Regression Suite">Bapacho.Test Suite.Basic Regression Suite</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20201126 11:36:33.859" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=86.0.4240.198)
+</msg>
 </errors>
 </robot>

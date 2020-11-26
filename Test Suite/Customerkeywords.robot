@@ -261,8 +261,9 @@ Delete Product Quantity
 
 
  PDP_Click_Checkout
+        
          Click Element   //div[@id='cartSummaryBody']/div[2]/table/tbody/tr/td[2]/div[4]/i
-         Click Element    //div[@id='cartSummaryBody']/a  
+         Click Element    //button[contains(.,'Checkout')]
        
                 
 
@@ -277,12 +278,19 @@ Choose_delivery
 
 Guestuser_Fill_Checkoutpage
          Wait Until Page Contains    Choose pickup or delivery   
-         Wait Until Page Contains    Choose a date for Pickup   
+         Wait Until Page Contains    Choose a date for Pickup  
+         BuiltIn.Sleep    2  
          Select From List By Index     //select[@id='date']   0  
-         Select From List By Index      //select[@id='time']    4   
+         BuiltIn.Sleep    2    
+         Select From List By Index      //select[@id='time']    4
+         BuiltIn.Sleep    2       
          SeleniumLibrary.Input Text    //input[@id='firstname']    Eswari Nisha    
          SeleniumLibrary.Input Text    //input[@id='lastname']     Balakrishnan    
          SeleniumLibrary.Input Text    //input[@id='email']        eswarinisha.b@gmail.com  
+         Input Text    name=address    Justine de Gouwerhof,54
+         Input Text    name=addressLine2        Haarlem
+         Input Text    name=postal    2011GP    
+         Input Text    name=city    Netherlands            
          SeleniumLibrary.Input Text    //input[@id='phone']    +31612809787 
 
 User_Fill_Checkoutpage
@@ -333,6 +341,8 @@ Cashpay_OrderNow
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button    //button[@type='submit']
+         Wait Until Page Contains    title.order.Confirm 
+         Click Element    //button[contains(.,'OK')]    
          
 
 Cardpay_OrderNow
@@ -342,7 +352,8 @@ Cardpay_OrderNow
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button    //button[@type='submit']
-         
+         Wait Until Page Contains   title.order.Confirm   
+         Click Element    //button[contains(.,'OK')]   
 
 
          
@@ -353,7 +364,9 @@ Onlinepay_Ordernow
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button    //button[@type='submit']
-         
+         Wait Until Page Contains   title.order.Confirm   
+         Click Element    //button[contains(.,'OK')]   
+
 iDEAL_Online_payment_process         
          Wait Until Page Contains    Contact information
          Click Element    //button[contains(@id,'ideal-tab')]   

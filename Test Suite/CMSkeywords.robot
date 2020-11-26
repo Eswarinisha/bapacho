@@ -88,4 +88,17 @@ Check Merchant Activation mail_without Payment
       Execute JavaScript    window.scrollBy(0, document.body.scrollHeight)         
       Select Frame    //iframe[@id='ifmail']
       Click Element    //a[contains(.,'https://staging.bapacho.com/activateShop.php?')]
-        
+      
+
+View Product Category in CMS
+     Click Element    (//a[contains(.,'Product categories')])[1]
+     Wait Until Page Contains    ${ProductCategoryName}    
+     Page Should Contain    ${ProductCategoryName}     
+     Capture Page Screenshot     
+     
+View Product Name in CMS
+     Click Element    //a[contains(.,'Products')]  
+     Wait Until Page Contains     ${Productname}      
+     Page Should Contain    ${Productname}    
+     Capture Page Screenshot     
+     

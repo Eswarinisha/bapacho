@@ -25,10 +25,10 @@ ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
 
 
 #MerchantOnboarding
-@{MerchantOnboardingCredentials}    automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
-${MerchantName}    Nisha's Automated Bakery001
-${MerchantName without payment}    Nisha's Automated Bakery002
-@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant002@yopmail.com    bapachomerchantpwd    +31612809787
+@{MerchantOnboardingCredentials}    automatedmerchant003@yopmail.com    bapachomerchantpwd    +31612809787
+${MerchantName}    Nisha's Automated Bakery003
+${MerchantName without payment}    Nisha's Automated Bakery003
+@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant003@yopmail.com    bapachomerchantpwd    +31612809787
 
 #Account_Number
 ${NL_Account_Number}    NL39RABO0300065264
@@ -40,7 +40,7 @@ ${NL_Account_Number}    NL39RABO0300065264
 ${ProductCategoryName}    Beverages
 
 #Add Product 
-${Productname}     Lemon Mojito
+${Productname}     Apple Juice
 ${Productingredients}    Lemon,mint,salt,sugar,soda
 ${ProductUnit}    20ml
 ${PricewithVAT}    15.00

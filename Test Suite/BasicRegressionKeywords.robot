@@ -16,3 +16,13 @@ Type_To_Search_bakery_MerchantwithoutOnlinePayment
         SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName without payment}
         Click Element          //button[2]/i
         
+Select a bakery from list_MerchantwithoutOnlinePayment
+         BuiltIn.Sleep    2       
+         Click Element    (//div[@class='text-success'])[1]
+        
+PDP_AddtoCart_MerchantwithoutOnlinePayment
+        Scroll Element Into View    (//div[@class='productCard'])[1]  
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[1]  
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[1]  
+    
+        

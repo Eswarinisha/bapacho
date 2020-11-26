@@ -348,8 +348,13 @@ Create new own product
     Input Text    name=columns[daily_production]     10
     Input Text    name=columns[customPreparationTime]    04:00 
     Select From List By Label    name=columns[active]       Yes
-    Click Element    //input[@value='3']    
     Input Text    name=nutritions[11]    0.5    
-    Click Element    //input[contains(@type,'submit')]    
+   # Select Checkbox    //input[@id='paymentMethod-5']      #Online payment
+   # Select Checkbox    //input[@id='paymentMethod-6']      #Cash payment
+   # Select Checkbox    //input[@id='paymentMethod-7']      #card payment
+    Click Element    //input[contains(@type,'submit')] 
+    BuiltIn.Sleep    5    
+    Wait Until Page Contains     ${Productname}    
+    Capture Page Screenshot       
                         
     

@@ -205,7 +205,8 @@ MO018TC001	# Merchant must be able to create new product category
     Open_Bapachosite
     Login_as_Merchant without online payment
     Create new product category
-    
+    Close Browser    
+
 MO018TC002	# Merchant must be able to add product details
     Open_Bapachosite
     Login_as_Merchant without online payment
