@@ -193,7 +193,8 @@ CS007TC001
 	# User must login to view on the Account icon
 
        Open_Bapachosite
-       FacebookLogin
+       Click_login
+        EmailLogin
        Click Element    //li[contains(.,'My Account')]    
        Close Browser
        
@@ -201,7 +202,8 @@ CS007TC002
 	# User must be able to edit and save all the information in my data
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Edit_Mydetails
         Close Browser
@@ -210,7 +212,8 @@ CS007TC003
 	# While placing order, all the information must be populated correctly after checkout
         Set Tags    Sanity
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_bakeries
         Type_To_Search_bakery
         Select a bakery from list
@@ -225,7 +228,8 @@ CS008TC001
 	# User must be able to view his favorites bakery by clicking on the favorites icon
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_favourites
         Capture Page Screenshot
         Close Browser
@@ -234,7 +238,8 @@ CS008TC002
 	# User must be able to click and view any of his favorite bakeries
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_favourites
         View_favourites
         Close Browser
@@ -243,7 +248,8 @@ CS008TC003
 	# User must be able to view Favorites from My Account
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_MyFavorites
         Capture Page Screenshot
@@ -253,7 +259,8 @@ CS008TC004
 	# User must be able to click and view any of his favorite bakeries
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_MyFavorites
         View_MyFavorites
@@ -263,7 +270,8 @@ CS009TC001
 	# User can view his order history under My orders in My account
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_Myorders
         Close Browser
@@ -272,7 +280,8 @@ CS009TC002
 	# User can select any of his previous orders
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_Myorders
         View_MyOrders
@@ -282,7 +291,8 @@ CS009TC003
 	# User must be able to Download order confirmation for the selected order
 
         Open_Bapachosite
-        FacebookLogin
+       Click_login
+        EmailLogin
         Click_MyAccount
         Click_Myorders
         View_MyOrders
@@ -293,7 +303,8 @@ CS009TC004
 	# User must be able to click repeat order and place the same
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_Myorders
         View_MyOrders
@@ -305,7 +316,8 @@ CS010TC001
 	# On clicking logout, user must be logged out of site
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_logout
         Wait Until Page Contains    Login    
@@ -315,7 +327,8 @@ CS010TC002
 	# Login icon must appear in the header
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_logout
         Wait Until Page Contains    Login  
@@ -326,7 +339,8 @@ CS010TC003
 	# User must be able to login with another credentials
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_logout
         Wait Until Page Contains    Login  
@@ -441,7 +455,8 @@ CS015TC001
 	# User must be able to use one or many filters and get relevant result in the bakery listing page
         
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_bakeries
         Change_CurrentLoction_BDP
         Filter_by_NowOpen
@@ -587,7 +602,8 @@ CS022TC001	# User must be able to remove the products from cart with delete butt
 
 CS023TC001	# On clicking Favorites icon, the list of favorite bakeries must be displayed
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_favourites
         View_favourites
         Close Browser
@@ -667,10 +683,9 @@ CS025TC001	# User must be able to read Terms & conditions on clicking the link
         PDP_AddtoCart
         Set Browser Implicit Wait    5
         PDP_Click_Checkout
-        Click_Terms&Condition
-        Wait Until Page Contains    Terms and Conditions 
-        Capture Page Screenshot     
+        Click_Terms&Condition 
         Close Browser  
+        
 CS025TC002	# User must be able to check the Terms & conditions box
         Open_Bapachosite
         Click_login
@@ -792,15 +807,14 @@ CS027TC002	# User must be able to add date and time of delivery to his calender 
         Open_Bapachosite
         Click_login
         EmailLogin
-        Click_bakeries
-        Type_To_Search_bakery
+        Get_CurrrentLocation_Home 
         Select a bakery from list
         PDP_AddtoCart
         Set Browser Implicit Wait    5
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage   
-        Cashpay_OrderNow
+        Cardpay_OrderNow
         Wait Until Page Contains    Thank you for your order
         Add to Calender
         Close Browser

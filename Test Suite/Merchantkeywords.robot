@@ -27,6 +27,15 @@ Login_as_Merchant without online payment
         Input Password    (//input[@id='name'])[2]     ${Merchant_Without_OnlinePayment_Credentials}[1]  
         Click Button    ${Submit_Login}     
         Wait Until Page Contains    My Account
+ 
+Login_as_Merchant with online payment
+         Set Browser Implicit Wait    5 
+        Click Element    (//a[contains(.,'Login as Merchant')])[1]    
+        SeleniumLibrary.Input Text    //input[@id='name']    ${Merchant with Online payment Credentials}[0]
+        Input Password    (//input[@id='name'])[2]     ${Merchant with Online payment Credentials}[1]  
+        Click Button    ${Submit_Login}     
+        Wait Until Page Contains    My Account
+               
 
 Step_1
         Maximize Browser Window
@@ -52,8 +61,8 @@ T&C_Merchant Step 1
         
 Step_2
         SeleniumLibrary.Input Text    name=columns_local[nl][title]    ${MerchantName}     
-        SeleniumLibrary.Input Text    name=locationColumns_local[nl][address]    Damstraat 20
-        SeleniumLibrary.Input Text    name=locationColumns_local[nl][addressLine2]    Amsterdam    
+        SeleniumLibrary.Input Text    name=locationColumns_local[nl][address]    Justine de Gouwerhof
+        SeleniumLibrary.Input Text    name=locationColumns_local[nl][addressLine2]    Haarlem    
         SeleniumLibrary.Input Text    locationColumns_local[nl][postal]    2011GP
         SeleniumLibrary.Input Text    name=locationColumns_local[nl][city]    Netherlands
         Click Button    (//button[contains(.,'Copy information from English')])[1]    
@@ -357,4 +366,62 @@ Create new own product
     Wait Until Page Contains     ${Productname}    
     Capture Page Screenshot       
                         
+   
+Change Opening information & siesta time
+    Click Element    //a[contains(.,'My Locations')]   
+    Select From List By Label    //select[contains(@name,'openTimes[1][from]')]       11:00        
+    Select From List By Value    //select[contains(@name,'openTimes[0][to]')]        23:30
+    Capture Page Screenshot    
+    Select From List By Label    openBreakTimes[0][from]         14:00
+    Select From List By Label    openBreakTimes[0][to]        14:30 
+    Capture Page Screenshot    
+    Set Browser Implicit Wait    5 
+    Click Element    //input[contains(@type,'submit')]    
+    Wait Until Page Contains Element    //button[contains(.,'OK')]    
+    Click Element    //button[contains(.,'OK')]     
+    BuiltIn.Sleep    2
     
+Change preparation & delivery time
+    Scroll Element Into View    //a[contains(.,'Settings')]
+    Click Element    //a[contains(.,'Settings')]    
+    Input Text    name=columns[pickupPreparationTime]    02:00    
+    Input Text    name=columns[deliveryPreparationTime]    24:00
+    Capture Page Screenshot    
+    Select From List By Label    deliveryBreakTimes[0][from]      14:00
+    Select From List By Label    deliveryBreakTimes[0][to]      14:30 
+    Capture Page Screenshot    
+    Set Browser Implicit Wait   5
+    Click Element    //input[contains(@type,'submit')]    
+    Wait Until Page Contains Element    //button[contains(.,'OK')]    
+    Click Element    //button[contains(.,'OK')]     
+    BuiltIn.Sleep    2
+    
+Select an order from Merchant's My order list
+    Scroll Element Into View    //a[contains(.,'My orders')]
+    Capture Page Screenshot    
+    Click Element    //a[contains(.,'My orders')] 
+    Click Element    (//span[contains(.,'oppakken')])[1]       
+    
+Change order status to Cancel
+    BuiltIn.Sleep    2    
+    Scroll Element Into View    name=orderStatus
+    Select From List By Label    name=orderStatus    orderStatus.cancelled
+    Input Text    name=status_comment    Automated order cancellation  
+    Capture Page Screenshot      
+    Click Button    //button[contains(.,'Submit')]
+    Wait Until Page Contains Element    //button[contains(.,'OK')]    
+    Click Element    //button[contains(.,'OK')]  
+    Capture Page Screenshot       
+    BuiltIn.Sleep    2   
+    
+   
+Order Refund by Merchant 
+    Click Element    //button[contains(.,'Refund')]
+    Input Text    (//input[contains(@type,'text')])[2]    REFUND    
+    Click Element    (//button[contains(.,'Refund')])[2]    
+    Scroll Element Into View    //a[contains(.,'My orders')]
+    Capture Page Screenshot    
+    Click Element    //a[contains(.,'My orders')] 
+    
+
+     
