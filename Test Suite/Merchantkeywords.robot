@@ -86,17 +86,17 @@ Step_3
         Input Text    name=columns[website]    https://www.multivlaai.nl/
         Input Text    name=columns[facebook]    https://www.multivlaai.nl/    
         Click Element    (//button[contains(.,'Next')])[3]
-      #  Choose File    (//button[contains(.,'Next')])[3]    file_path
+      # Choose File    (//button[contains(.,'Next')])[3]    file_path
         Wait Until Page Contains       Step 4: Product Assortment     
         
 Step_4
         Select From List By Label    //select[contains(@name,'category_id')]    Pies
-         Double Click Element    (//button[contains(.,'Choose product')])[5]
+        Double Click Element    (//button[contains(.,'Choose product')])[5]
         Set Browser Implicit Wait    10     
-         Double Click Element    (//button[contains(.,'Choose product')])[9] 
-         Set Browser Implicit Wait    10              
-         Double Click Element    (//button[contains(.,'Choose product')])[19]  
-         Set Browser Implicit Wait    10  
+        Double Click Element    (//button[contains(.,'Choose product')])[9] 
+        Set Browser Implicit Wait    10              
+        Double Click Element    (//button[contains(.,'Choose product')])[19]  
+        Set Browser Implicit Wait    10  
         Capture Page Screenshot    
         Set Focus To Element    (//button[contains(.,'Next')])[4] 
         Click Element    (//button[contains(.,'Next')])[4]        
@@ -104,7 +104,7 @@ Step_4
         Click Element    //button[contains(.,'OK')]   
         
 Step_4_click next
-         Set Focus To Element    (//button[contains(.,'Next')])[4] 
+        Set Focus To Element    (//button[contains(.,'Next')])[4] 
         Click Element    (//button[contains(.,'Next')])[4]        
         Wait Until Page Contains    Allergen information
         Click Element    //button[contains(.,'OK')]   

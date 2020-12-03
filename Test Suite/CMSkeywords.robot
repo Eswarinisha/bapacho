@@ -10,7 +10,7 @@ Resource    BapachoVariables.robot
 ***Keyword***
 
 Open_CMS
-    Open Browser    https://bapacho:bapacho@staging.bapacho.com/admin    chrome
+    Open Browser    ${CMS_ItalyURL}     chrome
     Maximize Browser Window
     
 CMSAdmin_Login
@@ -69,10 +69,10 @@ Enter email address in CMS
            
 Send activation mail from CMS to Merchant
     
-   Wait Until Page Contains Element    //button[contains(.,'Send activation email')]
-   Click Element    //button[contains(.,'Send activation email')]   
-   Wait Until Page Contains Element    //button[contains(.,'Yes, send it!')]    
-   Click Element    //button[contains(.,'Yes, send it!')]  
+    Wait Until Page Contains Element    //button[contains(.,'Send activation email')]
+    Click Element    //button[contains(.,'Send activation email')]   
+    Wait Until Page Contains Element    //button[contains(.,'Yes, send it!')]    
+    Click Element    //button[contains(.,'Yes, send it!')]  
     Set Browser Implicit Wait    10
     Wait Until Page Contains Element    //button[contains(.,'OK')]       
     Click Element    //button[contains(.,'OK')]    
@@ -92,7 +92,7 @@ Check Merchant Activation mail_without Payment
       Wait Until Page Contains    Inbox    
       Execute JavaScript    window.scrollBy(0, document.body.scrollHeight)         
       Select Frame    //iframe[@id='ifmail']
-      Click Element    //a[contains(.,'https://staging.bapacho.com/activateShop.php?')]
+      Click Element    ${activatiomail_italy} 
       
 
 View Product Category in CMS
@@ -110,7 +110,7 @@ View Product Name in CMS
 View Cancelled Orders under Orders
      
     Click Element    (//a[contains(.,'Orders')])[1]    
-     BuiltIn.Sleep    3 
+    BuiltIn.Sleep    3 
     Click Element    (//a[contains(.,'view')])[1] 
     BuiltIn.Sleep    3 
     Element Should Contain    niks    cancelled  

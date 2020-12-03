@@ -1,8 +1,18 @@
 ***Variables***
+#Stagings URL
 ${Bapacho_URL}     https://bapacho:bapacho@staging.bapacho.com/nl/
+${Bapacho_ItalyURL}    https://bapacho:bapacho@staging.bapacho.it/
+
+#CMS URL
+${CMS_URL}    https://bapacho:bapacho@staging.bapacho.com/admin
+${CMS_Italyurl}    https://bapacho:bapacho@staging.bapacho.it/admin
+
+
+${activatiomail_centralstaging}     //a[contains(.,'https://staging.bapacho.com/activateShop.php?')]
+${activatiomail_italy}     //a[contains(.,'https://staging.bapacho.it/activateShop.php?')]
 
 #CustomerLogin 
-${Login_Button}    //*/text()[normalize-space(.)='Login']/parent::* 
+${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
 @{LoginCredentials}    testemailcustomer001@gmail.com    bapachocustomerpwd
 ${Submit_Login}    //button[@onclick="$('#loginForm').submit()"]  
 

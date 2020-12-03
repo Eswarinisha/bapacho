@@ -13,7 +13,7 @@ Resource     Merchantkeywords.robot
 
 
 Open_Bapachosite
-        Open Browser    ${Bapacho_URL}  chrome
+        Open Browser   ${Bapacho_ItalyURL}  chrome
         Maximize Browser Window
         
 login_Using_RegisteredMailid      
@@ -26,7 +26,7 @@ login_Using_RegisteredMailid
 Click_login   
        Wait Until Element Is Visible    ${Login_Button}   
        Click Element     ${Login_Button}
-    
+       BuiltIn.Sleep    2    
 Click_FacebookLogin
         Set Browser Implicit Wait    5
         Click Element     ${Login_using_Facebook} 
@@ -43,7 +43,7 @@ FacebookLogin
         Click Element    ${FBSubmit}  
         Handle Alert    Allow
         Handle Alert    OK     
-        Set Browser Implicit Wait    10   
+        BuiltIn.Sleep    2  
         
 FacebookLogin_in_Checkoutpage
         Wait Until Page Contains    Accept cookies from Facebook on this browser?
@@ -59,14 +59,14 @@ EmailLogin
         SeleniumLibrary.Input Text    //input[@id='name']    ${LoginCredentials}[0]    
         Input Password    (//input[@id='name'])[2]    ${LoginCredentials}[1]
         Click Button    ${Submit_Login}  
-        Wait Until Page Contains    My Account 
+        BuiltIn.Sleep    2    
 
 MerchantLogin_Form
         Set Browser Implicit Wait    5 
         SeleniumLibrary.Input Text    //input[@id='name']    bapachotestmerchant001@gmail.com
         Input Password    (//input[@id='name'])[2]    bapachomerchantpwd  
         Click Button    ${Submit_Login}     
-        Wait Until Page Contains    My Account          
+       BuiltIn.Sleep    2          
 
 
 Email_Registration
@@ -78,7 +78,7 @@ Email_Registration
         Input Password   ${inputpassword}     ${RegisterCredentials}[3]
         Input Password   ${inputpasswordcheck}     ${RegisterCredentials}[4]        
         Click Button    ${CreateAccount_SubmitButton}   
-        Wait Until Page Contains     Your account has been created 
+        BuiltIn.Sleep    2  
         Capture Page Screenshot         
     
 Click_ForgotPassword
@@ -100,7 +100,7 @@ ResetPassword
 Click_bakeries       
         Maximize Browser Window
         Click Element    //a[contains(text(),'Bakeries')]  
-        Wait Until Page Contains    Order from your favorite bakery    
+        BuiltIn.Sleep    2   
 
 
 Click_favourites
@@ -116,7 +116,7 @@ Guestuser_Click_favourites
         
 View_favourites
         Click Element    //a[@href='/nl/173-nisha-s-bakery002/nisha-s-bakery002-34-ouderkerkerlaan-amstelveen/'] 
-        Wait Until Page Contains    Nisha's Bakery002      
+        BuiltIn.Sleep    2       
     
 Get_CurrrentLocation_Home   
         Scroll Element Into View    //input[@id='homeLocationTitle']  
@@ -222,7 +222,9 @@ PDP_AddtoCart
         
 
                         # Product Display page
-                        
+Capture show more information
+      Capture Element Screenshot    //a[contains(.,'Show more information')]                     
+   
 Click show more information
 
         
@@ -352,6 +354,8 @@ Check_T&C_NonHappy
          Capture Element Screenshot    //input[@id='terms']       
          Close Browser
          
+Click Submit button
+    Click Button    //button[@type='submit']  
 
 Cashpay_OrderNow
             
@@ -486,7 +490,7 @@ View_MyOrders
 View_MyOrders_Refunded Order
         Click Element    (//a[contains(@class,'list-group-item')])[5]  
         Wait Until Page Contains    My order 
-        Page Should Contain    Order is refunded  
+        BuiltIn.Sleep    time_    
         Capture Page Screenshot         
         
         

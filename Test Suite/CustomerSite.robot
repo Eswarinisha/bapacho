@@ -41,10 +41,8 @@ CS001TC004
 	# User must be able to register with newly registered email id
 	          
 	    Open_Bapachosite
-        Click_login
-        Wait Until Page Contains    Login    
-        EmailLogin
-        Wait Until Page Contains    My Account
+        Click_login         
+        EmailLogin       
         Close Browser    
 
 CS002TC001
@@ -60,7 +58,6 @@ CS002TC002
         Set Tags    Sanity
         Open_Bapachosite
         FacebookLogin
-        Wait Until Page Contains    My Account 
         Close Browser
 
 CS003TC001
@@ -79,7 +76,8 @@ CS003TC002
         FacebookLogin
         Close Browser
         
-CS003TC003	# User must be able to login during checkout 
+CS003TC003	
+    # User must be able to login during checkout 
     
          Open_Bapachosite
          Click_bakeries
@@ -194,8 +192,8 @@ CS007TC001
 
        Open_Bapachosite
        Click_login
-        EmailLogin
-       Click Element    //li[contains(.,'My Account')]    
+       EmailLogin
+       Click_MyAccount    
        Close Browser
        
 CS007TC002
@@ -320,7 +318,7 @@ CS010TC001
         EmailLogin
         Click_MyAccount
         Click_logout
-        Wait Until Page Contains    Login    
+        BuiltIn.Sleep    2       
         Close Browser
 
 CS010TC002
@@ -331,7 +329,7 @@ CS010TC002
         EmailLogin
         Click_MyAccount
         Click_logout
-        Wait Until Page Contains    Login  
+        BuiltIn.Sleep    2   
         Capture Page Screenshot
         Close Browser
         
@@ -343,7 +341,7 @@ CS010TC003
         EmailLogin
         Click_MyAccount
         Click_logout
-        Wait Until Page Contains    Login  
+        BuiltIn.Sleep    2    
         Click_login
         EmailLogin
         Close Browser
@@ -355,7 +353,7 @@ CS011TC001
       
         Open_Bapachosite
         Change_CurrentLocation_Home
-        Set Selenium Implicit Wait    10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Change_CurrentLoction_BDP
         Capture Page Screenshot
@@ -400,7 +398,7 @@ CS013TC004
         Click_bakeries
        Type_to_search_bakery_nonhappy
        Clear search bakery field
-        Set Browser Implicit Wait    10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Close Browser
         
@@ -428,10 +426,10 @@ CS014TC003
         Click_bakeries
         Change_CurrentLoction_BDP
         Filter_by_pickup
-        Set Selenium Implicit Wait  10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Filter_by_Deliver
-        Set Selenium Implicit Wait    10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Close Browser
             
@@ -442,12 +440,10 @@ CS014TC004
         Click_bakeries
         Change_CurrentLoction_BDP
         Filter_by_NowOpen
-        Set Browser Implicit Wait    10
-        Set Selenium Implicit Wait  10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Filter_by_OrderOnline
-        Set Browser Implicit Wait    10
-        Set Selenium Implicit Wait  10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Close Browser
         
@@ -490,7 +486,7 @@ CS017TC001
         Click_bakeries
         Type_To_Search_bakery
         Select a bakery from list
-        Set Browser Implicit Wait    10
+        BuiltIn.Sleep    2  
         Capture Page Screenshot
         Close Browser
         
@@ -501,7 +497,7 @@ CS018TC001
         Click_bakeries
         Type_To_Search_bakery
         Select a bakery from list
-        Capture Element Screenshot    //a[contains(.,'Show more information')]            
+        Capture show more information            
         Close Browser
  
 CS018TC002	# On clicking the link, all information including payment method must be displayed       
@@ -509,8 +505,7 @@ CS018TC002	# On clicking the link, all information including payment method must
         Click_bakeries
         Type_To_Search_bakery
         Select a bakery from list
-        Click show more information
-        
+        Click show more information     
         Close Browser
     
 CS018TC003	# Phone number under other information must be clickable
@@ -650,7 +645,7 @@ CS024TC003	# User must be able to choose date and time for Deliver
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2    
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage
@@ -665,7 +660,7 @@ CS024TC004	# User must be able to choose payment method in the Choose pickup and
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
@@ -681,7 +676,7 @@ CS025TC001	# User must be able to read Terms & conditions on clicking the link
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Click_Terms&Condition 
         Close Browser  
@@ -695,7 +690,7 @@ CS025TC002	# User must be able to check the Terms & conditions box
         Filter_by_NowOpen
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+         BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage
@@ -710,13 +705,13 @@ CS025TC003	# Without checking the Terms &Conditions check box, user must not be 
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+         BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage
         Check_T&C_NonHappy    
         Capture Page Screenshot    
-        Click Button    //button[@type='submit']    
+        Click Submit button  
         Close Browser
         #Pass Execution    "Non Happy test script - Failure is expected"    
         
@@ -731,7 +726,7 @@ CS026TC001	# User must be able to do online payment using iDeal
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2    
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
@@ -747,7 +742,7 @@ CS026TC002	# User must be able to do online payment using card
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
@@ -763,7 +758,7 @@ CS026TC003	# User must be able to do online payment using giropay
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
@@ -779,7 +774,7 @@ CS026TC004	# User must be able to add date and time of delivery to his calender 
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
@@ -796,7 +791,7 @@ CS027TC001	# User must be able to choose cash payment method and click on Order 
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage   
@@ -810,12 +805,12 @@ CS027TC002	# User must be able to add date and time of delivery to his calender 
         Get_CurrrentLocation_Home 
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage   
         Cardpay_OrderNow
-        Wait Until Page Contains    Thank you for your order
+        BuiltIn.Sleep    2  
         Add to Calender
         Close Browser
         
@@ -827,7 +822,7 @@ CS028TC001	# User must be able to choose Card payment method and click on Order 
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage 
@@ -842,12 +837,12 @@ CS028TC002	# User must be able to add date and time of delivery to his calender 
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage 
         Cardpay_OrderNow
-        Wait Until Page Contains    Thank you for your order
+        BuiltIn.Sleep    2  
         Add to Calender
         Close Browser
         
@@ -863,7 +858,7 @@ CS029TC001	# User must be able to click on back button without paying and redire
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
@@ -880,7 +875,7 @@ CS030TC001	# Order incomplete page must have details regarding the failed paymen
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
