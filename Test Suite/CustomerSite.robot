@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 
 Default tags     RegressionTest
 
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 Resource     Customerkeywords.robot 
 
 
@@ -43,7 +43,7 @@ CS001TC004
 	    Open_Bapachosite
         Click_login         
         EmailLogin       
-        Close Browser    
+        #Close Browser    
 
 CS002TC001
 	# User must be able to click on Login icon and click login using Facebook

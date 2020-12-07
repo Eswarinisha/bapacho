@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 Resource    Customerkeywords.robot 
 Resource    Merchantkeywords.robot
 Resource    CMSkeywords.robot
@@ -10,7 +10,7 @@ Resource    BasicRegressionKeywords.robot
 ***Keywords***
 
 Open SalesagentPortal
-    Open Browser    https://bapacho:bapacho@sales.bapacho.com/nl/    chrome
+    Open Browser    ${SalePortal_${Language}}   chrome
     Maximize Browser Window
     
 Login as SalesAgent

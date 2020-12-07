@@ -20,5 +20,10 @@
 			<type>1</type>
 			<location>C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/lib/site-packages/robot/libraries/BuiltIn.py</location>
 		</link>
+		<link>
+			<name>libspecs/SeleniumLibrary.py</name>
+			<type>1</type>
+			<location>C:/Users/Nisha/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/SeleniumLibrary/keywords/selectelement.py</location>
+		</link>
 	</linkedResources>
 </projectDescription>

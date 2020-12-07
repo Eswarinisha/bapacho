@@ -21,7 +21,8 @@ MO001TC001	# CMS admin must be able to create Bakery
     CMSAdmin_Login
     Click_Outlets/Stores
     Create_NewMerchant
-    Wait Until Page Contains    ${MerchantName}
+    BuiltIn.Sleep    2    
+    #Wait Until Page Contains    ${MerchantName}
     Capture Page Screenshot      
     Close Browser
    

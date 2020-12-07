@@ -4,13 +4,13 @@ Library    SeleniumLibrary
 
 Resource    CMSkeywords.robot
 Resource    Merchantkeywords.robot
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 
 
 ***Keyword***
 
 Open_CMS
-    Open Browser    ${CMS_ItalyURL}     chrome
+    Open Browser    ${CMS_URL_${Language}}     chrome
     Maximize Browser Window
     
 CMSAdmin_Login
@@ -27,7 +27,7 @@ Create_NewMerchant
     Click Button   //button[@type='button'][contains(.,'New')]   
     Wait Until Page Contains    New  
     Wait Until Page Contains Element    name=fields[title]    
-    SeleniumLibrary.Input Text    name=fields[title]    ${MerchantName}
+    SeleniumLibrary.Input Text    name=fields[title]    ${MerchantName_${Language}}
     SeleniumLibrary.Input Text    name=fields[username]    ${MerchantOnboardingCredentials}[0]
     Click Button    //button[contains(.,'Save')]    
     
@@ -42,9 +42,9 @@ Create_NewMerchant_without Payment
             
 Search myBakery in CMS
     Wait Until Page Contains Element    //input[contains(@type,'text')]      
-    SeleniumLibrary.Input Text    //input[contains(@type,'text')]       ${MerchantName}   
+    SeleniumLibrary.Input Text    //input[contains(@type,'text')]       ${MerchantName_${Language}}  
     Press Keys      //input[contains(@type,'text')]    ENTER
-    Wait Until Page Contains    ${MerchantName}
+    Wait Until Page Contains    ${MerchantName_${Language}}
     Click Element    //a[contains(.,'edit')]     
 
 Search myBakery in CMS_without Payment
@@ -92,7 +92,7 @@ Check Merchant Activation mail_without Payment
       Wait Until Page Contains    Inbox    
       Execute JavaScript    window.scrollBy(0, document.body.scrollHeight)         
       Select Frame    //iframe[@id='ifmail']
-      Click Element    ${activatiomail_italy} 
+      Click Element    ${activationmail_${Language}} 
       
 
 View Product Category in CMS

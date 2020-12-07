@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 Resource     Merchantkeywords.robot
 
 ***Keyword***
@@ -13,7 +13,7 @@ Resource     Merchantkeywords.robot
 
 
 Open_Bapachosite
-        Open Browser   ${Bapacho_ItalyURL}  chrome
+        Open Browser   ${Bapacho_URL_${Language}}  chrome
         Maximize Browser Window
         
 login_Using_RegisteredMailid      
@@ -99,7 +99,7 @@ ResetPassword
 
 Click_bakeries       
         Maximize Browser Window
-        Click Element    //a[contains(text(),'Bakeries')]  
+        Click Element     ${btn_Bakeries_${Language}}
         BuiltIn.Sleep    2   
 
 
@@ -150,7 +150,7 @@ Change_CurrentLocation_Home
 Type_To_Search_bakery
         Click_bakeries
         Click Element    //button[2]/i
-        SeleniumLibrary.Input Text    //input[@name='keywordInput']    ${MerchantName} 
+        SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName_${Language}}
         Click Element          //button[2]/i
  
 Type_to_search_bakery_nonhappy
@@ -164,9 +164,9 @@ Clear search bakery field
         Click Element    //button[contains(@onclick,'clearSearchByKeyword();')]           
 
 Change_CurrentLoction_BDP
-        SeleniumLibrary.Input Text    //input[contains(@placeholder,'Address')]        Utretch
+        SeleniumLibrary.Input Text    //input[contains(@placeholder,'Address')]       ${Change_CurrentLoction_BDP_${Language}} 
         Set Browser Implicit Wait    5
-        Click Element    //a[contains(.,'Utrecht, Nederland')]    
+        Click Element    ${Choose_Change_CurrentLoction_BDP_${Language}}    
      
 Filter Bakeries_by_Category
         Click Element    (//img[contains(@src,'120x70.jpg')])[4]   
@@ -228,13 +228,13 @@ Capture show more information
 Click show more information
 
         
-        Scroll Element Into View    //a[contains(.,'Show more information')]
-        Set Focus To Element    //a[contains(.,'Show more information')]
-        Click Element    //a[contains(.,'Show more information')]
-        Wait Until Page Contains    Opening information  
+        Scroll Element Into View    ${ShowmoreInfo_${Language}}
+        Set Focus To Element    ${ShowmoreInfo_${Language}}
+        Click Element    ${ShowmoreInfo_${Language}}
+        Sleep    2      
         Capture Page Screenshot    
         Set Browser Implicit Wait    5
-        Click Element    (//button[contains(@type,'button')])[2]    
+        Click Element  ${btn_Close_${Language}}     
        
 Click bakery phone number
     
@@ -279,10 +279,10 @@ Delete Product Quantity
         Click Element    //i[contains(@class,'fas fa-trash fa-lgf fa-fw text-lightmuted')]    
 
 
- PDP_Click_Checkout
+PDP_Click_Checkout
         
          Click Element   //div[@id='cartSummaryBody']/div[2]/table/tbody/tr/td[2]/div[4]/i
-         Click Element    //button[contains(.,'Checkout')]
+         Click Element    ${btn_Checkout_${Language}}
        
                 
 
@@ -291,35 +291,37 @@ Delete Product Quantity
                    
 Choose_delivery
         BuiltIn.Sleep    2    
-        Click Element    //label[contains(.,'Deliver')] 
+        Click Element    ${ChooseDeliver_${Language}}
        
 
 
 Guestuser_Fill_Checkoutpage
-         Wait Until Page Contains    Choose pickup or delivery   
-         Wait Until Page Contains    Choose a date for Pickup  
          BuiltIn.Sleep    2  
-         Select From List By Index     //select[@id='date']   0  
+         Select From List By Index     //select[@id='date']   7  
          BuiltIn.Sleep    2    
-         Select From List By Index      //select[@id='time']    4
+         Select From List By Index      //select[@id='time']    0
          BuiltIn.Sleep    2       
-         SeleniumLibrary.Input Text    //input[@id='firstname']    Eswari Nisha    
-         SeleniumLibrary.Input Text    //input[@id='lastname']     Balakrishnan    
-         SeleniumLibrary.Input Text    //input[@id='email']        eswarinisha.b@gmail.com  
-         Input Text    name=address    Justine de Gouwerhof,54
-         Input Text    name=addressLine2        Haarlem
-         Input Text    name=postal    2011GP    
-         Input Text    name=city    Netherlands            
-         SeleniumLibrary.Input Text    //input[@id='phone']    +31612809787 
+         SeleniumLibrary.Input Text    //input[@id='firstname']    ${GuestUser_${Language}}[0]    
+         SeleniumLibrary.Input Text    //input[@id='lastname']     ${GuestUser_${Language}}[1]     
+         SeleniumLibrary.Input Text    //input[@id='email']        ${GuestUser_${Language}}[2]    
+         Input Text    name=address    ${GuestUser_${Language}}[3]  
+        # Input Text    name=addressLine2        ${GuestUser_${Language}}[4]  
+         Input Text    name=postal    ${GuestUser_${Language}}[5]      
+         Input Text    name=city    ${GuestUser_${Language}}[6]              
+         SeleniumLibrary.Input Text    //input[@id='phone']    ${GuestUser_${Language}}[7]   
 
 User_Fill_Checkoutpage
          BuiltIn.Sleep    2 
        # Wait Until Element Is Visible    //select[@id='date']               
-        BuiltIn.Sleep    2 
+         BuiltIn.Sleep    2 
          Select From List By Index     //select[@id='date']   3 
          BuiltIn.Sleep    2          
         # Wait Until Page Contains Element    //select[@id='time']    
          Select From List By Index      //select[@id='time']    4
+         Input Text    //input[contains(@id,'address')]   ${GuestUser_${Language}}[3]  
+         Input Text    //input[contains(@id,'postal')]    ${GuestUser_${Language}}[4] 
+         Input Text   //input[contains(@id,'city')]     ${GuestUser_${Language}}[5]
+         Input Text    //input[contains(@type,'tel')]    ${GuestUser_${Language}}[7]    
             
          
 Guestuser_Login_in_Checkoutpage         
@@ -364,7 +366,7 @@ Cashpay_OrderNow
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button    //button[@type='submit']
-         Wait Until Page Contains    title.order.Confirm 
+         Sleep    2    
          Click Element    //button[contains(.,'OK')]    
          
 
@@ -405,16 +407,15 @@ iDEAL_Online_payment_process
          
 
 Card_Online_payment_process
-         Wait Until Page Contains    Contact information
-         Click Element    //button[contains(@id,'card-tab')]    
+         Sleep    2    
+        # Click Element    //button[contains(@id,'card-tab')]    
          SeleniumLibrary.Input Text    name=cardNumber    4242 4242 4242 4242    
          SeleniumLibrary.Input Text    name=cardExpiry    02/22
          SeleniumLibrary.Input Text    name=cardCvc    222
          SeleniumLibrary.Input Text    billingName    Eswari Nisha Balakrishnan    
          Select From List By Label      //select[@id='billingCountry']     Netherlands
          Click Element    //div[contains(@class,'SubmitButton-IconContainer')]  
-         Set Browser Implicit Wait    10 
-         Wait Until Page Contains    Thank you for your order 
+         Sleep    2    
                      
 Giropay_Online_payment_process
          Wait Until Page Contains    Contact information
@@ -459,7 +460,7 @@ SupportForm
 
 
 Click_MyAccount
-        Click Element    //li[contains(.,'My Account')]  
+        Click Element    ${MyAccount_${Language}} 
         
 Edit_Mydetails
         SeleniumLibrary.Input Text    //*[@id="city"]    Haarlem
@@ -478,13 +479,13 @@ View_MyFavorites
         Click Element    (//div[contains(@class,'info')])[1]   
         
 Click_Myorders
-        Click Element    //a[contains(.,'My orders')]    
-         Wait Until Page Contains    My orders        
+        Click Element    (//a[contains(@class,'list-group-item ')])[3]   
+         Sleep    2          
 
 View_MyOrders
        
         Click Element    (//a[contains(@class,'list-group-item')])[4]  
-        Wait Until Page Contains    My order  
+        Sleep    2  
         Capture Page Screenshot      
         
 View_MyOrders_Refunded Order

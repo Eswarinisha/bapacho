@@ -1,10 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-   
 
 Default tags     RegressionTest
 
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 Resource    Customerkeywords.robot 
 Resource    Merchantkeywords.robot
 Resource    SalesAgentkeywords.robot
@@ -15,38 +14,32 @@ Resource    BasicRegressionKeywords.robot
 *** Test Cases ***
 
 BRC001  #Merchant Onboarding	  # Without Online Payment
-    
-  
         Open_CMS
         Merchant Activation (Without Online payment)
         Open_Bapachosite
         Merchant Onboarding without Online Payment   
-        Close Browser 
-        
-#Step 1 # Created merchant must reflect on Customer Site  
-
+        Close Browser      
+#Step 1     # Created merchant must reflect on Customer Site  
         Open_Bapachosite
         Click_bakeries
         Type_To_Search_bakery_MerchantwithoutOnlinePayment
         Capture Page Screenshot
         Close Browser    
     
-#Step 2 # Created merchant must reflect on Sales Agent portal
-
+#Step 2     # Created merchant must reflect on Sales Agent portal
         Open SalesagentPortal
         Login as SalesAgent
-        Search Merchant
+       Search Merchant
         Capture Page Screenshot 
-        Close Browser   
+       Close Browser   
         
-
 BR003	# Merchant Portal	    # Add products
     
 #Step 1    # Created new category and product
    
         Open_Bapachosite
         Login_as_Merchant without online payment
-        Create new product category
+        #Create new product category
         Create new own product
         Close Browser
         
@@ -86,7 +79,9 @@ BR004	#Merchant Portal	# Opening information,preparation time and siesta times
     
 #Step2   # Added information must reflect on Customer Site
         Open_Bapachosite
-        FacebookLogin
+        
+        Click_login
+       EmailLogin
         Click_bakeries
         Type_To_Search_bakery_MerchantwithoutOnlinePayment
         Select a bakery from list_MerchantwithoutOnlinePayment
@@ -94,8 +89,9 @@ BR004	#Merchant Portal	# Opening information,preparation time and siesta times
         PDP_AddtoCart_MerchantwithoutOnlinePayment
         Set Browser Implicit Wait    5
         PDP_Click_Checkout
-        # Choose_delivery
-        Guestuser_Fill_Checkoutpage  
+        Choose_delivery
+        #Guestuser_Fill_Checkoutpage
+        User_Fill_Checkoutpage  
         Cashpay_OrderNow
         Capture Page Screenshot      
         Close Browser
@@ -108,12 +104,13 @@ BR005	#Merchant Portal	# Order cancellation
         Login_as_Merchant without online payment
         Select an order from Merchant's My order list
         Change order status to Cancel
-    
+        Close Browser
     
 #Step2   #Cancelled order must be reflected in Customer My order's list
 
         Open_Bapachosite
-        FacebookLogin
+        Click_login
+        EmailLogin
         Click_MyAccount
         Click_Myorders
         View_MyOrders
@@ -132,15 +129,16 @@ BR007	#Merchant Portal	# Refund
         Click_login
         EmailLogin
         Click_bakeries
-        Type_To_Search_bakery_Merchant with Online Payment
+        Change_CurrentLoction_BDP
         Select a bakery from list with Online Payment
         PDP_AddtoCart_Merchant with OnlinePayment
         Set Browser Implicit Wait    5
         PDP_Click_Checkout
-        Choose_delivery
+        #Choose_delivery
         User_Fill_Checkoutpage    
         Onlinepay_Ordernow
-        iDEAL_Online_payment_process
+        Card_Online_payment_process
+        #iDEAL_Online_payment_process
         Close Browser  
 
 #Step2  #Merchant cancels order from his portal    
@@ -161,7 +159,7 @@ BR007	#Merchant Portal	# Refund
         Click_Myorders
         View_MyOrders_Refunded Order
         
-Step4  #Cancelled order must reflect on CMs
+#Step4  #Cancelled order must reflect on CMs
         Open_CMS
         CMSAdmin_Login
         View Cancelled Orders under Orders

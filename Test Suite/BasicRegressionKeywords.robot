@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
    
 
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 Resource    Customerkeywords.robot 
 Resource    Merchantkeywords.robot
 Resource    CMSkeywords.robot
@@ -23,12 +23,13 @@ Select a bakery from list_MerchantwithoutOnlinePayment
 PDP_AddtoCart_MerchantwithoutOnlinePayment
         Scroll Element Into View    (//div[@class='productCard'])[1]  
         Click Element    (//i[@class='fas fa-plus fa-fw'])[1]  
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[1] 
         Click Element    (//i[@class='fas fa-plus fa-fw'])[1]  
         
 Type_To_Search_bakery_Merchant with Online Payment
         Click_bakeries
         Click Element    //button[2]/i
-        SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName}
+        SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName_${language}}
         Click Element          //button[2]/i
     
 Select a bakery from list with Online Payment

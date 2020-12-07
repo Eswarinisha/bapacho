@@ -1,13 +1,10 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library           pyautogui
-Library           ImageHorizonLibrary
-      
 
 Resource    Customerkeywords.robot 
 Resource    CMSkeywords.robot
 Resource    Merchantkeywords.robot
-Resource    BapachoVariables.robot
+Resource    Bapacho Variables.robot
 
 ***Keyword***
 
@@ -18,24 +15,23 @@ Login_as_Merchant
         SeleniumLibrary.Input Text    //input[@id='name']    ${MerchantOnboardingCredentials}[0]
         Input Password    (//input[@id='name'])[2]     ${MerchantOnboardingCredentials}[1]  
         Click Button    ${Submit_Login}     
-        Wait Until Page Contains    My Account   
+        BuiltIn.Sleep    2      
         
 Login_as_Merchant without online payment
          Set Browser Implicit Wait    5 
-        Click Element    (//a[contains(.,'Login as Merchant')])[1]    
+        Click Element    ${LoginasMerchant_${Language}}   
         SeleniumLibrary.Input Text    //input[@id='name']    ${Merchant_Without_OnlinePayment_Credentials}[0]
         Input Password    (//input[@id='name'])[2]     ${Merchant_Without_OnlinePayment_Credentials}[1]  
         Click Button    ${Submit_Login}     
-        Wait Until Page Contains    My Account
+        BuiltIn.Sleep    2   
  
 Login_as_Merchant with online payment
          Set Browser Implicit Wait    5 
-        Click Element    (//a[contains(.,'Login as Merchant')])[1]    
+        Click Element    ${LoginasMerchant_${Language}}    
         SeleniumLibrary.Input Text    //input[@id='name']    ${Merchant with Online payment Credentials}[0]
         Input Password    (//input[@id='name'])[2]     ${Merchant with Online payment Credentials}[1]  
         Click Button    ${Submit_Login}     
-        Wait Until Page Contains    My Account
-               
+        BuiltIn.Sleep    2   
 
 Step_1
         Maximize Browser Window
@@ -44,12 +40,12 @@ Step_1
         Input Password    name=password_chk    ${MerchantOnboardingCredentials}[1] 
         Select Checkbox    //input[@id='acceptTermsAndConditions']
         Capture Page Screenshot    
-        Click Element    (//button[contains(.,'Next')])[1]    
-        Wait Until Page Contains    Step 2: Company Information
+        Click Element       ${Step1_Nextbutton_${Language}}   
+       BuiltIn.Sleep    2   
         
 Click_Step1 Need Help?
         Click Element    (//button[contains(.,'Need help?')])[1]
-        Wait Until Page Contains    FAQ
+         BuiltIn.Sleep    2   
         Capture Page Screenshot            
         
 T&C_Merchant Step 1
@@ -60,7 +56,7 @@ T&C_Merchant Step 1
         Capture Page Screenshot        
         
 Step_2
-        SeleniumLibrary.Input Text    name=columns_local[nl][title]    ${MerchantName}     
+        SeleniumLibrary.Input Text    name=columns_local[nl][title]     ${MerchantName_${Language}}     
         SeleniumLibrary.Input Text    name=locationColumns_local[nl][address]    Justine de Gouwerhof
         SeleniumLibrary.Input Text    name=locationColumns_local[nl][addressLine2]    Haarlem    
         SeleniumLibrary.Input Text    locationColumns_local[nl][postal]    2011GP
@@ -78,16 +74,16 @@ Step_2
         Select From List By Label    openBreakTimes[0][to]        12:30
         Click Button    (//button[contains(.,'Apply to all')])[1]    
         Set Browser Implicit Wait    5 
-        Click Element    (//button[contains(.,'Next')])[2]     
+        Click Element    (${Step2_Nextbutton_${Language}}    
         
 Step_3
         Input Text    locationColumns_local[nl][text]    "Nisha's Automated Bakery Number 1"   
         Click Element    (//button[contains(.,'Copy information from English')])[2]    
         Input Text    name=columns[website]    https://www.multivlaai.nl/
         Input Text    name=columns[facebook]    https://www.multivlaai.nl/    
-        Click Element    (//button[contains(.,'Next')])[3]
+        Click Element    ${Step3_Nextbutton_${Language}}
       # Choose File    (//button[contains(.,'Next')])[3]    file_path
-        Wait Until Page Contains       Step 4: Product Assortment     
+         BuiltIn.Sleep    2       
         
 Step_4
         Select From List By Label    //select[contains(@name,'category_id')]    Pies
@@ -99,14 +95,14 @@ Step_4
         Set Browser Implicit Wait    10  
         Capture Page Screenshot    
         Set Focus To Element    (//button[contains(.,'Next')])[4] 
-        Click Element    (//button[contains(.,'Next')])[4]        
-        Wait Until Page Contains    Allergen information
+        Click Element    ${Step4_Nextbutton_${Language}}       
+      BuiltIn.Sleep    2   
         Click Element    //button[contains(.,'OK')]   
         
 Step_4_click next
-        Set Focus To Element    (//button[contains(.,'Next')])[4] 
-        Click Element    (//button[contains(.,'Next')])[4]        
-        Wait Until Page Contains    Allergen information
+        Set Focus To Element    ${Step4_Nextbutton_${Language}} 
+        Click Element    ${Step4_Nextbutton_${Language}}        
+         BuiltIn.Sleep    2   
         Click Element    //button[contains(.,'OK')]   
         
                          
@@ -120,7 +116,7 @@ Step_5
      #  Click Element    //input[@id='paymentMethodPickup7']
         Select Checkbox    name=columns[hasDelivery]
         Input Text    name=columns[deliveryPrice]    10.00
-        Input Text    name=columns[deliveryAbove]    30.00
+        Input Text    name=columns[deliveryAbove]    20.00
         Input Text    name=columns[deliveryFreeAbove]    70.00    
         Input Text    name=handlingFee[deliver]    6.00    
         Select From List By Value    name=deliveryTimes[0][from]      06:00
@@ -131,21 +127,21 @@ Step_5
      #   Click Element    //input[@id='paymentMethodDelivery6']   
      #   Click Element    //input[@id='paymentMethodDelivery7'] 
         Capture Page Screenshot     
-        Click Element    (//button[contains(.,'Next')])[5]    
+        Click Element   ${Step5_Nextbutton_${Language}}    
         
 Step_6
     
         Wait Until Page Contains Element    name=tos    
         Select Checkbox    name=tos
         Capture Page Screenshot    
-        Click Element    (//button[contains(.,'Next')])[6]
+        Click Element    ${Step6_Nextbutton_${Language}}
         
 Step_7
         Wait Until Page Contains Element    name=tax_id  
         Input Text    name=tax_id    000000000
         Input Text    name=vat_id    123456789B12
         Capture Page Screenshot    
-        Click Element    (//button[contains(.,'Next')])[7] 
+        Click Element    ${Step7_Nextbutton_${Language}}
          BuiltIn.Sleep    10    
         
 Step_8  
@@ -166,10 +162,10 @@ Step_8
         Input Text    name=address[city]    Netherlands  
         Click Element    (//button[contains(.,'Upload')])[2]    
         Set Browser Implicit Wait    10
-        pyautogui.Typewrite     chef.jpg
+        #pyautogui.Typewrite     chef.jpg
         Capture Page Screenshot    
-        pyautogui.Key Down  'enter'
-        ImageHorizonLibrary.Press Combination   Key.enter      
+      #  pyautogui.Key Down  'enter'
+       # ImageHorizonLibrary.Press Combination   Key.enter      
         Capture Page Screenshot             
         Click Element    //button[contains(text(),'Save')]    
         
@@ -177,19 +173,19 @@ Step_8
 
 Step_8_Click next
         BuiltIn.Sleep    4        
-        Scroll Element Into View    (//button[contains(.,'Next')])[8]  
-        Click Element    (//button[contains(.,'Next')])[8]  
+        Scroll Element Into View    ${Step8_Nextbutton_${Language}} 
+        Click Element    ${Step8_Nextbutton_${Language}}  
 
 Step_9
         
-        Wait Until Page Contains    Financial Information    
-        Input Text    account_holder_name    ${MerchantName}
+         BuiltIn.Sleep    2      
+        Input Text    account_holder_name    ${MerchantName_${Language}}
         Input Text    account_number    ${NL_Account_Number}
-        Click Element    (//button[contains(.,'Next')])[9]            
+        Click Element   ${Step9_Nextbutton_${Language}}            
 
 Step_10
-        Wait Until Page Contains    Done    
-        Click Element    (//button[contains(.,'Next')])[10]                         
+        BuiltIn.Sleep    2      
+        Click Element    ${Step10_Nextbutton_${Language}}                         
        
         
 Step_1_Merchant without online payment    
@@ -199,18 +195,20 @@ Step_1_Merchant without online payment
         Input Password    name=password_chk    ${Merchant_Without_OnlinePayment_Credentials}[1] 
         Select Checkbox    //input[@id='acceptTermsAndConditions']
         Capture Page Screenshot    
-        Click Element    (//button[contains(.,'Next')])[1]    
-        Wait Until Page Contains    Step 2: Company Information
+        Click Element    ${Step1_Nextbutton_${Language}}    
+         BuiltIn.Sleep    2   
+        
+
     
 Step_2_Merchant without online payment
-        SeleniumLibrary.Input Text    name=columns_local[nl][title]    ${MerchantName without payment}     
-        SeleniumLibrary.Input Text    name=locationColumns_local[nl][address]    Damstraat 20
-        SeleniumLibrary.Input Text    name=locationColumns_local[nl][addressLine2]    Amsterdam    
-        SeleniumLibrary.Input Text    locationColumns_local[nl][postal]    2011GP
-        SeleniumLibrary.Input Text    name=locationColumns_local[nl][city]    Netherlands
+        SeleniumLibrary.Input Text    ${btn_MerchantTitle_${Language}}    ${MerchantName without payment}     
+        SeleniumLibrary.Input Text    ${btn_MerchantAddress_${Language}}       Justine de Gouwerhof
+        #SeleniumLibrary.Input Text    ${btn_MerchantAddressline2_${Language}}    Haarlem    
+        SeleniumLibrary.Input Text    ${btn_MerchantPostal_${Language}}    2011GP
+        SeleniumLibrary.Input Text    ${btn_MerchantCity_${Language}}    Netherlands
         Click Button    (//button[contains(.,'Copy information from English')])[1]    
-        SeleniumLibrary.Input Text    name=columns[emailOrders]     ${Merchant_Without_OnlinePayment_Credentials}[0]                
-        SeleniumLibrary.Input Text    name=columns[phoneOrders]     ${Merchant_Without_OnlinePayment_Credentials}[2]   
+        SeleniumLibrary.Input Text    ${btn_MerchantEmail_${Language}}     ${Merchant_Without_OnlinePayment_Credentials}[0]                
+        SeleniumLibrary.Input Text    ${btn_MerchantPhone_${Language}}     ${Merchant_Without_OnlinePayment_Credentials}[2]   
         SeleniumLibrary.Input Text    name=columns[phone]    ${Merchant_Without_OnlinePayment_Credentials}[2]    
         Checkbox Should Be Selected    name=columns[notification_sms]
         Checkbox Should Be Selected    name=columns[notification_email]
@@ -219,34 +217,35 @@ Step_2_Merchant without online payment
         Select From List By Value    //select[contains(@name,'openTimes[0][to]')]        23:30
         Select From List By Label    openBreakTimes[0][from]         12:00
         Select From List By Label    openBreakTimes[0][to]        12:30
-        Click Button    (//button[contains(.,'Apply to all')])[1]    
+        Click Button    ${btn_Applytoall_${Language}}   
         Set Browser Implicit Wait    5 
-        Click Element    (//button[contains(.,'Next')])[2]  
+        Click Element    ${Step2_Nextbutton_${Language}} 
         
 Step_3_Merchant without online payment
-        Input Text    locationColumns_local[nl][text]    "Nisha's Automated Bakery Number 1"   
+        Input Text   ${btn_Location_${Language}}    "Nisha's Automated Bakery Number 1"   
         Click Element    (//button[contains(.,'Copy information from English')])[2]    
         Input Text    name=columns[website]    https://www.multivlaai.nl/
         Input Text    name=columns[facebook]    https://www.multivlaai.nl/    
-        Click Element    (//button[contains(.,'Next')])[3]
+        Click Element    ${Step3_Nextbutton_${Language}}
        # Choose File    (//button[contains(.,'Next')])[3]    ${CURDIR}\\chef.jpg
-        Wait Until Page Contains       Step 4: Product Assortment   
+        BuiltIn.Sleep    2    
         
 Step_4_Merchant without online payment
-        BuiltIn.Sleep    5    
-        Capture Page Screenshot    
-        Select From List By Label    //select[contains(@name,'category_id')]    Pies
+        BuiltIn.Sleep    2   
+        Capture Page Screenshot  
+        Scroll Element Into View    name=category_id  
+        Select From List By Label    name=category_id    ${category_${Language}}
         Capture Page Screenshot    
         BuiltIn.Sleep    2    
-        Scroll Element Into View    (//button[contains(.,'Choose product')])[4]       
-        Double Click Element    (//button[contains(.,'Choose product')])[4]
-        Set Browser Implicit Wait    10     
-        Double Click Element    (//button[contains(.,'Choose product')])[9] 
-        Set Browser Implicit Wait    10    
+        Scroll Element Into View   ${Chooseproduct1_${Language}}        
+        Double Click Element    ${Chooseproduct1_${Language}}
+        #Set Browser Implicit Wait    10     
+        #Double Click Element    ${Chooseproduct2_${Language}}
+        #Set Browser Implicit Wait    10    
         Capture Page Screenshot    
-        Set Focus To Element    (//button[contains(.,'Next')])[4] 
-        Click Element    (//button[contains(.,'Next')])[4]        
-        Wait Until Page Contains    Allergen information
+        Set Focus To Element   ${Step4_Nextbutton_${Language}} 
+        Click Element   ${Step4_Nextbutton_${Language}}       
+        BuiltIn.Sleep    2    
         Click Element    //button[contains(.,'OK')]   
         BuiltIn.Sleep    5           
                                                           
@@ -265,23 +264,23 @@ Step_5_Merchant without online payment
         Input Text    name=handlingFee[deliver]    6.00    
         Select From List By Value    name=deliveryTimes[0][from]      06:00
         Select From List By Value    name=deliveryTimes[0][to]    23:30
-        Select From List By Value    name=deliveryBreakTimes[0][from]     06:00
-        Select From List By Value    name=deliveryBreakTimes[0][to]      23:30
-        Click Element    (//button[contains(.,'Apply to all')])[8]    
+        Select From List By Value    name=deliveryBreakTimes[0][from]     11:00
+        Select From List By Value    name=deliveryBreakTimes[0][to]      11:30
+        Click Element    ${btn_Applytoalldeliverytime_${Language}}   
         Click Element    //input[@id='paymentMethodDelivery6']   
         Click Element    //input[@id='paymentMethodDelivery7'] 
         Capture Page Screenshot     
-        Click Element    (//button[contains(.,'Next')])[5]    
+        Click Element    ${Step5_Nextbutton_${Language}}   
         
 Step_6_Merchant without online payment
         BuiltIn.Sleep    2    
         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)       
-        Scroll Element Into View    //button[contains(.,'Skip')]
-        Click Element    //button[contains(.,'Skip')]
+        Scroll Element Into View   ${btn_Skip_${Language}}
+        Click Element    ${btn_Skip_${Language}}
     
 Step_10_Merchant without online payment
         BuiltIn.Sleep    2       
-        Click Element    (//button[contains(.,'Next')])[10] 
+        Click Element    ${Step10_Nextbutton_${Language}}
 
 Merchant Activation (Without Online payment)
         CMSAdmin_Login
@@ -327,12 +326,13 @@ Print all orders
      Click Element   //a[contains(.,'Print all orders')]
      
 Create new product category
-     Click Element    //a[contains(.,'My product categories')]    
-     Click Element     //div[@class='btn btn-default'][contains(.,'Add category')]
-     Input Text    name=titles[nl]    ${ProductCategoryName}     
-     Input Text    name=titles[be]    ${ProductCategoryName} 
-     Input Text    name=titles[it]    ${ProductCategoryName}     
-     Click Button    //button[contains(.,'Submit')]   
+     Click Element    ${MyproductCategories_${Language}}    
+     Click Element     ${AddCategory_${Language}}   
+     Input Text    name=titles[nl]    ${ProductCategoryName} 
+     Input Text    name=titles[en]    ${ProductCategoryName}             
+     #Input Text    name=titles[be]    ${ProductCategoryName} 
+    # Input Text    name=titles[it]    ${ProductCategoryName}     
+     Click Button    ${btn_SubmitCategory_${Language}}  
      BuiltIn.Sleep    2    
      Click Element    //button[contains(.,'OK')]  
      BuiltIn.Sleep    2   
@@ -341,26 +341,30 @@ Create new product category
 
 Create new own product 
 
-    Click Element   //a[contains(.,'My products')]
-    Click Element    (//a[contains(.,'Add product')])[3]    
-    Input Text    name=columns_local[nl][title]    ${Productname}  
-    Input Text    name=columns_local[nl][subtitle]    ${Productname}     
-    Input Text    name=columns_local[nl][text]        ${Productname}
-    Input Text    name=columns_local[nl][ingredientsText]    ${Productingredients} 
-    Input Text    name=columns_local[nl][unit]    ${ProductUnit}
+    Click Element   ${MyProduct_${Language}}
+    Click Element    ${Addproduct_${Language}}  
+    Input Text    ${ProductTitle_${Language}}   ${Productname}  
+    Input Text    ${Product_Subtitle_${Language}}      ${Productname}     
+    Input Text    ${Product_Description_${Language}}      ${Productname}
+    Input Text    ${Product_Ingredients_${Language}}     ${Productingredients} 
+    Input Text    ${Product_unit_${Language}}    ${ProductUnit}
     Click Element    //button[contains(.,'Copy information from English')]    
     Select From List By Label    name=category_id      ${ProductCategoryName}
-    Select From List By Label    name=columns[featured]    Yes
+    Select From List By Value    name=columns[featured]      1 
     Input Text    name=columns[price]    ${PricewithVAT}
     Select From List By Label    name=columns[vat_id]    9%
     Click Element    name=columns[availableFrom]    
     Input Text    name=columns[daily_production]     10
-    Input Text    name=columns[customPreparationTime]    04:00 
-    Select From List By Label    name=columns[active]       Yes
-    Input Text    name=nutritions[11]    0.5    
-   # Select Checkbox    //input[@id='paymentMethod-5']      #Online payment
-   # Select Checkbox    //input[@id='paymentMethod-6']      #Cash payment
-   # Select Checkbox    //input[@id='paymentMethod-7']      #card payment
+    Input Text    name=columns[customPreparationTime]    04:00
+     
+    Select From List By Value    name=columns[active]       1
+   # Input Text    name=nutritions[11]    0.5    
+   #Select Checkbox    //input[@id='paymentMethod-5']      #Online payment
+   Scroll Element Into View    //input[contains(@value,'OK')]
+   #Click Element    //input[contains(@value,'OK')]    
+   Scroll Element Into View    //input[@id='paymentMethod-6']
+    #Select Checkbox    //input[@id='paymentMethod-6']      #Cash payment
+    #Select Checkbox    //input[@id='paymentMethod-7']      #card payment
     Click Element    //input[contains(@type,'submit')] 
     BuiltIn.Sleep    5    
     Wait Until Page Contains     ${Productname}    
@@ -368,7 +372,7 @@ Create new own product
                         
    
 Change Opening information & siesta time
-    Click Element    //a[contains(.,'My Locations')]   
+    Click Element    ${MyLocations_${Language}}  
     Select From List By Label    //select[contains(@name,'openTimes[1][from]')]       11:00        
     Select From List By Value    //select[contains(@name,'openTimes[0][to]')]        23:30
     Capture Page Screenshot    
@@ -376,31 +380,31 @@ Change Opening information & siesta time
     Select From List By Label    openBreakTimes[0][to]        14:30 
     Capture Page Screenshot    
     Set Browser Implicit Wait    5 
-    Click Element    //input[contains(@type,'submit')]    
+    Click Element    ${btn_Submit_${Language}}   
     Wait Until Page Contains Element    //button[contains(.,'OK')]    
     Click Element    //button[contains(.,'OK')]     
     BuiltIn.Sleep    2
     
 Change preparation & delivery time
-    Scroll Element Into View    //a[contains(.,'Settings')]
-    Click Element    //a[contains(.,'Settings')]    
+    Scroll Element Into View    ${Settings_${Language}}
+    Click Element    ${Settings_${Language}}   
     Input Text    name=columns[pickupPreparationTime]    02:00    
     Input Text    name=columns[deliveryPreparationTime]    24:00
     Capture Page Screenshot    
     Select From List By Label    deliveryBreakTimes[0][from]      14:00
     Select From List By Label    deliveryBreakTimes[0][to]      14:30 
     Capture Page Screenshot    
-    Set Browser Implicit Wait   5
+    BuiltIn.Sleep    2
     Click Element    //input[contains(@type,'submit')]    
     Wait Until Page Contains Element    //button[contains(.,'OK')]    
     Click Element    //button[contains(.,'OK')]     
     BuiltIn.Sleep    2
     
 Select an order from Merchant's My order list
-    Scroll Element Into View    //a[contains(.,'My orders')]
+    Scroll Element Into View   ${MyOrders_${Language}}
     Capture Page Screenshot    
-    Click Element    //a[contains(.,'My orders')] 
-    Click Element    (//span[contains(.,'oppakken')])[1]       
+    Click Element    ${MyOrders_${Language}}
+    Click Element    ${OpenOrder_${Language}}       
     
 Change order status to Cancel
     BuiltIn.Sleep    2    
@@ -408,7 +412,7 @@ Change order status to Cancel
     Select From List By Label    name=orderStatus    orderStatus.cancelled
     Input Text    name=status_comment    Automated order cancellation  
     Capture Page Screenshot      
-    Click Button    //button[contains(.,'Submit')]
+    Click Button    ${btn_OrderstatusSubmit_${Language}}
     Wait Until Page Contains Element    //button[contains(.,'OK')]    
     Click Element    //button[contains(.,'OK')]  
     Capture Page Screenshot       
