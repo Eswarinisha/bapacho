@@ -1,6 +1,6 @@
 ***Variables***
 
-${Language}     EN
+${Language}     NL
 
 
 #Stagings URL
@@ -46,8 +46,8 @@ ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
 #MerchantOnboarding
 @{MerchantOnboardingCredentials}    automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
 
-${MerchantName without payment}    Nisha's Automated Bakery003
-@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant003@yopmail.com    bapachomerchantpwd    +31612809787
+${MerchantName without payment}    Nisha's Automated Bakery001
+@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
 
 #Merchant with Online payment
 ${MerchantName_NL}    Nisha's Bakery001
@@ -242,9 +242,13 @@ ${MyOrders_NL}     //a[contains(.,'My orders')]
 ${MyOrders_EN}     //a[contains(.,'My orders')]
 ${MyOrders_IT}    //a[contains(.,'I miei ordini')]
 
-${OpenOrder_EN}    //span[contains(.,'Open')]
-${OpenOrder_NL}    (//span[contains(.,'oppakken')])[1]
+${OpenOrder_NL}    (//span[contains(.,'open')])[1]
+${OpenOrder_EN}    (//span[contains(.,'oppakken')])[1]
 ${OpenOrder_IT}    (//span[contains(.,'consegnare')])[1]
+
+${CancelOrder_NL}    Cancelled
+${CancelOrder_EN}    orderStatus.cancelled
+${CancelOrder_IT}    orderStatus.cancelled
 
 ${ShowmoreInfo_NL}    //a[contains(.,'Show more information')]
 ${ShowmoreInfo_EN}    //a[contains(.,'Show more information')]
@@ -285,6 +289,6 @@ ${Change_CurrentLoction_BDP_NL}    Haarlem
 ${Change_CurrentLoction_BDP_EN}    Utretch
 ${Change_CurrentLoction_BDP_IT}    Roma
 
-${Choose_Change_CurrentLoction_BDP_NL}     //a[contains(.,'Utrecht, Nederland')]
+${Choose_Change_CurrentLoction_BDP_NL}     //a[contains(.,'Haarlem, Netherlands')]
 ${Choose_Change_CurrentLoction_BDP_EN}     //a[contains(.,'Utrecht, Nederland')]
 ${Choose_Change_CurrentLoction_BDP_IT}    //a[contains(.,'Roma, RM, Italia')]

@@ -53,6 +53,7 @@ Search myBakery in CMS_without Payment
     Input Text    //input[contains(@type,'text')]     ${MerchantName without payment}   
     Press Keys      //input[contains(@type,'text')]    ENTER
     Wait Until Page Contains    ${MerchantName without payment}
+    Sleep    2    
     Click Element    //a[contains(.,'edit')]     
 
 Search products of Merchant

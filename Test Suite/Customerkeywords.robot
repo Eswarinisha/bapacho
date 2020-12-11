@@ -314,10 +314,10 @@ User_Fill_Checkoutpage
          BuiltIn.Sleep    2 
        # Wait Until Element Is Visible    //select[@id='date']               
          BuiltIn.Sleep    2 
-         Select From List By Index     //select[@id='date']   3 
+         Select From List By Index     //select[@id='date']   2 
          BuiltIn.Sleep    2          
         # Wait Until Page Contains Element    //select[@id='time']    
-         Select From List By Index      //select[@id='time']    4
+         Select From List By Index      //select[@id='time']    7
          Input Text    //input[contains(@id,'address')]   ${GuestUser_${Language}}[3]  
          Input Text    //input[contains(@id,'postal')]    ${GuestUser_${Language}}[4] 
          Input Text   //input[contains(@id,'city')]     ${GuestUser_${Language}}[5]

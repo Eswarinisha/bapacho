@@ -1,17 +1,21 @@
 *** Settings ***
 Library    SeleniumLibrary
 
+
 Default tags     RegressionTest
 
 Resource    Bapacho Variables.robot
 Resource    Customerkeywords.robot 
 Resource    Merchantkeywords.robot
+Resource    MerchantOnboardingkeywords.robot
 Resource    SalesAgentkeywords.robot
 Resource    CMSkeywords.robot
 Resource    BasicRegressionKeywords.robot
 
+Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Basic Regression Screenshots
 
 *** Test Cases ***
+
 
 BRC001  #Merchant Onboarding	  # Without Online Payment
         Open_CMS
@@ -39,7 +43,7 @@ BR003	# Merchant Portal	    # Add products
    
         Open_Bapachosite
         Login_as_Merchant without online payment
-        #Create new product category
+        Create new product category
         Create new own product
         Close Browser
         
@@ -77,7 +81,7 @@ BR004	#Merchant Portal	# Opening information,preparation time and siesta times
         Change preparation & delivery time
         Close Browser
     
-#Step2   # Added information must reflect on Customer Site
+Step2   # Added information must reflect on Customer Site
         Open_Bapachosite
         
         Click_login
