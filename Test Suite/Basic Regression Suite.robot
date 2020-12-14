@@ -18,24 +18,27 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 
 
 BRC001  #Merchant Onboarding	  # Without Online Payment
+#Step 1  # Create merchant in CMS   
+
         Open_CMS
         Merchant Activation (Without Online payment)
         Open_Bapachosite
         Merchant Onboarding without Online Payment   
-        Close Browser      
-#Step 1     # Created merchant must reflect on Customer Site  
+        Close Browser   
+           
+#Step 2    # Created merchant must reflect on Customer Site  
         Open_Bapachosite
         Click_bakeries
-        Type_To_Search_bakery_MerchantwithoutOnlinePayment
-        Capture Page Screenshot
+        Type_To_Search_bakery_MerchantwithoutOnlinePayment 
+        Select a bakery from list
         Close Browser    
     
 #Step 2     # Created merchant must reflect on Sales Agent portal
         Open SalesagentPortal
         Login as SalesAgent
-       Search Merchant
+        Search Merchant
         Capture Page Screenshot 
-       Close Browser   
+        Close Browser   
         
 BR003	# Merchant Portal	    # Add products
     
@@ -81,11 +84,10 @@ BR004	#Merchant Portal	# Opening information,preparation time and siesta times
         Change preparation & delivery time
         Close Browser
     
-Step2   # Added information must reflect on Customer Site
-        Open_Bapachosite
-        
+#Step2   # Added information must reflect on Customer Site
+        Open_Bapachosite     
         Click_login
-       EmailLogin
+        EmailLogin
         Click_bakeries
         Type_To_Search_bakery_MerchantwithoutOnlinePayment
         Select a bakery from list_MerchantwithoutOnlinePayment
@@ -151,7 +153,8 @@ BR007	#Merchant Portal	# Refund
         Login_as_Merchant with online payment
         Select an order from Merchant's My order list
         Change order status to Cancel
-        Order Refund by Merchant
+        Change payment status to Refund
+        
     
 #Step3   #Order refund must reflect in Customer's My order list
         Open_Bapachosite

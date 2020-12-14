@@ -214,9 +214,9 @@ Step_4_Merchant without online payment
         Capture Page Screenshot    
         BuiltIn.Sleep    2    
         Scroll Element Into View   ${Chooseproduct1_${Language}}        
-        Double Click Element    ${Chooseproduct1_${Language}}
+        Click Element    ${Chooseproduct1_${Language}}
         #Set Browser Implicit Wait    10     
-        #Double Click Element    ${Chooseproduct2_${Language}}
+        #Click Element    ${Chooseproduct2_${Language}}
         #Set Browser Implicit Wait    10    
         Capture Page Screenshot    
         Set Focus To Element   ${Step4_Nextbutton_${Language}} 

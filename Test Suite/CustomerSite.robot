@@ -463,6 +463,17 @@ CS015TC001
         Cashpay_OrderNow
         Close Browser
         
+CS015TC002	
+    #User must be able to deselect Category filter and get relevent result in the bakery listing page
+        
+        Open_Bapachosite
+        Click_bakeries
+        Filter Bakeries_by_Category
+        Unselect Category Filter
+        Close Browser
+
+
+
 CS016TC001
 	# User must be able to remove the filters and all the result must be reset
         

@@ -1,6 +1,6 @@
 ***Variables***
 
-${Language}     NL
+${Language}     EN
 
 
 #Stagings URL
@@ -13,7 +13,7 @@ ${CMS_URL_NL}    https://staging.bapacho.nl/admin
 ${CMS_URL_EN}    https://bapacho:bapacho@staging.bapacho.com/admin
 ${CMS_URL_IT}    https://bapacho:bapacho@staging.bapacho.it/admin
 
-${SalePortal_NL}    https://bapacho:bapacho@sales.bapacho.com/nl/
+${SalePortal_EN}    https://bapacho:bapacho@sales.bapacho.com/nl/
 ${SalePortal_IT}     https://bapacho:bapacho@sales.bapacho.it
 
 ${activationmail_NL}      //a[contains(.,'{activeAccountURL}')]
@@ -202,6 +202,7 @@ ${Addproduct_NL}    (//a[contains(.,'Add product')])[2]
 ${Addproduct_EN}    (//a[contains(.,'Add product')])[3]  
 ${Addproduct_IT}    (//a[contains(.,'Aggiungi prodotto')])[3]
 
+${Addzeelandiaproduct_EN}    //a[contains(.,'Add product from Library')]
 
 ${ProductTitle_EN}     name=columns_local[nl][title] 
 ${ProductTitle_IT}     name=columns_local[it][title] 
@@ -242,13 +243,21 @@ ${MyOrders_NL}     //a[contains(.,'My orders')]
 ${MyOrders_EN}     //a[contains(.,'My orders')]
 ${MyOrders_IT}    //a[contains(.,'I miei ordini')]
 
+${MyPage_EN}    //a[contains(.,'My Page')]
+
 ${OpenOrder_NL}    (//span[contains(.,'open')])[1]
-${OpenOrder_EN}    (//span[contains(.,'oppakken')])[1]
+${OpenOrder_EN}    (//span[contains(.,'orderLastStatus.open')])[1]
 ${OpenOrder_IT}    (//span[contains(.,'consegnare')])[1]
 
 ${CancelOrder_NL}    Cancelled
 ${CancelOrder_EN}    orderStatus.cancelled
 ${CancelOrder_IT}    orderStatus.cancelled
+
+${Preparing_EN}    Preparing
+
+${Readyfordelivery_EN}    Ready for delivery
+
+${Delivered_EN}    Delivered
 
 ${ShowmoreInfo_NL}    //a[contains(.,'Show more information')]
 ${ShowmoreInfo_EN}    //a[contains(.,'Show more information')]
@@ -257,6 +266,20 @@ ${ShowmoreInfo_IT}    //a[contains(.,'Mostra ulteriori informazioni')]
 ${btn_OrderstatusSubmit_NL}    //button[contains(.,'Submit')]
 ${btn_OrderstatusSubmit_EN}    //button[contains(.,'Submit')]
 ${btn_OrderstatusSubmit_IT}    //button[contains(.,'Invia')]
+
+${LabelRefund_EN}    Order is refunded
+
+${RefundStatus_EN}       orderLastStatus.refunded 
+
+${PaidStatus_EN}    orderLastStatus.paid
+
+${btn_PaymentStatusSubmit_EN}    (//button[contains(.,'Submit')])[2]
+
+${Cancellation_StatusComment_EN}    Automated order cancellation 
+
+${OrderFullfilment_StatusComment_EN}    Automated Order fulfil
+
+#${btn_PaymentstatusSubmit_NL}    
 
 
 #CustomerSite Buttons

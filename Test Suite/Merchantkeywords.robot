@@ -34,8 +34,6 @@ Login_as_Merchant with online payment
         Click Button    ${Submit_Login}     
         BuiltIn.Sleep    2   
 
-
-
 Type_To_Search_bakery_Merchant
         Click_bakeries
         Click Element    //button[2]/i
@@ -49,15 +47,28 @@ Create new product category
      Click Element    ${MyproductCategories_${Language}}    
      Click Element     ${AddCategory_${Language}}   
      Input Text    name=titles[nl]    ${ProductCategoryName} 
-     Input Text    name=titles[en]    ${ProductCategoryName}             
-     #Input Text    name=titles[be]    ${ProductCategoryName} 
-    # Input Text    name=titles[it]    ${ProductCategoryName}     
+     #Input Text    name=titles[en]    ${ProductCategoryName}             
+     Input Text    name=titles[be]    ${ProductCategoryName} 
+     Input Text    name=titles[it]    ${ProductCategoryName}     
      Click Button    ${btn_SubmitCategory_${Language}}  
      BuiltIn.Sleep    2    
      Click Element    //button[contains(.,'OK')]  
      BuiltIn.Sleep    2   
      Capture Page Screenshot  
      
+Delete product category 
+     Click Element    ${MyproductCategories_${Language}} 
+     Click Element    (//div[contains(.,'delete')])[5]   
+     Click Element    //button[contains(.,'Delete')] 
+     Click Element    //button[contains(.,'OK')]    
+     Page Should Not Contain    ${ProductCategoryName}     
+     Capture Page Screenshot    
+
+Delete product category Failing
+     Click Element    ${MyproductCategories_${Language}}   
+     Run Keyword And Continue On Failure           Click Element    (//div[contains(.,'delete')])[5] 
+    Capture Page Screenshot    
+
 #My products
 
 Create new own product 
@@ -74,7 +85,7 @@ Create new own product
     Select From List By Value    name=columns[featured]      1 
     Input Text    name=columns[price]    ${PricewithVAT}
     Select From List By Label    name=columns[vat_id]    9%
-    Sleep    2    
+    BuiltIn.Sleep    2    
     Click Element    name=columns[availableFrom]    
     Input Text    name=columns[daily_production]     10
     Input Text    name=columns[customPreparationTime]    04:00
@@ -92,6 +103,26 @@ Create new own product
     Wait Until Page Contains     ${Productname}    
     Capture Page Screenshot       
                  
+Delete created own category product
+     Click Element   ${MyProduct_${Language}}
+     Capture Page Screenshot    
+     Click Element    (//button[contains(.,'Remove')])[4]   
+     Capture Page Screenshot    
+     Click Mypage
+     Page Should Not Contain    ${Productname}    
+     
+
+
+Add Zeelandia product from library
+     Click Element   ${MyProduct_${Language}}
+     Click Element    ${Addzeelandiaproduct_${Language}} 
+     BuiltIn.Sleep    2  
+     Click Element    (//button[contains(.,'Choose product')])[1]  
+     Input Text    (//input[contains(@type,'number')])[1]    2.00   
+     Capture Page Screenshot       
+     Click Element    //input[contains(@type,'submit')]    
+     Capture Page Screenshot     
+
 #My Location       
    
 Change Opening information & siesta time
@@ -108,6 +139,44 @@ Change Opening information & siesta time
     Click Element    //button[contains(.,'OK')]     
     BuiltIn.Sleep    2
     
+Edit opening time in Portal
+     Click Element    ${MyLocations_${Language}}  
+     Execute JavaScript    window.scrollBy(1000,247)
+     Select From List By Label    //select[contains(@name,'openTimes[0][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[0][to]')]        23:59
+     Select From List By Label    openBreakTimes[0][from]         12:00
+     Select From List By Label    openBreakTimes[0][to]        12:30  
+     Click Element    ${btn_Applytoall_${Language}}    
+     # Select From List By Label    //select[contains(@name,'openTimes[1][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[1][to]')]        23:59
+     Select From List By Label    openBreakTimes[1][from]         12:00
+     Select From List By Label    openBreakTimes[1][to]        12:30  
+     Select From List By Label    //select[contains(@name,'openTimes[2][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[2][to]')]        23:59
+     Select From List By Label    openBreakTimes[2][from]         12:00
+     Select From List By Label    openBreakTimes[2][to]        12:30  
+     Select From List By Label    //select[contains(@name,'openTimes[3][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[3][to]')]        23:59
+     Select From List By Label    openBreakTimes[3][from]         12:00
+     Select From List By Label    openBreakTimes[3][to]        12:30  
+     Select From List By Label    //select[contains(@name,'openTimes[4][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[4][to]')]        23:59
+     Select From List By Label    openBreakTimes[4][from]         12:00
+     Select From List By Label    openBreakTimes[4][to]        12:30  
+     Select From List By Label    //select[contains(@name,'openTimes[5][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[5][to]')]        23:59
+     Select From List By Label    openBreakTimes[5][from]         12:00
+     Select From List By Label    openBreakTimes[5][to]        12:30  
+     Select From List By Label    //select[contains(@name,'openTimes[6][from]')]       06:00        
+     Select From List By Value    //select[contains(@name,'openTimes[6][to]')]        23:59
+     Select From List By Label    openBreakTimes[6][from]         12:00
+     # Select From List By Label    openBreakTimes[6][to]        12:30 
+     Capture Page Screenshot    
+     Click Element    ${btn_Submit_${Language}} 
+     Click Element    //button[contains(.,'OK')]   
+     BuiltIn.Sleep    2    
+
+
 #Settings
 
 Change preparation & delivery time
@@ -132,6 +201,40 @@ Change preparation & delivery time
     Wait Until Page Contains Element    //button[contains(.,'OK')]    
     Click Element    //button[contains(.,'OK')]     
     BuiltIn.Sleep    2
+    
+Edit delivery time in Portal
+    Click Element    ${Settings_${Language}}   
+    Execute JavaScript    window.scrollBy(1000,247) 
+    Select From List By Value    name=deliveryTimes[0][from]      06:00
+    Select From List By Value    name=deliveryTimes[0][to]    23:59
+    Select From List By Value    name=deliveryBreakTimes[0][from]     11:00
+    Select From List By Value    name=deliveryBreakTimes[0][to]      11:30
+    Click Element    ${btn_Applytoall_${Language}}    
+    # Select From List By Value    name=deliveryTimes[1][from]      06:00
+    # Select From List By Value    name=deliveryTimes[1][to]    23:59
+    # Select From List By Value    name=deliveryBreakTimes[2][from]     11:00
+    # Select From List By Value    name=deliveryBreakTimes[2][to]      11:30
+    # Select From List By Value    name=deliveryTimes[3][from]      06:00
+    # Select From List By Value    name=deliveryTimes[3][to]    23:59
+    # Select From List By Value    name=deliveryBreakTimes[3][from]     11:00
+    # Select From List By Value    name=deliveryBreakTimes[3][to]      11:30
+    # Select From List By Value    name=deliveryTimes[4][from]      06:00
+    # Select From List By Value    name=deliveryTimes[4][to]    23:59
+    # Select From List By Value    name=deliveryBreakTimes[4][from]     11:00
+    # Select From List By Value    name=deliveryBreakTimes[4][to]      11:30
+    # Select From List By Value    name=deliveryTimes[5][from]      06:00
+    # Select From List By Value    name=deliveryTimes[5][to]    23:59
+    # Select From List By Value    name=deliveryBreakTimes[5][from]     11:00
+    # Select From List By Value    name=deliveryBreakTimes[5][to]      11:30
+    # Select From List By Value    name=deliveryTimes[6][from]      06:00
+    # Select From List By Value    name=deliveryTimes[6][to]    23:59
+    # Select From List By Value    name=deliveryBreakTimes[6][from]     11:00
+    # Select From List By Value    name=deliveryBreakTimes[6][to]      11:30
+    Capture Page Screenshot    
+    Click Element    ${btn_Submit_${Language}} 
+    Click Element    //button[contains(.,'OK')] 
+    BuiltIn.Sleep    2 
+    
     
 #My Orders
 
@@ -163,9 +266,20 @@ Change order status to Cancel
     Wait Until Page Contains Element    //button[contains(.,'OK')]    
     Click Element    //button[contains(.,'OK')]  
     Capture Page Screenshot       
-    BuiltIn.Sleep    2   
+    BuiltIn.Sleep    2  
     
-   
+Change payment status to Refund
+    Select From List By Label    name=lastStatus    ${RefundStatus_${Language}}
+    Click Button    ${btn_PaymentStatusSubmit_${Language}}    
+    Click Element    //button[contains(.,'OK')]  
+    Page Should Contain    ${LabelRefund_${Language}}   
+    
+Change payment status to paid 
+    Select From List By Label    name=lastStatus    ${PaidStatus_${Language}}
+    Click Button    ${btn_PaymentStatusSubmit_${Language}}    
+    Click Element    //button[contains(.,'OK')]  
+    
+    
 Order Refund by Merchant 
     Click Element    //button[contains(.,'Refund')]
     Input Text    (//input[contains(@type,'text')])[2]    REFUND    
@@ -174,5 +288,50 @@ Order Refund by Merchant
     Capture Page Screenshot    
     Click Element    //a[contains(.,'My orders')] 
     
-
+Change order status to Preparing
+    BuiltIn.Sleep    2    
+    Scroll Element Into View    name=orderStatus
+    Select From List By Label    name=orderStatus    ${Preparing_${Language}}
+    Input Text    name=status_comment    Automated order Preparing 
+    Capture Page Screenshot      
+    Click Button    ${btn_OrderstatusSubmit_${Language}}
+    Wait Until Page Contains Element    //button[contains(.,'OK')]    
+    Click Element    //button[contains(.,'OK')]  
+    Capture Page Screenshot       
+    BuiltIn.Sleep    2  
      
+Change order status to Ready for delivery
+    BuiltIn.Sleep    2    
+    Scroll Element Into View    name=orderStatus
+    Select From List By Label    name=orderStatus    ${Readyfordelivery_${Language}}
+    Input Text    name=status_comment    Automated order Ready for delivery 
+    Capture Page Screenshot      
+    Click Button    ${btn_OrderstatusSubmit_${Language}}
+    Wait Until Page Contains Element    //button[contains(.,'OK')]    
+    Click Element    //button[contains(.,'OK')]  
+    Capture Page Screenshot       
+    BuiltIn.Sleep    2  
+    
+Change order status to Delivered
+    BuiltIn.Sleep    2    
+    Scroll Element Into View    name=orderStatus
+    Select From List By Label    name=orderStatus    ${Delivered_${Language}}
+    Input Text    name=status_comment    Automated order Delivered  
+    Capture Page Screenshot      
+    Click Button    ${btn_OrderstatusSubmit_${Language}}
+    Wait Until Page Contains Element    //button[contains(.,'OK')]    
+    Click Element    //button[contains(.,'OK')]  
+    Capture Page Screenshot       
+    BuiltIn.Sleep    2  
+
+
+  
+     
+#My Page
+Click Mypage    
+    Scroll Element Into View    ${MyPage_${Language}}     
+    Click Element    ${MyPage_${Language}}
+    BuiltIn.Sleep    2  
+    Select Window    NEW  
+  
+    

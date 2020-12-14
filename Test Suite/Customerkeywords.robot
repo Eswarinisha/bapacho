@@ -152,6 +152,7 @@ Type_To_Search_bakery
         Click Element    //button[2]/i
         SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName_${Language}}
         Click Element          //button[2]/i
+        BuiltIn.Sleep    2    
  
 Type_to_search_bakery_nonhappy
         Click Element    //button[2]/i
@@ -169,9 +170,20 @@ Change_CurrentLoction_BDP
         Click Element    ${Choose_Change_CurrentLoction_BDP_${Language}}    
      
 Filter Bakeries_by_Category
-        Click Element    (//img[contains(@src,'120x70.jpg')])[4]   
+        Drag And Drop   (//img[contains(@src,'120x70.jpg')])[4]    (//img[contains(@src,'120x70.jpg')])[10]          
+        Click Element    (//img[contains(@src,'120x70.jpg')])[10]          
+        BuiltIn.Sleep    2         
+        Capture Page Screenshot    
+        
+        
+Unselect Category Filter
+        Click Element    (//img[contains(@src,'120x70.jpg')])[5]   
         Set Selenium Implicit Wait    10       
-        Capture Page Screenshot     
+        Capture Page Screenshot 
+        Click Element    (//img[contains(@src,'120x70.jpg')])[5]   
+        Set Selenium Implicit Wait    10       
+        Capture Page Screenshot       
+        
         
 Filter_by_Range from my location     
         
@@ -203,20 +215,21 @@ Select bakery using multiple filter
         Click Element          //div[@data-href='/nl/122-nisha-s-bakery011/nisha-s-bakery011-hooghiemstraplein-51-netherlands/']   
 
 Select a bakery from list
-         BuiltIn.Sleep    2       
-         Click Element    (//div[@class='text-success'])[1]
+        BuiltIn.Sleep    2       
+        Click Element    (//div[@class='text-success'])[1]
+        Capture Page Screenshot    
 
          
 PDP_AddtoCart
       
         Scroll Element Into View    (//div[@class='productCard'])[1]  
         Click Element    (//i[@class='fas fa-plus fa-fw'])[1]  
-          BuiltIn.Sleep    1   
-         Click Element    (//i[@class='fas fa-plus fa-fw'])[2] 
-           BuiltIn.Sleep    1    
-    Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
-      BuiltIn.Sleep    2  
-    Click Element    (//i[@class='fas fa-plus fa-fw'])[1]
+        BuiltIn.Sleep    1   
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[2] 
+        BuiltIn.Sleep    1    
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
+        BuiltIn.Sleep    2  
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[1]
             
 
         
@@ -231,7 +244,7 @@ Click show more information
         Scroll Element Into View    ${ShowmoreInfo_${Language}}
         Set Focus To Element    ${ShowmoreInfo_${Language}}
         Click Element    ${ShowmoreInfo_${Language}}
-        Sleep    2      
+        BuiltIn.Sleep    2      
         Capture Page Screenshot    
         Set Browser Implicit Wait    5
         Click Element  ${btn_Close_${Language}}     
@@ -366,7 +379,7 @@ Cashpay_OrderNow
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button    //button[@type='submit']
-         Sleep    2    
+         BuiltIn.Sleep    2    
          Click Element    //button[contains(.,'OK')]    
          
 
@@ -407,7 +420,7 @@ iDEAL_Online_payment_process
          
 
 Card_Online_payment_process
-         Sleep    2    
+         BuiltIn.Sleep    2    
         # Click Element    //button[contains(@id,'card-tab')]    
          SeleniumLibrary.Input Text    name=cardNumber    4242 4242 4242 4242    
          SeleniumLibrary.Input Text    name=cardExpiry    02/22
@@ -415,7 +428,7 @@ Card_Online_payment_process
          SeleniumLibrary.Input Text    billingName    Eswari Nisha Balakrishnan    
          Select From List By Label      //select[@id='billingCountry']     Netherlands
          Click Element    //div[contains(@class,'SubmitButton-IconContainer')]  
-         Sleep    2    
+         BuiltIn.Sleep    2    
                      
 Giropay_Online_payment_process
          Wait Until Page Contains    Contact information
@@ -480,18 +493,18 @@ View_MyFavorites
         
 Click_Myorders
         Click Element    (//a[contains(@class,'list-group-item ')])[3]   
-         Sleep    2          
+         BuiltIn.Sleep    2          
 
 View_MyOrders
        
         Click Element    (//a[contains(@class,'list-group-item')])[4]  
-        Sleep    2  
+        BuiltIn.Sleep    2  
         Capture Page Screenshot      
         
 View_MyOrders_Refunded Order
         Click Element    (//a[contains(@class,'list-group-item')])[5]  
         Wait Until Page Contains    My order 
-        BuiltIn.Sleep    time_    
+        BuiltIn.Sleep    2    
         Capture Page Screenshot         
         
         
