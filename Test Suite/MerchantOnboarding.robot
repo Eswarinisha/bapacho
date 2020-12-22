@@ -8,12 +8,16 @@ Library    ImageHorizonLibrary
 Default tags     RegressionTest
 
 
-Resource     Customerkeywords.robot 
-Resource     Merchantkeywords.robot
-Resource     MerchantOnboardingkeywords.robot
-Resource     CMSkeywords.robot
+Resource    Bapacho Variables.robot
+Resource    Customerkeywords.robot 
+Resource    Merchantkeywords.robot
+Resource    MerchantOnboardingkeywords.robot
+Resource    SalesAgentkeywords.robot
+Resource    CMSkeywords.robot
+Resource    BasicRegressionKeywords.robot
 
-Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Merchant Site Screenshots
+
+Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Merchant Onboarding Screenshots
 
 *** Test Cases ***
 
@@ -172,3 +176,23 @@ MO015TC001	# Merchant must be able to click skip on Step 6
     Merchant Onboarding without Online Payment   
     Close Browser 
   
+
+
+Complete_Merchant onboarding without Online payment
+   
+
+        Open_CMS
+        Merchant Activation (Without Online payment)
+       # Open_Bapachosite
+        Merchant Onboarding without Online Payment   
+        Close Browser   
+           
+
+Complete_Merchant onboarding with Online payment
+        
+
+        Open_CMS
+        Merchant Activation (With Online payment)    
+        Merchant Onboarding with Online Payment   
+       
+           

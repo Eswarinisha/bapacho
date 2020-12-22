@@ -40,21 +40,20 @@ ${lastname}    //input[@id='lastname']
 ${inputpassword}      //input[@id='password']
 ${inputpasswordcheck}     name=password_chk
 ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
-@{RegisterCredentials}    testemailcustomer001@gmail.com    Nisha's Automated Customer    001    bapachocustomerpwd    bapachocustomerpwd
-
+@{RegisterCredentialsold}    automatedcustomer007@yopmail.com    Nisha's Automated Customer    001    bapachocustomerpwdold    bapachocustomerpwdold
+@{RegisterCredentialsnew}    automatedcustomer007@yopmail.com    Nisha's Automated Customer    001    bapachocustomerpwdnew    bapachocustomerpwdnew
 
 #MerchantOnboarding
-@{MerchantOnboardingCredentials}    automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
 
-${MerchantName without payment}    Nisha's Automated Bakery001
-@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
+${MerchantName without payment}    Nisha's Automated Bakery004
+@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant004@yopmail.com    bapachomerchantpwd    +31612809787
 
 #Merchant with Online payment
-${MerchantName_NL}    Nisha's Bakery001
+${MerchantName_NL}    Nisha's Automated Bakery004
 ${MerchantName_EN}    Nisha's Bakery001
-${MerchanyName_IT}       testTest Bakery 002 	
+${MerchanyName_IT}    Test Bakery 002 	
+@{Merchant with Online payment Credentials}     bapachotestmerchant001@gmail.com    bapachomerchantpwd    +31612809787
 
-@{Merchant with Online payment Credentials}     bapachotestmerchant001@gmail.com    bapachomerchantpwd
 
 #Account_Number
 ${NL_Account_Number}    NL39RABO0300065264
@@ -256,8 +255,10 @@ ${CancelOrder_IT}    orderStatus.cancelled
 ${Preparing_EN}    Preparing
 
 ${Readyfordelivery_EN}    Ready for delivery
+${Readyforpickup_EN}    Ready for pickup
 
 ${Delivered_EN}    Delivered
+${Pickedup_EN}    Picked up
 
 ${ShowmoreInfo_NL}    //a[contains(.,'Show more information')]
 ${ShowmoreInfo_EN}    //a[contains(.,'Show more information')]
@@ -291,6 +292,7 @@ ${btn_Bakeries_NL}    //a[contains(.,'Shops')]
 ${MyAccount_NL}    //li[contains(.,'My Account')] 
 ${MyAccount_EN}    //li[contains(.,'My Account')] 
 ${MyAccount_IT}    //span[contains(.,'Il mio profilo')]
+
 
 ${btn_Checkout_NL}    //button[contains(.,'Checkout')]
 ${btn_Checkout_EN}    //button[contains(.,'Checkout')]

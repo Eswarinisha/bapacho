@@ -40,16 +40,18 @@ MO017TC003	# Merchant must be able to click the order and view in separate page
     Login_as_Merchant without online payment
     Capture Page Screenshot   
     View Orders for pickup today 
-    Scroll to Download Order Confirmation  
+    Scroll to Download Order Confirmation 
+    Close Browser 
          
 MO017TC004	# Merchant must be able to Print all orders 
-    Guest user placing a Cash pay order
+    #Guest user placing a Cash pay order
     Open_Bapachosite
     Login_as_Merchant without online payment
-    Capture Page Screenshot   
-    View Orders for pickup today
+    #Capture Page Screenshot   
+    #View Orders for pickup today
     Print all orders
-    Capture Page Screenshot    
+    Close Browser
+        
     
 MO018TC001	# Merchant must be able to create new product category
     Open_Bapachosite
@@ -57,17 +59,12 @@ MO018TC001	# Merchant must be able to create new product category
     Create new product category
     Close Browser    
     
-MO018TC003	#Merchant must be able to delete product from own category
-    Open_Bapachosite
-    Login_as_Merchant without online payment    
-    Delete created own category product
-    Close Browser
-
 MO020TC004	# Merchant must be able to delete product category with no products under them
     Open_Bapachosite
     Login_as_Merchant without online payment 
     Delete product category 
     Close Browser  
+
 
 MO018TC002	# Merchant must be able to add product details
     Open_Bapachosite
@@ -75,7 +72,15 @@ MO018TC002	# Merchant must be able to add product details
     Create new product category
     Create new own product
     Close Browser
-    
+        
+
+MO018TC003	#Merchant must be able to delete product from own category
+    Open_Bapachosite
+    Login_as_Merchant without online payment    
+    Delete created own category product
+    Close Browser
+
+
     
 MO020TC005	# Merchant must not be able to delete product category with products under them
     Open_Bapachosite
@@ -118,18 +123,22 @@ MO024TC003	# Merchant must be able to cancel order
 MO024TC005	# Merchant can change his order status and payment status   
 
 
-    Order fulfillment with emailid login and cashpay    
+   # Order fulfillment with emailid login and cashpay    
 # Preparing
     Open_Bapachosite   
     Login_as_Merchant without online payment   
     Select an order from Merchant's My order list
-    Change order status to Preparing
+   # Change order status to Preparing
     
-#Ready for delivery
-    Change order status to Ready for delivery
+
+#Ready for pickup or delivery
+    Change order status to Ready for pickup
+    #Change order status to Ready for delivery
     
-#Delivered
-    Change order status to Delivered
+#Picked up or Delivered
+    Change order status to Picked up
+    #Change order status to Delivered
+    
 #Payment status to paid 
     Change payment status to paid   
     Close Browser

@@ -97,8 +97,9 @@ BR004	#Merchant Portal	# Opening information,preparation time and siesta times
         PDP_Click_Checkout
         Choose_delivery
         #Guestuser_Fill_Checkoutpage
-        User_Fill_Checkoutpage  
-        Cashpay_OrderNow
+        User_Fill_Checkoutpage 
+        Cardpay_OrderNow 
+       # Cashpay_OrderNow
         Capture Page Screenshot      
         Close Browser
     
@@ -112,7 +113,7 @@ BR005	#Merchant Portal	# Order cancellation
         Change order status to Cancel
         Close Browser
     
-#Step2   #Cancelled order must be reflected in Customer My order's list
+Step2   #Cancelled order must be reflected in Customer My order's list
 
         Open_Bapachosite
         Click_login

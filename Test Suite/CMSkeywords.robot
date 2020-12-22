@@ -16,11 +16,13 @@ Open_CMS
 CMSAdmin_Login
     SeleniumLibrary.Input Text    name=email       nisha@inqadigital.com
     Input Password    name=password        Jishannaresh29
-    Click Button    //button[@type='submit'][contains(.,'Login')]    
-    Wait Until Page Contains    Nisha    
+    Click Button    //button[@type='submit'][contains(.,'Login')]        
+    Wait Until Page Contains    Nisha  
+    Capture Page Screenshot  
     
 Click_Outlets/Stores
-    Click Element    //a[contains(.,'Outlets / stores')]    
+    Click Element    //a[contains(.,'Outlets / stores')]  
+    Capture Page Screenshot  
     
 Create_NewMerchant
     Wait Until Page Contains Element    //button[@type='button'][contains(.,'New')]    
@@ -28,7 +30,8 @@ Create_NewMerchant
     Wait Until Page Contains    New  
     Wait Until Page Contains Element    name=fields[title]    
     SeleniumLibrary.Input Text    name=fields[title]    ${MerchantName_${Language}}
-    SeleniumLibrary.Input Text    name=fields[username]    ${MerchantOnboardingCredentials}[0]
+    SeleniumLibrary.Input Text    name=fields[username]    ${Merchant_Without_OnlinePayment_Credentials}[0]
+    Capture Page Screenshot
     Click Button    //button[contains(.,'Save')]    
     
 Create_NewMerchant_without Payment
@@ -38,6 +41,7 @@ Create_NewMerchant_without Payment
     Wait Until Page Contains Element    name=fields[title]    
     SeleniumLibrary.Input Text    name=fields[title]   ${MerchantName without payment}
     SeleniumLibrary.Input Text    name=fields[username]    ${Merchant_Without_OnlinePayment_Credentials}[0]
+    Capture Page Screenshot
     Click Button    //button[contains(.,'Save')]   
             
 Search myBakery in CMS
@@ -65,21 +69,23 @@ Search products of Merchant
     
 Enter email address in CMS
     Wait Until Page Contains Element    name=columns[emailOrders]    
-    Input Text    name=columns[emailOrders]     ${MerchantOnboardingCredentials}[0]    
+    Input Text    name=columns[emailOrders]     ${Merchant_Without_OnlinePayment_Credentials}[0]    
     Click Element    //button[@type='button'][contains(.,'Save')]    
            
 Send activation mail from CMS to Merchant
     
     Wait Until Page Contains Element    //button[contains(.,'Send activation email')]
     Click Element    //button[contains(.,'Send activation email')]   
-    Wait Until Page Contains Element    //button[contains(.,'Yes, send it!')]    
+    Capture Page Screenshot
+    Wait Until Page Contains Element    //button[contains(.,'Yes, send it!')]  
+    Capture Page Screenshot  
     Click Element    //button[contains(.,'Yes, send it!')]  
     Set Browser Implicit Wait    10
     Wait Until Page Contains Element    //button[contains(.,'OK')]       
     Click Element    //button[contains(.,'OK')]    
    
 Check Merchant Activation mail
-      SeleniumLibrary.Input Text    name=login    ${MerchantOnboardingCredentials}[0]
+      SeleniumLibrary.Input Text    name=login    ${Merchant_Without_OnlinePayment_Credentials}[0]
       Click Button    //input[contains(@class,'sbut')]    
       Wait Until Page Contains    Inbox    
       Execute JavaScript    window.scrollBy(0, document.body.scrollHeight)         
@@ -95,6 +101,14 @@ Check Merchant Activation mail_without Payment
       Select Frame    //iframe[@id='ifmail']
       Click Element    ${activationmail_${Language}} 
       
+Check Merchant Activation mail_with Payment
+      SeleniumLibrary.Input Text    name=login    ${Merchant_Without_OnlinePayment_Credentials}[0]
+      Click Button    //input[contains(@class,'sbut')]    
+      Wait Until Page Contains    Inbox    
+      Execute JavaScript    window.scrollBy(0, document.body.scrollHeight)         
+      Select Frame    //iframe[@id='ifmail']
+      Capture Page Screenshot
+      Click Element    ${activationmail_${Language}} 
 
 View Product Category in CMS
      Click Element    (//a[contains(.,'Product categories')])[1]

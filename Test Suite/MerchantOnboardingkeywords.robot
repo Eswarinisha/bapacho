@@ -12,12 +12,12 @@ Resource    Bapacho Variables.robot
 Step_1
         Maximize Browser Window
         Scroll Element Into View    name=password  
-        Input Password    name=password    ${MerchantOnboardingCredentials}[1] 
-        Input Password    name=password_chk    ${MerchantOnboardingCredentials}[1] 
+        Input Password    name=password    ${Merchant with Online payment Credentials}[1] 
+        Input Password    name=password_chk    ${Merchant with Online payment Credentials}[1] 
         Select Checkbox    //input[@id='acceptTermsAndConditions']
         Capture Page Screenshot    
         Click Element       ${Step1_Nextbutton_${Language}}   
-       BuiltIn.Sleep    2   
+        BuiltIn.Sleep    2   
         
 Click_Step1 Need Help?
         Click Element    (//button[contains(.,'Need help?')])[1]
@@ -38,31 +38,38 @@ Step_2
         SeleniumLibrary.Input Text    locationColumns_local[nl][postal]    2011GP
         SeleniumLibrary.Input Text    name=locationColumns_local[nl][city]    Netherlands
         Click Button    (//button[contains(.,'Copy information from English')])[1]    
-        SeleniumLibrary.Input Text    name=columns[emailOrders]     ${MerchantOnboardingCredentials}[0]                
-        SeleniumLibrary.Input Text    name=columns[phoneOrders]     ${MerchantOnboardingCredentials}[2]   
-        SeleniumLibrary.Input Text    name=columns[phone]    ${MerchantOnboardingCredentials}[2]    
+        Capture Page Screenshot
+        SeleniumLibrary.Input Text    name=columns[emailOrders]     ${Merchant_Without_OnlinePayment_Credentials}[0]                
+        SeleniumLibrary.Input Text    name=columns[phoneOrders]     ${Merchant_Without_OnlinePayment_Credentials}[2]   
+        SeleniumLibrary.Input Text    name=columns[phone]    ${Merchant_Without_OnlinePayment_Credentials}[2]    
         Checkbox Should Be Selected    name=columns[notification_sms]
         Checkbox Should Be Selected    name=columns[notification_email]
+        Capture Page Screenshot
         Execute JavaScript    window.scrollBy(1000,247)
         Select From List By Label    //select[contains(@name,'openTimes[0][from]')]       06:00        
         Select From List By Value    //select[contains(@name,'openTimes[0][to]')]        23:30
         Select From List By Label    openBreakTimes[0][from]         12:00
         Select From List By Label    openBreakTimes[0][to]        12:30
-        Click Button    (//button[contains(.,'Apply to all')])[1]    
+        Click Button    (//button[contains(.,'Apply to all')])[1]  
+        Capture Page Screenshot  
         Set Browser Implicit Wait    5 
-        Click Element    (${Step2_Nextbutton_${Language}}    
+        Click Element    ${Step2_Nextbutton_${Language}}    
         
 Step_3
         Input Text    locationColumns_local[nl][text]    "Nisha's Automated Bakery Number 1"   
         Click Element    (//button[contains(.,'Copy information from English')])[2]    
         Input Text    name=columns[website]    https://www.multivlaai.nl/
         Input Text    name=columns[facebook]    https://www.multivlaai.nl/    
+        Click Element    (//button[contains(.,'Next')])[3]  
+        Capture Page Screenshot  
+        #Choose File    (//button[contains(.,'Next')])[3]    C:/Users/Nisha/git/ta-bapacho/Bapacho/TestImages/BakeryChef.jpg
         Click Element    ${Step3_Nextbutton_${Language}}
-      # Choose File    (//button[contains(.,'Next')])[3]    file_path
+     
          BuiltIn.Sleep    2       
         
 Step_4
         Select From List By Label    //select[contains(@name,'category_id')]    Pies
+        Capture Page Screenshot
         Double Click Element    (//button[contains(.,'Choose product')])[5]
         Set Browser Implicit Wait    10     
         Double Click Element    (//button[contains(.,'Choose product')])[9] 
@@ -78,8 +85,9 @@ Step_4
 Step_4_click next
         Set Focus To Element    ${Step4_Nextbutton_${Language}} 
         Click Element    ${Step4_Nextbutton_${Language}}        
-         BuiltIn.Sleep    2   
-        Click Element    //button[contains(.,'OK')]   
+        BuiltIn.Sleep    2   
+        Click Element    //button[contains(.,'OK')]  
+        Capture Page Screenshot 
         
                          
        
@@ -88,8 +96,9 @@ Step_5
         Select Checkbox    name=columns[hasPickup] 
         Input Text    name=handlingFee[pickup]    5.00    
         
-      # Click Element    //input[@id='paymentMethodPickup6']
-     #  Click Element    //input[@id='paymentMethodPickup7']
+       Click Element    //input[@id='paymentMethodPickup6']
+       Click Element    //input[@id='paymentMethodPickup7']
+       Capture Page Screenshot
         Select Checkbox    name=columns[hasDelivery]
         Input Text    name=columns[deliveryPrice]    10.00
         Input Text    name=columns[deliveryAbove]    20.00
@@ -100,8 +109,8 @@ Step_5
         Select From List By Value    name=deliveryBreakTimes[0][from]     06:00
         Select From List By Value    name=deliveryBreakTimes[0][to]      23:30
         Click Element    (//button[contains(.,'Apply to all')])[8]    
-     #   Click Element    //input[@id='paymentMethodDelivery6']   
-     #   Click Element    //input[@id='paymentMethodDelivery7'] 
+        Click Element    //input[@id='paymentMethodDelivery6']   
+        Click Element    //input[@id='paymentMethodDelivery7'] 
         Capture Page Screenshot     
         Click Element   ${Step5_Nextbutton_${Language}}    
         
@@ -126,8 +135,8 @@ Step_8
         Wait Until Page Contains    Add or edit person    
         Input Text   name=first_name    Representative
         Input Text    name=last_name    001
-        Input Text    name=email    ${MerchantOnboardingCredentials}[0]    
-        Input Text    name=phone      ${MerchantOnboardingCredentials}[2]
+        Input Text    name=email    ${Merchant_Without_OnlinePayment_Credentials}[0]    
+        Input Text    name=phone      ${Merchant_Without_OnlinePayment_Credentials}[2]
         Input Text    name=relationship[title]     Representative
         Input Text    name=dob[day]    28
         Select From List By Label    name=dob[month]    December    
@@ -137,11 +146,8 @@ Step_8
         Input Text    name=address[postal_code]    2011GP    
         Input Text    name=address[city]    Netherlands  
         Click Element    (//button[contains(.,'Upload')])[2]    
-        Set Browser Implicit Wait    10
-        #pyautogui.Typewrite     chef.jpg
-        Capture Page Screenshot    
-      #  pyautogui.Key Down  'enter'
-       # ImageHorizonLibrary.Press Combination   Key.enter      
+        Choose File     (//button[contains(.,'Upload')])[2]     C:/Users/Nisha/git/ta-bapacho/Bapacho/TestImages/BakeryChef.jpg   
+        Capture Page Screenshot       
         Capture Page Screenshot             
         Click Element    //button[contains(text(),'Save')]    
         
@@ -161,52 +167,61 @@ Step_9
 
 Step_10
         BuiltIn.Sleep    2      
+        Capture Page Screenshot
         Click Element    ${Step10_Nextbutton_${Language}}                         
        
         
 Step_1_Merchant without online payment    
         Maximize Browser Window
+        Capture Page Screenshot
         Scroll Element Into View    name=password  
         Input Password    name=password    ${Merchant_Without_OnlinePayment_Credentials}[1] 
         Input Password    name=password_chk    ${Merchant_Without_OnlinePayment_Credentials}[1] 
         Select Checkbox    //input[@id='acceptTermsAndConditions']
         Capture Page Screenshot    
         Click Element    ${Step1_Nextbutton_${Language}}    
-         BuiltIn.Sleep    2   
+        BuiltIn.Sleep    2   
         
 
     
 Step_2_Merchant without online payment
+    Capture Page Screenshot
         SeleniumLibrary.Input Text    ${btn_MerchantTitle_${Language}}    ${MerchantName without payment}     
         SeleniumLibrary.Input Text    ${btn_MerchantAddress_${Language}}       Justine de Gouwerhof
         #SeleniumLibrary.Input Text    ${btn_MerchantAddressline2_${Language}}    Haarlem    
         SeleniumLibrary.Input Text    ${btn_MerchantPostal_${Language}}    2011GP
         SeleniumLibrary.Input Text    ${btn_MerchantCity_${Language}}    Netherlands
-        Click Button    (//button[contains(.,'Copy information from English')])[1]    
+        Click Button    (//button[contains(.,'Copy information from English')])[1] 
+        Capture Page Screenshot   
         SeleniumLibrary.Input Text    ${btn_MerchantEmail_${Language}}     ${Merchant_Without_OnlinePayment_Credentials}[0]                
         SeleniumLibrary.Input Text    ${btn_MerchantPhone_${Language}}     ${Merchant_Without_OnlinePayment_Credentials}[2]   
         SeleniumLibrary.Input Text    name=columns[phone]    ${Merchant_Without_OnlinePayment_Credentials}[2]    
         Checkbox Should Be Selected    name=columns[notification_sms]
         Checkbox Should Be Selected    name=columns[notification_email]
+        Capture Page Screenshot
         Execute JavaScript    window.scrollBy(1000,247)
         Select From List By Label    //select[contains(@name,'openTimes[0][from]')]       06:00        
         Select From List By Value    //select[contains(@name,'openTimes[0][to]')]        23:30
         Select From List By Label    openBreakTimes[0][from]         12:00
         Select From List By Label    openBreakTimes[0][to]        12:30
+        Capture Page Screenshot
         Click Button    ${btn_Applytoall_${Language}}   
         Set Browser Implicit Wait    5 
         Click Element    ${Step2_Nextbutton_${Language}} 
         
 Step_3_Merchant without online payment
+        Capture Page Screenshot
         Input Text   ${btn_Location_${Language}}    "Nisha's Automated Bakery Number 1"   
         Click Element    (//button[contains(.,'Copy information from English')])[2]    
         Input Text    name=columns[website]    https://www.multivlaai.nl/
         Input Text    name=columns[facebook]    https://www.multivlaai.nl/    
         Click Element    ${Step3_Nextbutton_${Language}}
+        Capture Page Screenshot
        # Choose File    (//button[contains(.,'Next')])[3]    ${CURDIR}\\chef.jpg
         BuiltIn.Sleep    2    
         
 Step_4_Merchant without online payment
+     Capture Page Screenshot
         BuiltIn.Sleep    2   
         Capture Page Screenshot  
         Scroll Element Into View    name=category_id  
@@ -226,11 +241,11 @@ Step_4_Merchant without online payment
         BuiltIn.Sleep    5           
                                                           
 Step_5_Merchant without online payment
-       
+       Capture Page Screenshot
         Wait Until Page Contains Element    name=columns[hasPickup]    
         Select Checkbox    name=columns[hasPickup] 
         Input Text    name=handlingFee[pickup]    5.00    
-        
+        Capture Page Screenshot
        Click Element    //input[@id='paymentMethodPickup6']
        Click Element    //input[@id='paymentMethodPickup7']
         Select Checkbox    name=columns[hasDelivery]
@@ -238,10 +253,12 @@ Step_5_Merchant without online payment
         Input Text    name=columns[deliveryAbove]    30.00
         Input Text    name=columns[deliveryFreeAbove]    70.00    
         Input Text    name=handlingFee[deliver]    6.00    
+        Capture Page Screenshot
         Select From List By Value    name=deliveryTimes[0][from]      06:00
         Select From List By Value    name=deliveryTimes[0][to]    23:30
         Select From List By Value    name=deliveryBreakTimes[0][from]     11:00
         Select From List By Value    name=deliveryBreakTimes[0][to]      11:30
+        Capture Page Screenshot
         Click Element    ${btn_Applytoalldeliverytime_${Language}}   
         Click Element    //input[@id='paymentMethodDelivery6']   
         Click Element    //input[@id='paymentMethodDelivery7'] 
@@ -249,15 +266,21 @@ Step_5_Merchant without online payment
         Click Element    ${Step5_Nextbutton_${Language}}   
         
 Step_6_Merchant without online payment
+    Capture Page Screenshot
         BuiltIn.Sleep    2    
         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)       
         Scroll Element Into View   ${btn_Skip_${Language}}
+        Capture Page Screenshot
         Click Element    ${btn_Skip_${Language}}
     
 Step_10_Merchant without online payment
+    Capture Page Screenshot
         BuiltIn.Sleep    2       
+        Capture Page Screenshot
         Click Element    ${Step10_Nextbutton_${Language}}
-
+        BuiltIn.Sleep    2  
+        Capture Page Screenshot
+        
 Merchant Activation (Without Online payment)
         CMSAdmin_Login
         Click_Outlets/Stores
@@ -268,11 +291,26 @@ Merchant Activation (Without Online payment)
         Check Merchant Activation mail_without Payment  
         #Wait Until Page Contains    Setup your online Shop     
         Select Window    NEW 
-        Step_1_Merchant without online payment
-        Close All Browsers
+       # Step_1_Merchant without online payment
+       # Close All Browsers
+
+
+Merchant Activation (With Online payment)
+        CMSAdmin_Login
+        Click_Outlets/Stores
+        Create_NewMerchant
+        Send activation mail from CMS to Merchant       
+        Capture Page Screenshot  
+        OpenYopMailinchrome
+        Check Merchant Activation mail_with Payment  
+        #Wait Until Page Contains    Setup your online Shop     
+        Select Window    NEW 
+        Step_1
+        
+
 
 Merchant Onboarding without Online Payment
-        Login_as_Merchant without online payment
+       # Login_as_Merchant without online payment
         Step_1_Merchant without online payment
         Step_2_Merchant without online payment
         Step_3_Merchant without online payment
@@ -283,6 +321,18 @@ Merchant Onboarding without Online Payment
         Capture Page Screenshot
 
 
+Merchant Onboarding with Online Payment
+        
+        Step_2
+        Step_3
+        Step_4
+        Step_5
+        Step_6  
+        Step_7
+        Step_8
+        Step_9 
+        Step_10
+        Capture Page Screenshot
 
 
      
