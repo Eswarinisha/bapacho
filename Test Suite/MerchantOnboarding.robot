@@ -179,20 +179,19 @@ MO015TC001	# Merchant must be able to click skip on Step 6
 
 
 Complete_Merchant onboarding without Online payment
-   
 
-        Open_CMS
-        Merchant Activation (Without Online payment)
-       # Open_Bapachosite
-        Merchant Onboarding without Online Payment   
-        Close Browser   
+     Open_CMS
+     Merchant Activation (Without Online payment)
+     Open_Bapachosite
+     Click_login
+    Merchant Onboarding without Online Payment   
+    Close Browser   
            
 
 Complete_Merchant onboarding with Online payment
         
-
-        Open_CMS
-        Merchant Activation (With Online payment)    
-        Merchant Onboarding with Online Payment   
+    Open_CMS
+    Merchant Activation (With Online payment)
+    Merchant Onboarding with Online Payment   
        
            

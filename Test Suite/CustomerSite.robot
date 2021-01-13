@@ -15,11 +15,12 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 
 CS001TC001
 	# User must be able to click on Login icon and click create account
-        
+	     
         Open_Bapachosite
         Capture Page Screenshot    
         Click_login   
         Close Browser
+        
 
 CS001TC002
 	# User must be able to enter valid email id, first name, last name and confirm password
@@ -32,6 +33,7 @@ CS001TC002
         
 CS001TC003
 	# Once account is created check user must get activation mail to registered id
+	
        OpenYopMailinchrome
        Check_CustomerActivation_mail 
        Close Browser
@@ -56,6 +58,7 @@ CS001TC004
         
 # CS002TC002
 	# # User must be directed to Facebook login page and able to login successfully
+	
         # Set Tags    Sanity
         # Open_Bapachosite
         # FacebookLogin
@@ -82,6 +85,7 @@ CS003TC001
     
          # Open_Bapachosite
          # Click_bakeries
+         #Change_CurrentLoction_BDP
          # Type_To_Search_bakery
          # BuiltIn.Sleep    2    
          # Select a bakery from list
@@ -143,7 +147,9 @@ CS006TC002
 
           Open_Bapachosite
           Click_bakeries
+          Change_CurrentLoction_BDP
           Type_To_Search_bakery
+          Select a bakery from list
           Capture Page Screenshot
           Close Browser
       
@@ -152,7 +158,9 @@ CS006TC003
           
           Open_Bapachosite
           Click_bakeries
+         Change_CurrentLoction_BDP
           Type_To_Search_bakery
+          Select a bakery from list
           Guestuser_Click_favourites 
           Close Browser
 
@@ -161,6 +169,7 @@ CS006TC004
 
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -172,6 +181,7 @@ CS006TC005
          Set Tags    Sanity
          Open_Bapachosite
          Click_bakeries
+         Change_CurrentLoction_BDP
          Type_To_Search_bakery
          Select a bakery from list
          PDP_AddtoCart
@@ -208,6 +218,7 @@ CS007TC003	# While placing order, all the information must be populated correctl
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -256,7 +267,6 @@ CS008TC004
         EmailLogin
         Click_MyAccount
         Click_MyFavorites
-        View_MyFavorites
         Close Browser
         
 CS009TC001
@@ -362,6 +372,7 @@ CS013TC002
       
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Capture Page Screenshot
         Close Browser
@@ -371,6 +382,7 @@ CS013TC003
       
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_to_search_bakery_nonhappy  
         Capture Page Screenshot
         Close Browser
@@ -380,6 +392,7 @@ CS013TC004
       
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
        Type_to_search_bakery_nonhappy
        Clear search bakery field
         BuiltIn.Sleep    2  
@@ -478,6 +491,7 @@ CS017TC001
         
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         BuiltIn.Sleep    2  
@@ -489,6 +503,7 @@ CS018TC001
 
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         Capture show more information            
@@ -497,6 +512,7 @@ CS018TC001
 CS018TC002	# On clicking the link, all information including payment method must be displayed       
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         Click show more information     
@@ -506,6 +522,7 @@ CS018TC003	# Phone number under other information must be clickable
 
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         Click bakery phone number
@@ -515,6 +532,7 @@ CS018TC003	# Phone number under other information must be clickable
 CS019TC001	# Products must be listed according to the product type 
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         Filter products by Category
@@ -524,6 +542,7 @@ CS019TC001	# Products must be listed according to the product type
 CS019TC002	# On clicking on "+" product must get added to cart
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -533,6 +552,7 @@ CS019TC002	# On clicking on "+" product must get added to cart
 CS020TC001	# On clicking on "i " the product details must be displayed
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         Click 'i' for product information  
@@ -544,6 +564,7 @@ CS020TC001	# On clicking on "i " the product details must be displayed
 CS021TC001	# User must be able to add produts using Add to cart button in the product information       
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         Click 'i' for product information
@@ -553,6 +574,7 @@ CS021TC001	# User must be able to add produts using Add to cart button in the pr
 CS021TC002	# User must be able to change the quantity of product using + and - buttons
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -566,6 +588,7 @@ CS021TC002	# User must be able to change the quantity of product using + and - b
 CS021TC003	# User must be able to directly type the quantity of product in the box
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -576,6 +599,7 @@ CS021TC003	# User must be able to directly type the quantity of product in the b
 CS022TC001	# User must be able to remove the products from cart with delete button
         Open_Bapachosite
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -605,7 +629,8 @@ CS024TC001	# User must be able to enter mandatory details in the Choose pickup a
         Click_login
         EmailLogin
         Click_bakeries
-        Type_To_Search_bakery
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
         Set Browser Implicit Wait    5
@@ -621,7 +646,8 @@ CS024TC002	# User must be able to choose pickup
         Click_login
         EmailLogin
         Click_bakeries
-        Type_To_Search_bakery
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
         Set Browser Implicit Wait    5
@@ -636,7 +662,8 @@ CS024TC003	# User must be able to choose date and time for Deliver
         Click_login
         EmailLogin
         Click_bakeries
-        Type_To_Search_bakery
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
         BuiltIn.Sleep    2    
@@ -651,14 +678,15 @@ CS024TC004	# User must be able to choose payment method in the Choose pickup and
         Click_login
         EmailLogin
         Click_bakeries
-        Type_To_Search_bakery
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
         BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage    
-        Cashpay_OrderNow
+        Cardpay_OrderNow
         Capture Page Screenshot    
         Close Browser
         
@@ -667,6 +695,7 @@ CS025TC001	# User must be able to read Terms & conditions on clicking the link
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -696,15 +725,15 @@ CS025TC003	# Without checking the Terms &Conditions check box, user must not be 
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
-         BuiltIn.Sleep    2  
+        BuiltIn.Sleep    2  
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage
         Check_T&C_NonHappy    
-         
         Click Submit button  
         Close Browser
         Pass Execution    "Non Happy test script - Failure is expected"    
@@ -717,12 +746,13 @@ CS026TC001	# User must be able to do online payment using iDeal
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
         BuiltIn.Sleep    2    
         PDP_Click_Checkout
-        Choose_delivery
+        #Choose_delivery
         User_Fill_Checkoutpage    
         Onlinepay_Ordernow
         iDEAL_Online_payment_process
@@ -733,6 +763,7 @@ CS026TC002	# User must be able to do online payment using card
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -749,6 +780,7 @@ CS026TC003	# User must be able to do online payment using giropay
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -765,6 +797,7 @@ CS026TC004	# User must be able to add date and time of delivery to his calender 
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -782,6 +815,7 @@ CS027TC001	# User must be able to choose cash payment method and click on Order 
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -813,7 +847,8 @@ CS028TC001	# User must be able to choose Card payment method and click on Order 
         Click_login
         EmailLogin
         Click_bakeries
-        Type_To_Search_bakery
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
         BuiltIn.Sleep    2  
@@ -828,6 +863,7 @@ CS028TC002	# User must be able to add date and time of delivery to his calender 
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery
         Select a bakery from list
         PDP_AddtoCart
@@ -849,6 +885,7 @@ CS029TC001	# User must be able to click on back button without paying and redire
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -866,6 +903,7 @@ CS030TC001	# Order incomplete page must have details regarding the failed paymen
         Click_login
         EmailLogin
         Click_bakeries
+        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -940,5 +978,16 @@ CS038TC001	# User must be able to click and view on the Bapacho Instagram icon
         Bapacho_Instagram_icon
         Capture Page Screenshot       
         Close All Browsers
+        
+CS039TC001	#User must be able to click and view app in Playstore
+#CS039TC002	 #User must be able to click and view app in Appstore
+        Open_Bapachosite
+        Click Download App - playstore
+        Select Window     MAIN
+        Click Download App - Appstore
+        Get Window Titles    browser=ALL
+        Close All Browsers
+        
+
         
        

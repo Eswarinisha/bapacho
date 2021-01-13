@@ -1,31 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20201219 21:02:59.303" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210113 19:18:13.463" rpa="false">
 <suite id="s1" name="Bapacho" source="C:\Users\Nisha\git\ta-bapacho\Bapacho">
 <suite id="s1-s1" name="Test Suite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite">
 <suite id="s1-s1-s1" name="MerchantSite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite\MerchantSite.robot">
-<test id="s1-s1-s1-t1" name="MO024TC005">
+<test id="s1-s1-s1-t1" name="MO018TC003">
 <kw name="Set Screenshot Directory" library="SeleniumLibrary" type="setup">
 <doc>Sets the directory for captured screenshots.</doc>
 <arguments>
 <arg>C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Merchant Site Screenshots</arg>
 </arguments>
-<status status="PASS" starttime="20201219 21:02:59.700" endtime="20201219 21:02:59.700"></status>
+<status status="PASS" starttime="20210113 19:18:13.886" endtime="20210113 19:18:13.886"></status>
 </kw>
 <kw name="Open_Bapachosite" library="Customerkeywords">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
 <arg>${Bapacho_URL_${Language}}</arg>
-<arg>chrome</arg>
+<arg>${Chrome}</arg>
 </arguments>
-<msg timestamp="20201219 21:02:59.701" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@staging.bapacho.com/'.</msg>
-<status status="PASS" starttime="20201219 21:02:59.701" endtime="20201219 21:03:04.790"></status>
+<msg timestamp="20210113 19:18:13.887" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@staging.bapacho.com/'.</msg>
+<status status="PASS" starttime="20210113 19:18:13.887" endtime="20210113 19:18:18.698"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20201219 21:03:04.791" endtime="20201219 21:03:06.913"></status>
+<status status="PASS" starttime="20210113 19:18:18.698" endtime="20210113 19:18:20.816"></status>
 </kw>
-<status status="PASS" starttime="20201219 21:02:59.701" endtime="20201219 21:03:06.913"></status>
+<status status="PASS" starttime="20210113 19:18:13.886" endtime="20210113 19:18:20.816"></status>
+</kw>
+<kw name="Click_login" library="Customerkeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Login_Button}</arg>
+</arguments>
+<status status="PASS" starttime="20210113 19:18:20.817" endtime="20210113 19:18:20.862"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Login_Button}</arg>
+</arguments>
+<msg timestamp="20210113 19:18:20.863" level="INFO">Clicking element '(//i[contains(@class,'fas fa-user')])[1]'.</msg>
+<status status="PASS" starttime="20210113 19:18:20.862" endtime="20210113 19:18:20.932"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20210113 19:18:22.935" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210113 19:18:20.933" endtime="20210113 19:18:22.935"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:23.384" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-53.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:22.935" endtime="20210113 19:18:23.384"></status>
+</kw>
+<status status="PASS" starttime="20210113 19:18:20.817" endtime="20210113 19:18:23.384"></status>
 </kw>
 <kw name="Login_as_Merchant without online payment" library="Merchantkeywords">
 <kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
@@ -33,15 +64,15 @@
 <arguments>
 <arg>5</arg>
 </arguments>
-<status status="PASS" starttime="20201219 21:03:06.914" endtime="20201219 21:03:06.915"></status>
+<status status="PASS" starttime="20210113 19:18:23.385" endtime="20210113 19:18:23.386"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${LoginasMerchant_${Language}}</arg>
+<arg>${LoginasMerchant}</arg>
 </arguments>
-<msg timestamp="20201219 21:03:06.915" level="INFO">Clicking element '(//a[contains(.,'Login as Merchant')])[1]'.</msg>
-<status status="PASS" starttime="20201219 21:03:06.915" endtime="20201219 21:03:06.984"></status>
+<msg timestamp="20210113 19:18:23.387" level="INFO">Clicking element '(//a[contains(@role,'button')])[5]'.</msg>
+<status status="PASS" starttime="20210113 19:18:23.386" endtime="20210113 19:18:23.429"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -49,8 +80,8 @@
 <arg>//input[@id='name']</arg>
 <arg>${Merchant_Without_OnlinePayment_Credentials}[0]</arg>
 </arguments>
-<msg timestamp="20201219 21:03:06.985" level="INFO">Typing text 'automatedmerchant004@yopmail.com' into text field '//input[@id='name']'.</msg>
-<status status="PASS" starttime="20201219 21:03:06.984" endtime="20201219 21:03:07.222"></status>
+<msg timestamp="20210113 19:18:23.429" level="INFO">Typing text 'automatedmerchant001@yopmail.com' into text field '//input[@id='name']'.</msg>
+<status status="PASS" starttime="20210113 19:18:23.429" endtime="20210113 19:18:23.591"></status>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <doc>Types the given password into the text field identified by ``locator``.</doc>
@@ -58,286 +89,208 @@
 <arg>(//input[@id='name'])[2]</arg>
 <arg>${Merchant_Without_OnlinePayment_Credentials}[1]</arg>
 </arguments>
-<msg timestamp="20201219 21:03:07.223" level="INFO">Typing password into text field '(//input[@id='name'])[2]'.</msg>
-<msg timestamp="20201219 21:03:07.256" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20201219 21:03:07.332" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20201219 21:03:07.223" endtime="20201219 21:03:07.332"></status>
+<msg timestamp="20210113 19:18:23.592" level="INFO">Typing password into text field '(//input[@id='name'])[2]'.</msg>
+<msg timestamp="20210113 19:18:23.628" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20210113 19:18:23.686" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20210113 19:18:23.592" endtime="20210113 19:18:23.687"></status>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:07.755" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-186.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-186.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:07.332" endtime="20201219 21:03:07.755"></status>
+<msg timestamp="20210113 19:18:24.329" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-54.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:23.687" endtime="20210113 19:18:24.329"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>${Submit_Login}</arg>
 </arguments>
-<msg timestamp="20201219 21:03:07.756" level="INFO">Clicking button '//button[@onclick="$('#loginForm').submit()"]'.</msg>
-<status status="PASS" starttime="20201219 21:03:07.755" endtime="20201219 21:03:07.803"></status>
+<msg timestamp="20210113 19:18:24.330" level="INFO">Clicking button '//button[@onclick="$('#loginForm').submit()"]'.</msg>
+<status status="PASS" starttime="20210113 19:18:24.330" endtime="20210113 19:18:24.381"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20201219 21:03:09.804" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201219 21:03:07.803" endtime="20201219 21:03:09.804"></status>
+<msg timestamp="20210113 19:18:26.383" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210113 19:18:24.382" endtime="20210113 19:18:26.383"></status>
 </kw>
-<status status="PASS" starttime="20201219 21:03:06.913" endtime="20201219 21:03:09.804"></status>
+<status status="PASS" starttime="20210113 19:18:23.385" endtime="20210113 19:18:26.384"></status>
 </kw>
-<kw name="Select an order from Merchant's My order list" library="Merchantkeywords">
+<kw name="Delete created own category product" library="Merchantkeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MyProduct}</arg>
+</arguments>
+<msg timestamp="20210113 19:18:26.385" level="INFO">Clicking element '(//a[contains(@class,'list-group-item ')])[4]'.</msg>
+<status status="PASS" starttime="20210113 19:18:26.384" endtime="20210113 19:18:27.576"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:27.900" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-55.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:27.576" endtime="20210113 19:18:27.900"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//button[contains(.,'Remove')])[2]</arg>
+</arguments>
+<msg timestamp="20210113 19:18:27.901" level="INFO">Clicking element '(//button[contains(.,'Remove')])[2]'.</msg>
+<status status="PASS" starttime="20210113 19:18:27.901" endtime="20210113 19:18:27.957"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:28.337" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-56.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-56.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:27.958" endtime="20210113 19:18:28.338"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Yes, delete it!')]</arg>
+</arguments>
+<msg timestamp="20210113 19:18:28.338" level="INFO">Clicking element '//button[contains(.,'Yes, delete it!')]'.</msg>
+<status status="PASS" starttime="20210113 19:18:28.338" endtime="20210113 19:18:28.377"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:28.726" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-57.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:28.377" endtime="20210113 19:18:28.726"></status>
+</kw>
+<kw name="Click Mypage" library="Merchantkeywords">
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
 <arguments>
-<arg>${MyOrders_${Language}}</arg>
+<arg>${MyPage}</arg>
 </arguments>
-<status status="PASS" starttime="20201219 21:03:09.804" endtime="20201219 21:03:10.076"></status>
+<status status="PASS" starttime="20210113 19:18:28.728" endtime="20210113 19:18:29.001"></status>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:10.389" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-187.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-187.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:10.077" endtime="20201219 21:03:10.389"></status>
+<msg timestamp="20210113 19:18:29.295" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-58.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-58.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:29.001" endtime="20210113 19:18:29.295"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${MyOrders_${Language}}</arg>
+<arg>${MyPage}</arg>
 </arguments>
-<msg timestamp="20201219 21:03:10.390" level="INFO">Clicking element '//a[contains(.,'My orders')]'.</msg>
-<status status="PASS" starttime="20201219 21:03:10.390" endtime="20201219 21:03:11.649"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:11.963" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-188.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-188.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:11.649" endtime="20201219 21:03:11.964"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${OpenOrder_${Language}}</arg>
-</arguments>
-<msg timestamp="20201219 21:03:11.964" level="INFO">Clicking element '(//span[contains(.,'orderLastStatus.open')])[1]'.</msg>
-<status status="PASS" starttime="20201219 21:03:11.964" endtime="20201219 21:03:13.074"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:13.381" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-189.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-189.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:13.075" endtime="20201219 21:03:13.381"></status>
-</kw>
-<status status="PASS" starttime="20201219 21:03:09.804" endtime="20201219 21:03:13.381"></status>
-</kw>
-<kw name="Change order status to Ready for pickup" library="Merchantkeywords">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20201219 21:03:15.384" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201219 21:03:13.382" endtime="20201219 21:03:15.384"></status>
-</kw>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<arguments>
-<arg>name=orderStatus</arg>
-</arguments>
-<status status="PASS" starttime="20201219 21:03:15.384" endtime="20201219 21:03:15.668"></status>
-</kw>
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<arguments>
-<arg>name=orderStatus</arg>
-<arg>${Readyforpickup_${Language}}</arg>
-</arguments>
-<msg timestamp="20201219 21:03:15.668" level="INFO">Selecting options from selection list 'name=orderStatus' by label Ready for pickup.</msg>
-<status status="PASS" starttime="20201219 21:03:15.668" endtime="20201219 21:03:15.716"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>name=status_comment</arg>
-<arg>Automated order Ready for pickup</arg>
-</arguments>
-<msg timestamp="20201219 21:03:15.717" level="INFO">Typing text 'Automated order Ready for pickup' into text field 'name=status_comment'.</msg>
-<status status="PASS" starttime="20201219 21:03:15.716" endtime="20201219 21:03:15.817"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:16.149" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-190.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-190.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:15.817" endtime="20201219 21:03:16.149"></status>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
-<arg>${btn_OrderstatusSubmit_${Language}}</arg>
-</arguments>
-<msg timestamp="20201219 21:03:16.150" level="INFO">Clicking button '//button[contains(.,'Submit')]'.</msg>
-<status status="PASS" starttime="20201219 21:03:16.150" endtime="20201219 21:03:16.209"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>//button[contains(.,'OK')]</arg>
-</arguments>
-<status status="PASS" starttime="20201219 21:03:16.209" endtime="20201219 21:03:16.282"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>//button[contains(.,'OK')]</arg>
-</arguments>
-<msg timestamp="20201219 21:03:16.283" level="INFO">Clicking element '//button[contains(.,'OK')]'.</msg>
-<status status="PASS" starttime="20201219 21:03:16.283" endtime="20201219 21:03:17.493"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:17.834" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-191.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-191.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:17.493" endtime="20201219 21:03:17.835"></status>
+<msg timestamp="20210113 19:18:29.296" level="INFO">Clicking element '(//a[contains(@class,'list-group-item')])[9]'.</msg>
+<status status="PASS" starttime="20210113 19:18:29.295" endtime="20210113 19:18:29.355"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20201219 21:03:19.835" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201219 21:03:17.835" endtime="20201219 21:03:19.835"></status>
+<msg timestamp="20210113 19:18:31.356" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210113 19:18:29.356" endtime="20210113 19:18:31.356"></status>
 </kw>
-<status status="PASS" starttime="20201219 21:03:13.382" endtime="20201219 21:03:19.835"></status>
-</kw>
-<kw name="Change order status to Picked up" library="Merchantkeywords">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
+<kw name="Select Window" library="SeleniumLibrary">
+<doc>DEPRECATED in SeleniumLibrary 4.0. , use `Switch Window` instead.</doc>
 <arguments>
-<arg>2</arg>
+<arg>NEW</arg>
 </arguments>
-<msg timestamp="20201219 21:03:21.837" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201219 21:03:19.836" endtime="20201219 21:03:21.837"></status>
+<status status="PASS" starttime="20210113 19:18:31.356" endtime="20210113 19:18:31.364"></status>
 </kw>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<arguments>
-<arg>name=orderStatus</arg>
-</arguments>
-<status status="PASS" starttime="20201219 21:03:21.837" endtime="20201219 21:03:22.101"></status>
+<status status="PASS" starttime="20210113 19:18:28.727" endtime="20210113 19:18:31.365"></status>
 </kw>
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<arguments>
-<arg>name=orderStatus</arg>
-<arg>${Pickedup_${Language}}</arg>
-</arguments>
-<msg timestamp="20201219 21:03:22.102" level="INFO">Selecting options from selection list 'name=orderStatus' by label Picked up.</msg>
-<status status="PASS" starttime="20201219 21:03:22.101" endtime="20201219 21:03:22.152"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>name=status_comment</arg>
-<arg>Automated order Picked up</arg>
-</arguments>
-<msg timestamp="20201219 21:03:22.152" level="INFO">Typing text 'Automated order Picked up' into text field 'name=status_comment'.</msg>
-<status status="PASS" starttime="20201219 21:03:22.152" endtime="20201219 21:03:22.236"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:22.555" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-192.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-192.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:22.236" endtime="20201219 21:03:22.555"></status>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
-<arg>${btn_OrderstatusSubmit_${Language}}</arg>
-</arguments>
-<msg timestamp="20201219 21:03:22.556" level="INFO">Clicking button '//button[contains(.,'Submit')]'.</msg>
-<status status="PASS" starttime="20201219 21:03:22.555" endtime="20201219 21:03:22.604"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>//button[contains(.,'OK')]</arg>
-</arguments>
-<status status="PASS" starttime="20201219 21:03:22.604" endtime="20201219 21:03:22.668"></status>
-</kw>
+<kw name="Click 'i' for product information" library="Customerkeywords">
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>//button[contains(.,'OK')]</arg>
+<arg>(//i[contains(@class,'fas fa-info fa-fw')])[1]</arg>
 </arguments>
-<msg timestamp="20201219 21:03:22.669" level="INFO">Clicking element '//button[contains(.,'OK')]'.</msg>
-<status status="PASS" starttime="20201219 21:03:22.669" endtime="20201219 21:03:23.817"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201219 21:03:24.171" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-193.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-193.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201219 21:03:23.817" endtime="20201219 21:03:24.171"></status>
+<msg timestamp="20210113 19:18:31.366" level="INFO">Clicking element '(//i[contains(@class,'fas fa-info fa-fw')])[1]'.</msg>
+<status status="PASS" starttime="20210113 19:18:31.365" endtime="20210113 19:18:33.431"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20201219 21:03:26.174" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201219 21:03:24.172" endtime="20201219 21:03:26.174"></status>
+<msg timestamp="20210113 19:18:35.433" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210113 19:18:33.432" endtime="20210113 19:18:35.433"></status>
 </kw>
-<status status="PASS" starttime="20201219 21:03:19.836" endtime="20201219 21:03:26.174"></status>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:35.914" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-59.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-59.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:35.433" endtime="20210113 19:18:35.914"></status>
 </kw>
-<kw name="Change payment status to paid" library="Merchantkeywords">
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
 <arguments>
-<arg>name=lastStatus</arg>
-<arg>${PaidStatus_${Language}}</arg>
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
 </arguments>
-<msg timestamp="20201219 21:03:26.174" level="INFO">Selecting options from selection list 'name=lastStatus' by label orderLastStatus.paid.</msg>
-<status status="PASS" starttime="20201219 21:03:26.174" endtime="20201219 21:03:26.227"></status>
+<msg timestamp="20210113 19:18:35.915" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20210113 19:18:35.914" endtime="20210113 19:18:35.922"></status>
 </kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:36.426" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-60.png"&gt;&lt;img src="BapachoScreenshots/Merchant%20Site%20Screenshots/selenium-screenshot-60.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210113 19:18:35.923" endtime="20210113 19:18:36.426"></status>
+</kw>
+<status status="PASS" starttime="20210113 19:18:31.365" endtime="20210113 19:18:36.426"></status>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<doc>Verifies the current page does not contain ``text``.</doc>
 <arguments>
-<arg>${btn_PaymentStatusSubmit_${Language}}</arg>
+<arg>${Productname}</arg>
 </arguments>
-<msg timestamp="20201219 21:03:26.229" level="INFO">Clicking button '(//button[contains(.,'Submit')])[2]'.</msg>
-<status status="PASS" starttime="20201219 21:03:26.228" endtime="20201219 21:03:26.287"></status>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210113 19:18:42.893" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.141)
+</msg>
+<status status="FAIL" starttime="20210113 19:18:42.883" endtime="20210113 19:18:42.893"></status>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>//button[contains(.,'OK')]</arg>
-</arguments>
-<msg timestamp="20201219 21:03:26.287" level="INFO">Clicking element '//button[contains(.,'OK')]'.</msg>
-<status status="PASS" starttime="20201219 21:03:26.287" endtime="20201219 21:03:27.572"></status>
+<msg timestamp="20210113 19:18:42.893" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.141)
+</msg>
+<msg timestamp="20210113 19:18:42.909" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.141)
+</msg>
+<status status="FAIL" starttime="20210113 19:18:36.427" endtime="20210113 19:18:42.909"></status>
 </kw>
-<status status="PASS" starttime="20201219 21:03:26.174" endtime="20201219 21:03:27.574"></status>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20201219 21:03:27.574" endtime="20201219 21:03:29.697"></status>
+<status status="FAIL" starttime="20210113 19:18:26.384" endtime="20210113 19:18:42.909"></status>
 </kw>
 <tags>
 <tag>RegressionTest</tag>
 </tags>
-<status status="PASS" starttime="20201219 21:02:59.699" endtime="20201219 21:03:29.697" critical="yes"></status>
+<status status="FAIL" starttime="20210113 19:18:13.885" endtime="20210113 19:18:42.910" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.141)
+</status>
 </test>
-<status status="PASS" starttime="20201219 21:02:59.357" endtime="20201219 21:03:29.698"></status>
+<status status="FAIL" starttime="20210113 19:18:13.524" endtime="20210113 19:18:42.910"></status>
 </suite>
-<status status="PASS" starttime="20201219 21:02:59.355" endtime="20201219 21:03:29.700"></status>
+<status status="FAIL" starttime="20210113 19:18:13.521" endtime="20210113 19:18:42.912"></status>
 </suite>
-<status status="PASS" starttime="20201219 21:02:59.336" endtime="20201219 21:03:29.701"></status>
+<status status="FAIL" starttime="20210113 19:18:13.497" endtime="20210113 19:18:42.914"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">RegressionTest</stat>
+<stat pass="0" fail="1">RegressionTest</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Bapacho">Bapacho</stat>
-<stat pass="1" fail="0" id="s1-s1" name="Test Suite">Bapacho.Test Suite</stat>
-<stat pass="1" fail="0" id="s1-s1-s1" name="MerchantSite">Bapacho.Test Suite.MerchantSite</stat>
+<stat pass="0" fail="1" id="s1" name="Bapacho">Bapacho</stat>
+<stat pass="0" fail="1" id="s1-s1" name="Test Suite">Bapacho.Test Suite</stat>
+<stat pass="0" fail="1" id="s1-s1-s1" name="MerchantSite">Bapacho.Test Suite.MerchantSite</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20210113 19:18:42.893" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.141)
+</msg>
 </errors>
 </robot>
