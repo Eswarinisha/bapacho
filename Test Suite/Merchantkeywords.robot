@@ -60,8 +60,6 @@ Create new product category
      BuiltIn.Sleep    2   
      Capture Page Screenshot  
      
-
-
 Delete product category 
      Click Element    ${MyproductCategories}
      Capture Page Screenshot    

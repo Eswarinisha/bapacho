@@ -60,7 +60,7 @@ ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop
 
 #CustomerLogin 
 ${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
-@{LoginCredentials}    testemailcustomer001@gmail.com    bapachocustomerpwd
+@{LoginCredentials}    automatedcustomer004@yopmail.com    bapachocustomerpwd
 ${Submit_Login}    //button[@onclick="$('#loginForm').submit()"]  
 
 
@@ -400,7 +400,7 @@ ${lastname}    //input[@id='lastname']
 ${inputpassword}      //input[@id='password']
 ${inputpasswordcheck}     name=password_chk
 ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
-@{RegisterCredentialsold}    automatedcustomer004@yopmail.com    Nisha's Automated Customer    004    bapachocustomerpwdold    bapachocustomerpwdold
+@{RegisterCredentialsold}    automatedcustomer007@yopmail.com    Nisha's Automated Customer    007    bapachocustomerpwdold    bapachocustomerpwdold
 @{RegisterCredentialsnew}    automatedcustomer004@yopmail.com    Nisha's Automated Customer    004    bapachocustomerpwdnew    bapachocustomerpwdnew
 
 

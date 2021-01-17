@@ -68,8 +68,8 @@ FacebookLogin_in_Checkoutpage
 
 EmailLogin   
         Set Browser Implicit Wait    5    
-        SeleniumLibrary.Input Text    //input[@id='name']    ${LoginCredentials}[0]    
-        Input Password    (//input[@id='name'])[2]    ${LoginCredentials}[1]
+        SeleniumLibrary.Input Text    //input[@id='name']    ${LoginCredentials}[0]   
+        Input Password    (//input[@id='name'])[2]    ${LoginCredentials}[1] 
         Capture Page Screenshot
         Click Button    ${Submit_Login}  
         BuiltIn.Sleep    2    
@@ -102,7 +102,7 @@ Click_ForgotPassword
         BuiltIn.Sleep    2       
         SeleniumLibrary.Input Text      ${emailid}     ${RegisterCredentialsold}[0]
         Capture Page Screenshot    
-        Click Button     ${btn_Submit_${Language}}    
+        Click Button     ${btn_SubmitCategory_${Language}} 
         
 
 ResetPassword
@@ -283,7 +283,9 @@ PDP_AddtoCart
         Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
         BuiltIn.Sleep    2  
         Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
-         Capture Page Screenshot   
+        BuiltIn.Sleep    2  
+        Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
+        Capture Page Screenshot   
 
         
 
@@ -712,6 +714,20 @@ Check_ForgtPassword_mail
         Select Frame    //iframe[@id='ifmail']
         Click Element    ${ForgotPasswordMailLink_${Language}}      
         Select Window    NEW
+        
+Check_OrderReceived_mail
+        SeleniumLibrary.Input Text    name=login    ${RegisterCredentialsnew}[0] 
+        Click Button    //input[contains(@class,'sbut')]    
+        Wait Until Page Contains    Inbox    
+        Execute JavaScript    window.scrollBy(0, document.body.scrollHeight)     
+        Capture Page Screenshot        
+        Select Frame    //iframe[@id='ifmail']
+        Page Should Contain    ${RegisterCredentialsnew}[1]
+        Page Should Contain     ${MerchantName_${Language}}    
+             
+        
+        
+
         
 Guest user placing a Cash pay order
          Open_Bapachosite

@@ -769,11 +769,15 @@ CS026TC002	# User must be able to do online payment using card
         PDP_AddtoCart
         BuiltIn.Sleep    2  
         PDP_Click_Checkout
-        Choose_delivery
+        #Choose_delivery
         User_Fill_Checkoutpage    
         Onlinepay_Ordernow
         Card_Online_payment_process
         Close Browser
+        OpenYopMailinchrome
+        Check_OrderReceived_mail
+        Close Browser
+
         
 CS026TC003	# User must be able to do online payment using giropay
         Open_Bapachosite
@@ -967,7 +971,7 @@ CS036TC001	# User must be able to click and fill in the Support form and submit
         Capture Page Screenshot    
         Close Browser
         
-# CS037TC001	# User must be able to click and view the Bapacho Facebook icon
+#CS037TC001	    # User must be able to click and view the Bapacho Facebook icon
         # Open_Bapachosite
         # Bapacho_FB_icon       
         # Capture Page Screenshot       
