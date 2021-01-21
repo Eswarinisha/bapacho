@@ -68,8 +68,8 @@ FacebookLogin_in_Checkoutpage
 
 EmailLogin   
         Set Browser Implicit Wait    5    
-        SeleniumLibrary.Input Text    //input[@id='name']    ${LoginCredentials}[0]   
-        Input Password    (//input[@id='name'])[2]    ${LoginCredentials}[1] 
+        SeleniumLibrary.Input Text    //input[@id='name']   ${LoginCredentials}[0]   
+        Input Password    (//input[@id='name'])[2]     ${LoginCredentials}[1]
         Capture Page Screenshot
         Click Button    ${Submit_Login}  
         BuiltIn.Sleep    2    
@@ -96,9 +96,9 @@ Email_Registration
         Capture Page Screenshot         
     
 Click_ForgotPassword
-        Wait Until Page Contains    Login     
-        Capture Element Screenshot     (//a[contains(@role,'button')])[4]
-        Click Element    (//a[contains(@role,'button')])[4]
+        #Wait Until Page Contains    Login     
+        Capture Element Screenshot     (//a[contains(@role,'button')])[2]
+        Click Element    (//a[contains(@role,'button')])[2]
         BuiltIn.Sleep    2       
         SeleniumLibrary.Input Text      ${emailid}     ${RegisterCredentialsold}[0]
         Capture Page Screenshot    
@@ -135,7 +135,7 @@ Click_bakeries
 
 
 Click_favourites
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2  
         Click Element    //i[@class='far fa-heart']  
         BuiltIn.Sleep    2
         Wait Until Page Contains Element    (//i[contains(@class,'far fa-heart text-muted')])[1] 
@@ -185,8 +185,8 @@ Change_CurrentLocation_Home
                     # Bakery Display Page
  
 Type_To_Search_bakery
-        Click_bakeries
-        Click Element    //button[2]/i
+        # Click_bakeries
+        # Click Element    //button[2]/i
         SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName without payment}
         Capture Page Screenshot    
         Click Element          //button[2]/i
@@ -573,9 +573,9 @@ Edit_Mydetails
         SeleniumLibrary.Input Text     columns[city]    ${GuestUser_${Language}}[6]
         SeleniumLibrary.Input Text     columns[phone]    ${GuestUser_${Language}}[7]
         Capture Page Screenshot
-        Set Focus To Element    ${btn_Submit_${Language}}
-        Scroll Element Into View    ${btn_Submit_${Language}}
-        Click Button    ${btn_Submit_${Language}}             
+        Set Focus To Element   ${btn_Save_${Language}}
+        Scroll Element Into View    ${btn_Save_${Language}}
+        Click Button    ${btn_Save_${Language}}             
         Click Element    (//button[contains(@type,'button')])[2]    
         Wait Until Page Contains    ${btn_MyAccount}   
         

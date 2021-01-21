@@ -1,6 +1,6 @@
 ***Variables***
 
-${Language}     EN
+${Language}     CZ
 
 ${Chrome}    chrome
 ${Firefox}    firefox
@@ -60,7 +60,7 @@ ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop
 
 #CustomerLogin 
 ${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
-@{LoginCredentials}    automatedcustomer004@yopmail.com    bapachocustomerpwd
+@{LoginCredentials}    testemailcustomer001@gmail.com    bapachocustomerpwd
 ${Submit_Login}    //button[@onclick="$('#loginForm').submit()"]  
 
 
@@ -400,8 +400,8 @@ ${lastname}    //input[@id='lastname']
 ${inputpassword}      //input[@id='password']
 ${inputpasswordcheck}     name=password_chk
 ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
-@{RegisterCredentialsold}    automatedcustomer007@yopmail.com    Nisha's Automated Customer    007    bapachocustomerpwdold    bapachocustomerpwdold
-@{RegisterCredentialsnew}    automatedcustomer004@yopmail.com    Nisha's Automated Customer    004    bapachocustomerpwdnew    bapachocustomerpwdnew
+@{RegisterCredentialsold}    automatedcustomer008@yopmail.com    Nisha's Automated Customer    008    bapachocustomerpwdold    bapachocustomerpwdold
+@{RegisterCredentialsnew}    automatedcustomer008@yopmail.com    Nisha's Automated Customer    008    bapachocustomerpwdnew    bapachocustomerpwdnew
 
 
 @{GuestUser_EN}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com    Justine de Gouwerhof,54     Haarlem     2011GP     Netherlands     +31612809787
@@ -458,7 +458,8 @@ ${AboutUs_EN}    //a[contains(text(),'About us')]
 
 
 ${T&C_EN}    //a[contains(text(),'Terms and conditions')]  
-
+${T&C_CZ}    //a[contains(text(),'Terms and conditions')] 
+${T$C Checkbox}    //input[contains(@name,'terms')]
 
 ${PrivacyStatement_EN}    //a[contains(text(),'Privacy statement')]
 
