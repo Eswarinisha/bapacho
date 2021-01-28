@@ -20,7 +20,8 @@ Login as SalesAgent
     
  Search Merchant
     BuiltIn.Sleep    2    
-    Input Text  //input[contains(@type,'text')]  ${MerchantName without payment}
+    Input Text  //input[contains(@type,'text')]  Nisha
     Click Button    //button[contains(.,'Search')]    
     BuiltIn.Sleep    7   
-        
+    Click Element    (//div[contains(@class,'title')])[2]    
+    Capture Page Screenshot       

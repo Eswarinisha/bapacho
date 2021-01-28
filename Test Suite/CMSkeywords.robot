@@ -19,7 +19,9 @@ CMSAdmin_Login
     Click Button    //button[@type='submit'][contains(.,'Login')]        
     Wait Until Page Contains    Nisha  
     Capture Page Screenshot  
-    
+   
+#OUTLET/STORES
+
 Click_Outlets/Stores
     Click Element    //a[contains(.,'Outlets / stores')]  
     Capture Page Screenshot  
@@ -51,13 +53,21 @@ Search myBakery in CMS
     Wait Until Page Contains    ${MerchantName_${Language}}
     Click Element    //a[contains(.,'edit')]     
 
+
+Delete store
+        Click Element    (//a[contains(.,'delete')])[1]    
+
 Search myBakery in CMS_without Payment
     BuiltIn.Sleep    2    
     Wait Until Page Contains Element    //input[contains(@type,'text')] 
-    Input Text    //input[contains(@type,'text')]     ${MerchantName without payment}   
+    Input Text    //input[contains(@type,'text')]     ${MerchantName without payment} 
+    Capture Page Screenshot  
     Press Keys      //input[contains(@type,'text')]    ENTER
     Wait Until Page Contains    ${MerchantName without payment}
     Sleep    2    
+    Capture Page Screenshot   
+    
+Edit Store 
     Click Element    //a[contains(.,'edit')]     
 
 Search products of Merchant
@@ -109,6 +119,27 @@ Check Merchant Activation mail_with Payment
       Select Frame    //iframe[@id='ifmail']
       Capture Page Screenshot
       Click Element    ${activationmail_${Language}} 
+   
+View Client
+      Click Element    (//a[contains(.,'Clients')])[1]
+      Capture Page Screenshot        
+
+Search Client
+    Wait Until Page Contains Element    //input[contains(@type,'text')]      
+    SeleniumLibrary.Input Text    //input[contains(@type,'text')]       ${FBCredentials}[1] 
+    Capture Page Screenshot  
+    Press Keys      //input[contains(@type,'text')]    ENTER
+    Wait Until Page Contains     ${FBCredentials}[1] 
+    Capture Page Screenshot    
+    
+   
+View Product Attribute in CMS
+     Click Element    //a[contains(.,'Product attributes')]    
+     Capture Page Screenshot   
+     
+View Product Nutrition in CMS  
+    Click Element    //a[contains(.,'Product nutritions')]    
+    
 
 View Product Category in CMS
      Click Element    (//a[contains(.,'Product categories')])[1]
@@ -130,3 +161,47 @@ View Cancelled Orders under Orders
     BuiltIn.Sleep    3 
     Element Should Contain    niks    cancelled  
     Capture Page Screenshot        
+#FAQ
+
+CMS FAQ
+    Click Element    (//a[contains(.,'FAQ')])[1]
+    Click Element    //a[@href='/admin/faq/view']    
+    Capture Page Screenshot       
+    Click Element    //a[contains(.,'FAQ Groups')]  
+    Capture Page Screenshot
+    Click Element    //a[contains(.,'FAQ Topics')]    
+    Capture Page Screenshot  
+    
+CMS Language
+     Click Element    (//a[contains(.,'Languages')])[1]     
+     Capture Page Screenshot  
+     
+CMS Sales Agent
+    Click Element    //a[contains(.,'Sales agents')]    
+    Capture Page Screenshot    
+    
+CMS Users
+    Click Element    (//a[contains(.,'CMS users')])[1]    
+    Capture Page Screenshot   
+    
+
+Settings    
+    Click Element    //a[contains(.,'Settings')]    
+    Capture Page Screenshot    
+    
+Global Settings
+    Click Element    //a[contains(.,'Global settings')]
+    Capture Page Screenshot    
+    
+VAT settings
+    Click Element    //a[contains(.,'VAT settings')]    
+    Capture Page Screenshot    
+    
+Delivery Options
+    Click Element    //a[contains(.,'Delivery options')]    
+    Capture Page Screenshot    
+
+Payment Methods
+     Click Element    //a[contains(.,'Payment Methods')]    
+     Capture Page Screenshot        
+    
