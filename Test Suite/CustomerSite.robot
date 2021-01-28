@@ -329,7 +329,7 @@ CS010TC001
         
 CS010TC003
 	# User must be able to login with another credentials
-
+#CS010TC002	 #Login icon must appear in the header
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -367,7 +367,7 @@ CS012TC001
         Click_bakeries
         Close Browser
         
-CS013TC002
+CS013TC001
 	# User must be able to search bakeries by name on the search bar
       
         Open_Bapachosite
@@ -377,7 +377,7 @@ CS013TC002
         Capture Page Screenshot
         Close Browser
         
-CS013TC003
+CS013TC002
 	# When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
       
         Open_Bapachosite
@@ -387,7 +387,7 @@ CS013TC003
         Capture Page Screenshot
         Close Browser
         
-CS013TC004
+CS013TC003
 	# User must be able to clear search by clicking on the X button
       
         Open_Bapachosite
@@ -614,6 +614,9 @@ CS022TC001	# User must be able to remove the products from cart with delete butt
     
 
 CS023TC001	# On clicking Favorites icon, the list of favorite bakeries must be displayed
+    
+#CS023TC002	 #Any of the favorite bakeries can be clicked and result to bakery display page
+
         Open_Bapachosite
         Click_login
         EmailLogin
