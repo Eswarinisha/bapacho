@@ -5,6 +5,7 @@ Resource    Customerkeywords.robot
 Resource    CMSkeywords.robot
 Resource    Merchantkeywords.robot
 Resource    Bapacho Variables.robot
+Resource    Bapacho Credentials.robot
 
 ***Keyword***
  

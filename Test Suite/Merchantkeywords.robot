@@ -5,6 +5,7 @@ Resource    Customerkeywords.robot
 Resource    CMSkeywords.robot
 Resource    Merchantkeywords.robot
 Resource    Bapacho Variables.robot
+Resource    Bapacho Credentials.robot
 
 ***Keyword***
 # Login as Merchant
@@ -15,7 +16,7 @@ Login_as_Merchant
         Click Element    ${LoginasMerchant}  
         SeleniumLibrary.Input Text    //input[@id='name']    ${Merchant with Online payment Credentials}[0]
         Input Password    (//input[@id='name'])[2]     ${Merchant with Online payment Credentials}[1]  
-        Click Button    ${Submit_Login}     
+        Click Button  ${LoginSubmit_Button}
         BuiltIn.Sleep    2      
         
 Login_as_Merchant without online payment
@@ -24,7 +25,7 @@ Login_as_Merchant without online payment
         SeleniumLibrary.Input Text    //input[@id='name']    ${Merchant_Without_OnlinePayment_Credentials}[0]
         Input Password    (//input[@id='name'])[2]     ${Merchant_Without_OnlinePayment_Credentials}[1]  
         Capture Page Screenshot
-        Click Button    ${Submit_Login}     
+        Click Button  ${LoginSubmit_Button}  
         BuiltIn.Sleep    2   
  
 Login_as_Merchant with online payment
@@ -32,14 +33,14 @@ Login_as_Merchant with online payment
         Click Element    ${LoginasMerchant}   
         SeleniumLibrary.Input Text    //input[@id='name']    ${Merchant with Online payment Credentials}[0]
         Input Password    (//input[@id='name'])[2]     ${Merchant with Online payment Credentials}[1]  
-        Click Button    ${Submit_Login}     
+        Click Button    ${LoginSubmit_Button}  
         BuiltIn.Sleep    2   
 
 Type_To_Search_bakery_Merchant
         Click_bakeries
-        Click Element    //button[2]/i
+        Click Element     ${LoginasMerchant}  
         SeleniumLibrary.Input Text    //input[@name='keywordInput']    ${MerchantName without payment}
-        Click Element          //button[2]/i
+        Click Element          ${LoginasMerchant}  
  
 
 #My Product Categories

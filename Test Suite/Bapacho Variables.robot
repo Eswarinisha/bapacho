@@ -1,10 +1,9 @@
 ***Variables***
 
-${Language}     CZ
+${Language}     DE
 
-${Chrome}    chrome
-${Firefox}    firefox
-${Edge}    edge
+
+#MERCHANT ONBOARDING
 
 #Stagings URL
 ${Bapacho_URL_EN}    https://bapacho:bapacho@staging.bapacho.com/
@@ -53,60 +52,6 @@ ${activationmail_ES}     //a[contains(.,'https://staging.bapacho.es/activateShop
 ${activationmail_RO}      //a[contains(.,'https://staging.bapacho.ro/activateShop.php?')]
 ${activationmail_PT}      //a[contains(.,'https://staging.bapacho.pt/activateShop.php?')]
 ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop.php?')]
-
-
-#SalesAgentLogin
-@{SalesAgentCredentials}    nisha@inqadigital.com    Jishannaresh29
-
-#CustomerLogin 
-${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
-@{LoginCredentials}    testemailcustomer001@gmail.com    bapachocustomerpwd
-${Submit_Login}    //button[@onclick="$('#loginForm').submit()"]  
-
-
-
-#MerchantOnboarding
-
-@{MerchantAddress_EN}    Justine de Gouwerhof    Haarlem    2011GP    Netherlands
-@{MerchantAddress_NL}    Justine de Gouwerhof    Haarlem    2011GP    Netherlands
-@{MerchantAddress_IT}    Ruga Vecchia S.Giovanni, 603     Venezia     30125     Italy
-@{MerchantAddress_CZ}    Laubova 1689/4     Vinohrady     130 00     Czechia
-@{MerchantAddress_DE}    SchleiheimerStr. 96    80797    Munich    Germany
-@{MerchantAddress_GR}     Karterado     Fira-Karterado     847 00      Greece
-
-
-#Merchant without Online payment
-${MerchantName without payment}    Nisha's Automated Bakery001
-@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
-
-
-#Merchant with Online payment
-${MerchantName_NL}    Nisha's Automated Bakery004
-${MerchantName_EN}    Nisha's Bakery001
-${MerchantName_IT}    Test Bakery 002 
-${MerchantName_CZ}    Nisha's Automated Bakery001
-${MerchantName_DE}    Nisha's Automated Bakery001
-@{Merchant with Online payment Credentials}     bapachotestmerchant001@gmail.com    bapachomerchantpwd    +31612809787
-
-
-
-
-#Account_Number
-${NL_Account_Number}    NL39RABO0300065264
-
-#Product Category
-${ProductCategoryName}    Beverages
-
-#Add Product 
-${Productname}     Apple Juice
-${Productingredients}    Lemon,mint,salt,sugar,soda
-${ProductUnit}    20ml
-${PricewithVAT}    10.00
-
-
-
-
-
 
 #Step 1 
 
@@ -205,9 +150,7 @@ ${btn_MerchantEmail_PL}            name=columns[emailOrders]
 ${btn_MerchantPhone_PL}           name=columns[phoneOrders]      
 ${btn_MerchantPhone2_PL}            name=columns[phone] 
 
-# ${btn_Applytoall_NL}    (//button[contains(.,'Apply to all')])[1] 
-# ${btn_Applytoall_EN}    (//button[contains(.,'Apply to all')])[1]
-# ${btn_Applytoall_IT}    (//button[contains(.,'Applica a tutto')])[1]
+
 ${btn_Applytoall}    (//button[contains(@onclick,'applyTimesToAll(this);')])[1]
 
 #Step 3
@@ -256,25 +199,21 @@ ${Step8_Nextbutton}    (//button[contains(@class,'btn btn-success btn-lg showLoa
 ${Step9_Nextbutton}    (//button[contains(@class,'btn btn-success btn-lg showLoading')])[9]
 ${Step10_Nextbutton}    (//button[contains(@class,'btn btn-success btn-lg showLoading')])[10]
 
-#Merchant Portal
+#MERCHANT PORTAL
 
 #My Categories
 ${MyproductCategories}    (//a[contains(@class,'list-group-item ')])[3]
-
 ${AddCategory}    //div[contains(@onclick,'showCategoryModal(null)')]
 
 ${btn_SubmitCategory_NL}    //button[contains(.,'Submit')] 
 ${btn_SubmitCategory_EN}    //button[contains(.,'Submit')]
 ${btn_SubmitCategory_IT}    //button[contains(.,'Invia')]
 ${btn_SubmitCategory_CZ}    //button[contains(.,'Odeslat')]
-
-
+${btn_SubmitCategory_DE}    //button[contains(.,'Senden')]
 
 #My Products
 ${MyProduct}    (//a[contains(@class,'list-group-item ')])[4]
-
 ${Addproduct}   (//a[contains(@class,'btn btn-default')])[2]
-
 ${Addzeelandiaproduct}    (//a[contains(@class,'btn btn-default')])[1]
 
 ${ProductTitle_EN}     name=columns_local[nl][title] 
@@ -345,10 +284,8 @@ ${btn_Submit_IT}    //input[contains(@value,'Salva')]
 ${btn_Submit_CZ}    //button[contains(.,'Odeslat')]
 
 
-${btn_Save_NL}    //input[contains(@type,'submit')] 
-${btn_Save_EN}    //input[contains(@type,'submit')] 
-${btn_Save_IT}    //input[contains(@type,'submit')]
-${btn_Save_CZ}    //input[contains(@type,'submit')]
+${btn_Save}   //input[contains(@type,'submit')] 
+
 
 
 #My Settings
@@ -357,9 +294,7 @@ ${Settings}    (//a[contains(@class,'list-group-item ')])[6]
 
 #My Orders
 ${MyOrders}    (//a[contains(@class,'list-group-item ')])[8]
-
 ${OpenOrder}    (//a[contains(@class,'list-group-item')])[11]
-
 ${CancelOrder}    cancelled
 ${Preparing}    preparing
 ${Readyfordelivery}    readyForDelivery
@@ -370,26 +305,25 @@ ${LabelRefund}    refunded
 ${RefundStatus}       refunded 
 ${PaidStatus}    paid
 ${btn_PaymentStatusSubmit}    //button[@onclick='setOrderLastStatus(this);']
-
 ${Cancellation_StatusComment}    Automated order cancellation 
-
 ${OrderFullfilment_StatusComment}    Automated Order fulfil
 
 #My Page
 ${MyPage}        (//a[contains(@class,'list-group-item')])[9]
-
 ${ShowmoreInfo}    (//a[contains(@role,'button')])[2]
 
 #${btn_PaymentstatusSubmit_NL}    
 
 
-#CustomerSite
+#CUSTOMER SITE
+
+${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
+${LoginSubmit_Button}    //button[contains(@class,'btn btn-block btn-success')]
 
 #Facebook_Login
-${Login_using_Facebook}    //*/text()[normalize-space(.)='Login using Facebook']/parent::*
+${Login_using_Facebook}    //a[contains(@class,'btn btn-info btn-lg btn-block')]
 ${FBemailid}    //input[@id='email']
 ${FBpassword}    //input[@id='pass']
-@{FBCredentials}    eswarinisha.b@gmail.com    Nani@25032016
 ${FBSubmit}    //button[@id='loginbutton']
 
 #Create_Account
@@ -398,36 +332,20 @@ ${emailid}    //input[@id='name']
 ${firstname}    //input[@id='firstname'] 
 ${lastname}    //input[@id='lastname'] 
 ${inputpassword}      //input[@id='password']
-${inputpasswordcheck}     name=password_chk
+${inputpasswordcheck}     password_chk
 ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
-@{RegisterCredentialsold}    automatedcustomer008@yopmail.com    Nisha's Automated Customer    008    bapachocustomerpwdold    bapachocustomerpwdold
-@{RegisterCredentialsnew}    automatedcustomer008@yopmail.com    Nisha's Automated Customer    008    bapachocustomerpwdnew    bapachocustomerpwdnew
 
-
-@{GuestUser_EN}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com    Justine de Gouwerhof,54     Haarlem     2011GP     Netherlands     +31612809787
-@{GuestUser_NL}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com    Justine de Gouwerhof,54     Haarlem     2011GP     Netherlands     +31612809787
-@{GuestUser_IT}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com    Ruga Vecchia S.Giovanni, 603     Venezia     30125     Italy     +31612809787
-@{GuestUser_CZ}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com   Laubova 1689/4     Vinohrady     130 00     Czechia     +31612809787
 
 ${ForgotPasswordMailLink_EN}    //a[contains(text(),'https://staging.bapacho.com/nl/reset-password/cust')] 
-${ForgotPasswordMailLink_NL}     //a[contains(text(),'https://staging.bapacho.nl/reset-password/cust')]
-${ForgotPasswordMailLink_IT}     //a[contains(text(),'https://staging.bapacho.it/reset-password/cust')]
-${ForgotPasswordMailLink_CZ}    //a[contains(text(),'https://staging.bapacho.cz/reset-password/cust')]
+${ForgotPasswordMailLink_NL}     //a[contains(text(),'https://staging.bapacho.nl/nl/reset-password/cust')]
+${ForgotPasswordMailLink_IT}     //a[contains(text(),'https://staging.bapacho.it/it/reset-password/cust')]
+${ForgotPasswordMailLink_CZ}    //a[contains(text(),'https://staging.bapacho.cz/cz/reset-password/cust')]
+${ForgotPasswordMailLink_DE}    //a[contains(text(),'https://staging.bapacho.de/de/reset-password/cust')]
 
 #Home Page
 
 ${Appicon_playstore}    (//a[contains(@target,'_blank')])[2]
 ${Appicon_Appstore}    (//a[contains(@target,'_blank')])[1]
-
-${Change_CurrentLoction_BDP_NL}    Haarlem
-${Change_CurrentLoction_BDP_EN}    Utretch
-${Change_CurrentLoction_BDP_IT}    Roma
-${Change_CurrentLoction_BDP_CZ}    Prague, Czechia
-
-${Choose_Change_CurrentLoction_BDP_NL}     //a[contains(.,'Haarlem, Netherlands')]
-${Choose_Change_CurrentLoction_BDP_EN}     //a[contains(.,'Utrecht, Nederland')]
-${Choose_Change_CurrentLoction_BDP_IT}    //a[contains(.,'Roma, RM, Italia')]
-${Choose_Change_CurrentLoction_BDP_CZ}    //a[contains(.,'Prague, Czechia')]
 
 ${btn_Bakeries_EN}    //a[contains(text(),'Bakeries')] 
 ${btn_Bakeries_IT}    //a[contains(text(),'Bakeries')] 
@@ -441,29 +359,23 @@ ${btn_Bakeries_PT}    //a[contains(.,'Lojas')]
 #${btn_Bakeries_PL}
 
 
+${search_button}    (//span[contains(@class,'hidden-xs')])[2]
 ${btn_MyAccount}    (//span[contains(@class,'hidden-xs')])[1]
 
 #Bakery display Page
 
-${btn_Close}    (//button[contains(@type,'button')])[2]
-
+${btn_Close}    (//button[contains(@type,'button')])[5]
 ${btn_Checkout}    //button[@id='toCheckoutBtn']
-
 
 #Checkout Page
 
 ${ChooseDeliver}    //input[contains(@value,'deliver')]
-
-${AboutUs_EN}    //a[contains(text(),'About us')]  
-
-
+${AboutUs_EN}    //a[contains(text(),'About us')]     
 ${T&C_EN}    //a[contains(text(),'Terms and conditions')]  
 ${T&C_CZ}    //a[contains(text(),'Terms and conditions')] 
 ${T$C Checkbox}    //input[contains(@name,'terms')]
-
 ${PrivacyStatement_EN}    //a[contains(text(),'Privacy statement')]
-
-
+${Checkout_LoginButton}    //button[contains(@class,'btn btn-white')] 
 
 #ARCHIEVE
 
@@ -578,7 +490,9 @@ ${PrivacyStatement_EN}    //a[contains(text(),'Privacy statement')]
 # ${btn_OrderstatusSubmit_EN}    //button[contains(.,'Submit')]
 # ${btn_OrderstatusSubmit_IT}    //button[contains(.,'Invia')]
 
-
+# ${btn_Applytoall_NL}    (//button[contains(.,'Apply to all')])[1] 
+# ${btn_Applytoall_EN}    (//button[contains(.,'Apply to all')])[1]
+# ${btn_Applytoall_IT}    (//button[contains(.,'Applica a tutto')])[1]
 
 # ${CancelOrder_EN}    orderStatus.cancelled
 # ${CancelOrder_IT}    orderStatus.cancelled

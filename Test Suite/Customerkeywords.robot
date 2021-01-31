@@ -2,15 +2,12 @@
 Library    SeleniumLibrary
 
 Resource    Bapacho Variables.robot
+Resource    Bapacho Credentials.robot
 Resource     Merchantkeywords.robot
 
 ***Keyword***
 
-
-
                 # Home Page
-
-
 
 Open_Bapachosite
         Open Browser   ${Bapacho_URL_${Language}}     ${Chrome}
@@ -22,17 +19,19 @@ login_Using_RegisteredMailid
         SeleniumLibrary.Input Text    //input[@id='name']    ${RegisterCredentialsnew}[0] 
         Input Password    (//input[@id='name'])[2]    ${RegisterCredentialsnew}[3]
         Capture Page Screenshot
-        Click Button    ${Submit_Login}  
-        Wait Until Page Contains    ${btn_MyAccount} 
+        Click Button   ${LoginSubmit_Button} 
+        Sleep    2    
+        Wait Until Page Contains Element    ${btn_MyAccount} 
         
 login_Using_RegisteredMailid_with old password      
         Set Browser Implicit Wait    5    
         SeleniumLibrary.Input Text    //input[@id='name']   ${RegisterCredentialsold}[0]   
         Input Password    (//input[@id='name'])[2]    ${RegisterCredentialsold}[3] 
         Capture Page Screenshot
-        Click Button    ${Submit_Login}  
-        Wait Until Page Contains    ${btn_MyAccount} 
-
+        Click Button  ${LoginSubmit_Button}
+        Sleep    2    
+        Capture Page Screenshot    
+        
 Click_login   
        Wait Until Element Is Visible    ${Login_Button}   
        Click Element     ${Login_Button}
@@ -47,14 +46,14 @@ FacebookLogin
         Click_login
         Set Browser Implicit Wait    5
         Click Element     ${Login_using_Facebook} 
-        Wait Until Page Contains    Accept cookies from Facebook on this browser?
-        Set Selenium Implicit Wait    10
-        Click Button    //*[@id="u_0_g"]              
+        Run Keyword And Continue On Failure   Wait Until Page Contains    Accept cookies from Facebook on this browser?
+        Run Keyword And Continue On Failure      Set Selenium Implicit Wait    10
+        Run Keyword And Continue On Failure       Click Button    //*[@id="u_0_g"]              
         SeleniumLibrary.Input Text      ${FBemailid}    ${FBCredentials}[0]    
         Input Password    ${FBpassword}    ${FBCredentials}[1]    
         Click Element    ${FBSubmit}  
-        Handle Alert    Allow
-        Handle Alert    OK     
+        Run Keyword And Continue On Failure     Handle Alert    Allow
+        Run Keyword And Continue On Failure    Handle Alert    OK     
         BuiltIn.Sleep    2  
         
 FacebookLogin_in_Checkoutpage
@@ -71,14 +70,14 @@ EmailLogin
         SeleniumLibrary.Input Text    //input[@id='name']   ${LoginCredentials}[0]   
         Input Password    (//input[@id='name'])[2]     ${LoginCredentials}[1]
         Capture Page Screenshot
-        Click Button    ${Submit_Login}  
+        Click Button   ${LoginSubmit_Button}
         BuiltIn.Sleep    2    
 
 MerchantLogin_Form
         Set Browser Implicit Wait    5 
         SeleniumLibrary.Input Text    //input[@id='name']    bapachotestmerchant001@gmail.com
         Input Password    (//input[@id='name'])[2]    bapachomerchantpwd  
-        Click Button    ${Submit_Login}     
+        Click Button    ${LoginSubmit_Button}  
        BuiltIn.Sleep    2          
 
 
@@ -96,9 +95,9 @@ Email_Registration
         Capture Page Screenshot         
     
 Click_ForgotPassword
-        #Wait Until Page Contains    Login     
-        Capture Element Screenshot     (//a[contains(@role,'button')])[2]
-        Click Element    (//a[contains(@role,'button')])[2]
+           
+        Capture Element Screenshot    (//a[contains(@role,'button')])[4]
+        Click Element    (//a[contains(@role,'button')])[4]
         BuiltIn.Sleep    2       
         SeleniumLibrary.Input Text      ${emailid}     ${RegisterCredentialsold}[0]
         Capture Page Screenshot    
@@ -109,7 +108,7 @@ ResetPassword
         Input Password    name=password      ${LoginCredentials}[1]    
         Input Password    name=password_chk    ${LoginCredentials}[1]  
         Capture Page Screenshot 
-        Click Element     ${btn_Submit_${Language}}    
+        Click Element     ${btn_Save}  
    
 Click Download App - playstore
         Scroll Element Into View    ${Appicon_playstore}
@@ -145,7 +144,7 @@ Guestuser_Click_favourites
                
          Click Element    //i[contains(@class,'far fa-heart fa-2x')]
          Capture Page Screenshot    
-         Wait Until Page Contains    ${Login_Button}   
+         Wait Until Page Contains Element    ${Login_Button}   
          Click Button    //button[@aria-label='Close']  
          Capture Page Screenshot      
         
@@ -169,16 +168,15 @@ Get_CurrrentLocation_Home
         Capture Page Screenshot   
 
 Change_CurrentLocation_Home              
-        Scroll Element Into View    //input[@id='homeLocationTitle']  
-        Capture Element Screenshot    //input[@id='homeLocationTitle']    
+          
         Clear Element Text    //input[@id='homeLocationTitle']
-        Capture Element Screenshot    //input[@id='homeLocationTitle']   
+        Capture Page Screenshot     
         BuiltIn.Sleep    2   
-        Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
         SeleniumLibrary.Input Text    //input[@id='homeLocationTitle']    ${Change_CurrentLoction_BDP_${Language}}
+        BuiltIn.Sleep    4  
         Click Element    ${Choose_Change_CurrentLoction_BDP_${Language}}   
-        Capture Element Screenshot    //input[@id='homeLocationTitle'] 
-        BuiltIn.Sleep    4   
+        Capture Page Screenshot     
+        BuiltIn.Sleep    2  
  
 
 
@@ -186,23 +184,23 @@ Change_CurrentLocation_Home
  
 Type_To_Search_bakery
         # Click_bakeries
-        # Click Element    //button[2]/i
+        # Click Element    ${search_button}
         SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName without payment}
         Capture Page Screenshot    
-        Click Element          //button[2]/i
+        Click Element          ${search_button}
         BuiltIn.Sleep    2    
  
 Type_To_Search_bakery with Online payment
         #Click_bakeries
-        #Click Element    //button[2]/i
+        #Click Element    ${search_button}
         SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName_${Language}}
-        Click Element          //i[contains(@class,'fas fa-search')]
+        Click Element          ${search_button}
         BuiltIn.Sleep    2    
 
 Type_to_search_bakery_nonhappy
-        Click Element    //button[2]/i
+        Click Element    ${search_button}
         SeleniumLibrary.Input Text    //input[@name='keywordInput']    Hello
-        Click Element          //button[2]/i
+        Click Element          ${search_button}
         BuiltIn.Sleep    2   
        Capture Page Screenshot    
         
@@ -212,18 +210,19 @@ Clear search bakery field
 
 Change_CurrentLoction_BDP
         SeleniumLibrary.Input Text    //input[contains(@placeholder,'Address')]       ${Change_CurrentLoction_BDP_${Language}} 
-        BuiltIn.Sleep    2  
+        BuiltIn.Sleep    5
         Click Element    ${Choose_Change_CurrentLoction_BDP_${Language}}  
         BuiltIn.Sleep    2   
      
-Filter Bakeries_by_Category
+  
+    
+Filter Bakeries by Category
         Capture Page Screenshot    
-        Drag And Drop   (//img[contains(@src,'120x70.jpg')])[4]    (//img[contains(@src,'120x70.jpg')])[10]          
-        Click Element    (//img[contains(@src,'120x70.jpg')])[10]          
+        Drag And Drop   (//img[contains(@src,'120x70.jpg')])[4]    (//img[contains(@src,'120x70.jpg')])[7]          
+        Click Element    (//img[contains(@src,'120x70.jpg')])[7]          
         BuiltIn.Sleep    2         
-        Capture Page Screenshot    
-        
-        
+        Capture Page Screenshot        
+
 Unselect Category Filter
         Click Element    (//img[contains(@src,'120x70.jpg')])[5]   
         Set Selenium Implicit Wait    10       
@@ -261,10 +260,8 @@ Filter_by_OrderOnline
         Click Element    //input[@name='orderOnline']    
 
 Select bakery using multiple filter
-        Set Selenium Implicit Wait    10
-        Scroll Element Into View    (//div[@class='text-success'])[1]
-        Set Focus To Element    (//div[@class='text-success'])[1]
-        Click Element          (//div[@class='text-success'])[1]   
+        Sleep    2
+        Click Element          (//a[contains(@class,'quickAddToCart')])[1]  
 
 Select a bakery from list
         BuiltIn.Sleep    2       
@@ -312,11 +309,11 @@ Click bakery phone number
          BuiltIn.Sleep    5  
          Capture Page Screenshot                  
     
-Filter products by Category
-         Click Element    (//img[contains(@src,'120x70.jpg')])[7]
-         Capture Page Screenshot    
-         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)     
-         Capture Page Screenshot   
+Filter Products by Category
+        Capture Page Screenshot                
+        Click Element    (//a[contains(@class,'supplierCategoriesFilter ')])[2]        
+        BuiltIn.Sleep    2         
+        Capture Page Screenshot  
          
 Click 'i' for product information
          Click Element    (//i[contains(@class,'fas fa-info fa-fw')])[1]        
@@ -347,10 +344,12 @@ PDP_Minus product Quantity
 
 Type Product quantity
           BuiltIn.Sleep    1       
-          Capture Page Screenshot    
-          Input Text    //input[contains(@type,'number')]    6 
-        #  Press Keys      //input[contains(@type,'number')]     ENTER 
-          Capture Page Screenshot     
+          Capture Page Screenshot   
+          Clear Element Text    //input[contains(@type,'number')] 
+          Input Text    //input[contains(@type,'number')]    27 
+          Sleep    2    
+          # Press Keys      //input[contains(@type,'number')]     ENTER 
+          # Capture Page Screenshot     
           BuiltIn.Sleep    1     
           Click Element    ${btn_Checkout}
           
@@ -367,7 +366,15 @@ PDP_Click_Checkout
          Click Element    ${btn_Checkout}
          Capture Page Screenshot
                 
-
+Type Product quantity_Checkout
+          BuiltIn.Sleep    1       
+          Capture Page Screenshot
+         Input Text    //input[contains(@type,'number')]    27        
+          Sleep    3    
+          Click Element     (//div[contains(@class,'updateQButton')])[3]
+         # Press Keys      //input[contains(@type,'number')]     ENTER 
+          Capture Page Screenshot  
+          Click Element    orderAcceptance    
 
                    # Checkout page
                    
@@ -409,15 +416,29 @@ User_Fill_Checkoutpage
          # Input Text    //input[contains(@type,'tel')]    ${GuestUser_${Language}}[7]    
             
          
-Guestuser_Login_in_Checkoutpage         
-         Wait Until Page Contains    Choose pickup or delivery   
-         Wait Until Page Contains    Choose a date for Pickup   
+Guestuser_FBLogin_in_Checkoutpage         
+         Sleep    2     
          Select From List By Index     //select[@id='date']   0  
          Select From List By Index      //select[@id='time']    4   
          Scroll Element Into View    //a[contains(text(),'Login using Facebook')]
          Click Element   //a[contains(text(),'Login using Facebook')]    
          FacebookLogin_in_Checkoutpage
   
+Guestuser_Login_in_Checkoutpage 
+         Sleep    2     
+         Select From List By Index     //select[@id='date']   0  
+         Select From List By Index      //select[@id='time']    4   
+         Input Text    email    ${LoginCredentials}[0]
+         Click Element    //input[contains(@type,'tel')]     
+         Click Element    ${Checkout_LoginButton}  
+         EmailLogin         
+
+Guestuser_CreateAccount_in_Checkoutpage
+        Guestuser_Fill_Checkoutpage
+         Input Text    email    ${RegisterCredentialsCheckout}[0]
+         Click Element    //input[contains(@type,'tel')] 
+         Input Text    ${inputpassword}      ${RegisterCredentialsCheckout}[1]
+         Input Text    ${inputpasswordcheck}    ${RegisterCredentialsCheckout}[1]         
        
 Click_Terms&Condition
          BuiltIn.Sleep    2  
@@ -430,11 +451,12 @@ Click_Terms&Condition
               
      
 Click_T&C_Checkbox  
-         Scroll Element Into View    //*[@id="paymentHolder"]/div[1]/label
+         #Scroll Element Into View    //*[@id="paymentHolder"]/div[1]/label
          Select Radio Button    payment_method    payment_method2
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms'] 
-         Capture Element Screenshot    //input[@id='terms']     
+         Capture Element Screenshot    //input[@id='terms']   
+         Sleep    2  
                       # My Account
 Check_T&C_NonHappy
         
@@ -449,7 +471,7 @@ Check_T&C_NonHappy
          Close Browser
          
 Click Submit button
-    Click Button     ${btn_Submit_${Language}}
+    Click Button     ${btn_Save}
 
 Cashpay_OrderNow
             
@@ -552,7 +574,7 @@ Add to Calender
         
 
 SupportForm
-        Click Element    (//a[contains(@role,'button')])[5]  
+        Click Element    (//a[contains(@role,'button')])[2] 
         Set Browser Implicit Wait    10 
         SeleniumLibrary.Input Text    //textarea[contains(@name,'comments')]    "Test Automation - Test question"    
         Capture Page Screenshot    
@@ -568,19 +590,22 @@ Edit_Mydetails
         SeleniumLibrary.Input Text    //*[@id="firstname"]    ${GuestUser_${Language}}[0]
         SeleniumLibrary.Input Text    //*[@id="lastname"]    ${GuestUser_${Language}}[1]
         SeleniumLibrary.Input Text    //*[@id="address"]    ${GuestUser_${Language}}[3]
-        SeleniumLibrary.Input Text    columns[addressLine2]    ${GuestUser_${Language}}[4]
+       # SeleniumLibrary.Input Text    columns[addressLine2]    ${GuestUser_${Language}}[4]
         SeleniumLibrary.Input Text      columns[postal]       ${GuestUser_${Language}}[5]
         SeleniumLibrary.Input Text     columns[city]    ${GuestUser_${Language}}[6]
         SeleniumLibrary.Input Text     columns[phone]    ${GuestUser_${Language}}[7]
         Capture Page Screenshot
-        Set Focus To Element   ${btn_Save_${Language}}
-        Scroll Element Into View    ${btn_Save_${Language}}
-        Click Button    ${btn_Save_${Language}}             
+        Set Focus To Element   ${btn_Save}
+        Scroll Element Into View    ${btn_Save}
+        Click Button    ${btn_Save}   
+        Capture Page Screenshot             
         Click Element    (//button[contains(@type,'button')])[2]    
-        Wait Until Page Contains    ${btn_MyAccount}   
+       
         
 Click_MyFavorites
         Click Element    (//a[contains(@class,'list-group-item ')])[2] 
+        BuiltIn.Sleep    2 
+        Capture Page Screenshot    
 
 View_MyFavorites
          
@@ -641,7 +666,8 @@ About us
 
 Login As Merchant_Footer
         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
-        Click Link    (//a[@role='button'])[6]    
+        Scroll Element Into View    (//a[@role='button'])[4]
+        Click Link    (//a[@role='button'])[4]   
         BuiltIn.Sleep    2 
         Capture Page Screenshot 
 
@@ -674,16 +700,17 @@ Support_Form_Footer
         SeleniumLibrary.Input Text    //input[contains(@name,'phone')]    +31612809787
         SeleniumLibrary.Input Text    //input[contains(@name,'email')]    nisha@inqadigital.com    
         SeleniumLibrary.Input Text    //textarea[contains(@name,'comments')]    "Test automation- Testing Support form in footer"     
-        Click Button    //button[@class='btn btn-block btn-info-dark'][contains(.,'Submit')]       
+        Click Button   //button[contains(@class,'btn btn-block btn-info-dark')]     
 
 Bapacho_FB_icon
         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
         Click Link    (//a[contains(@class,'socialLink')])[1]    
+        Sleep    4    
        
 Bapacho_Instagram_icon
         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
         Click Link    (//a[contains(@class,'socialLink')])[2]    
-       
+        Sleep    4   
 
 
 

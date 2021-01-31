@@ -3,6 +3,7 @@ Library    SeleniumLibrary
    
 
 Resource    Bapacho Variables.robot
+Resource    Bapacho Credentials.robot
 Resource    Customerkeywords.robot 
 Resource    Merchantkeywords.robot
 Resource    CMSkeywords.robot

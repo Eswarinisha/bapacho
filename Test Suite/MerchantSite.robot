@@ -7,6 +7,8 @@ Library    ImageHorizonLibrary
 
 Default tags     RegressionTest
 
+Resource    Bapacho Variables.robot
+Resource    Bapacho Credentials.robot
 Resource     BasicRegressionKeywords.robot
 Resource     Customerkeywords.robot 
 Resource     Merchantkeywords.robot
