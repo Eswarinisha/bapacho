@@ -1,9 +1,5 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    pyautogui
-Library    ImageHorizonLibrary
-   
-
 
 Default tags     RegressionTest
 
@@ -24,7 +20,7 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 
 #FMO001	MERCHANT CREATION
 
-MO001TC001	# CMS admin must be able to create Bakery
+MO001TC001_CMS admin must be able to create Bakery
 
     Open_CMS
     CMSAdmin_Login
@@ -35,7 +31,7 @@ MO001TC001	# CMS admin must be able to create Bakery
     Capture Page Screenshot      
     Close Browser
    
-MO001TC002	#CMS admin must be able to search the bakery
+MO001TC002_CMS admin must be able to search the bakery
     Open_CMS
     CMSAdmin_Login
     Click_Outlets/Stores
@@ -43,7 +39,7 @@ MO001TC002	#CMS admin must be able to search the bakery
     Capture Page Screenshot    
     Close Browser
     
-MO002TC001	#CMS admin can enter any details of the merchant in CMS
+MO002TC001_CMS admin can enter any details of the merchant in CMS
     Open_CMS
     CMSAdmin_Login
     Click_Outlets/Stores
@@ -52,7 +48,7 @@ MO002TC001	#CMS admin can enter any details of the merchant in CMS
     Capture Page Screenshot    
     Close Browser
     
-MO003TC001	#CMS admin must be able to send activation email
+MO003TC001_CMS admin must be able to send activation email
     Open_CMS
     CMSAdmin_Login
     Click_Outlets/Stores
@@ -67,14 +63,14 @@ MO003TC001	#CMS admin must be able to send activation email
 
      
 
-MO005TC001	# Merchant can register password
+MO005TC001_Merchant can register password
     OpenYopMailinchrome
     Check Merchant Activation mail  
     Select Window    NEW 
     Step_1
     Close All Browsers
     
-MO005TC002	#Merchant can view details in "Need Help"
+MO005TC002_Merchant can view details in "Need Help"
     OpenYopMailinchrome
     Check Merchant Activation mail  
     Select Window    NEW 
@@ -82,7 +78,7 @@ MO005TC002	#Merchant can view details in "Need Help"
     Click_Step1 Need Help?
     Close All Browsers
     
-MO005TC003	# Merchant can view Terms and conditions
+MO005TC003_Merchant can view Terms and conditions
     OpenYopMailinchrome
     Check Merchant Activation mail  
     Select Window    NEW 
@@ -91,7 +87,7 @@ MO005TC003	# Merchant can view Terms and conditions
     Close All Browsers
     
 
-MO006TC001	# Merchant must be able to fill address,email id,phone number for orders, public phone number 
+MO006TC001_Merchant must be able to fill address,email id,phone number for orders, public phone number 
       
     Open_Bapachosite
     Login_as_Merchant
@@ -99,14 +95,14 @@ MO006TC001	# Merchant must be able to fill address,email id,phone number for ord
     Capture Page Screenshot
     Close Browser
     
-MO006TC002	# Merchant must be able to click on Need Help
+MO006TC002_Merchant must be able to click on Need Help
     Open_Bapachosite
     Login_as_Merchant
     Step_2
     Capture Page Screenshot
     Close Browser
     
-MO007TC001	# Merchant must be able to enter About your company,website,facebook page
+MO007TC001_Merchant must be able to enter About your company,website,facebook page
     Open_Bapachosite
     Login_as_Merchant
     Step_2
@@ -114,7 +110,7 @@ MO007TC001	# Merchant must be able to enter About your company,website,facebook 
     Capture Page Screenshot
     Close Browser
     
-MO008TC001	# Merchant must be able to choose one or more products
+MO008TC001_Merchant must be able to choose one or more products
     Open_Bapachosite
     Login_as_Merchant
     Step_3
@@ -122,7 +118,7 @@ MO008TC001	# Merchant must be able to choose one or more products
     Capture Page Screenshot
     Close Browser
     
-MO009TC001	# Merchant must be able to choose delivery options and preparation time
+MO009TC001_Merchant must be able to choose delivery options and preparation time
     Open_Bapachosite
     Login_as_Merchant
     Step_4_click next
@@ -130,7 +126,7 @@ MO009TC001	# Merchant must be able to choose delivery options and preparation ti
     Capture Page Screenshot  
     Close Browser
     
-MO010TC001	# Merchant must be able to accept T&C
+MO010TC001_Merchant must be able to accept T&C
     Open_Bapachosite
     Login_as_Merchant
     Step_5
@@ -138,7 +134,7 @@ MO010TC001	# Merchant must be able to accept T&C
     Capture Page Screenshot    
     Close Browser
     
-MO011TC001	# Merchant must be able to fill official company information
+MO011TC001_Merchant must be able to fill official company information
     Open_Bapachosite
     Login_as_Merchant
     Step_6
@@ -146,7 +142,7 @@ MO011TC001	# Merchant must be able to fill official company information
     Capture Page Screenshot    
     Close Browser
     
-MO012TC001	# Merchant must be able to add person as representative
+MO012TC001_Merchant must be able to add person as representative
     Open_Bapachosite
     Login_as_Merchant
     Step_7
@@ -154,7 +150,7 @@ MO012TC001	# Merchant must be able to add person as representative
     Capture Page Screenshot    
     Close Browser
     
-MO013TC001	# Merchant must be able to edit Financial information
+MO013TC001_Merchant must be able to edit Financial information
     Open_Bapachosite
     Login_as_Merchant
     Step_8_Click next
@@ -162,7 +158,7 @@ MO013TC001	# Merchant must be able to edit Financial information
     Capture Page Screenshot    
     Close Browser
     
-MO014TC001	# Merchant must be able to click on Next and view Merchant dashboard
+MO014TC001_Merchant must be able to click on Next and view Merchant dashboard
     Open_Bapachosite
     Login_as_Merchant
     Step_9
@@ -170,7 +166,7 @@ MO014TC001	# Merchant must be able to click on Next and view Merchant dashboard
     Capture Page Screenshot    
     Close Browser
     
-MO015TC001	# Merchant must be able to click skip on Step 6 
+MO015TC001_Merchant must be able to click skip on Step 6 
     Open_CMS
     Merchant Activation (Without Online payment)
     Open_Bapachosite

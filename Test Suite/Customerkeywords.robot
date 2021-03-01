@@ -12,7 +12,9 @@ Resource     Merchantkeywords.robot
 Open_Bapachosite
         Open Browser   ${Bapacho_URL_${Language}}     ${Chrome}
         Maximize Browser Window
-                    
+        Change_CurrentLocation_Home
+
+
 
 login_Using_RegisteredMailid      
         Set Browser Implicit Wait    5    
@@ -316,7 +318,8 @@ Filter Products by Category
         Capture Page Screenshot  
          
 Click 'i' for product information
-         Click Element    (//i[contains(@class,'fas fa-info fa-fw')])[1]        
+        Click Element    (//div[contains(@class,'title')])[3]    
+        # Click Element    (//i[contains(@class,'fas fa-info fa-fw')])[1]        
           BuiltIn.Sleep    2  
           Capture Page Screenshot 
            Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
@@ -702,6 +705,19 @@ Support_Form_Footer
         SeleniumLibrary.Input Text    //textarea[contains(@name,'comments')]    "Test automation- Testing Support form in footer"     
         Click Button   //button[contains(@class,'btn btn-block btn-info-dark')]     
 
+Blog    
+         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+        Click Element    //a[contains(.,'Blog')]
+        Sleep    2    
+        Capture Page Screenshot    
+        Click Element    (//img[contains(@class,'media-object')])[1]        
+        Sleep    2    
+        Capture Page Screenshot 
+        Click Element    (//h4[contains(@class,'media-heading')])[2]    
+        Sleep    2    
+        Capture Page Screenshot 
+
+
 Bapacho_FB_icon
         Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
         Click Link    (//a[contains(@class,'socialLink')])[1]    
@@ -713,6 +729,27 @@ Bapacho_Instagram_icon
         Sleep    4   
 
 
+                    #Landing Page
+   
+Open_Landingpage          
+       Open Browser   ${BapachoLangingpage_URL_${Language}}     ${Chrome}
+       Maximize Browser Window
+       Capture Page Screenshot
+            
+Subscribe to Newsletter
+    Input Text    ${Subscribetonewsletter}    ${GuestUser_${Language}}[2]   
+    Click Element  ${Signup}
+    Capture Page Screenshot    
+    Sleep    2   
+    Click Element    ${OK_Button}    
+     
+    
+View bakery in landingpage
+    Sleep    2     
+    Click Element    ${Ordernow} 
+    Sleep    2    
+    Capture Page Screenshot
+    Go Back
 
                        # Other
 

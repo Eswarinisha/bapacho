@@ -209,7 +209,8 @@ Step_2_Merchant without online payment
         Click Element    ${Step2_Nextbutton} 
         
 Step_3_Merchant without online payment
-        Capture Page Screenshot
+        Sleep    2    
+        Capture Page Screenshot    
         Input Text   ${btn_Location_${Language}}    "Nisha's Automated Bakery Number 1"   
         Click Element    (//button[contains(@type,'button')])[15]   
         Input Text    name=columns[website]    https://www.multivlaai.nl/
@@ -221,13 +222,13 @@ Step_3_Merchant without online payment
         
 Step_4_Merchant without online payment
         Capture Page Screenshot
-        BuiltIn.Sleep    2   
+        BuiltIn.Sleep    2 
         Capture Page Screenshot  
-        Scroll Element Into View    name=category_id  
+       # Scroll Element Into View    name=category_id  
         Select From List By Value    name=category_id    ${category_${Language}}
         Capture Page Screenshot    
         BuiltIn.Sleep    2    
-        Scroll Element Into View   ${Chooseproduct1_${Language}}        
+        #Scroll Element Into View   ${Chooseproduct1_${Language}}        
         Click Element    ${Chooseproduct1_${Language}}
         #Set Browser Implicit Wait    10     
         #Click Element    ${Chooseproduct2_${Language}}

@@ -7,8 +7,8 @@ Library    ImageHorizonLibrary
 
 Default tags     RegressionTest
 
-Resource    Bapacho Variables.robot
-Resource    Bapacho Credentials.robot
+Resource     Bapacho Variables.robot
+Resource     Bapacho Credentials.robot
 Resource     BasicRegressionKeywords.robot
 Resource     Customerkeywords.robot 
 Resource     Merchantkeywords.robot
@@ -20,37 +20,41 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
   
     # MO017	    Dashboard
 
-MO017TC001	# Merchant must be able to view orders for pickup today
+MO017TC001_Merchant must be able to view orders for pickup today
     #Guest user placing a Cash pay order
     Open_Bapachosite
+    Click_login
     Login_as_Merchant without online payment
     Capture Page Screenshot    
     View Orders for pickup today
     Capture Page Screenshot    
     Close Browser
         
-MO017TC002	# Merchant must be able to view orders for future days  
+MO017TC002_Merchant must be able to view orders for future days  
     
     Open_Bapachosite
+    Click_login
     Login_as_Merchant without online payment
     Capture Page Screenshot   
     View Orders for future today     
     Close Browser
          
-MO017TC003	# Merchant must be able to click the order and view in separate page
+MO017TC003_Merchant must be able to click the order and view in separate page
     
 #MO017TC005	#Merchant must be able to click on Order/product details and view it
 
     Open_Bapachosite
+    Click_login
     Login_as_Merchant without online payment
     Capture Page Screenshot   
     View Orders for pickup today 
     Scroll to Download Order Confirmation 
     Close Browser 
          
-MO017TC004	# Merchant must be able to Print all orders 
+MO017TC004_Merchant must be able to Print all orders 
     #Guest user placing a Cash pay order
     Open_Bapachosite
+    Click_login
     Login_as_Merchant without online payment
     Capture Page Screenshot   
     View Orders for pickup today
@@ -58,15 +62,14 @@ MO017TC004	# Merchant must be able to Print all orders
     Close Browser
         
     
-MO018TC001	# Merchant must be able to create new product category
+MO018TC001_Merchant must be able to create new product category
     Open_Bapachosite
     Click_login
     Login_as_Merchant without online payment
     Create new product category
-      
     Close Browser    
     
-MO020TC004	# Merchant must be able to delete product category with no products under them
+MO020TC004_Merchant must be able to delete product category with no products under them
     Open_Bapachosite
     Click_login
     Login_as_Merchant without online payment 
@@ -74,7 +77,7 @@ MO020TC004	# Merchant must be able to delete product category with no products u
     Close Browser  
 
 
-MO018TC002	# Merchant must be able to add product details
+MO018TC002_Merchant must be able to add product details
     
 #MO019TC001	 #Merchant must be able to view the newly added product and existing products
 
@@ -86,7 +89,7 @@ MO018TC002	# Merchant must be able to add product details
     Close Browser
         
 
-MO018TC003	#Merchant must be able to delete product from own category
+MO018TC003_Merchant must be able to delete product from own category
     
 #MO019TC003	 #Merchant must be able to remove the products
 
@@ -96,20 +99,20 @@ MO018TC003	#Merchant must be able to delete product from own category
     Delete created own category product
     Close Browser
 
-MO020TC005	# Merchant must not be able to delete product category with products under them
+MO020TC005_Merchant must not be able to delete product category with products under them
     Open_Bapachosite
     Click_login
     Login_as_Merchant without online payment  
     Delete product category Failing
     Close Browser  
     
-MO020TC002	# Merchant must be able to add new zeelandia product
+MO020TC002_Merchant must be able to add new zeelandia product
     Open_Bapachosite
     Login_as_Merchant without online payment
     Add Zeelandia product from library
     Close Browser
 
-MO021TC002	#Merchant must be able to edit opening hours  
+MO021TC002_Merchant must be able to edit opening hours  
     Open_Bapachosite   
     Login_as_Merchant without online payment
     Edit opening time in Portal
@@ -117,7 +120,7 @@ MO021TC002	#Merchant must be able to edit opening hours
     Click show more information
     Close Browser
      
-MO022TC002	#Merchant must be able to edit delivery times and save
+MO022TC002_Merchant must be able to edit delivery times and save
     Open_Bapachosite   
     Login_as_Merchant without online payment
     Edit delivery time in Portal
@@ -125,7 +128,7 @@ MO022TC002	#Merchant must be able to edit delivery times and save
     Click show more information
     Close Browser
   
-MO024TC003	# Merchant must be able to cancel order  
+MO024TC003_Merchant must be able to cancel order  
     Open_Bapachosite   
     Login_as_Merchant without online payment
     Select an order from Merchant's My order list
@@ -133,7 +136,7 @@ MO024TC003	# Merchant must be able to cancel order
     Change payment status to Refund
     Close Browser
     
-MO024TC005	# Merchant can change his order status and payment status   
+MO024TC005_Merchant can change his order status and payment status   
 #O024TC001	#Merchant must be able to view orders for pickup/delivery
 
     # Order fulfillment with emailid login and cashpay    

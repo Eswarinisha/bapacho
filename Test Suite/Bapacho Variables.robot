@@ -1,6 +1,6 @@
 ***Variables***
 
-${Language}     DE
+${Language}     EN
 
 
 #MERCHANT ONBOARDING
@@ -41,6 +41,13 @@ ${SalePortal_RO}     https://bapacho:bapacho@sales.bapacho.ro/
 ${SalePortal_PT}     https://bapacho:bapacho@sales.bapacho.pt/
 ${SalePortal_PL}     https://bapacho:bapacho@sales.bapacho.pl/
 
+#LandingpageURL
+${BapachoLangingpage_URL_EN}    https://staging.bapacho.com/nl/city/haarlem 
+${Subscribetonewsletter}    //input[@class='form-control']
+${Signup}    (//button[contains(@type,'button')])[2] 
+${Ordernow}    (//a[contains(.,'Order now')])[3]        
+${OK_Button}    //button[contains(.,'OK')]
+
 #Merchant activation link in Mail
 ${activationmail_NL}      //a[contains(.,'{activeAccountURL}')]
 ${activationmail_EN}     //a[contains(.,'https://staging.bapacho.com/activateShop.php?')]
@@ -52,6 +59,9 @@ ${activationmail_ES}     //a[contains(.,'https://staging.bapacho.es/activateShop
 ${activationmail_RO}      //a[contains(.,'https://staging.bapacho.ro/activateShop.php?')]
 ${activationmail_PT}      //a[contains(.,'https://staging.bapacho.pt/activateShop.php?')]
 ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop.php?')]
+
+
+
 
 #Step 1 
 
@@ -171,7 +181,7 @@ ${category_NL}    Snacks
 ${category_IT}    Pane
 ${category_CZ}    12
 
-${Chooseproduct1_EN}     (//button[contains(.,'Choose product')])[4]
+${Chooseproduct1_EN}     (//button[contains(.,'Choose product')])[6]
 ${Chooseproduct1_NL}     (//button[contains(.,'Choose product')])[4]
 ${Chooseproduct1_IT}    (//button[@onclick='setProductActive(this);'])[8]
 ${Chooseproduct1_CZ}    (//button[contains(@type,'button')])[21]

@@ -14,24 +14,15 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 
 #FCS001	CUSTOMER LOGIN
 
-CS001TC001
-	# User must be able to click on Login icon and click create account
+#CS001TC00_User must be able to click on Login icon and click create account
+CS001TC002_User must be able to enter valid email id, first name, last name and confirm password
 	     
         Open_Bapachosite
         Capture Page Screenshot    
         Click_login   
-        Close Browser
-        
-
-CS001TC002
-	# User must be able to enter valid email id, first name, last name and confirm password
-      
-        Set Tags    Sanity
-        Open_Bapachosite
-        Click_login
         Email_Registration 
         Close Browser
-        
+              
 #CS001TC003
 	# Once account is created check user must get activation mail to registered id
 	
@@ -40,33 +31,22 @@ CS001TC002
        # Close Browser
        
 
-
-CS001TC004
-	# User must be able to login with newly registered email id
+CS001TC004_User must be able to login with newly registered email id
 	          
 	    Open_Bapachosite
         Click_login         
         EmailLogin       
-        Close Browser    
+        Close Browser 
 
-CS002TC001
-	 #User must be able to click on Login icon and click login using Facebook
-       
+#CS002TC001_User must be able to click on Login icon and click login using Facebook
+CS002TC002_User must be directed to Facebook login page and able to login successfully       
         Open_Bapachosite
         Click_login
         Click_FacebookLogin
-        Close Browser
-        
-CS002TC002
-	 #User must be directed to Facebook login page and able to login successfully
-	
-        Set Tags    Sanity
-        Open_Bapachosite
         FacebookLogin
         Close Browser
 
-CS003TC001
-	# User must be able to login using his credentials
+CS003TC001_User must be able to login using his credentials
         Set Tags    Sanity
        
         Open_Bapachosite
@@ -81,8 +61,7 @@ CS003TC001
         # FacebookLogin
         # Close Browser
         
-CS003TC003	
-    # User must be able to login during checkout 
+CS003TC003_User must be able to login during checkout 
     
          Open_Bapachosite
          Click_bakeries
@@ -99,8 +78,7 @@ CS003TC003
          Capture Page Screenshot    
          Close Browser
          
-CS003TC004
-     # User must be able to register during checkout 
+CS003TC004_User must be able to register during checkout 
          Open_Bapachosite
          Click_bakeries
          Change_CurrentLoction_BDP
@@ -133,47 +111,41 @@ CS003TC004
          # Capture Page Screenshot    
          # Close Browser            
 
-CS004TC001
-	# User must be able to click on forgot password
+CS004TC001_User must be able to click on forgot password
        
         Open_Bapachosite
         Click_login
         Click_ForgotPassword  
         Close Browser 
               
-CS004TC002	
-    # User must receive mail for resetting the password and able to set new password
+CS004TC002_User must receive mail for resetting the password and able to set new password
         
          OpenYopMailinchrome
          Check_ForgtPassword_mail
          ResetPassword  
          Close All Browsers
 
-CS005TC001	
-    # User must be able to login with the new password
+CS005TC001_User must be able to login with the new password
       
        Open_Bapachosite
        Click_login
        login_Using_RegisteredMailid
        Close Browser       
 
-CS005TC002	
-    # User must not be able to login with old password
+CS005TC002_User must not be able to login with old password
        Open_Bapachosite
        Click_login
        login_Using_RegisteredMailid_with old password   
        Close Browser
    
-CS006TC001
-	# User must be able to visit Bapacho site as guest
+CS006TC001_User must be able to visit Bapacho site as guest
 
          Open_Bapachosite
          Click_bakeries
          Capture Page Screenshot
          Close Browser
 
-CS006TC002
-	# User must be able to search bakeries by name on the search bar
+CS006TC002_User must be able to search bakeries by name on the search bar
 
           Open_Bapachosite
           Click_bakeries
@@ -183,8 +155,7 @@ CS006TC002
           Capture Page Screenshot
           Close Browser
       
-CS006TC003
-	# Guest User must not be able to add bakeries to favorites
+CS006TC003_Guest User must not be able to add bakeries to favorites
           
           Open_Bapachosite
           Click_bakeries
@@ -194,8 +165,7 @@ CS006TC003
           Guestuser_Click_favourites 
           Close Browser
 
-CS006TC004
-    # Guest User must be able to add products to cart
+CS006TC004_Guest User must be able to add products to cart
 
         Open_Bapachosite
         Click_bakeries
@@ -206,8 +176,7 @@ CS006TC004
         Capture Page Screenshot    
         Close Browser
        
-CS006TC005
-     #Guest User must be able to checkout and place order
+CS006TC005_Guest User must be able to checkout and place order
          Set Tags    Sanity
          Open_Bapachosite
          Click_bakeries
@@ -223,8 +192,7 @@ CS006TC005
          
     #FCS002	CUSTOMER DASHBOARD
 
-CS007TC001
-	# User must login to view on the Account icon
+CS007TC001_User must login to view on the Account icon
 
        Open_Bapachosite
        Click_login
@@ -232,8 +200,7 @@ CS007TC001
        Click_MyAccount    
        Close Browser
        
-CS007TC002
-	# User must be able to edit and save all the information in my data
+CS007TC002_User must be able to edit and save all the information in my data
 
         Open_Bapachosite
         Click_login
@@ -242,7 +209,7 @@ CS007TC002
         Edit_Mydetails
         Close Browser
         
-CS007TC003	# While placing order, all the information must be populated correctly after checkout
+CS007TC003_While placing order, all the information must be populated correctly after checkout
         Set Tags    Sanity
         Open_Bapachosite
         Click_login
@@ -258,8 +225,7 @@ CS007TC003	# While placing order, all the information must be populated correctl
         Cashpay_OrderNow
         Close Browser
         
-CS008TC001
-	# User must be able to view his favorites bakery by clicking on the favorites icon
+CS008TC001_User must be able to view his favorites bakery by clicking on the favorites icon
 
         Open_Bapachosite
         Click_login
@@ -268,9 +234,7 @@ CS008TC001
         Capture Page Screenshot
         Close Browser
 
-CS008TC002
-	# User must be able to click and view any of his favorite bakeries
-
+CS008TC002_User must be able to view his favorites bakery by clicking on the favorites icon
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -278,8 +242,7 @@ CS008TC002
         View_favourites
         Close Browser
       
-CS008TC003
-	# User must be able to view Favorites from My Account
+CS008TC003_User must be able to view Favorites from My Account
 
         Open_Bapachosite
         Click_login
@@ -289,8 +252,7 @@ CS008TC003
         Capture Page Screenshot
         Close Browser
     
-CS008TC004
-	# User must be able to click and view any of his favorite bakeries
+CS008TC004_User must be able to click and view any of his favorite bakeries
 
         Open_Bapachosite
         Click_login
@@ -300,8 +262,7 @@ CS008TC004
         View_MyFavorites
         Close Browser
         
-CS009TC001
-	# User can view his order history under My orders in My account
+CS009TC001_User can view his order history under My orders in My account
 
         Open_Bapachosite
         Click_login
@@ -310,8 +271,7 @@ CS009TC001
         Click_Myorders
         Close Browser
         
-CS009TC002
-	# User can select any of his previous orders
+CS009TC002_User can select any of his previous orders
 
         Open_Bapachosite
         Click_login
@@ -321,8 +281,7 @@ CS009TC002
         View_MyOrders
         Close Browser
         
-CS009TC003
-	# User must be able to Download order confirmation for the selected order
+CS009TC003_User must be able to Download order confirmation for the selected order
 
         Open_Bapachosite
         Click_login
@@ -333,8 +292,7 @@ CS009TC003
         Download_OrderConfirmation
         Close Browser
         
-CS009TC004
-	# User must be able to click repeat order and place the same
+CS009TC004_User must be able to click repeat order and place the same
 
         Open_Bapachosite
         Click_login
@@ -345,8 +303,7 @@ CS009TC004
         Repeat_Order               
         Close Browser
         
-CS010TC001
-	# On clicking logout, user must be logged out of site
+CS010TC001_On clicking logout, user must be logged out of site
 
         Open_Bapachosite
         Click_login
@@ -358,9 +315,8 @@ CS010TC001
         Close Browser
 
         
-CS010TC003
-	# User must be able to login with another credentials
-#CS010TC002	 #Login icon must appear in the header
+CS010TC003_User must be able to login with another credentials
+    #CS010TC002	 #Login icon must appear in the header
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -373,8 +329,7 @@ CS010TC003
         
     #FCS003    SEARCH
 
-CS011TC001
-	# User must be able to type the location to find his bakery needed
+CS011TC001_User must be able to type the location to find his bakery needed
       
         Open_Bapachosite
         Change_CurrentLocation_Home
@@ -384,22 +339,19 @@ CS011TC001
         Capture Page Screenshot
         Close Browser
 
-CS011TC002
-    # On clicking on the arrow near the search tab, current location must be populated
+CS011TC002_On clicking on the arrow near the search tab, current location must be populated
       
         Open_Bapachosite
         Get_CurrrentLocation_Home
         Close Browser
         
-CS012TC001
-	# User must be able to click on Bakeries and view bakery listing page
+CS012TC001_User must be able to click on Bakeries and view bakery listing page
       
         Open_Bapachosite
         Click_bakeries
         Close Browser
         
-CS013TC001
-	# User must be able to search bakeries by name on the search bar
+CS013TC001_User must be able to search bakeries by name on the search bar
       
         Open_Bapachosite
         Click_bakeries
@@ -408,8 +360,7 @@ CS013TC001
         Capture Page Screenshot
         Close Browser
         
-CS013TC002
-	# When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
+CS013TC002_When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
       
         Open_Bapachosite
         Click_bakeries
@@ -418,8 +369,7 @@ CS013TC002
         Capture Page Screenshot
         Close Browser
         
-CS013TC003
-	# User must be able to clear search by clicking on the X button
+CS013TC003_User must be able to clear search by clicking on the X button
       
         Open_Bapachosite
         Click_bakeries
@@ -430,16 +380,14 @@ CS013TC003
         Capture Page Screenshot
         Close Browser
         
-CS014TC001
-	# User must be able to use "Filter by Category" and get relevent result in the bakery listing page
+CS014TC001_User must be able to use "Filter by Category" and get relevent result in the bakery listing page
       
         Open_Bapachosite
         Click_bakeries
         Filter Bakeries by Category         
         Close Browser
         
-CS014TC002
-	# User must be able to use filter "Range from my location" and get relevent result in the bakery listing page
+CS014TC002_User must be able to use filter "Range from my location" and get relevent result in the bakery listing page
     
         Open_Bapachosite
         Click_bakeries
@@ -448,8 +396,7 @@ CS014TC002
         Pass Execution    "Failure expected because of drag and drop offset but works as expected" 
         
         
-CS014TC003
-	# User must be able to use filter deliver/pickup and get relevent result in the bakery listing page
+CS014TC003_User must be able to use filter deliver/pickup and get relevent result in the bakery listing page
         
         Open_Bapachosite
         Click_bakeries
@@ -459,8 +406,7 @@ CS014TC003
         Filter_by_Deliver    
         Close Browser
             
-CS014TC004
-	# User must be able to use filter "other filter" and get relevent result in the bakery listing page
+CS014TC004_User must be able to use filter "other filter" and get relevent result in the bakery listing page
     
         Open_Bapachosite
         Click_bakeries
@@ -473,8 +419,7 @@ CS014TC004
         Capture Page Screenshot
         Close Browser
         
-CS015TC001
-	# User must be able to use one or many filters and get relevant result in the bakery listing page
+CS015TC001_User must be able to use one or many filters and get relevant result in the bakery listing page
         
         Open_Bapachosite
         Click_login
@@ -488,8 +433,7 @@ CS015TC001
         Cashpay_OrderNow
         Close Browser
         
-CS015TC002	
-    #User must be able to deselect Category filter and get relevent result in the bakery listing page
+CS015TC002_User must be able to deselect Category filter and get relevent result in the bakery listing page
         
         Open_Bapachosite
         Click_bakeries
@@ -499,8 +443,7 @@ CS015TC002
 
 
 
-CS016TC001
-	# User must be able to remove the filters and all the result must be reset
+CS016TC001_User must be able to remove the filters and all the result must be reset
         
         Open_Bapachosite
         Click_bakeries
@@ -516,8 +459,7 @@ CS016TC001
         
     #FCS005	BAKERY DISPLAY PAGE
 
-CS017TC001
-	# On clicking on any bakery, the bakery details page must be displayed
+CS017TC001_On clicking on any bakery, the bakery details page must be displayed
         
         Open_Bapachosite
         Click_bakeries
@@ -528,8 +470,7 @@ CS017TC001
         Capture Page Screenshot
         Close Browser
         
-CS018TC001
-	# In the bakery display page, under the About Bakery, show more information link must be available
+CS018TC001_In the bakery display page, under the About Bakery, show more information link must be available
 
         Open_Bapachosite
         Click_bakeries
@@ -539,7 +480,7 @@ CS018TC001
         Capture show more information            
         Close Browser
  
-CS018TC002	# On clicking the link, all information including payment method must be displayed       
+CS018TC002_On clicking the link, all information including payment method must be displayed       
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -548,7 +489,7 @@ CS018TC002	# On clicking the link, all information including payment method must
         Click show more information     
         Close Browser
     
-CS018TC003	# Phone number under other information must be clickable
+CS018TC003_Phone number under other information must be clickable
 
         Open_Bapachosite
         Click_bakeries
@@ -559,7 +500,7 @@ CS018TC003	# Phone number under other information must be clickable
         Capture Page Screenshot      
         Close Browser
         
-CS019TC001	# Products must be listed according to the product type 
+CS019TC001_Products must be listed according to the product type 
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -569,7 +510,7 @@ CS019TC001	# Products must be listed according to the product type
         Capture Page Screenshot   
         Close Browser
       
-CS019TC002	# On clicking on "+" product must get added to cart
+CS019TC002_On clicking on "+" product must get added to cart
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -579,7 +520,7 @@ CS019TC002	# On clicking on "+" product must get added to cart
         Capture Page Screenshot    
         Close Browser
         
-CS020TC001	# On clicking on "i " the product details must be displayed
+CS020TC001_On clicking on "i " the product details must be displayed
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -591,7 +532,7 @@ CS020TC001	# On clicking on "i " the product details must be displayed
            # FCS006	    CART
 
 
-CS021TC001	# User must be able to add produts using Add to cart button in the product information       
+CS021TC001_User must be able to add produts using Add to cart button in the product information       
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -601,7 +542,7 @@ CS021TC001	# User must be able to add produts using Add to cart button in the pr
         Click add to cart button
         Close Browser
         
-CS021TC002	# User must be able to change the quantity of product using + and - buttons
+CS021TC002_User must be able to change the quantity of product using + and - buttons
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -615,7 +556,7 @@ CS021TC002	# User must be able to change the quantity of product using + and - b
         Close Browser
 
         
-CS021TC003	# User must be able to directly type the quantity of product in the box
+CS021TC003_User must be able to directly type the quantity of product in the box
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -626,7 +567,7 @@ CS021TC003	# User must be able to directly type the quantity of product in the b
         Capture Page Screenshot    
         Close Browser
         
-CS022TC001	# User must be able to remove the products from cart with delete button
+CS022TC001_User must be able to remove the products from cart with delete button
         Open_Bapachosite
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -643,7 +584,7 @@ CS022TC001	# User must be able to remove the products from cart with delete butt
 
     
 
-CS023TC001	# On clicking Favorites icon, the list of favorite bakeries must be displayed
+CS023TC001_On clicking Favorites icon, the list of favorite bakeries must be displayed
     
 #CS023TC002	 #Any of the favorite bakeries can be clicked and result to bakery display page
 
@@ -657,7 +598,7 @@ CS023TC001	# On clicking Favorites icon, the list of favorite bakeries must be d
 
                # FCS008	        CHECKOUT
                
-CS024TC001	# User must be able to enter mandatory details in the Choose pickup and delivery page after checkout
+CS024TC001_User must be able to enter mandatory details in the Choose pickup and delivery page after checkout
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -674,7 +615,7 @@ CS024TC001	# User must be able to enter mandatory details in the Choose pickup a
         Close Browser
         
 
-CS024TC002	# User must be able to choose pickup 
+CS024TC002_User must be able to choose pickup 
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -690,7 +631,7 @@ CS024TC002	# User must be able to choose pickup
         Close Browser
         
 
-CS024TC003	# User must be able to choose date and time for Deliver
+CS024TC003_User must be able to choose date and time for Deliver
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -708,7 +649,7 @@ CS024TC003	# User must be able to choose date and time for Deliver
         Capture Page Screenshot    
         Close Browser
         
-CS024TC004	# User must be able to choose payment method in the Choose pickup and delivery page
+CS024TC004_User must be able to choose payment method in the Choose pickup and delivery page
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -725,7 +666,7 @@ CS024TC004	# User must be able to choose payment method in the Choose pickup and
         Capture Page Screenshot    
         Close Browser
         
-CS025TC001	# User must be able to read Terms & conditions on clicking the link
+CS025TC001_User must be able to read Terms & conditions on clicking the link
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -739,7 +680,7 @@ CS025TC001	# User must be able to read Terms & conditions on clicking the link
         Click_Terms&Condition
         Close Browser  
         
-CS025TC002	# User must be able to check the Terms & conditions box
+CS025TC002_User must be able to check the Terms & conditions box
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -755,7 +696,7 @@ CS025TC002	# User must be able to check the Terms & conditions box
         Click_T&C_Checkbox
         Close Browser
         
-CS025TC003	# Without checking the Terms &Conditions check box, user must not be able to place order
+CS025TC003_Without checking the Terms &Conditions check box, user must not be able to place order
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -776,7 +717,7 @@ CS025TC003	# Without checking the Terms &Conditions check box, user must not be 
 
         #  FCS009	PAYMENT
 
-CS026TC001	# User must be able to do online payment using iDeal     
+CS026TC001_User must be able to do online payment using iDeal     
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -793,7 +734,7 @@ CS026TC001	# User must be able to do online payment using iDeal
         iDEAL_Online_payment_process
         Close Browser   
         
-CS026TC002	# User must be able to do online payment using card
+CS026TC002_User must be able to do online payment using card
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -814,7 +755,7 @@ CS026TC002	# User must be able to do online payment using card
         Close Browser
 
         
-CS026TC003	# User must be able to do online payment using giropay
+CS026TC003_User must be able to do online payment using giropay
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -831,7 +772,7 @@ CS026TC003	# User must be able to do online payment using giropay
         Giropay_Online_payment_process
         Close Browser
         
-CS026TC004	# User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
+CS026TC004_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -849,7 +790,7 @@ CS026TC004	# User must be able to add date and time of delivery to his calender 
         Add to Calender
         Close Browser
         
-CS027TC001	# User must be able to choose cash payment method and click on Order now
+CS027TC001_User must be able to choose cash payment method and click on Order now
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -865,7 +806,7 @@ CS027TC001	# User must be able to choose cash payment method and click on Order 
         Cashpay_OrderNow
         Close Browser
         
-CS027TC002	# User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
+CS027TC002_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -881,7 +822,7 @@ CS027TC002	# User must be able to add date and time of delivery to his calender 
         Add to Calender
         Close Browser
         
-CS028TC001	# User must be able to choose Card payment method and click on Order now
+CS028TC001_User must be able to choose Card payment method and click on Order now
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -897,7 +838,7 @@ CS028TC001	# User must be able to choose Card payment method and click on Order 
         Cardpay_OrderNow
         Close Browser
         
-CS028TC002	# User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
+CS028TC002_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -919,7 +860,7 @@ CS028TC002	# User must be able to add date and time of delivery to his calender 
 #  FCS010	PAYMENT FAILURE
 
         
-CS029TC001	# User must be able to click on back button without paying and redirected to  Order incomplete page
+CS029TC001_User must be able to click on back button without paying and redirected to Order incomplete page
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -937,7 +878,7 @@ CS029TC001	# User must be able to click on back button without paying and redire
         Close Browser
         
 
-CS030TC001	# Order incomplete page must have details regarding the failed payment
+CS030TC001_Order incomplete page must have details regarding the failed payment
         Open_Bapachosite
         Click_login
         EmailLogin
@@ -958,26 +899,26 @@ CS030TC001	# Order incomplete page must have details regarding the failed paymen
 
   # FCS011	DISCOVER BAPACHO
  
-CS031TC001	# User must be able to view About us static page
+CS031TC001_User must be able to view About us static page
          Open_Bapachosite
          About us
          Close Browser
          Pass Execution    "Failure expected in local staging" 
                
-CS032TC001	# User must be able to click on "Login as Merchant"
+CS032TC001_User must be able to click on "Login as Merchant"
         Open_Bapachosite
         Login As Merchant_Footer
         Capture Page Screenshot    
         Close Browser
          
 
-CS032TC002	# User must enter valid Merchant email id and password
+CS032TC002_User must enter valid Merchant email id and password
         Open_Bapachosite
         Login As Merchant_Footer
         MerchantLogin_Form
         Close Browser
     
-CS032TC003	#User must be able to use the website as Merchant
+CS032TC003_User must be able to use the website as Merchant
         Open_Bapachosite
         Login As Merchant_Footer
         MerchantLogin_Form
@@ -986,43 +927,49 @@ CS032TC003	#User must be able to use the website as Merchant
         Capture Page Screenshot  
         Close Browser
         
-CS033TC001	# User must be able to click and read on Terms and Conditions in the footer 
+CS033TC001_User must be able to click and read on Terms and Conditions in the footer 
         Open_Bapachosite
         Terms and Condition
         Close Browser
          Pass Execution    "Failure expected in local staging" 
         
-CS034TC001	# User must be able to click and read on Privacy statement in the footer
+CS034TC001_User must be able to click and read on Privacy statement in the footer
         Open_Bapachosite
         Privacy Statement
         Close Browser
         Pass Execution    "Failure expected in local staging"         
 
-CS035TC001	# User must be able to click and read on FAQ in the footer
+CS035TC001_User must be able to click and read on FAQ in the footer
         Open_Bapachosite
         FAQ
         Close Browser
         
-CS036TC001	# User must be able to click and fill in the Support form and submit
+CS036TC001_User must be able to click and fill in the Support form and submit
         Open_Bapachosite
         Support_Footer
         Support_Form_Footer
         Capture Page Screenshot    
         Close Browser
-        
-CS037TC001	    # User must be able to click and view the Bapacho Facebook icon
+
+CS041TC001_User must be able to view blog page    
+       Open_Bapachosite
+        Blog
+        Close Browser    
+
+
+CS037TC001_User must be able to click and view the Bapacho Facebook icon
         Open_Bapachosite
         Bapacho_FB_icon       
         Capture Page Screenshot       
         Close All Browsers
         
-CS038TC001	# User must be able to click and view on the Bapacho Instagram icon
+CS038TC001_User must be able to click and view on the Bapacho Instagram icon
         Open_Bapachosite
         Bapacho_Instagram_icon
         Capture Page Screenshot       
         Close All Browsers
         
-CS039TC001	#User must be able to click and view app in Playstore
+CS039TC001_User must be able to click and view app in Playstore
 #CS039TC002	 #User must be able to click and view app in Appstore
         Open_Bapachosite
         Click Download App - playstore
@@ -1031,6 +978,16 @@ CS039TC001	#User must be able to click and view app in Playstore
         Get Window Titles    browser=ALL
         Close All Browsers
         
-
+CS040TC001_User can view landing page and subscribe to newsletter
+#CS040TC002	User can view bakeries and choose one
+#CS040TC003	User must be able to click and view app in Playstore and Appstore
+        Open_Landingpage
+        View bakery in landingpage
+        Subscribe to Newsletter      
+        Click Download App - playstore
+        Select Window     MAIN
+        Click Download App - Appstore
+        Get Window Titles    browser=ALL
+        Close All Browsers
         
        

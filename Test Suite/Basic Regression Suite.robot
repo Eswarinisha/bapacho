@@ -18,7 +18,7 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 *** Test Cases ***
 
 
-BRC001  #Merchant Onboarding	  # Without Online Payment
+BRC001_Merchant Onboarding_Without Online Payment
 #Step 1  # Create merchant in CMS   
 
         Open_CMS
@@ -41,7 +41,7 @@ BRC001  #Merchant Onboarding	  # Without Online Payment
         Capture Page Screenshot 
         Close Browser   
         
-BR003	# Merchant Portal	    # Add products
+BR003_Merchant Portal_Add products
     
 #Step 1    # Created new category and product
    
@@ -76,7 +76,7 @@ BR003	# Merchant Portal	    # Add products
         Capture Page Screenshot    
         Close Browser
          
-BR004	#Merchant Portal	# Opening information,preparation time and siesta times    
+BR004_Merchant Portal_Opening information,preparation time and siesta times    
    
 #Step1    # Changing opening information,siesta times,preparation times and delivery time
         Open_Bapachosite
@@ -104,7 +104,7 @@ BR004	#Merchant Portal	# Opening information,preparation time and siesta times
         Capture Page Screenshot      
         Close Browser
     
-BR005	#Merchant Portal	# Order cancellation
+BR005_Merchant Portal_Order cancellation
     
 #Step1   #Merchant cancels order from his portal    
 
@@ -130,7 +130,7 @@ Step2   #Cancelled order must be reflected in Customer My order's list
         View Cancelled Orders under Orders
         Close Browser
         
-BR007	#Merchant Portal	# Refund
+BR007_Merchant Portal_Refund
 
 #Step1  #Customer places an online order using Merchant with Online payment
         Open_Bapachosite
@@ -168,7 +168,7 @@ BR007	#Merchant Portal	# Refund
         Click_Myorders
         View_MyOrders_Refunded Order
         
-#Step4  #Cancelled order must reflect on CMs
+#Step4  #Cancelled order must reflect on CMS
         Open_CMS
         CMSAdmin_Login
         View Cancelled Orders under Orders

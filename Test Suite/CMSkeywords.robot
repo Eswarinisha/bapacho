@@ -10,7 +10,7 @@ Resource    Bapacho Credentials.robot
 ***Keyword***
 
 Open_CMS
-    Open Browser    ${CMS_URL_${Language}}     chrome
+    Open Browser    ${CMS_URL_${Language}}     ${Firefox}
     Maximize Browser Window
     
 CMSAdmin_Login
@@ -37,8 +37,8 @@ Create_NewMerchant
     Click Button    //button[contains(.,'Save')]    
     
 Create_NewMerchant_without Payment
-    Wait Until Page Contains Element    //button[@type='button'][contains(.,'New')]    
-    Click Button   //button[@type='button'][contains(.,'New')]   
+    Sleep    4    
+    Click Button   //button[contains(.,'New')]  
     Wait Until Page Contains    New  
     Wait Until Page Contains Element    name=fields[title]    
     SeleniumLibrary.Input Text    name=fields[title]   ${MerchantName without payment}
@@ -84,13 +84,14 @@ Enter email address in CMS
            
 Send activation mail from CMS to Merchant
     
-    Wait Until Page Contains Element    //button[contains(.,'Send activation email')]
+    Sleep     2
     Click Element    //button[contains(.,'Send activation email')]   
     Capture Page Screenshot
     Wait Until Page Contains Element    //button[contains(.,'Yes, send it!')]  
     Capture Page Screenshot  
+    Sleep     2
     Click Element    //button[contains(.,'Yes, send it!')]  
-    Set Browser Implicit Wait    10
+    Sleep     2
     Wait Until Page Contains Element    //button[contains(.,'OK')]       
     Click Element    //button[contains(.,'OK')]    
    
