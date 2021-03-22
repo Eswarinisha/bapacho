@@ -15,9 +15,9 @@ ${Edge}    edge
 @{GuestUser_DE}     Eswari Nisha    Balakrishnan    nisha+guestuser@inqadigital.com    Flughafen  204     Vinohrady     60549     Frankfurt am Main     +31612809787
 
 
-@{RegisterCredentialsold}    automatedcustomer010@yopmail.com    Nisha's Automated Customer    010    bapachocustomerpwdold    bapachocustomerpwdold
-@{RegisterCredentialsnew}    automatedcustomer010@yopmail.com    Nisha's Automated Customer    010    bapachocustomerpwd    bapachocustomerpwd
-@{RegisterCredentialsCheckout}    automatedcustomer011@yopmail.com    bapachocustomerpwd 
+@{RegisterCredentialsold}    automatedcustomer012@yopmail.com    Nisha's Automated Customer    012    bapachocustomerpwdold    bapachocustomerpwdold
+@{RegisterCredentialsnew}    automatedcustomer012@yopmail.com    Nisha's Automated Customer    012    bapachocustomerpwd    bapachocustomerpwd
+@{RegisterCredentialsCheckout}    automatedcustomer012@yopmail.com    bapachocustomerpwd 
 
 @{FBCredentials}    eswarinisha.b@gmail.com    Nani@25032016
 
@@ -47,12 +47,23 @@ ${Choose_Change_CurrentLoction_BDP_IT}    //a[contains(.,'Venice, VE, Italia')]
 
 
 #Merchant without Online payment
-${MerchantName without payment}    Nisha's Automated Bakery001
-@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant001@yopmail.com    bapachomerchantpwd    +31612809787
+${MerchantName without payment}    Nisha's Automated Bakery006
+@{Merchant_Without_OnlinePayment_Credentials}     automatedmerchant006@yopmail.com    bapachomerchantpwd    +31612809787
 
+
+#MultishopMerchant details
+
+@{MultishopMerchantCredentials}    nisha+automatedmultishop4@inqadigital.com     bapachomerchantpwd    31612809787    Netherlands
+@{MultishopLocation1Credentials}     nisha+automatedmultishop4+loc1@inqadigital.com     bapachomerchantpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
+${MultishopMerchantName}    Nisha's Automated Multishop4
+${MultishopMerchantLoc1}    Nisha's Automated Multishop4 + Loc1
+
+${COC}    000000000  
+${VAT}    123456789B12  
+${IBAN}    NL39RABO0300065264
 
 #Merchant with Online payment
-${MerchantName_NL}    Nisha's Automated Bakery004
+${MerchantName_NL}    Nisha's Automated Bakery006
 ${MerchantName_EN}    Nisha's Bakery001
 ${MerchantName_IT}    Test Bakery 002 
 ${MerchantName_CZ}    Nisha's Automated Bakery001

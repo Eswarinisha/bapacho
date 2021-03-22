@@ -5,8 +5,13 @@ ${Language}     EN
 
 #MERCHANT ONBOARDING
 
+
+#Multishop Homepage
+${Multishop_URL_EN}    https://multishop.bapacho.com/nl
+
+
 #Stagings URL
-${Bapacho_URL_EN}    https://bapacho:bapacho@staging.bapacho.com/
+${Bapacho_URL_EN}    https://bapacho:bapacho@multishop.bapacho.com/
 ${Bapacho_URL_NL}     https://staging.bapacho.nl/en/
 ${Bapacho_URL_IT}    https://bapacho:bapacho@staging.bapacho.it/it
 ${Bapacho_URL_CZ}    https://bapacho:bapacho@staging.bapacho.cz/cz
@@ -18,7 +23,7 @@ ${Bapacho_URL_PT}     https://bapacho:bapacho@staging.bapacho.pt/pt
 ${Bapacho_URL_PL}     https://bapacho:bapacho@staging.bapacho.pl/pl
 
 #CMS URL
-${CMS_URL_EN}    https://bapacho:bapacho@staging.bapacho.com/admin
+${CMS_URL_EN}    https://bapacho:bapacho@multishop.bapacho.com/admin
 ${CMS_URL_NL}    https://bapacho:bapacho@staging.bapacho.nl/admin
 ${CMS_URL_IT}    https://bapacho:bapacho@staging.bapacho.it/admin
 ${CMS_URL_CZ}    https://bapacho:bapacho@staging.bapacho.cz/admin
@@ -65,7 +70,7 @@ ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop
 
 #Step 1 
 
-${LoginasMerchant}     (//a[contains(@role,'button')])[5]
+${LoginasMerchant_EN}     (//a[contains(.,'Login as Merchant')])[1]
 
 #Step 2
 
@@ -212,7 +217,7 @@ ${Step10_Nextbutton}    (//button[contains(@class,'btn btn-success btn-lg showLo
 #MERCHANT PORTAL
 
 #My Categories
-${MyproductCategories}    (//a[contains(@class,'list-group-item ')])[3]
+${MyproductCategories}    (//a[contains(@class,'list-group-item ')])[2]
 ${AddCategory}    //div[contains(@onclick,'showCategoryModal(null)')]
 
 ${btn_SubmitCategory_NL}    //button[contains(.,'Submit')] 
@@ -222,7 +227,7 @@ ${btn_SubmitCategory_CZ}    //button[contains(.,'Odeslat')]
 ${btn_SubmitCategory_DE}    //button[contains(.,'Senden')]
 
 #My Products
-${MyProduct}    (//a[contains(@class,'list-group-item ')])[4]
+${MyProduct}    (//a[contains(@class,'list-group-item ')])[3]
 ${Addproduct}   (//a[contains(@class,'btn btn-default')])[2]
 ${Addzeelandiaproduct}    (//a[contains(@class,'btn btn-default')])[1]
 
@@ -240,7 +245,7 @@ ${ProductTitle_PL}     name=columns_local[pl][title]
 
 ${Product_Subtitle_NL}   name=columns_local[en][subtitle]   
 ${Product_Subtitle_IT}   name=columns_local[it][subtitle]
-${Product_Subtitle_EN}   name=columns_local[nl][subtitle]  
+${Product_Subtitle_EN}   columns_local[v][subtitle]  
 ${Product_Subtitle_CZ}   name=columns_local[cz][subtitle]   
 ${Product_Subtitle_GR}   name=columns_local[gr][subtitle]
 ${Product_Subtitle_DE}   name=columns_local[de][subtitle]
@@ -251,7 +256,7 @@ ${Product_Subtitle_PL}   name=columns_local[pl][subtitle]
   
 ${Product_Description_NL}     name=columns_local[en][text]  
 ${Product_Description_IT}     name=columns_local[it][text]  
-${Product_Description_EN}     name=columns_local[nl][text]  
+${Product_Description_EN}     columns_local[nl][text]  
 ${Product_Description_CZ}     name=columns_local[cz][text]  
 ${Product_Description_GR}     name=columns_local[gr][text]  
 ${Product_Description_DE}     name=columns_local[de][text]  
@@ -262,7 +267,7 @@ ${Product_Description_PL}     name=columns_local[pl][text]
 
 ${Product_Ingredients_NL}  name=columns_local[en][ingredientsText]   
 ${Product_Ingredients_IT}  name=columns_local[it][ingredientsText] 
-${Product_Ingredients_EN}  name=columns_local[nl][ingredientsText]
+${Product_Ingredients_EN}  columns_local[nl][ingredientsText]
 ${Product_Ingredients_CZ}  name=columns_local[cz][ingredientsText]   
 ${Product_Ingredients_GR}  name=columns_local[gr][ingredientsText] 
 ${Product_Ingredients_DE}  name=columns_local[de][ingredientsText] 
@@ -274,7 +279,7 @@ ${Product_Ingredients_PL}  name=columns_local[pl][ingredientsText]
 
 ${Product_unit_NL}  name=columns_local[en][unit]
 ${Product_unit_IT}  name=columns_local[it][unit]
-${Product_unit_EN}  name=columns_local[nl][unit]
+${Product_unit_EN}  columns_local[nl][unit]
 ${Product_unit_CZ}  name=columns_local[cz][unit]
 ${Product_unit_GR}  name=columns_local[gr][unit]
 ${Product_unit_DE}  name=columns_local[de][unit]
@@ -286,7 +291,7 @@ ${Product_unit_PL}  name=columns_local[pl][unit]
 ${Yes_NL}    Yes
 
 #My Location
-${MyLocations}        (//a[contains(@class,'list-group-item ')])[5]
+${MyLocations}        (//a[contains(@class,'list-group-item ')])[4]
 
 ${btn_Submit_NL}    //input[contains(@type,'submit')] 
 ${btn_Submit_EN}    //input[contains(@type,'submit')] 
@@ -304,7 +309,7 @@ ${Settings}    (//a[contains(@class,'list-group-item ')])[6]
 
 #My Orders
 ${MyOrders}    (//a[contains(@class,'list-group-item ')])[8]
-${OpenOrder}    (//a[contains(@class,'list-group-item')])[11]
+${OpenOrder}   (//span[contains(.,'new')])[1]
 ${CancelOrder}    cancelled
 ${Preparing}    preparing
 ${Readyfordelivery}    readyForDelivery
@@ -314,6 +319,7 @@ ${Pickedup}    pickedUp
 ${LabelRefund}    refunded
 ${RefundStatus}       refunded 
 ${PaidStatus}    paid
+${btn_OrderStatusSubmit}    (//button[contains(.,'Submit')])[1]
 ${btn_PaymentStatusSubmit}    //button[@onclick='setOrderLastStatus(this);']
 ${Cancellation_StatusComment}    Automated order cancellation 
 ${OrderFullfilment_StatusComment}    Automated Order fulfil
@@ -372,6 +378,13 @@ ${btn_Bakeries_PT}    //a[contains(.,'Lojas')]
 ${search_button}    (//span[contains(@class,'hidden-xs')])[2]
 ${btn_MyAccount}    (//span[contains(@class,'hidden-xs')])[1]
 
+${Open your shop}    (//a[@role='button'])[3]
+${company}    company
+${name}    name
+${phone}    phone
+${email}    //input[contains(@name,'email')]
+${comments}    comments
+    
 #Bakery display Page
 
 ${btn_Close}    (//button[contains(@type,'button')])[5]

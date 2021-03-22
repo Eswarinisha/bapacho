@@ -1,183 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210301 13:34:46.302" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210321 18:16:40.835" rpa="false">
 <suite id="s1" name="Bapacho" source="C:\Users\Nisha\git\ta-bapacho\Bapacho">
 <suite id="s1-s1" name="Test Suite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite">
-<suite id="s1-s1-s1" name="CustomerSite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite\CustomerSite.robot">
-<test id="s1-s1-s1-t1" name="CS041TC001_User must be able to view blog page">
-<kw name="Set Screenshot Directory" library="SeleniumLibrary" type="setup">
-<doc>Sets the directory for captured screenshots.</doc>
-<arguments>
-<arg>C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Customer Site Screenshots</arg>
-</arguments>
-<status status="PASS" starttime="20210301 13:34:46.631" endtime="20210301 13:34:46.632"></status>
-</kw>
-<kw name="Open_Bapachosite" library="Customerkeywords">
+<suite id="s1-s1-s1" name="MultishopMerchantPortal" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite\MultishopMerchantPortal.robot">
+<test id="s1-s1-s1-t1" name="Merchant Portal End to End">
+<kw name="Open MultishopHomePage" library="Customerkeywords">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>${Bapacho_URL_${Language}}</arg>
+<arg>${Multishop_URL_${Language}}</arg>
 <arg>${Chrome}</arg>
 </arguments>
-<msg timestamp="20210301 13:34:46.633" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@staging.bapacho.com/'.</msg>
-<status status="PASS" starttime="20210301 13:34:46.633" endtime="20210301 13:35:05.842"></status>
+<msg timestamp="20210321 18:16:41.225" level="INFO">Opening browser 'chrome' to base url 'https://multishop.bapacho.com/nl'.</msg>
+<status status="PASS" starttime="20210321 18:16:41.225" endtime="20210321 18:16:44.008"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210301 13:35:05.842" endtime="20210301 13:35:07.971"></status>
-</kw>
-<kw name="Change_CurrentLocation_Home" library="Customerkeywords">
-<kw name="Clear Element Text" library="SeleniumLibrary">
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<arguments>
-<arg>//input[@id='homeLocationTitle']</arg>
-</arguments>
-<status status="PASS" starttime="20210301 13:35:07.973" endtime="20210301 13:35:08.058"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210301 13:35:08.733" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3030.png"&gt;&lt;img src="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3030.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210301 13:35:08.060" endtime="20210301 13:35:08.734"></status>
+<status status="PASS" starttime="20210321 18:16:44.009" endtime="20210321 18:16:44.127"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20210301 13:35:10.734" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210301 13:35:08.734" endtime="20210301 13:35:10.734"></status>
+<msg timestamp="20210321 18:16:46.129" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210321 18:16:44.128" endtime="20210321 18:16:46.129"></status>
+</kw>
+<status status="PASS" starttime="20210321 18:16:41.224" endtime="20210321 18:16:46.129"></status>
+</kw>
+<kw name="Login as MultishopMerchant" library="MultishopMerchantPortalkeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20210321 18:16:48.130" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210321 18:16:46.130" endtime="20210321 18:16:48.130"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LoginasMerchant_${Language}}</arg>
+</arguments>
+<msg timestamp="20210321 18:16:48.131" level="INFO">Clicking element '(//a[contains(.,'Login as Merchant')])[1]'.</msg>
+<status status="PASS" starttime="20210321 18:16:48.130" endtime="20210321 18:16:48.179"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20210321 18:16:50.181" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210321 18:16:48.180" endtime="20210321 18:16:50.181"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>//input[@id='homeLocationTitle']</arg>
-<arg>${Change_CurrentLoction_BDP_${Language}}</arg>
+<arg>email</arg>
+<arg>${MultishopMerchantCredentials}[0]</arg>
 </arguments>
-<msg timestamp="20210301 13:35:10.735" level="INFO">Typing text 'haarlem' into text field '//input[@id='homeLocationTitle']'.</msg>
-<status status="PASS" starttime="20210301 13:35:10.734" endtime="20210301 13:35:10.806"></status>
+<msg timestamp="20210321 18:16:50.182" level="INFO">Typing text 'nisha+automatedmultishop4@inqadigital.com' into text field 'email'.</msg>
+<status status="PASS" starttime="20210321 18:16:50.181" endtime="20210321 18:16:50.289"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>4</arg>
+<arg>password</arg>
+<arg>${MultishopMerchantCredentials}[1]</arg>
 </arguments>
-<msg timestamp="20210301 13:35:14.808" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20210301 13:35:10.806" endtime="20210301 13:35:14.808"></status>
+<msg timestamp="20210321 18:16:50.289" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20210321 18:16:50.325" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20210321 18:16:50.379" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20210321 18:16:50.289" endtime="20210321 18:16:50.379"></status>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>${Choose_Change_CurrentLoction_BDP_${Language}}</arg>
+<arg>${LoginSubmit_Button}</arg>
 </arguments>
-<msg timestamp="20210301 13:35:14.809" level="INFO">Clicking element '//a[contains(.,'Haarlem, Nederland')]'.</msg>
-<status status="PASS" starttime="20210301 13:35:14.808" endtime="20210301 13:35:14.854"></status>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210301 13:35:20.283" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3031.png"&gt;&lt;img src="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3031.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210301 13:35:14.854" endtime="20210301 13:35:20.283"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20210301 13:35:22.285" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210301 13:35:20.283" endtime="20210301 13:35:22.285"></status>
-</kw>
-<status status="PASS" starttime="20210301 13:35:07.972" endtime="20210301 13:35:22.285"></status>
-</kw>
-<status status="PASS" starttime="20210301 13:34:46.632" endtime="20210301 13:35:22.285"></status>
-</kw>
-<kw name="Blog" library="Customerkeywords">
-<kw name="Execute Javascript" library="SeleniumLibrary">
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<arguments>
-<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
-</arguments>
-<msg timestamp="20210301 13:35:22.286" level="INFO">Executing JavaScript:
-window.scrollTo(0, document.body.scrollHeight)
-Without any arguments.</msg>
-<status status="PASS" starttime="20210301 13:35:22.286" endtime="20210301 13:35:22.299"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>//a[contains(.,'Blog')]</arg>
-</arguments>
-<msg timestamp="20210301 13:35:22.300" level="INFO">Clicking element '//a[contains(.,'Blog')]'.</msg>
-<status status="PASS" starttime="20210301 13:35:22.299" endtime="20210301 13:35:26.144"></status>
+<msg timestamp="20210321 18:16:50.380" level="INFO">Clicking button '//button[contains(@class,'btn btn-block btn-success')]'.</msg>
+<status status="PASS" starttime="20210321 18:16:50.379" endtime="20210321 18:16:50.434"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20210301 13:35:28.148" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210301 13:35:26.145" endtime="20210301 13:35:28.148"></status>
+<msg timestamp="20210321 18:16:52.436" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210321 18:16:50.435" endtime="20210321 18:16:52.436"></status>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210301 13:35:28.704" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3032.png"&gt;&lt;img src="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3032.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210301 13:35:28.148" endtime="20210301 13:35:28.704"></status>
+<status status="PASS" starttime="20210321 18:16:46.130" endtime="20210321 18:16:52.436"></status>
+</kw>
+<kw name="My Teams" library="MultishopMerchantPortalkeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[contains(.,'My team')]</arg>
+</arguments>
+<msg timestamp="20210321 18:16:52.437" level="INFO">Clicking element '//a[contains(.,'My team')]'.</msg>
+<status status="PASS" starttime="20210321 18:16:52.437" endtime="20210321 18:16:53.401"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>(//img[contains(@class,'media-object')])[1]</arg>
+<arg>(//div[contains(.,'Add manager')])[6]</arg>
 </arguments>
-<msg timestamp="20210301 13:35:28.704" level="INFO">Clicking element '(//img[contains(@class,'media-object')])[1]'.</msg>
-<status status="PASS" starttime="20210301 13:35:28.704" endtime="20210301 13:35:34.960"></status>
+<msg timestamp="20210321 18:16:53.403" level="INFO">Clicking element '(//div[contains(.,'Add manager')])[6]'.</msg>
+<status status="PASS" starttime="20210321 18:16:53.402" endtime="20210321 18:16:53.456"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20210301 13:35:36.961" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210301 13:35:34.960" endtime="20210301 13:35:36.961"></status>
+<msg timestamp="20210321 18:16:55.457" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210321 18:16:53.456" endtime="20210321 18:16:55.457"></status>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210301 13:35:37.571" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3033.png"&gt;&lt;img src="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-3033.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210301 13:35:36.962" endtime="20210301 13:35:37.572"></status>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>firstname</arg>
+<arg>AutomatedManager</arg>
+</arguments>
+<msg timestamp="20210321 18:16:55.458" level="INFO">Typing text 'AutomatedManager' into text field 'firstname'.</msg>
+<status status="PASS" starttime="20210321 18:16:55.457" endtime="20210321 18:16:55.543"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>lastname</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20210321 18:16:55.543" level="INFO">Typing text '1' into text field 'lastname'.</msg>
+<status status="PASS" starttime="20210321 18:16:55.543" endtime="20210321 18:16:55.607"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>email</arg>
+<arg>${MultishopLocation1Credentials}[0]</arg>
+</arguments>
+<msg timestamp="20210321 18:16:55.608" level="INFO">Typing text 'nisha+automatedmultishop4+loc1@inqadigital.com' into text field 'email'.</msg>
+<status status="PASS" starttime="20210321 18:16:55.608" endtime="20210321 18:16:55.708"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>(//h4[contains(@class,'media-heading')])[2]</arg>
+<arg>(//input[contains(@type,'checkbox')])[1]</arg>
 </arguments>
-<msg timestamp="20210301 13:35:37.572" level="INFO">Clicking element '(//h4[contains(@class,'media-heading')])[2]'.</msg>
-<status status="PASS" starttime="20210301 13:35:37.572" endtime="20210301 13:35:39.469"></status>
+<msg timestamp="20210321 18:16:55.709" level="INFO">Clicking element '(//input[contains(@type,'checkbox')])[1]'.</msg>
+<status status="PASS" starttime="20210321 18:16:55.709" endtime="20210321 18:16:55.753"></status>
 </kw>
-<status status="PASS" starttime="20210301 13:35:22.285" endtime="20210301 13:35:39.469"></status>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//input[contains(@type,'checkbox')])[2]</arg>
+</arguments>
+<msg timestamp="20210321 18:16:55.753" level="INFO">Clicking element '(//input[contains(@type,'checkbox')])[2]'.</msg>
+<status status="PASS" starttime="20210321 18:16:55.753" endtime="20210321 18:16:55.795"></status>
 </kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210301 13:35:39.471" endtime="20210301 13:35:41.650"></status>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'Submit')]</arg>
+</arguments>
+<msg timestamp="20210321 18:16:55.796" level="INFO">Clicking element '//button[contains(.,'Submit')]'.</msg>
+<status status="PASS" starttime="20210321 18:16:55.795" endtime="20210321 18:16:55.834"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[contains(.,'OK')]</arg>
+</arguments>
+<msg timestamp="20210321 18:16:55.835" level="INFO">Clicking element '//button[contains(.,'OK')]'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210321 18:16:56.235" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210321 18:16:55.846" endtime="20210321 18:16:56.235"></status>
+</kw>
+<msg timestamp="20210321 18:16:56.237" level="FAIL">Element with locator '//button[contains(.,'OK')]' not found.</msg>
+<status status="FAIL" starttime="20210321 18:16:55.835" endtime="20210321 18:16:56.237"></status>
+</kw>
+<status status="FAIL" starttime="20210321 18:16:52.437" endtime="20210321 18:16:56.237"></status>
 </kw>
 <tags>
 <tag>RegressionTest</tag>
 </tags>
-<status status="PASS" starttime="20210301 13:34:46.630" endtime="20210301 13:35:41.651" critical="yes"></status>
+<status status="FAIL" starttime="20210321 18:16:41.224" endtime="20210321 18:16:56.238" critical="yes">Element with locator '//button[contains(.,'OK')]' not found.</status>
 </test>
-<status status="PASS" starttime="20210301 13:34:46.372" endtime="20210301 13:35:41.652"></status>
+<status status="FAIL" starttime="20210321 18:16:40.918" endtime="20210321 18:16:56.238"></status>
 </suite>
-<status status="PASS" starttime="20210301 13:34:46.370" endtime="20210301 13:35:41.653"></status>
+<status status="FAIL" starttime="20210321 18:16:40.915" endtime="20210321 18:16:56.240"></status>
 </suite>
-<status status="PASS" starttime="20210301 13:34:46.350" endtime="20210301 13:35:41.655"></status>
+<status status="FAIL" starttime="20210321 18:16:40.894" endtime="20210321 18:16:56.242"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">RegressionTest</stat>
+<stat pass="0" fail="1">RegressionTest</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Bapacho">Bapacho</stat>
-<stat pass="1" fail="0" id="s1-s1" name="Test Suite">Bapacho.Test Suite</stat>
-<stat pass="1" fail="0" id="s1-s1-s1" name="CustomerSite">Bapacho.Test Suite.CustomerSite</stat>
+<stat pass="0" fail="1" id="s1" name="Bapacho">Bapacho</stat>
+<stat pass="0" fail="1" id="s1-s1" name="Test Suite">Bapacho.Test Suite</stat>
+<stat pass="0" fail="1" id="s1-s1-s1" name="MultishopMerchantPortal">Bapacho.Test Suite.MultishopMerchantPortal</stat>
 </suite>
 </statistics>
 <errors>

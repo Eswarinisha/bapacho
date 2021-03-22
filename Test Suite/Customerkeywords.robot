@@ -13,7 +13,16 @@ Open_Bapachosite
         Open Browser   ${Bapacho_URL_${Language}}     ${Chrome}
         Maximize Browser Window
         Change_CurrentLocation_Home
-
+        
+Open MultishopHomePage
+        Open Browser   ${Multishop_URL_${Language}}     ${Chrome}
+        Maximize Browser Window
+        Sleep    2
+        #Change_CurrentLocation_Home
+        
+Open_Bapachosite_to_testhomepage
+        Open Browser   ${Bapacho_URL_${Language}}     ${Chrome}
+        Maximize Browser Window
 
 
 login_Using_RegisteredMailid      
@@ -180,22 +189,33 @@ Change_CurrentLocation_Home
         Capture Page Screenshot     
         BuiltIn.Sleep    2  
  
-
+Open your shop
+    
+        Capture Page Screenshot 
+        Click Element    ${Open your shop} 
+        BuiltIn.Sleep    2          
+        Input Text    ${company}    Test Merchant
+        Input Text   ${name}    Automated merchant    
+        Input Text    ${phone}        Automated merchant 
+        Input Text     ${email}    nisha@inqadigital.com 
+        Input Text     ${comments}   Automated merchant 
+        Capture Page Screenshot    
+        Click Element    ${btn_SubmitCategory_${Language}}
+        Capture Page Screenshot
 
                     # Bakery Display Page
  
 Type_To_Search_bakery
         # Click_bakeries
         # Click Element    ${search_button}
-        SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName without payment}
+        SeleniumLibrary.Input Text    //input[@name='keywordInput']    ${MultishopMerchantName}
         Capture Page Screenshot    
         Click Element          ${search_button}
         BuiltIn.Sleep    2    
  
 Type_To_Search_bakery with Online payment
-        #Click_bakeries
-        #Click Element    ${search_button}
-        SeleniumLibrary.Input Text    //input[@name='keywordInput']     ${MerchantName_${Language}}
+        Sleep    4     
+        Input Text      (//input[contains(@type,'text')])[2]        ${MultishopMerchantName}
         Click Element          ${search_button}
         BuiltIn.Sleep    2    
 
@@ -274,16 +294,16 @@ Select a bakery from list
          
 PDP_AddtoCart
       
-        Scroll Element Into View    (//div[@class='productCard'])[1]  
-        Click Element    (//i[@class='fas fa-plus fa-fw'])[2]  
+        #Scroll Element Into View    (//div[@class='productCard'])[1]  
+        Click Element    (//i[@class='fas fa-plus fa-fw'])  
         BuiltIn.Sleep    1   
-        Click Element    (//i[@class='fas fa-plus fa-fw'])[2] 
+        Click Element    (//i[@class='fas fa-plus fa-fw']) 
         BuiltIn.Sleep    1    
-        Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
+        Click Element    (//i[@class='fas fa-plus fa-fw'])
         BuiltIn.Sleep    2  
-        Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
+        Click Element    (//i[@class='fas fa-plus fa-fw'])
         BuiltIn.Sleep    2  
-        Click Element    (//i[@class='fas fa-plus fa-fw'])[2]
+        Click Element    (//i[@class='fas fa-plus fa-fw'])
         Capture Page Screenshot   
 
         
@@ -479,7 +499,7 @@ Click Submit button
 Cashpay_OrderNow
             
          Set Focus To Element    //*[@id="paymentHolder"]/div[1]/label
-         Select Radio Button    payment_method    payment_method1
+         Select Radio Button    payment_method    payment_method_cash
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button    //button[contains(@type,'submit')]
@@ -493,14 +513,14 @@ Cashpay_OrderNow
 Cardpay_OrderNow
         
          Scroll Element Into View    //*[@id="paymentHolder"]/div[1]/label
-         Select Radio Button    payment_method    payment_method2
+         Select Radio Button    payment_method   payment_method_card 
          Page Should Contain Checkbox    //input[@id='terms']    
          Select Checkbox    //input[@id='terms']  
          Click Button     //button[contains(@type,'submit')]
          BuiltIn.Sleep    2   
          Click Element    //button[contains(.,'OK')]
          BuiltIn.Sleep    2       
-        BuiltIn.Sleep    2    
+         BuiltIn.Sleep    2    
          Capture Page Screenshot
 
          
@@ -757,6 +777,22 @@ View bakery in landingpage
 OpenYopMailinchrome
          Open Browser    http://www.yopmail.com/en/    chrome
     
+OpenGmail
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    identifierId    nisha@inqadigital.com  
+        Click Element    //div[contains(@class,'VfPpkd-RLmnJb')]    
+        Sleep    2
+        Input Password    //input[contains(@type,'password')]    Vinikrish_1   
+        Sleep    2 
+        Click Element    (//div[contains(@class,'VfPpkd-RLmnJb')])[1]    
+        Sleep    10
+        Click Element    //tr[contains(@id,':1n')]    
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Click Link       //a[contains(.,'https://multishop.bapacho.com/activateShop.php?gu')]
+        Sleep    2
 
 Check_CustomerActivation_mail
         SeleniumLibrary.Input Text    name=login    ${RegisterCredentialsold}[0] 
@@ -793,19 +829,6 @@ Check_OrderReceived_mail
         
 
         
-Guest user placing a Cash pay order
-         Open_Bapachosite
-         Click_bakeries
-         Type_To_Search_bakery_Merchant
-         BuiltIn.Sleep    2    
-         Select a bakery from list
-         PDP_AddtoCart
-         Set Browser Implicit Wait    5
-         PDP_Click_Checkout
-         Guestuser_Fill_Checkoutpage
-         Cashpay_OrderNow
-         Capture Page Screenshot    
-         Close Browser           
-              
+
                         
             

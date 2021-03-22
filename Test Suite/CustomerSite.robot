@@ -15,7 +15,7 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 #FCS001	CUSTOMER LOGIN
 
 #CS001TC00_User must be able to click on Login icon and click create account
-CS001TC002_User must be able to enter valid email id, first name, last name and confirm password
+CS001TC002   #User must be able to enter valid email id, first name, last name and confirm password
 	     
         Open_Bapachosite
         Capture Page Screenshot    
@@ -719,10 +719,6 @@ CS025TC003_Without checking the Terms &Conditions check box, user must not be ab
 
 CS026TC001_User must be able to do online payment using iDeal     
         Open_Bapachosite
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -736,10 +732,6 @@ CS026TC001_User must be able to do online payment using iDeal
         
 CS026TC002_User must be able to do online payment using card
         Open_Bapachosite
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -953,8 +945,8 @@ CS036TC001_User must be able to click and fill in the Support form and submit
 
 CS041TC001_User must be able to view blog page    
        Open_Bapachosite
-        Blog
-        Close Browser    
+       Blog
+       Close Browser    
 
 
 CS037TC001_User must be able to click and view the Bapacho Facebook icon
@@ -989,5 +981,9 @@ CS040TC001_User can view landing page and subscribe to newsletter
         Click Download App - Appstore
         Get Window Titles    browser=ALL
         Close All Browsers
-        
+   
+CS042TC001_New merchant can click on Open your shop and submit the support form  
+        Open_Bapachosite_to_testhomepage   
+        Open your shop
+        Close Browser
        
