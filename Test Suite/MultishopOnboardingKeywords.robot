@@ -3,7 +3,7 @@ Library    SeleniumLibrary
       
 
 Resource    CMSkeywords.robot
-Resource    Merchantkeywords.robot
+#Resource    Merchantkeywords.robot
 Resource    Bapacho Variables.robot
 Resource    Bapacho Credentials.robot
 
@@ -142,8 +142,8 @@ Step 5 : Products
     Sleep    2 
     Select From List By Value   category_id    3
     Sleep    2 
-    Click Element    (//button[contains(.,'Choose product')])[15]    
-    Click Element    (//button[contains(.,'Choose product')])[19]
+    Click Element    (//input[contains(@type,'checkbox')])[5]    
+    Click Element    (//input[contains(@type,'checkbox')])[6]
     Sleep    1    
     #Click Element    (//button[contains(.,'Choose product')])[20]  
     Sleep    2      

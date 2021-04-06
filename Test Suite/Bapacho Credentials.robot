@@ -53,10 +53,10 @@ ${MerchantName without payment}    Nisha's Automated Bakery006
 
 #MultishopMerchant details
 
-@{MultishopMerchantCredentials}    nisha+automatedmultishop4@inqadigital.com     bapachomerchantpwd    31612809787    Netherlands
-@{MultishopLocation1Credentials}     nisha+automatedmultishop4+loc1@inqadigital.com     bapachomerchantpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
-${MultishopMerchantName}    Nisha's Automated Multishop4
-${MultishopMerchantLoc1}    Nisha's Automated Multishop4 + Loc1
+@{MultishopMerchantCredentials}    nisha+automatedmultishop1@inqadigital.com     bapachomerchantpwd    31612809787    Netherlands
+@{MultishopLocation1Credentials}     nisha+automatedmultishop1+loc1@inqadigital.com     bapachomerchantpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
+${MultishopMerchantName}    Nisha's Automated Multishop1
+${MultishopMerchantLoc1}    Nisha's Automated Multishop1 + Loc1
 
 ${COC}    000000000  
 ${VAT}    123456789B12  

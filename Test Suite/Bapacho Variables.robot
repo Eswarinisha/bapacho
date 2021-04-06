@@ -1,6 +1,6 @@
 ***Variables***
 
-${Language}     EN
+${Language}     DE
 
 
 #MERCHANT ONBOARDING
@@ -11,10 +11,10 @@ ${Multishop_URL_EN}    https://multishop.bapacho.com/nl
 
 
 #Stagings URL
-${Bapacho_URL_EN}    https://bapacho:bapacho@multishop.bapacho.com/
+${Bapacho_URL_EN}     https://bapacho:bapacho@multishop.bapacho.com/
 ${Bapacho_URL_NL}     https://staging.bapacho.nl/en/
-${Bapacho_URL_IT}    https://bapacho:bapacho@staging.bapacho.it/it
-${Bapacho_URL_CZ}    https://bapacho:bapacho@staging.bapacho.cz/cz
+${Bapacho_URL_IT}     https://bapacho:bapacho@staging.bapacho.it/it
+${Bapacho_URL_CZ}     https://bapacho:bapacho@staging.bapacho.cz/cz
 ${Bapacho_URL_GR}     https://bapacho:bapacho@staging.bapacho.gr/gr
 ${Bapacho_URL_DE}     https://bapacho:bapacho@staging.bapacho.de/de
 ${Bapacho_URL_ES}     https://bapacho:bapacho@staging.bapacho.es/es

@@ -3,7 +3,7 @@ Library    SeleniumLibrary
       
 
 Resource    CMSkeywords.robot
-Resource    Merchantkeywords.robot
+#Resource    Merchantkeywords.robot
 Resource    Bapacho Variables.robot
 Resource    Bapacho Credentials.robot
 
@@ -27,6 +27,7 @@ CMSAdmin_Login
 Click_Outlets/Stores
     Click Element    //a[contains(.,'Outlets / stores')]  
     Capture Page Screenshot  
+    Sleep    3
     
 Create_NewMultishopMerchant
     Wait Until Page Contains Element    //button[@type='button'][contains(.,'New')]    

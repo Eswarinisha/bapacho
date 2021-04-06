@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 Resource    Bapacho Variables.robot
 Resource    Bapacho Credentials.robot
-Resource     Merchantkeywords.robot
+#Resource     Merchantkeywords.robot
 
 ***Keyword***
 
@@ -787,7 +787,7 @@ OpenGmail
         Input Password    //input[contains(@type,'password')]    Vinikrish_1   
         Sleep    2 
         Click Element    (//div[contains(@class,'VfPpkd-RLmnJb')])[1]    
-        Sleep    10
+        Sleep    20
         Click Element    //tr[contains(@id,':1n')]    
         BuiltIn.Sleep    2    
         Capture Page Screenshot

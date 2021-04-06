@@ -19,7 +19,7 @@ Merchant onboarding
     Open_CMS
     CMSAdmin_Login
     Click_Outlets/Stores
-    Create_NewMultishopMerchant
+    #Create_NewMultishopMerchant
     Search MultishopBakery in CMS  
     Send activation mail from CMS to Merchant  
     Capture Page Screenshot
@@ -29,7 +29,7 @@ Merchant onboarding
     Close All Browsers
     Open MultishopHomePage
     Login as MultishopMerchant
-    TEMP:Step1
+    #TEMP:Step1
     Step 2: Business information
     Step 4 : Shop  
     Step 5 : Products
