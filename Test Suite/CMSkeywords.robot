@@ -48,7 +48,7 @@ Search MultishopBakery in CMS
     Press Keys      //input[contains(@type,'text')]    ENTER
     Sleep     2
     Wait Until Page Contains    ${MultishopMerchantName}
-   # Click Element    //a[contains(.,'edit')]  
+    Click Element    //a[contains(.,'edit')]  
 
 
 Delete store

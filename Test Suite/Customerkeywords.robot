@@ -788,7 +788,7 @@ OpenGmail
         Sleep    2 
         Click Element    (//div[contains(@class,'VfPpkd-RLmnJb')])[1]    
         Sleep    20
-        Click Element    //tr[contains(@id,':1n')]    
+        Click Element    //span[@class='bog'][contains(.,'Your account at Bapacho')]    
         BuiltIn.Sleep    2    
         Capture Page Screenshot
         Click Link       //a[contains(.,'https://multishop.bapacho.com/activateShop.php?gu')]

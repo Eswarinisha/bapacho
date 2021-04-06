@@ -19,8 +19,8 @@ Merchant onboarding
     Open_CMS
     CMSAdmin_Login
     Click_Outlets/Stores
-    #Create_NewMultishopMerchant
-    Search MultishopBakery in CMS  
+    Create_NewMultishopMerchant
+    #Search MultishopBakery in CMS  
     Send activation mail from CMS to Merchant  
     Capture Page Screenshot
     Sleep    2

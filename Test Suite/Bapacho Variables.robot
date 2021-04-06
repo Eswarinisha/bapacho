@@ -1,6 +1,6 @@
 ***Variables***
 
-${Language}     DE
+${Language}     EN
 
 
 #MERCHANT ONBOARDING

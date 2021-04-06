@@ -40,7 +40,7 @@ Step 2: Business information
     Input Text    columns[phone]   ${MultishopMerchantCredentials}[2]  
     Input Text    tax_id    ${COC}    
     Input Text    vat_id    ${VAT}
-    Click Element    //label[contains(.,'labels.No.NotNow')]    
+    Select Radio Button    setupOnlinePayment    0    
     # Input Text    account_holder_name    ${MultishopMerchantName}
     # Input Text    account_number    ${IBAN}
     #Click Element    tos            
@@ -92,7 +92,8 @@ Step 4 : Shop
      Sleep    2 
      Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
      Scroll Element Into View    acceptance_methods_pickup
-     Select Checkbox    acceptance_methods_pickup    
+     Select Checkbox    acceptance_methods_pickup   
+     Sleep    2    
      Input Text    acceptance_methods[pickup][preparation_time]    02:00
      Sleep    2    
      Select Checkbox    id=acceptance-methods-pickup-payment-Online    
@@ -101,10 +102,10 @@ Step 4 : Shop
      Select Checkbox    id=acceptance-methods-pickup-payment-Cash
      Select Checkbox    id=acceptance-methods-pickup-payment-Card
      Execute JavaScript    window.scrollBy(1000,247)
-     Select From List By Value    pickupTimes[0][start]    06:30
-     Select From List By Value    pickupTimes[0][end]      23:30
-     Select From List By Value    pickupBreakTimes[0][start]    12:00
-     Select From List By Value    pickupBreakTimes[0][end]    12:30
+     Select From List By Value    pickupTimes[1][start]    06:30
+     Select From List By Value    pickupTimes[1][end]      23:30
+     Select From List By Value    pickupBreakTimes[1][start]    12:00
+     Select From List By Value    pickupBreakTimes[1][end]    12:30
      Click Element    (//button[contains(.,'Apply to all')])[1]  
       Execute JavaScript    window.scrollTo(0, document.body.scrollHeight) 
      Click Element    (//button[contains(.,'Next')])[2] 
@@ -121,10 +122,10 @@ Step 4 : Shop
      Select Checkbox    id=acceptance-methods-deliver-payment-Online    
      Select Checkbox    id=acceptance-methods-deliver-payment-Cash
      Select Checkbox    id=acceptance-methods-deliver-payment-Card 
-     Select From List By Value   deliveryTimes[0][start]    06:30
-     Select From List By Value    deliveryTimes[0][end]       23:30
-     Select From List By Value    deliveryBreakTimes[0][start]    12:00
-     Select From List By Value    deliveryBreakTimes[0][end]    12:30
+     Select From List By Value   deliveryTimes[1][start]    06:30
+     Select From List By Value    deliveryTimes[1][end]       23:30
+     Select From List By Value    deliveryBreakTimes[1][start]    12:00
+     Select From List By Value    deliveryBreakTimes[1][end]    12:30
      Click Element    (//button[contains(.,'Apply to all')])[8]  
      Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)   
      Click Element    (//button[contains(.,'Next')])[3] 
@@ -139,11 +140,11 @@ Step 4 : Shop
     
 
 Step 5 : Products
-    Sleep    2 
+    Sleep    4 
     Select From List By Value   category_id    3
     Sleep    2 
-    Click Element    (//input[contains(@type,'checkbox')])[5]    
-    Click Element    (//input[contains(@type,'checkbox')])[6]
+    Click Element    (//span[contains(@class,'switchery switchery-small')])[1]    
+    Click Element    (//span[contains(@class,'switchery switchery-small')])[2]
     Sleep    1    
     #Click Element    (//button[contains(.,'Choose product')])[20]  
     Sleep    2      
