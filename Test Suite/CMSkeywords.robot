@@ -22,6 +22,14 @@ CMSAdmin_Login
     Wait Until Page Contains    Nisha  
     Capture Page Screenshot  
    
+#HomePage
+Homepage details
+        Sleep    5
+        Page Should Contain Element    //div[contains(@id,'homechart')]            
+        Page Should Contain Element    chart    
+        Capture Page Screenshot
+
+
 #OUTLET/STORES
 
 Click_Outlets/Stores
@@ -40,7 +48,7 @@ Create_NewMultishopMerchant
     Capture Page Screenshot
     Sleep     2
     Click Button    //button[contains(.,'Save')]  
-    Sleep     2
+    Sleep     4
     
 Search MultishopBakery in CMS
     Wait Until Page Contains Element    //input[contains(@type,'text')]      
@@ -109,7 +117,9 @@ View Product Category in CMS
      Click Element    (//a[contains(.,'Product categories')])[1]
      Wait Until Page Contains    ${ProductCategoryName}    
      Page Should Contain    ${ProductCategoryName}     
-     Capture Page Screenshot     
+     Capture Page Screenshot 
+     
+    
      
 View Product Name in CMS
      Click Element    //a[contains(.,'Products')]  
@@ -169,6 +179,12 @@ Payment Methods
      Click Element    //a[contains(.,'Payment Methods')]    
      Capture Page Screenshot        
     
+#Sales Agent
+Add bakery salesagent 
+    Click Element     //a[@href='/admin/accountmanagers/edit/46E63596-DABD-4DD2-312C-9E6CFE029DB2']
+    Input Text    suppliers    ${MultishopMerchantName}     
+   # Click Element      merchantresult
+
 
 
 #ARCHIEVE

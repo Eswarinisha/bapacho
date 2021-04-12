@@ -21,6 +21,7 @@ Multishop Merchant Onboarding_without Online Payment
     CMSAdmin_Login
     Click_Outlets/Stores
     Create_NewMultishopMerchant
+    Click_Outlets/Stores
     Search MultishopBakery in CMS  
     Send activation mail from CMS to Merchant  
     Capture Page Screenshot
@@ -30,11 +31,13 @@ Multishop Merchant Onboarding_without Online Payment
     Close All Browsers
     Open MultishopHomePage
     Login as MultishopMerchant
-    TEMP:Step1
+    #TEMP:Step1
     Step 2: Business information
     Step 4 : Shop  
     Step 5 : Products
     Step 6 : Done
+    Close Browser
+    Check onboarded mail received
     Close Browser
     
 

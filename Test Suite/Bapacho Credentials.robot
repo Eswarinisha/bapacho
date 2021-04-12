@@ -15,8 +15,8 @@ ${Edge}    edge
 @{GuestUser_DE}     Eswari Nisha    Balakrishnan    nisha+guestuser@inqadigital.com    Flughafen  204     Vinohrady     60549     Frankfurt am Main     +31612809787
 
 
-@{RegisterCredentialsold}    automatedcustomer012@yopmail.com    Nisha's Automated Customer    012    bapachocustomerpwdold    bapachocustomerpwdold
-@{RegisterCredentialsnew}    automatedcustomer012@yopmail.com    Nisha's Automated Customer    012    bapachocustomerpwd    bapachocustomerpwd
+@{RegisterCredentialsold}    testemailcustomer001@gmail.com    Nisha's Automated Customer    012    bapachocustomerpwdold    bapachocustomerpwdold
+@{RegisterCredentialsnew}    testemailcustomer001@gmail.com    Nisha's Automated Customer    012    bapachocustomerpwd    bapachocustomerpwd
 @{RegisterCredentialsCheckout}    automatedcustomer012@yopmail.com    bapachocustomerpwd 
 
 @{FBCredentials}    eswarinisha.b@gmail.com    Nani@25032016
@@ -54,12 +54,19 @@ ${MerchantName without payment}    Nisha's Automated Bakery006
 #MultishopMerchant details
 
 @{MultishopMerchantCredentials}    nisha+automatedmultishop10@inqadigital.com     bapachomerchantpwd    31612809787    Netherlands
-@{MultishopLocation1Credentials}     nisha+automatedmultishop10@loc1@inqadigital.com     bapachomerchantpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
+@{MultishopLocation1Credentials}     nisha+automatedmultishop10+loc1@inqadigital.com     bapachomerchantpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
 ${MultishopMerchantName}    Nisha's Automated Multishop10
 ${MultishopMerchantLoc1}    Nisha's Automated Multishop10+ Loc1
 
 ${COC}    000000000  
-${VAT}    123456789B12  
+${VAT_NL}    123456789B12  
+${VAT_CZ}    54416485
+${VAT_IT}    12345678901
+${VAT_DE}    123456789
+${VAT_GR}    123456789
+${VAT_PL}    214585624
+${VAT_RO}    1234567890
+
 ${IBAN}    NL39RABO0300065264
 
 #Merchant with Online payment

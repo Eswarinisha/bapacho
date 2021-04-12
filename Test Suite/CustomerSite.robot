@@ -17,7 +17,7 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 #CS001TC00_User must be able to click on Login icon and click create account
 CS001TC002   #User must be able to enter valid email id, first name, last name and confirm password
 	     
-        Open_Bapachosite
+        Open MultishopHomePage
         Capture Page Screenshot    
         Click_login   
         Email_Registration 
@@ -33,14 +33,14 @@ CS001TC002   #User must be able to enter valid email id, first name, last name a
 
 CS001TC004_User must be able to login with newly registered email id
 	          
-	    Open_Bapachosite
+	    Open MultishopHomePage
         Click_login         
         EmailLogin       
         Close Browser 
 
 #CS002TC001_User must be able to click on Login icon and click login using Facebook
 CS002TC002_User must be directed to Facebook login page and able to login successfully       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         Click_FacebookLogin
         FacebookLogin
@@ -49,21 +49,20 @@ CS002TC002_User must be directed to Facebook login page and able to login succes
 CS003TC001_User must be able to login using his credentials
         Set Tags    Sanity
        
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Capture Page Screenshot
         Close Browser
             
-# CS003TC002
-     # User must be able to login using his facebook credentials
+CS003TC002_User must be able to login using his facebook credentials
       
-        # FacebookLogin
-        # Close Browser
+        FacebookLogin
+        Close Browser
         
 CS003TC003_User must be able to login during checkout 
     
-         Open_Bapachosite
+         Open MultishopHomePage
          Click_bakeries
          Change_CurrentLoction_BDP
          Type_To_Search_bakery with Online payment
@@ -79,7 +78,7 @@ CS003TC003_User must be able to login during checkout
          Close Browser
          
 CS003TC004_User must be able to register during checkout 
-         Open_Bapachosite
+         Open MultishopHomePage
          Click_bakeries
          Change_CurrentLoction_BDP
          Type_To_Search_bakery with Online payment
@@ -94,26 +93,26 @@ CS003TC004_User must be able to register during checkout
          Capture Page Screenshot    
          Close Browser 
          
-# CS003TC005
-     # # User must be able to register during checkout 
-         # Open_Bapachosite
-         # Click_bakeries
-         # Change_CurrentLoction_BDP
-         # Type_To_Search_bakery
-         # BuiltIn.Sleep    2    
-         # Select a bakery from list
-         # PDP_AddtoCart
-         # Set Browser Implicit Wait    5
-         # PDP_Click_Checkout
-         # Guestuser_FBLogin_in_Checkoutpage
-         # BuiltIn.Sleep    2    
-         # Cashpay_OrderNow
-         # Capture Page Screenshot    
-         # Close Browser            
+CS003TC005
+     # User must be able to register during checkout 
+         Open MultishopHomePage
+         Click_bakeries
+         Change_CurrentLoction_BDP
+         Type_To_Search_bakery
+         BuiltIn.Sleep    2    
+         Select a bakery from list
+         PDP_AddtoCart
+         Set Browser Implicit Wait    5
+         PDP_Click_Checkout
+         Guestuser_FBLogin_in_Checkoutpage
+         BuiltIn.Sleep    2    
+         Cashpay_OrderNow
+         Capture Page Screenshot    
+         Close Browser            
 
 CS004TC001_User must be able to click on forgot password
        
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         Click_ForgotPassword  
         Close Browser 
@@ -127,27 +126,27 @@ CS004TC002_User must receive mail for resetting the password and able to set new
 
 CS005TC001_User must be able to login with the new password
       
-       Open_Bapachosite
+       Open MultishopHomePage
        Click_login
        login_Using_RegisteredMailid
        Close Browser       
 
 CS005TC002_User must not be able to login with old password
-       Open_Bapachosite
+       Open MultishopHomePage
        Click_login
        login_Using_RegisteredMailid_with old password   
        Close Browser
    
 CS006TC001_User must be able to visit Bapacho site as guest
 
-         Open_Bapachosite
+         Open MultishopHomePage
          Click_bakeries
          Capture Page Screenshot
          Close Browser
 
 CS006TC002_User must be able to search bakeries by name on the search bar
 
-          Open_Bapachosite
+          Open MultishopHomePage
           Click_bakeries
           Change_CurrentLoction_BDP
           Type_To_Search_bakery with Online payment
@@ -157,7 +156,7 @@ CS006TC002_User must be able to search bakeries by name on the search bar
       
 CS006TC003_Guest User must not be able to add bakeries to favorites
           
-          Open_Bapachosite
+          Open MultishopHomePage
           Click_bakeries
          Change_CurrentLoction_BDP
           Type_To_Search_bakery with Online payment
@@ -167,7 +166,7 @@ CS006TC003_Guest User must not be able to add bakeries to favorites
 
 CS006TC004_Guest User must be able to add products to cart
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -178,7 +177,7 @@ CS006TC004_Guest User must be able to add products to cart
        
 CS006TC005_Guest User must be able to checkout and place order
          Set Tags    Sanity
-         Open_Bapachosite
+         Open MultishopHomePage
          Click_bakeries
          Change_CurrentLoction_BDP
          Type_To_Search_bakery with Online payment
@@ -194,7 +193,7 @@ CS006TC005_Guest User must be able to checkout and place order
 
 CS007TC001_User must login to view on the Account icon
 
-       Open_Bapachosite
+       Open MultishopHomePage
        Click_login
        EmailLogin
        Click_MyAccount    
@@ -202,7 +201,7 @@ CS007TC001_User must login to view on the Account icon
        
 CS007TC002_User must be able to edit and save all the information in my data
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -211,7 +210,7 @@ CS007TC002_User must be able to edit and save all the information in my data
         
 CS007TC003_While placing order, all the information must be populated correctly after checkout
         Set Tags    Sanity
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -227,7 +226,7 @@ CS007TC003_While placing order, all the information must be populated correctly 
         
 CS008TC001_User must be able to view his favorites bakery by clicking on the favorites icon
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_favourites
@@ -235,7 +234,7 @@ CS008TC001_User must be able to view his favorites bakery by clicking on the fav
         Close Browser
 
 CS008TC002_User must be able to view his favorites bakery by clicking on the favorites icon
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_favourites
@@ -244,7 +243,7 @@ CS008TC002_User must be able to view his favorites bakery by clicking on the fav
       
 CS008TC003_User must be able to view Favorites from My Account
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -254,7 +253,7 @@ CS008TC003_User must be able to view Favorites from My Account
     
 CS008TC004_User must be able to click and view any of his favorite bakeries
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -264,7 +263,7 @@ CS008TC004_User must be able to click and view any of his favorite bakeries
         
 CS009TC001_User can view his order history under My orders in My account
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -273,7 +272,7 @@ CS009TC001_User can view his order history under My orders in My account
         
 CS009TC002_User can select any of his previous orders
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -283,7 +282,7 @@ CS009TC002_User can select any of his previous orders
         
 CS009TC003_User must be able to Download order confirmation for the selected order
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -294,7 +293,7 @@ CS009TC003_User must be able to Download order confirmation for the selected ord
         
 CS009TC004_User must be able to click repeat order and place the same
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -305,7 +304,7 @@ CS009TC004_User must be able to click repeat order and place the same
         
 CS010TC001_On clicking logout, user must be logged out of site
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -317,7 +316,7 @@ CS010TC001_On clicking logout, user must be logged out of site
         
 CS010TC003_User must be able to login with another credentials
     #CS010TC002	 #Login icon must appear in the header
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_MyAccount
@@ -331,7 +330,7 @@ CS010TC003_User must be able to login with another credentials
 
 CS011TC001_User must be able to type the location to find his bakery needed
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Change_CurrentLocation_Home
         BuiltIn.Sleep    2  
         Capture Page Screenshot
@@ -341,19 +340,19 @@ CS011TC001_User must be able to type the location to find his bakery needed
 
 CS011TC002_On clicking on the arrow near the search tab, current location must be populated
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Get_CurrrentLocation_Home
         Close Browser
         
 CS012TC001_User must be able to click on Bakeries and view bakery listing page
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Close Browser
         
 CS013TC001_User must be able to search bakeries by name on the search bar
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -362,7 +361,7 @@ CS013TC001_User must be able to search bakeries by name on the search bar
         
 CS013TC002_When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_to_search_bakery_nonhappy  
@@ -371,7 +370,7 @@ CS013TC002_When no relevant result is available, "We're sorry, we couldn't find 
         
 CS013TC003_User must be able to clear search by clicking on the X button
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
        Type_to_search_bakery_nonhappy
@@ -382,14 +381,14 @@ CS013TC003_User must be able to clear search by clicking on the X button
         
 CS014TC001_User must be able to use "Filter by Category" and get relevent result in the bakery listing page
       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Filter Bakeries by Category         
         Close Browser
         
 CS014TC002_User must be able to use filter "Range from my location" and get relevent result in the bakery listing page
     
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Filter_by_Range from my location
         Close Browser
@@ -398,7 +397,7 @@ CS014TC002_User must be able to use filter "Range from my location" and get rele
         
 CS014TC003_User must be able to use filter deliver/pickup and get relevent result in the bakery listing page
         
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
       #  Change_CurrentLoction_BDP
         Filter_by_pickup
@@ -408,7 +407,7 @@ CS014TC003_User must be able to use filter deliver/pickup and get relevent resul
             
 CS014TC004_User must be able to use filter "other filter" and get relevent result in the bakery listing page
     
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Filter_by_NowOpen
@@ -421,7 +420,7 @@ CS014TC004_User must be able to use filter "other filter" and get relevent resul
         
 CS015TC001_User must be able to use one or many filters and get relevant result in the bakery listing page
         
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -435,7 +434,7 @@ CS015TC001_User must be able to use one or many filters and get relevant result 
         
 CS015TC002_User must be able to deselect Category filter and get relevent result in the bakery listing page
         
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Filter Bakeries by Category
         Unselect Category Filter
@@ -445,7 +444,7 @@ CS015TC002_User must be able to deselect Category filter and get relevent result
 
 CS016TC001_User must be able to remove the filters and all the result must be reset
         
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Filter_by_pickup
         Filter_by_Deliver
@@ -461,7 +460,7 @@ CS016TC001_User must be able to remove the filters and all the result must be re
 
 CS017TC001_On clicking on any bakery, the bakery details page must be displayed
         
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -472,7 +471,7 @@ CS017TC001_On clicking on any bakery, the bakery details page must be displayed
         
 CS018TC001_In the bakery display page, under the About Bakery, show more information link must be available
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -481,7 +480,7 @@ CS018TC001_In the bakery display page, under the About Bakery, show more informa
         Close Browser
  
 CS018TC002_On clicking the link, all information including payment method must be displayed       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -491,7 +490,7 @@ CS018TC002_On clicking the link, all information including payment method must b
     
 CS018TC003_Phone number under other information must be clickable
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -501,7 +500,7 @@ CS018TC003_Phone number under other information must be clickable
         Close Browser
         
 CS019TC001_Products must be listed according to the product type 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -511,7 +510,7 @@ CS019TC001_Products must be listed according to the product type
         Close Browser
       
 CS019TC002_On clicking on "+" product must get added to cart
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -521,7 +520,7 @@ CS019TC002_On clicking on "+" product must get added to cart
         Close Browser
         
 CS020TC001_On clicking on "i " the product details must be displayed
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -533,7 +532,7 @@ CS020TC001_On clicking on "i " the product details must be displayed
 
 
 CS021TC001_User must be able to add produts using Add to cart button in the product information       
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -543,7 +542,7 @@ CS021TC001_User must be able to add produts using Add to cart button in the prod
         Close Browser
         
 CS021TC002_User must be able to change the quantity of product using + and - buttons
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -551,13 +550,13 @@ CS021TC002_User must be able to change the quantity of product using + and - but
         PDP_AddtoCart
         PDP_Add product Quantity
         Capture Page Screenshot    
-        PDP_Minus product Quantity
+       # PDP_Minus product Quantity
         Capture Page Screenshot    
         Close Browser
 
         
 CS021TC003_User must be able to directly type the quantity of product in the box
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -568,7 +567,7 @@ CS021TC003_User must be able to directly type the quantity of product in the box
         Close Browser
         
 CS022TC001_User must be able to remove the products from cart with delete button
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
@@ -588,7 +587,7 @@ CS023TC001_On clicking Favorites icon, the list of favorite bakeries must be dis
     
 #CS023TC002	 #Any of the favorite bakeries can be clicked and result to bakery display page
 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_favourites
@@ -598,8 +597,22 @@ CS023TC001_On clicking Favorites icon, the list of favorite bakeries must be dis
 
                # FCS008	        CHECKOUT
                
+Get checkout url when customer goes to homepage and click cart
+        Open MultishopHomePage
+        Click_login
+        EmailLogin
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
+        Select a bakery from list
+        PDP_AddtoCart
+        Click Image    ${BapachoLOGO}    
+        Click Element    ${carticon}    
+        Get Locations    
+        Close Browser
+
 CS024TC001_User must be able to enter mandatory details in the Choose pickup and delivery page after checkout
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -616,7 +629,7 @@ CS024TC001_User must be able to enter mandatory details in the Choose pickup and
         
 
 CS024TC002_User must be able to choose pickup 
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -632,7 +645,7 @@ CS024TC002_User must be able to choose pickup
         
 
 CS024TC003_User must be able to choose date and time for Deliver
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -650,7 +663,7 @@ CS024TC003_User must be able to choose date and time for Deliver
         Close Browser
         
 CS024TC004_User must be able to choose payment method in the Choose pickup and delivery page
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -667,7 +680,7 @@ CS024TC004_User must be able to choose payment method in the Choose pickup and d
         Close Browser
         
 CS025TC001_User must be able to read Terms & conditions on clicking the link
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -681,7 +694,7 @@ CS025TC001_User must be able to read Terms & conditions on clicking the link
         Close Browser  
         
 CS025TC002_User must be able to check the Terms & conditions box
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -697,7 +710,7 @@ CS025TC002_User must be able to check the Terms & conditions box
         Close Browser
         
 CS025TC003_Without checking the Terms &Conditions check box, user must not be able to place order
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -718,7 +731,7 @@ CS025TC003_Without checking the Terms &Conditions check box, user must not be ab
         #  FCS009	PAYMENT
 
 CS026TC001_User must be able to do online payment using iDeal     
-        Open_Bapachosite
+        Open MultishopHomePage
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -731,7 +744,7 @@ CS026TC001_User must be able to do online payment using iDeal
         Close Browser   
         
 CS026TC002_User must be able to do online payment using card
-        Open_Bapachosite
+        Open MultishopHomePage
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
@@ -748,7 +761,7 @@ CS026TC002_User must be able to do online payment using card
 
         
 CS026TC003_User must be able to do online payment using giropay
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -765,7 +778,7 @@ CS026TC003_User must be able to do online payment using giropay
         Close Browser
         
 CS026TC004_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -783,7 +796,7 @@ CS026TC004_User must be able to add date and time of delivery to his calender by
         Close Browser
         
 CS027TC001_User must be able to choose cash payment method and click on Order now
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -799,7 +812,7 @@ CS027TC001_User must be able to choose cash payment method and click on Order no
         Close Browser
         
 CS027TC002_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Get_CurrrentLocation_Home 
@@ -815,7 +828,7 @@ CS027TC002_User must be able to add date and time of delivery to his calender by
         Close Browser
         
 CS028TC001_User must be able to choose Card payment method and click on Order now
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -831,7 +844,7 @@ CS028TC001_User must be able to choose Card payment method and click on Order no
         Close Browser
         
 CS028TC002_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -853,7 +866,7 @@ CS028TC002_User must be able to add date and time of delivery to his calender by
 
         
 CS029TC001_User must be able to click on back button without paying and redirected to Order incomplete page
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -871,7 +884,7 @@ CS029TC001_User must be able to click on back button without paying and redirect
         
 
 CS030TC001_Order incomplete page must have details regarding the failed payment
-        Open_Bapachosite
+        Open MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
@@ -892,26 +905,26 @@ CS030TC001_Order incomplete page must have details regarding the failed payment
   # FCS011	DISCOVER BAPACHO
  
 CS031TC001_User must be able to view About us static page
-         Open_Bapachosite
+         Open MultishopHomePage
          About us
          Close Browser
          Pass Execution    "Failure expected in local staging" 
                
 CS032TC001_User must be able to click on "Login as Merchant"
-        Open_Bapachosite
+        Open MultishopHomePage
         Login As Merchant_Footer
         Capture Page Screenshot    
         Close Browser
          
 
 CS032TC002_User must enter valid Merchant email id and password
-        Open_Bapachosite
+        Open MultishopHomePage
         Login As Merchant_Footer
         MerchantLogin_Form
         Close Browser
     
 CS032TC003_User must be able to use the website as Merchant
-        Open_Bapachosite
+        Open MultishopHomePage
         Login As Merchant_Footer
         MerchantLogin_Form
         Capture Page Screenshot 
@@ -920,50 +933,50 @@ CS032TC003_User must be able to use the website as Merchant
         Close Browser
         
 CS033TC001_User must be able to click and read on Terms and Conditions in the footer 
-        Open_Bapachosite
+        Open MultishopHomePage
         Terms and Condition
         Close Browser
          Pass Execution    "Failure expected in local staging" 
         
 CS034TC001_User must be able to click and read on Privacy statement in the footer
-        Open_Bapachosite
+        Open MultishopHomePage
         Privacy Statement
         Close Browser
         Pass Execution    "Failure expected in local staging"         
 
 CS035TC001_User must be able to click and read on FAQ in the footer
-        Open_Bapachosite
+        Open MultishopHomePage
         FAQ
         Close Browser
         
 CS036TC001_User must be able to click and fill in the Support form and submit
-        Open_Bapachosite
+        Open MultishopHomePage
         Support_Footer
         Support_Form_Footer
         Capture Page Screenshot    
         Close Browser
 
 CS041TC001_User must be able to view blog page    
-       Open_Bapachosite
+       Open MultishopHomePage
        Blog
        Close Browser    
 
 
 CS037TC001_User must be able to click and view the Bapacho Facebook icon
-        Open_Bapachosite
+        Open MultishopHomePage
         Bapacho_FB_icon       
         Capture Page Screenshot       
         Close All Browsers
         
 CS038TC001_User must be able to click and view on the Bapacho Instagram icon
-        Open_Bapachosite
+        Open MultishopHomePage
         Bapacho_Instagram_icon
         Capture Page Screenshot       
         Close All Browsers
         
 CS039TC001_User must be able to click and view app in Playstore
 #CS039TC002	 #User must be able to click and view app in Appstore
-        Open_Bapachosite
+        Open MultishopHomePage
         Click Download App - playstore
         Select Window     MAIN
         Click Download App - Appstore
@@ -983,7 +996,7 @@ CS040TC001_User can view landing page and subscribe to newsletter
         Close All Browsers
    
 CS042TC001_New merchant can click on Open your shop and submit the support form  
-        Open_Bapachosite_to_testhomepage   
+        testhomepage   
         Open your shop
         Close Browser
        

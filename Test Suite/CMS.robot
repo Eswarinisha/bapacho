@@ -12,6 +12,13 @@ Resource    Bapacho Credentials.robot
 Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Customer Site Screenshots
 
 *** Test Cases ***
+
+Homepage
+    Open_CMS
+    CMSAdmin_Login
+    Homepage details
+    Close Browser
+
 # Product 
 Product Categories	#CMS006	#Create,edit,duplicate and delete 
     Open_CMS
@@ -93,6 +100,11 @@ FAQ	#CMS014	FAQ-Create,edit,duplicate and delete
     Payment Methods
     Close Browser
     
+SalesAgent
+    Open_CMS
+    CMSAdmin_Login
+    CMS Sales Agent
+    Add bakery salesagent
 
 Sales Agent portal
     Open SalesagentPortal

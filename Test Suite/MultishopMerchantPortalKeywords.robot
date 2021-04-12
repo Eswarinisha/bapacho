@@ -9,7 +9,7 @@ Resource    Bapacho Credentials.robot
 ***Keyword***
 Login as MultishopMerchant  
         BuiltIn.Sleep    2  
-        Click Element    ${LoginasMerchant_${Language}}  
+        Click Element    ${LoginasMerchant}  
         BuiltIn.Sleep    2
         SeleniumLibrary.Input Text    email    ${MultishopMerchantCredentials}[0]
         Input Password    password     ${MultishopMerchantCredentials}[1]  
@@ -17,25 +17,25 @@ Login as MultishopMerchant
         BuiltIn.Sleep    2   
         
 Connect to Online payment
-        Click Element    //a[contains(.,'Connectto online payments')]  
+        Click Element    ${connect to online payment}  
         BuiltIn.Sleep    2
         Capture Page Screenshot    
         Go Back  
         BuiltIn.Sleep    2
-        Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
+        Execute JavaScript    ${scrollup}
         
 #DASHBOARD
 
 Print all Orders for TODAY
     Sleep    2     
-    Click Element    //a[contains(.,'Print all orders')]   
+    Click Element    ${printallorders}   
     BuiltIn.Sleep    2  
     Capture Page Screenshot 
      
 Order/Product Details TODAY
     BuiltIn.Sleep    2  
     Capture Page Screenshot   
-    Click Element    //a[contains(.,'Order/product details')]    
+    Click Element    ${oredr/product_details}    
     BuiltIn.Sleep    2  
     Capture Page Screenshot 
         
@@ -45,16 +45,16 @@ Create new product category
      Click Element    ${MyproductCategories}
      Capture Page Screenshot        
      Click Element     ${AddCategory} 
-     BuiltIn.Sleep    2
-     Run Keyword If    '${Language}'=='EN'     Input Text    titles[nl]    ${ProductCategoryName}       
-     Run Keyword If    '${Language}'=='NL'     Input Text    titles[en]    ${ProductCategoryName}            
+     BuiltIn.Sleep    2      
+     Run Keyword If    '${Language}'=='NL' or 'EN'     Input Text    titles[nl]    ${ProductCategoryName}       
      Run Keyword If    '${Language}'=='DE'     Input Text    titles[be]    ${ProductCategoryName} 
-     Run Keyword If    '${Language}'=='EN'or 'IT'     Input Text    titles[it]    ${ProductCategoryName} 
+     Run Keyword If    '${Language}'=='IT' or 'EN'     Input Text    titles[it]    ${ProductCategoryName} 
      Run Keyword If    '${Language}'=='CZ'     Input Text    titles[cz]    ${ProductCategoryName} 
+     Run Keyword If    '${Language}'=='DE'    Input Text    titles[en]    ${ProductCategoryName} 
      Capture Page Screenshot    
      Click Button    ${btn_SubmitCategory_${Language}}
      BuiltIn.Sleep    2    
-     Click Element    //button[contains(.,'OK')]  
+     Click Element    ${OK}   
      BuiltIn.Sleep    2   
      Capture Page Screenshot  
      
@@ -62,19 +62,21 @@ Delete product category
      Click Element    ${MyproductCategories}
      Capture Page Screenshot    
      BuiltIn.Sleep    2
-     Click Element    (//div[@onclick='assertDeleteCategory(this)'])[1]  
+     Click Element    ${DeleteCategory}  
      Capture Page Screenshot    
      BuiltIn.Sleep    2
-     Click Element    (//button[contains(@type,'button')])[2]
+     Click Element    ${delete}
      Capture Page Screenshot
      BuiltIn.Sleep    2
-     Click Element    //button[contains(.,'OK')]    
+     Click Element    ${OK}    
      Page Should Not Contain    ${ProductCategoryName}     
      Capture Page Screenshot    
 
 Delete product category Failing
+     Sleep    2
+     Execute Javascript    ${scrollup}
      Click Element    ${MyproductCategories}
-     Run Keyword And Continue On Failure           Click Element   (//div[@onclick='assertDeleteCategory(this)'])[1]
+     Run Keyword And Continue On Failure           Click Element   ${DeleteCategory}
      Capture Page Screenshot    
                  
 #My Products
@@ -84,26 +86,29 @@ Create new own product
     Capture Page Screenshot
     Click Element    ${Addproduct}  
     Capture Page Screenshot
+    Sleep    2
     Input Text    ${ProductTitle_${Language}}   ${Productname}  
     Input Text    ${Product_Subtitle_${Language}}      ${Productname}     
     Input Text    ${Product_Description_${Language}}      ${Productname}
     Input Text    ${Product_Ingredients_${Language}}     ${Productingredients} 
     Input Text    ${Product_unit_${Language}}    ${ProductUnit}
-    Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
-    Click Element    //button[contains(.,'Copy information from English')]
+    Execute JavaScript    ${scrollup}
+    Click Element    ${CopyfromEnglish}
     Capture Page Screenshot
-    Select From List By Label    category_guid      ${ProductCategoryName}
-    Select From List By Value    name=columns[featured]      1 
-    Input Text    name=columns[price]    ${PricewithVAT}
-    Select From List By Value    columns[vat_id]   2
+    Select From List By Label    ${choosecategoryname}      ${ProductCategoryName}
+    Select From List By Value    ${feature product}      1 
+    Input Text    ${price}    ${PricewithVAT}
+    Select From List By Value    ${productVAT}   2
     Capture Page Screenshot
     BuiltIn.Sleep    2    
-    Input Text   name=columns[availableFrom]      26-09-2020 06:45  
-    Input Text    name=columns[daily_production]     10
-    Input Text    columns[preparation_time]    01:00
+    Input Text   ${productAvailablefrom}      26-09-2020 06:45  
+    Input Text    ${productionquantity}     10
+    Input Text    ${productpreparationtime}    01:00
+    Click Element    //i[contains(@class,'far fa-clock')]    
     Capture Page Screenshot
+    Sleep    2    
     Select Checkbox    productLocations[]
-    Select From List By Value    name=columns[active]       1 
+    Select From List By Value    ${chooseproductlocation}       1 
     # Input Text    name=nutritions[11]    0.5    
     #Select Checkbox    //input[@id='paymentMethod-5']      #Online payment
     #Scroll Element Into View    //input[contains(@value,'OK')]
@@ -112,23 +117,64 @@ Create new own product
     #Select Checkbox    //input[@id='paymentMethod-6']      #Cash payment
     #Select Checkbox    //input[@id='paymentMethod-7']      #card payment
     Capture Page Screenshot
-    Click Element    //input[contains(@type,'submit')] 
+    Click Element    ${btn_inputsubmit} 
     BuiltIn.Sleep    5    
     Wait Until Page Contains     ${Productname}    
-    Capture Page Screenshot       
-    
-    Click 'i' for product information
+    Capture Page Screenshot        
    
-                 
+Create new own product without choosing location 
+
+    Click Element   ${MyProduct}
+    Capture Page Screenshot
+    Click Element    ${Addproduct}  
+    Capture Page Screenshot
+    Sleep    2
+    Input Text    ${ProductTitle_${Language}}   ${Productname}  
+    Input Text    ${Product_Subtitle_${Language}}      ${Productname}     
+    Input Text    ${Product_Description_${Language}}      ${Productname}
+    Input Text    ${Product_Ingredients_${Language}}     ${Productingredients} 
+    Input Text    ${Product_unit_${Language}}    ${ProductUnit}
+    Execute JavaScript    ${scrollup}
+    Click Element    ${CopyfromEnglish}
+    Capture Page Screenshot
+    Select From List By Label    ${choosecategoryname}      ${ProductCategoryName}
+    Select From List By Value    ${feature product}      1 
+    Input Text    ${price}    ${PricewithVAT}
+    Select From List By Value    ${productVAT}   2
+    Capture Page Screenshot
+    BuiltIn.Sleep    2    
+    Input Text   ${productAvailablefrom}      26-09-2020 06:45  
+    Input Text    ${productionquantity}     10
+    Input Text    ${productpreparationtime}    01:00
+    Click Element    //i[contains(@class,'far fa-clock')]    
+    Capture Page Screenshot
+    Sleep    2    
+    #Select Checkbox    productLocations[]
+    Select From List By Value    ${chooseproductlocation}       1 
+    # Input Text    name=nutritions[11]    0.5    
+    #Select Checkbox    //input[@id='paymentMethod-5']      #Online payment
+    #Scroll Element Into View    //input[contains(@value,'OK')]
+    #Click Element    //input[contains(@value,'OK')]    
+    #Scroll Element Into View    //input[@id='paymentMethod-6']
+    #Select Checkbox    //input[@id='paymentMethod-6']      #Cash payment
+    #Select Checkbox    //input[@id='paymentMethod-7']      #card payment
+    Capture Page Screenshot
+    Click Element    ${btn_inputsubmit} 
+    BuiltIn.Sleep    5      
+    Capture Page Screenshot        
+    Page Should Contain    Error
+    Click Element    ${OK}        
+                   
+
 Delete created own category product
      Click Element   ${MyProduct}
      Capture Page Screenshot    
      BuiltIn.Sleep    2
-     Click Element    (//button[contains(.,'Remove')])[2]   
-     Capture Page Screenshot    
-     Click Element    //button[contains(.,'Yes, delete it!')]    
-     Capture Page Screenshot    
      
+     Click Element    ${Deleteproduct}   
+     Capture Page Screenshot    
+     Click Element    ${yes_delete}    
+     Capture Page Screenshot         
      Click 'i' for product information
      Page Should Not Contain    ${Productname}  
      
@@ -138,194 +184,266 @@ Add Zeelandia product from library
      Click Element    ${Addzeelandiaproduct} 
      BuiltIn.Sleep    2  
      Capture Page Screenshot
-     Click Element   (//button[@onclick='setProductActive(this);'])[1]
+     Click Element   ${setzeelandiaproduct}
      Capture Page Screenshot  
-     Input Text    (//input[contains(@type,'number')])[1]    2.00   
+     Input Text    ${inputprice_zeelandiaproduct}    2.00   
      Capture Page Screenshot       
-     Click Element    //input[contains(@type,'submit')]  
+     Click Element    ${btn_Save}  
      BuiltIn.Sleep    2  
      Capture Page Screenshot  
+     
+Edit Zeelandia product from library
+     Click Element   ${MyProduct}
+     Capture Page Screenshot
+     Click Element    ${Editzeelandiaproduct} 
+     BuiltIn.Sleep    2  
+     Capture Page Screenshot
+     Input Text    ${editzeelandiaproducttitle_${Language}}    Baker's own name
+     Input Text    ${editzeelandiaproductsubtitle_${Language}}    Baker's own subtitle    
+     Execute Javascript    ${scrolldown}
+     Sleep    3
+     Click Element   //input[@type='submit']
+     BuiltIn.Sleep    2  
+     Page Should Contain    Baker's own name    
+     Page Should Contain    Baker's own subtitle    
+     BuiltIn.Sleep    2  
+     Capture Page Screenshot  
+     
        
  
 #My Location
 
 Choose Plan
     Click Element    ${MyLocations} 
-    Run Keyword And Continue On Failure     Click Element    //a[contains(.,'button.ViewPlans')]   
+    Run Keyword And Continue On Failure     Click Element    ${viewplans}   
     Sleep    2 
-    Click Element    //i[contains(@class,'fas fa-plus fa-fw')]    
+    Click Element    ${chooseplan}    
     Sleep    2 
-    Select Checkbox   acceptTermsAndConditions
-    Click Element    //button[contains(.,'Checkout')]  
-    Sleep    2
-    Input Text    cardNumber    4242 4242 4242 4242
-    Input Text    cardExpiry     02/22
-    Input Text    cardCvc        123
-    Input Text    billingName    Nisha        
-    Click Element    //button[contains(@type,'submit')]    
+    Select Checkbox   ${Accept T&C}
+    Click Element    ${checkout}  
+    Sleep    3
+    Input Text    ${cardnumber}    4242 4242 4242 4242
+    Input Text    ${cardExpiry}     02/22
+    Input Text    ${cvc}        123
+    Input Text    ${billingname}    Nisha 
+    Sleep    2           
+    Click Element    ${savecard}   
     Sleep    5
      
 Add New Location
      Click Element    ${MyLocations} 
-     Click Element    //i[contains(@class,'fas fa-plus-circle fa-2x')]    
+     Click Element    ${addnewlocation}    
      Sleep    2 
-     Input Text    columns[title]     ${MultishopMerchantLoc1}
-     Input Text    columns[address_1]    ${MultishopLocation1Credentials}[3]
-     Input Text    columns[zip]    ${MultishopLocation1Credentials}[4]
-     Input Text    columns[city]    ${MultishopLocation1Credentials}[5]
-     Input Text    columns[phone]    ${MultishopLocation1Credentials}[2]
-     Click Element    (//button[contains(.,'Choose product')])[1]    
-     Click Element    (//button[contains(.,'Choose product')])[2]                 
-     Click Element    //button[@type='submit'][contains(.,'Save')]                  
+     Input Text    ${newlocationtitle}     ${MultishopMerchantLoc1}
+     Input Text    ${newlocationaddress}    ${MultishopLocation1Credentials}[3]
+     Input Text    ${newlocationZip}    ${MultishopLocation1Credentials}[4]
+     Input Text    ${newlocationcity}    ${MultishopLocation1Credentials}[5]
+     Input Text    ${newlocationphone}    ${MultishopLocation1Credentials}[2]
+     Click Element    ${unchooseproduct1}    
+     #Click Element    ${newlocationchooseproduct2}   
+     Execute Javascript    ${scrolldown}              
+     Click Element    ${btn_Save}                  
 #Shop Address
     Sleep    2 
-    Textfield Should Contain    localized[nl][title]    ${MultishopMerchantLoc1}    
-    Textfield Should Contain    localized-it-title    ${MultishopMerchantLoc1}  
-    Textfield Should Contain    localized[nl][address_1]    ${MultishopLocation1Credentials}[3]
-    Textfield Should Contain    localized[it][address_1]    ${MultishopLocation1Credentials}[3]
-    Textfield Should Contain    localized[nl][zip]    ${MultishopLocation1Credentials}[4]
-    Textfield Should Contain    localized[it][zip]    ${MultishopLocation1Credentials}[4]
-    Textfield Should Contain     localized[nl][city]     ${MultishopLocation1Credentials}[5]
-    Textfield Should Contain    localized[it][city]      ${MultishopLocation1Credentials}[5]  
-    Input Text    localized[nl][region]    Haarlem    
-    Input Text    localized[it][region]    Haarlem    
-    Input Text    localized[nl][country]    Netherlands                           
-    Input Text    localized[it][country]    Netherlands
-    Input Text    columns[emailOrders]    ${MultishopLocation1Credentials}[0]     
-    Input Text    columns[phoneOrders]    ${MultishopLocation1Credentials}[2]
-    Input Text    columns[telephone_2]    ${MultishopLocation1Credentials}[2]
-    Select Checkbox    columns[notifications_phone]
-    Select Checkbox    columns[notifications_email]
-    Click Element    (//button[contains(.,'Save')])[1]    
+    Textfield Should Contain    ${newlocationshoptitle_${Language}}    ${MultishopMerchantLoc1}    
+    #Textfield Should Contain    localized-it-title    ${MultishopMerchantLoc1}  
+    Textfield Should Contain    ${newlocationshopaddress1_${Language}}    ${MultishopLocation1Credentials}[3]
+    #Textfield Should Contain    localized[it][address_1]    ${MultishopLocation1Credentials}[3]
+    Textfield Should Contain    ${newlocationshopzip_${Language}}    ${MultishopLocation1Credentials}[4]
+    #Textfield Should Contain    localized[it][zip]    ${MultishopLocation1Credentials}[4]
+    Textfield Should Contain     ${newlocationshopcity_${Language}}     ${MultishopLocation1Credentials}[5]
+    #Textfield Should Contain    localized[it][city]      ${MultishopLocation1Credentials}[5]  
+    Input Text    ${newlocationshopregion_${Language}}    Haarlem    
+    #Input Text    localized[it][region]    Haarlem    
+    Input Text    ${newlocationshopcountry_${Language}}    Netherlands                           
+    #Input Text    localized[it][country]    Netherlands
+    Input Text    ${newlocationemailorders}    ${MultishopLocation1Credentials}[0]     
+    Input Text    ${newlocationphoneorders}    ${MultishopLocation1Credentials}[2]
+    Input Text    ${newlocationphone2}    ${MultishopLocation1Credentials}[2]
+    Select Checkbox    ${enablenotificationbyphone}
+    Select Checkbox    ${enablenotificationbyemail}
+    Click Element    ${saveShopAddress}    
     Sleep    2
-    Click Element    //button[@type='button'][contains(.,'OK')]    
+    Click Element    ${OK}    
     
 #Products
-     Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
-     Click Element    //a[contains(.,'Products')]    
-     Select Checkbox    (//input[contains(@name,'active[]')])[2]
-     Click Element    (//button[contains(.,'Save')])[2]    
+     Execute JavaScript    ${scrollup}
+     Click Element    ${products}    
+     Click Element    ${unchooseproduct1}
+     Click Element    ${saveproducts}    
      Sleep    2
-     Click Element    //button[@type='button'][contains(.,'OK')]   
+     Click Element    ${OK}   
      
 #Pickup
-     Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
-     Click Element    //a[contains(.,'Pick-up')]
-     Select Checkbox    acceptance_methods[pickup][active]
+     Execute JavaScript    ${scrollup}
+     Click Element    ${pickup}
+     Select Checkbox    ${setpickupactive}
      Sleep    2    
-     Input Text    acceptance_methods[pickup][preparation_time]    02:00
-     Input Text    acceptance_methods[pickup][fee]    5.00
+     Input Text    ${pickuppreparationtime}    02:00
+     Input Text    ${pickupfee}    5.00
      Sleep    2    
      Execute JavaScript    window.scrollBy(1000,247)
-     Select From List By Value    pickupTimes[0][start]    06:30
-     Select From List By Value    pickupTimes[0][end]      23:30
-     Select From List By Value    pickupBreakTimes[0][start]    12:00
-     Select From List By Value    pickupBreakTimes[0][end]    12:30
-     Click Element    (//button[contains(.,'Apply to all')])[1]  
-     #Execute JavaScript    window.scrollTo(0, document.body.scro llHeight)
-     Select Checkbox    id=acceptance-methods-pickup-payment-Online    
-     Select Checkbox    id=acceptance-methods-pickup-payment-Cash
-     Select Checkbox    id=acceptance-methods-pickup-payment-Card
-     Click Element    (//button[@type='submit'][contains(.,'Save')])[3]      
+     Select From List By Value    ${MondayOpening}    06:30
+     Select From List By Value    ${MondayClosing}      23:30
+     Select From List By Value    ${pickupbreaktime - from}    12:00
+     Select From List By Value    ${pickupbreaktime - To}    12:30
+     Click Element    ${pickupapplytoall}  
+     #Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+     Select Checkbox        ${setpickuponlinepayment}
+     Select Checkbox    ${setpickupcashpayment}
+     Select Checkbox    ${setpickupcardpayment}
+     Click Element    ${savepickupinformation}      
      Sleep  2
-     Click Element    //button[@type='button'][contains(.,'OK')]   
+     Click Element    ${OK}   
      
      
 #Delivery
-     Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
-     Click Element    //a[contains(.,'Delivery')]    
-     Select Checkbox    acceptance_methods[deliver][active]
-     Input Text    acceptance_methods[deliver][price]    10.00  
-     Input Text   acceptance_methods[deliver][minimum]    50.00
-     Input Text    acceptance-methods-deliver-range    20    
-     Input Text    acceptance_methods[deliver][free_above]    75.00
-     Input Text    acceptance_methods[deliver][preparation_time]       02:00
-     Input Text    acceptance_methods[deliver][fee]        5.00    
-     Select From List By Value   deliveryTimes[0][start]    06:30
-     Select From List By Value    deliveryTimes[0][end]       23:30
-     Select From List By Value    deliveryBreakTimes[0][start]    12:00
-     Select From List By Value    deliveryBreakTimes[0][end]    12:30
-     Click Element    (//button[contains(.,'Apply to all')])[8]  
-     Select Checkbox    id=acceptance-methods-deliver-payment-Online    
-     Select Checkbox    id=acceptance-methods-deliver-payment-Cash
-     Select Checkbox    id=acceptance-methods-deliver-payment-Card 
-     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)   
-     Click Element    (//button[@type='submit'][contains(.,'Save')])[4] 
+     Execute JavaScript    ${scrollup}
+     Click Element    ${delivery}    
+     Select Checkbox    ${setdeliveryactive}
+     Input Text    ${deliveryprice}    10.00  
+     Input Text   ${minimumprice_for_delivery}    50.00
+     Input Text    ${deliveryrange}    20    
+     Input Text    ${deliveryfreeabove}    75.00
+     Input Text    ${deliverypreparationtime}       02:00
+     Input Text    ${deliveryhandlingfee}        5.00    
+     Select From List By Value   ${Mondaydelivery - from}    06:30
+     Select From List By Value    ${Mondaydelivery - to}       23:30
+     Select From List By Value    ${deliverybreaktime - from}    12:00
+     Select From List By Value    ${deliverybreaktime - to}    12:30
+     Click Element    ${deliveryapplytoall}  
+     Sleep    2       
+     Select Checkbox    ${setdeliveryonlinepayment} 
+      Sleep    2    
+     Select Checkbox    ${setdeliverycashpayment}
+      Sleep    2 
+     Select Checkbox    ${setdeliverycardpayment} 
+     Sleep    2 
+     Click Element    ${savedeliveryinformation} 
      Sleep  2
-     Click Element    //button[@type='button'][contains(.,'OK')]   
+     Click Element    ${OK}   
      
     
 #Shop Information
-     Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
-     Click Element    //a[contains(.,'Shop-page information')]    
+     Execute JavaScript    ${scrollup}
+     Click Element    ${shoppageinformation}    
      Execute JavaScript    window.scrollBy(1000,247) 
      Sleep    2 
      Page Should Contain       ${MultishopMerchantLoc1}   
-     Input Text    localized[nl][text]    Nisha's Multishop location 1     
-     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)  
-     Click Element    (//button[contains(.,'Save')])[5] 
+     Input Text    ${websitecolumn}    https://lefournil.nl/en/     
+     Execute JavaScript    ${scrolldown}  
+     Click Element    ${saveshoppageinformation} 
      Sleep  2
-     Click Element    //button[@type='button'][contains(.,'OK')]   
+     Click Element    ${OK}   
      
      
 Open Location1 - my page 
-    Execute JavaScript    window.scrollTo(document.body.scrollHeight,0)
-    Click Element    //a[contains(.,'My Page')]    
+    Execute JavaScript    ${scrollup}
+    Click Element    ${Mypage}    
     Sleep    2 
     Page Should Contain       ${MultishopMerchantLoc1}  
+    Capture Page Screenshot    
            
 View My locations
     Click Element    ${MyLocations} 
 
 My Orders
     
-    Click Element    //a[contains(.,'My orders')]  
+    Click Element    ${myorder_tab}  
      Sleep    2  
     
-#Accept and view Order
-    Click Element    (//a[contains(.,'Accept')])[1] 
+Accept and view Order
+    Click Element    ${Accept order} 
     Sleep    2
-    Click Element    //button[contains(.,'OK')]    
+    Click Element    ${OK}    
     Sleep    2
-    Click Element    (//a[contains(.,'View order')])[1]
+    Click Element    ${viewOrder}    
     Sleep    2
-    Select From List By Value    orderStatus     preparing
+    Select From List By Value    ${orderstatus}     ${Preparing}
     Sleep    2
-    Input Text    status_comment       Automated Test Comment for preparing
-    Click Element    //button[contains(.,'Save order status')]  
+    Input Text    ${orderstatuscomment}       Automated Test Comment for preparing
+    Click Element    ${saveorderstatus}  
     Sleep    2
-    Click Element    //button[contains(.,'OK')]    
+    Click Element    ${OK}    
     Sleep    2
-    Select From List By Value    lastStatus    paid
-    Click Element    //button[contains(.,'Save payment status')] 
+    Select From List By Value    ${paymentstatus}    ${PaidStatus}
+    Click Element    ${savepaymentstatus} 
     Sleep    2   
-    Click Element    //button[contains(.,'OK')]    
+    Click Element    ${OK}    
     Sleep    2
-    
-My Teams
-    Click Element    //a[contains(.,'My team')]    
-    Click Element    (//div[contains(.,'Add manager')])[6]  
+
+Decline the new order   
+    Click Element    ${Declineorder}    
+    Sleep    2
+    Click Element    ${delete}
+    Sleep    2   
+    Click Element    ${OK}    
     Sleep    2    
-    Input Text    firstname    AutomatedManager        
-    Input Text    lastname    1    
-    Input Text    email    ${MultishopLocation1Credentials}[0]    
-    Click Element    (//input[contains(@type,'checkbox')])[1]    
-    Click Element    (//input[contains(@type,'checkbox')])[2]    
-    Click Element    //button[contains(.,'Submit')]   
+    Click Element    ${viewOrder}    
+    Sleep    2  
+    Capture Page Screenshot    
+
+Refund order
+    Click Element    ${Acceptorder} 
+    Sleep    2
+    Click Element    ${OK}    
+    Sleep    2
+    Click Element    ${viewOrder}
+    Sleep    2
+    Click Element    ${RefundorderButton}  
+    Sleep    2  
+    #Select Radio Button     groupname   wholeamount
+    Input Text    ${Input REFUND}    REFUND 
+    Click Element    ${Refundbutton}   
+    Sleep    2
+    Page Should Contain    Order refunded
+    #Click Element    ${UNDObutton}    
+    
+Partial Order    
+    Click Element    ${Acceptorder} 
+    Sleep    2
+    Click Element    ${OK}    
+    Sleep    2
+    Click Element    ${viewOrder}
+    Sleep    2
+    Click Element    ${RefundorderButton}
+    Sleep     2
+    #Select Radio Button    group_name    partialrefund
+    # Input Text    ${Refundamount}        5.00
+    # Input Text    ${Partialrefundcomment}    Automated partial refund 
+    #Click Element    ${proceedbutton}          
+    Sleep    2
+    Page Should Contain    Order refunded
+    #Click Element    ${UNDObutton}    
+    
+  
+My Teams
+    Click Element    ${Myteam}    
+    Click Element    ${Addmanager}  
+    Sleep    2    
+    Input Text    ${managerfirstname}    AutomatedManager        
+    Input Text    ${managerlastname}    1    
+    Input Text    ${manageremail}    ${MultishopLocation1Credentials}[0]    
+    Click Element    ${location1checkbox}    
+    Click Element    ${location2checkbox}    
+    Click Element    ${btn_SaveManager}   
     Sleep    2 
-    Click Element    //button[contains(.,'OK')]    
+    Click Element    ${OK}    
     Sleep    2
     
 Online Payment Settings
-    Click Element    //a[contains(.,'Online paymentsettings')]   
-    Click Element    //a[contains(.,'Connectto online payments')]  
+    Click Element    ${Onlinepaymentsettings}   
+    Click Element    ${connect to online payment}  
     Sleep     2  
     Go Back 
    
 Account Settings
-    Click Element    //a[contains(.,'Accoutn settings')]    
+    Click Element    ${accountsettings}    
     
 Account Options
-    Click Element    //a[contains(.,'buttons.AccountOptions')]    
+    Click Element    ${accountoptions}    
     
+View Multishop plan
+    Click Element    ${AccountOption}
+    Capture Page Screenshot    
    
