@@ -7,6 +7,7 @@ Resource    Bapacho Variables.robot
 Resource    Bapacho Credentials.robot
 
 ***Keyword***
+
 Login as MultishopMerchant  
         BuiltIn.Sleep    2  
         Click Element    ${LoginasMerchant}  
@@ -16,6 +17,15 @@ Login as MultishopMerchant
         Click Button  ${LoginSubmit_Button}
         BuiltIn.Sleep    2   
         
+Login as Manager
+     BuiltIn.Sleep    2  
+        Click Element    ${LoginasMerchant}  
+        BuiltIn.Sleep    2
+        SeleniumLibrary.Input Text    email    ${MultishopLocation1Credentials}[0]
+        Input Password    password     ${MultishopLocation1Credentials}[1]  
+        Click Button  ${LoginSubmit_Button}
+        BuiltIn.Sleep    2   
+
 Connect to Online payment
         Click Element    ${connect to online payment}  
         BuiltIn.Sleep    2
@@ -46,19 +56,27 @@ Create new product category
      Capture Page Screenshot        
      Click Element     ${AddCategory} 
      BuiltIn.Sleep    2      
-     Run Keyword If    '${Language}'=='NL' or 'EN'     Input Text    titles[nl]    ${ProductCategoryName}       
-     Run Keyword If    '${Language}'=='DE'     Input Text    titles[be]    ${ProductCategoryName} 
-     Run Keyword If    '${Language}'=='IT' or 'EN'     Input Text    titles[it]    ${ProductCategoryName} 
-     Run Keyword If    '${Language}'=='CZ'     Input Text    titles[cz]    ${ProductCategoryName} 
-     Run Keyword If    '${Language}'=='DE'    Input Text    titles[en]    ${ProductCategoryName} 
+     Run Keyword And Continue On Failure    Input Text    titles[nl]    ${ProductCategoryName}  
+     Run Keyword And Continue On Failure    Input Text    titles[be]    ${ProductCategoryName}  
+     Run Keyword And Continue On Failure    Input Text    titles[it]    ${ProductCategoryName}  
+     Run Keyword And Continue On Failure    Input Text    titles[cz]    ${ProductCategoryName}    
+     Run Keyword And Continue On Failure    Input Text    titles[en]    ${ProductCategoryName}    
+     Run Keyword And Continue On Failure    Input Text    titles[ro]    ${ProductCategoryName}
+     # Run Keyword If    '${Language}'=='NL'     Input Text    titles[nl]    ${ProductCategoryName}       
+     # Run Keyword If    '${Language}'=='DE'     Input Text    titles[be]    ${ProductCategoryName} 
+     # Run Keyword If    '${Language}'=='IT' or 'EN'     Input Text    titles[it]    ${ProductCategoryName} 
+     # Run Keyword If    '${Language}'=='CZ'     Input Text    titles[cz]    ${ProductCategoryName} 
+     # Run Keyword If    '${Language}'=='DE'    Input Text    titles[en]    ${ProductCategoryName} 
      Capture Page Screenshot    
-     Click Button    ${btn_SubmitCategory_${Language}}
+     Click Button    ${btn_SubmitCategory}
      BuiltIn.Sleep    2    
      Click Element    ${OK}   
      BuiltIn.Sleep    2   
      Capture Page Screenshot  
      
 Delete product category 
+     Sleep     2
+     Execute Javascript    ${scrollup}    
      Click Element    ${MyproductCategories}
      Capture Page Screenshot    
      BuiltIn.Sleep    2
@@ -76,7 +94,7 @@ Delete product category Failing
      Sleep    2
      Execute Javascript    ${scrollup}
      Click Element    ${MyproductCategories}
-     Run Keyword And Continue On Failure           Click Element   ${DeleteCategory}
+     Run Keyword And Continue On Failure           Click Element   ${DeleteCategory_failing}
      Capture Page Screenshot    
                  
 #My Products
@@ -91,14 +109,14 @@ Create new own product
     Input Text    ${Product_Subtitle_${Language}}      ${Productname}     
     Input Text    ${Product_Description_${Language}}      ${Productname}
     Input Text    ${Product_Ingredients_${Language}}     ${Productingredients} 
-    Input Text    ${Product_unit_${Language}}    ${ProductUnit}
+    # Input Text    ${Product_unit_${Language}}    ${ProductUnit}
     Execute JavaScript    ${scrollup}
     Click Element    ${CopyfromEnglish}
     Capture Page Screenshot
     Select From List By Label    ${choosecategoryname}      ${ProductCategoryName}
     Select From List By Value    ${feature product}      1 
     Input Text    ${price}    ${PricewithVAT}
-    Select From List By Value    ${productVAT}   2
+    Select From List By Value    ${productVAT}   1
     Capture Page Screenshot
     BuiltIn.Sleep    2    
     Input Text   ${productAvailablefrom}      26-09-2020 06:45  
@@ -186,9 +204,9 @@ Add Zeelandia product from library
      Capture Page Screenshot
      Click Element   ${setzeelandiaproduct}
      Capture Page Screenshot  
-     Input Text    ${inputprice_zeelandiaproduct}    2.00   
+     # Input Text    ${inputprice_zeelandiaproduct}    2.00   
      Capture Page Screenshot       
-     Click Element    ${btn_Save}  
+     Click Element    ${btn_inputsubmit} 
      BuiltIn.Sleep    2  
      Capture Page Screenshot  
      
@@ -198,8 +216,9 @@ Edit Zeelandia product from library
      Click Element    ${Editzeelandiaproduct} 
      BuiltIn.Sleep    2  
      Capture Page Screenshot
-     Input Text    ${editzeelandiaproducttitle_${Language}}    Baker's own name
-     Input Text    ${editzeelandiaproductsubtitle_${Language}}    Baker's own subtitle    
+     Input Text    ${editzeelandiaproducttitle_${Language}}     Baker's own name
+     Input Text    ${editzeelandiaproductsubtitle_${Language}}    Baker's own subtitle   
+    # Click Element    ${CopyfromEnglish}     
      Execute Javascript    ${scrolldown}
      Sleep    3
      Click Element   //input[@type='submit']
@@ -241,8 +260,10 @@ Add New Location
      Input Text    ${newlocationphone}    ${MultishopLocation1Credentials}[2]
      Click Element    ${unchooseproduct1}    
      #Click Element    ${newlocationchooseproduct2}   
-     Execute Javascript    ${scrolldown}              
-     Click Element    ${btn_Save}                  
+     Execute Javascript    ${scrolldown}
+     Sleep    2             
+     Click Element    ${btn_Save}  
+                   
 #Shop Address
     Sleep    2 
     Textfield Should Contain    ${newlocationshoptitle_${Language}}    ${MultishopMerchantLoc1}    
@@ -266,6 +287,7 @@ Add New Location
     Sleep    2
     Click Element    ${OK}    
     
+    
 #Products
      Execute JavaScript    ${scrollup}
      Click Element    ${products}    
@@ -274,6 +296,34 @@ Add New Location
      Sleep    2
      Click Element    ${OK}   
      
+#Opening hours
+     Execute JavaScript    ${scrollup}
+     Click Element    ${OpeningHours}    
+     Select Checkbox    ${OpeninghoursSetActive}   
+     Input Text    ${OpeninghoursStartingtime}      06:30
+     Sleep    2    
+     Click Element    ${OpeneninghoursEndtime}   
+     Sleep    2
+     Clear Element Text    ${OpeneninghoursEndtime}  
+     Sleep    2
+     Press Keys    ${OpeneninghoursEndtime}     CTRL+a+BACKSPACE   
+     Input Text    ${OpeneninghoursEndtime}    23:30
+     Press Keys    ${OpeneninghoursEndtime}      ENTER  
+     Sleep    2
+     Click Element   ${AddOpeninghoursLunchbreak}
+     Sleep    2        
+     Input Text    ${OpeninghoursBreakStartingtime}     12:00
+     Sleep    2
+     Press Keys     ${OpeninghoursBreakEndtime}    CTRL+a+BACKSPACE
+     Input Text    ${OpeninghoursBreakEndtime}    12:30  
+     Press Keys    ${OpeninghoursBreakEndtime}      ENTER 
+     Sleep    2
+     Click Element    ${Openinghoursapplytoall}  
+     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight) 
+     Click Element    ${saveOpeninginformation} 
+     Sleep    2
+    Click Element    ${OK}    
+    
 #Pickup
      Execute JavaScript    ${scrollup}
      Click Element    ${pickup}
@@ -283,10 +333,21 @@ Add New Location
      Input Text    ${pickupfee}    5.00
      Sleep    2    
      Execute JavaScript    window.scrollBy(1000,247)
-     Select From List By Value    ${MondayOpening}    06:30
-     Select From List By Value    ${MondayClosing}      23:30
-     Select From List By Value    ${pickupbreaktime - from}    12:00
-     Select From List By Value    ${pickupbreaktime - To}    12:30
+     Select Checkbox    ${PickuphoursSetActive}
+     Input Text    ${PickuphoursStartingtime}    06:30
+     Sleep    2
+     Press Keys     ${PickuphoursEndtime}    CTRL+a+BACKSPACE
+     Input Text    ${PickuphoursEndtime}    23:30  
+     Press Keys    ${PickuphoursEndtime}      ENTER 
+     Sleep    2
+     Click Element    ${AddPickupLunchbreak} 
+     Sleep    2  
+     Input Text    ${PickuphoursBreakStartingtime}    12:00
+     Sleep    2
+     Press Keys     ${PickuphoursBreakEndtime}    CTRL+a+BACKSPACE
+     Input Text    ${PickuphoursBreakEndtime}    12:30  
+     Press Keys    ${PickuphoursBreakEndtime}      ENTER 
+     Sleep    2
      Click Element    ${pickupapplytoall}  
      #Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
      Select Checkbox        ${setpickuponlinepayment}
@@ -307,16 +368,27 @@ Add New Location
      Input Text    ${deliveryfreeabove}    75.00
      Input Text    ${deliverypreparationtime}       02:00
      Input Text    ${deliveryhandlingfee}        5.00    
-     Select From List By Value   ${Mondaydelivery - from}    06:30
-     Select From List By Value    ${Mondaydelivery - to}       23:30
-     Select From List By Value    ${deliverybreaktime - from}    12:00
-     Select From List By Value    ${deliverybreaktime - to}    12:30
+     Select Checkbox    ${PickuphoursSetActive}
+     Input Text   ${DeliveryhoursStartingtime}    06:30
+     Sleep    2
+     Press Keys     ${DeliveryhoursEndtime}    CTRL+a+BACKSPACE
+     Input Text    ${DeliveryhoursEndtime}    23:30  
+     Press Keys    ${DeliveryhoursEndtime}      ENTER 
+     Sleep    2
+     Click Element    ${AddDeliveryLunchbreak}
+     Sleep    2  
+     Input Text    ${DeliveryhoursBreakStartingtime}    12:00
+     Sleep    2
+     Press Keys     ${DeliveryhoursBreakEndtime}    CTRL+a+BACKSPACE
+     Input Text    ${DeliveryhoursBreakEndtime}    12:30  
+     Press Keys    ${DeliveryhoursBreakEndtime}      ENTER 
+     Sleep    2     
      Click Element    ${deliveryapplytoall}  
      Sleep    2       
      Select Checkbox    ${setdeliveryonlinepayment} 
-      Sleep    2    
+     Sleep    2    
      Select Checkbox    ${setdeliverycashpayment}
-      Sleep    2 
+     Sleep    2 
      Select Checkbox    ${setdeliverycardpayment} 
      Sleep    2 
      Click Element    ${savedeliveryinformation} 
@@ -331,13 +403,14 @@ Add New Location
      Sleep    2 
      Page Should Contain       ${MultishopMerchantLoc1}   
      Input Text    ${websitecolumn}    https://lefournil.nl/en/     
-     Execute JavaScript    ${scrolldown}  
+     #Execute JavaScript    ${scrolldown}  
+     Sleep  2
      Click Element    ${saveshoppageinformation} 
      Sleep  2
      Click Element    ${OK}   
      
      
-Open Location1 - my page 
+Open Location - my page 
     Execute JavaScript    ${scrollup}
     Click Element    ${Mypage}    
     Sleep    2 
@@ -345,13 +418,54 @@ Open Location1 - my page
     Capture Page Screenshot    
            
 View My locations
-    Click Element    ${MyLocations} 
+    Click Element    ${MyLocations}
+    
+Manager View My locations
+     Click Element    ${ManagerMyLocations}
+    
+
+Filter location by Name
+    Sleep    2
+    Input Text    filter-title    +
+    Click Element    ${viewshop} 
+    Sleep    2
+    Capture Page Screenshot       
+    
+Filter location by Option
+    Sleep    2
+    Select From List By Index    filter-options     1   
+    Click Element    ${viewshop} 
+    Sleep    2
+    Capture Page Screenshot  
+
+ 
 
 My Orders
     
     Click Element    ${myorder_tab}  
      Sleep    2  
     
+Manager My Orders
+    
+    Click Element    ${Managermyorder_tab}  
+     Sleep    2 
+     
+Filter Orders by Period
+    Sleep    2 
+    Select From List By Index    type    1    
+    Sleep    2  
+
+Filter Orders by Location
+    Sleep    2 
+    Select From List By Value    location    337    
+    Sleep    2   
+    
+Filter Orders by Status
+    Sleep    2 
+    Select From List By Index    status    1    
+    Sleep    2  
+
+
 Accept and view Order
     Click Element    ${Accept order} 
     Sleep    2
@@ -392,29 +506,30 @@ Refund order
     Sleep    2
     Click Element    ${RefundorderButton}  
     Sleep    2  
-    #Select Radio Button     groupname   wholeamount
-    Input Text    ${Input REFUND}    REFUND 
-    Click Element    ${Refundbutton}   
+    Select Radio Button     refund_type   total
+    Input Text    ${refund_comment}    Automated full refund  
+    Click Element     ${proceedbutton}   
     Sleep    2
     Page Should Contain    Order refunded
     #Click Element    ${UNDObutton}    
     
-Partial Order    
-    Click Element    ${Acceptorder} 
-    Sleep    2
-    Click Element    ${OK}    
-    Sleep    2
+Partial Order Refund   
+    # Click Element    ${Acceptorder} 
+    # Sleep    2
+    # Click Element    ${OK}    
+    # Sleep    2
     Click Element    ${viewOrder}
     Sleep    2
     Click Element    ${RefundorderButton}
     Sleep     2
-    #Select Radio Button    group_name    partialrefund
-    # Input Text    ${Refundamount}        5.00
-    # Input Text    ${Partialrefundcomment}    Automated partial refund 
-    #Click Element    ${proceedbutton}          
+    Select Radio Button    refund_type    partial 
+    Sleep     2
+    Input Text    ${Refundamount}        5.00
+    Input Text    ${Partialrefundcomment}    Automated partial refund 
+    Click Element    ${proceedbutton}          
     Sleep    2
     Page Should Contain    Order refunded
-    #Click Element    ${UNDObutton}    
+  # Click Element    ${UNDObutton}    
     
   
 My Teams
@@ -447,3 +562,21 @@ View Multishop plan
     Click Element    ${AccountOption}
     Capture Page Screenshot    
    
+#MANAGER
+Activate Manager
+     Select Window    NEW 
+    Input Password    ${newpassword}    ${MultishopLocation1Credentials}[1]  
+    Sleep    2  
+    Input Password    ${newpasswordcheck}    ${MultishopLocation1Credentials}[1] 
+    Sleep    2    
+    Click Element    ${T&C_MerchantOnboarding}   
+    Sleep    2
+    Capture Page Screenshot
+    Select Window    CURRENT 
+    Sleep    2
+    Click Element    ${Accept T&C}   
+    Sleep    2 
+    Click Element    ${Onboardingsavebutton} 
+    Sleep    2
+    Capture Page Screenshot    
+        

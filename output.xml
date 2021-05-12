@@ -1,121 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210412 16:17:11.852" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210428 16:56:11.222" rpa="false">
 <suite id="s1" name="Bapacho" source="C:\Users\Nisha\git\ta-bapacho\Bapacho">
 <suite id="s1-s1" name="Test Suite" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite">
 <suite id="s1-s1-s1" name="CMS" source="C:\Users\Nisha\git\ta-bapacho\Bapacho\Test Suite\CMS.robot">
-<test id="s1-s1-s1-t1" name="Homepage">
+<test id="s1-s1-s1-t1" name="Sales Agent portal">
 <kw name="Set Screenshot Directory" library="SeleniumLibrary" type="setup">
 <doc>Sets the directory for captured screenshots.</doc>
 <arguments>
-<arg>C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Customer Site Screenshots</arg>
+<arg>C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/CMS Screenshots</arg>
 </arguments>
-<status status="PASS" starttime="20210412 16:17:12.232" endtime="20210412 16:17:12.233"></status>
+<status status="PASS" starttime="20210428 16:56:11.544" endtime="20210428 16:56:11.545"></status>
 </kw>
-<kw name="Open_CMS" library="CMSkeywords">
+<kw name="Open SalesagentPortal" library="SalesAgentkeywords">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>${CMS_URL_${Language}}</arg>
-<arg>${Chrome}</arg>
+<arg>${SalePortal_${Language}}</arg>
+<arg>chrome</arg>
 </arguments>
-<msg timestamp="20210412 16:17:12.234" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@multishop.bapacho.com/admin'.</msg>
-<status status="PASS" starttime="20210412 16:17:12.234" endtime="20210412 16:17:14.494"></status>
+<msg timestamp="20210428 16:56:11.545" level="INFO">Opening browser 'chrome' to base url 'https://bapacho:bapacho@sales.bapacho.com/nl/'.</msg>
+<status status="PASS" starttime="20210428 16:56:11.545" endtime="20210428 16:56:13.175"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210412 16:17:14.495" endtime="20210412 16:17:14.618"></status>
+<status status="PASS" starttime="20210428 16:56:13.175" endtime="20210428 16:56:13.305"></status>
 </kw>
-<status status="PASS" starttime="20210412 16:17:12.233" endtime="20210412 16:17:14.620"></status>
+<status status="PASS" starttime="20210428 16:56:11.545" endtime="20210428 16:56:13.306"></status>
 </kw>
-<kw name="CMSAdmin_Login" library="CMSkeywords">
+<kw name="Login as SalesAgent" library="SalesAgentkeywords">
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=email</arg>
-<arg>nisha@inqadigital.com</arg>
+<arg>name=username</arg>
+<arg>${SalesAgentCredentials}[0]</arg>
 </arguments>
-<msg timestamp="20210412 16:17:14.622" level="INFO">Typing text 'nisha@inqadigital.com' into text field 'name=email'.</msg>
-<status status="PASS" starttime="20210412 16:17:14.621" endtime="20210412 16:17:14.813"></status>
+<msg timestamp="20210428 16:56:13.307" level="INFO">Typing text 'nisha@inqadigital.com' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20210428 16:56:13.307" endtime="20210428 16:56:13.427"></status>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <doc>Types the given password into the text field identified by ``locator``.</doc>
 <arguments>
 <arg>name=password</arg>
-<arg>Jishannaresh29</arg>
+<arg>${SalesAgentCredentials}[1]</arg>
 </arguments>
-<msg timestamp="20210412 16:17:14.814" level="INFO">Typing password into text field 'name=password'.</msg>
-<msg timestamp="20210412 16:17:14.860" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20210412 16:17:14.915" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20210412 16:17:14.813" endtime="20210412 16:17:14.915"></status>
+<msg timestamp="20210428 16:56:13.428" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg timestamp="20210428 16:56:13.462" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20210428 16:56:13.512" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20210428 16:56:13.428" endtime="20210428 16:56:13.512"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>//button[@type='submit'][contains(.,'Login')]</arg>
+<arg>//button[contains(.,'Login')]</arg>
 </arguments>
-<msg timestamp="20210412 16:17:14.916" level="INFO">Clicking button '//button[@type='submit'][contains(.,'Login')]'.</msg>
-<status status="PASS" starttime="20210412 16:17:14.916" endtime="20210412 16:17:15.518"></status>
+<msg timestamp="20210428 16:56:13.513" level="INFO">Clicking button '//button[contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20210428 16:56:13.513" endtime="20210428 16:56:13.574"></status>
 </kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Nisha</arg>
-</arguments>
-<status status="PASS" starttime="20210412 16:17:15.519" endtime="20210412 16:17:15.536"></status>
+<status status="PASS" starttime="20210428 16:56:13.306" endtime="20210428 16:56:13.574"></status>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210412 16:17:16.090" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-5204.png"&gt;&lt;img src="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-5204.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210412 16:17:15.536" endtime="20210412 16:17:16.091"></status>
-</kw>
-<status status="PASS" starttime="20210412 16:17:14.620" endtime="20210412 16:17:16.091"></status>
-</kw>
-<kw name="Homepage details" library="CMSkeywords">
+<kw name="Search Merchant" library="SalesAgentkeywords">
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
-<arg>5</arg>
+<arg>2</arg>
 </arguments>
-<msg timestamp="20210412 16:17:21.094" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210412 16:17:16.092" endtime="20210412 16:17:21.094"></status>
+<msg timestamp="20210428 16:56:15.577" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210428 16:56:13.575" endtime="20210428 16:56:15.577"></status>
 </kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>//div[contains(@id,'homechart')]</arg>
+<arg>//input[contains(@type,'text')]</arg>
+<arg>Nisha</arg>
 </arguments>
-<msg timestamp="20210412 16:17:21.106" level="INFO">Current page contains element '//div[contains(@id,'homechart')]'.</msg>
-<status status="PASS" starttime="20210412 16:17:21.094" endtime="20210412 16:17:21.107"></status>
+<msg timestamp="20210428 16:56:15.578" level="INFO">Typing text 'Nisha' into text field '//input[contains(@type,'text')]'.</msg>
+<status status="PASS" starttime="20210428 16:56:15.578" endtime="20210428 16:56:15.650"></status>
 </kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>chart</arg>
+<arg>//button[contains(.,'Search')]</arg>
 </arguments>
-<msg timestamp="20210412 16:17:21.118" level="INFO">Current page contains element 'chart'.</msg>
-<status status="PASS" starttime="20210412 16:17:21.107" endtime="20210412 16:17:21.118"></status>
+<msg timestamp="20210428 16:56:15.650" level="INFO">Clicking button '//button[contains(.,'Search')]'.</msg>
+<status status="PASS" starttime="20210428 16:56:15.650" endtime="20210428 16:56:15.702"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>7</arg>
+</arguments>
+<msg timestamp="20210428 16:56:22.714" level="INFO">Slept 7 seconds</msg>
+<status status="PASS" starttime="20210428 16:56:15.703" endtime="20210428 16:56:22.714"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>(//div[contains(@class,'title')])[2]</arg>
+</arguments>
+<msg timestamp="20210428 16:56:22.715" level="INFO">Clicking element '(//div[contains(@class,'title')])[2]'.</msg>
+<status status="PASS" starttime="20210428 16:56:22.715" endtime="20210428 16:56:22.878"></status>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210412 16:17:21.679" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-5205.png"&gt;&lt;img src="BapachoScreenshots/Customer%20Site%20Screenshots/selenium-screenshot-5205.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210412 16:17:21.118" endtime="20210412 16:17:21.679"></status>
+<msg timestamp="20210428 16:56:23.056" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="BapachoScreenshots/CMS%20Screenshots/selenium-screenshot-12.png"&gt;&lt;img src="BapachoScreenshots/CMS%20Screenshots/selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210428 16:56:22.878" endtime="20210428 16:56:23.056"></status>
 </kw>
-<status status="PASS" starttime="20210412 16:17:16.091" endtime="20210412 16:17:21.680"></status>
+<status status="PASS" starttime="20210428 16:56:13.574" endtime="20210428 16:56:23.057"></status>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210412 16:17:21.680" endtime="20210412 16:17:23.870"></status>
+<status status="PASS" starttime="20210428 16:56:23.057" endtime="20210428 16:56:25.881"></status>
 </kw>
 <tags>
 <tag>RegressionTest</tag>
 </tags>
-<status status="PASS" starttime="20210412 16:17:12.232" endtime="20210412 16:17:23.871" critical="yes"></status>
+<status status="PASS" starttime="20210428 16:56:11.544" endtime="20210428 16:56:25.882" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20210412 16:17:11.945" endtime="20210412 16:17:23.872"></status>
+<status status="PASS" starttime="20210428 16:56:11.277" endtime="20210428 16:56:25.882"></status>
 </suite>
-<status status="PASS" starttime="20210412 16:17:11.942" endtime="20210412 16:17:23.874"></status>
+<status status="PASS" starttime="20210428 16:56:11.274" endtime="20210428 16:56:25.884"></status>
 </suite>
-<status status="PASS" starttime="20210412 16:17:11.918" endtime="20210412 16:17:23.875"></status>
+<status status="PASS" starttime="20210428 16:56:11.255" endtime="20210428 16:56:25.886"></status>
 </suite>
 <statistics>
 <total>

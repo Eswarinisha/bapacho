@@ -21,6 +21,7 @@ ${Multishop_URL_PL}     https://bapacho:bapacho@staging.bapacho.pl/pl
 
 #Merchant Dashboard
 ${Multishop_MerchantDashboard_CZ}    (//a[@href='https://staging.bapacho.cz/cz/my-store/dashboard/'])[1]
+${Multishop_MerchantDashboard_RO}    (//a[@href='https://staging.bapacho.ro/ro/my-store/dashboard/'])[1]
 
 
 #CMS URL
@@ -67,6 +68,12 @@ ${activationmail_ES}     //a[contains(.,'https://staging.bapacho.es/activateShop
 ${activationmail_RO}      //a[contains(.,'https://staging.bapacho.ro/activateShop.php?')]
 ${activationmail_PT}      //a[contains(.,'https://staging.bapacho.pt/activateShop.php?')]
 ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop.php?')]
+
+
+
+${activationmailManager_CZ}    //a[contains(.,'https://staging.bapacho.cz/activateManager.php?gu')]
+${activationmailManager_RO}    //a[contains(.,'https://staging.bapacho.ro/activateManager.php?gu')]
+
 
 
 ${Onboardingsavebutton}    //button[contains(@type,'button')]
@@ -183,6 +190,39 @@ ${btn_Location_RO}     locationColumns_local[ro][text]
 ${btn_Location_PT}     locationColumns_local[pt][text]
 ${btn_Location_PL}     locationColumns_local[pl][text]
 
+
+${AddOpeninghoursLunchbreak}    (//span[contains(.,'buttons.addLunchBreak')])[1]
+
+
+${OpeninghoursSetActive}    operationTimes_day_active[1]
+${OpeninghoursStartingtime}     operationTimes[1][start]
+${OpeneninghoursEndtime}    operationTimes[1][end]
+${OpeninghoursBreakStartingtime}     operationBreakTimes[1][start]
+${OpeninghoursBreakEndtime}     operationBreakTimes[1][end]
+${Openinghoursapplytoall}      (//button[@type='button'])[2]    
+
+
+${AddPickupLunchbreak}    (//a[contains(.,'buttons.addLunchBreak')])[8]
+
+${PickuphoursSetActive}    pickupTimes_day_active[1]
+${PickuphoursStartingtime}    pickupTimes[1][start]
+${PickuphoursEndtime}    pickupTimes[1][end]
+${PickuphoursBreakStartingtime}    pickupBreakTimes[1][start]
+${PickuphoursBreakEndtime}    pickupBreakTimes[1][end]
+
+
+${AddDeliveryLunchbreak}    (//a[contains(.,'buttons.addLunchBreak')])[15]
+
+${DeliveryhoursSetActive}    deliveryTimes_day_active[1]
+${DeliveryhoursStartingtime}    deliveryTimes[1][start]
+${DeliveryhoursEndtime}    deliveryTimes[1][end]
+${DeliveryhoursBreakStartingtime}    deliveryBreakTimes[1][start]
+${DeliveryhoursBreakEndtime}    deliveryBreakTimes[1][end]
+
+
+
+
+
 #Step 4
 ${category_EN}       7
 ${category_NL}    Snacks
@@ -231,13 +271,16 @@ ${oredr/product_details}    //a[contains(@class,'btn btn-default btn-block wrap'
 ${MyproductCategories}    (//a[contains(@class,'list-group-item ')])[2]
 ${AddCategory}    //div[contains(@onclick,'showCategoryModal(null)')]
 
+${btn_SubmitCategory}    //button[contains(@class,'btn btn-block btn-info-dark')]
 ${btn_SubmitCategory_NL}    //button[contains(.,'Submit')] 
 ${btn_SubmitCategory_EN}    //button[contains(.,'Submit')]
 ${btn_SubmitCategory_IT}    //button[contains(.,'Invia')]
 ${btn_SubmitCategory_CZ}    //button[contains(.,'Odeslat')]
 ${btn_SubmitCategory_DE}    //button[contains(.,'Senden')]
 
-${DeleteCategory}    (//div[@onclick='assertDeleteCategory(this)'])[1]
+
+${DeleteCategory}    //div[contains(@onclick,'assertDeleteCategory(this)')]
+${DeleteCategory_failing}    //div[contains(@data-toggle,'tooltip')]
 ${delete}    (//button[contains(@type,'button')])[2]
 
 ${CopyfromEnglish}    //button[contains(@class,'btn btn-xs btn-info')]
@@ -270,7 +313,7 @@ ${ProductTitle_PT}     name=columns_local[pt][title]
 ${Product_Subtitle_NL}   name=columns_local[en][subtitle]   
 ${Product_Subtitle_IT}   name=columns_local[it][subtitle]
 ${Product_Subtitle_EN}   columns_local[nl][subtitle]  
-${Product_Subtitle_CZ}   name=columns_local[v][subtitle]   
+${Product_Subtitle_CZ}   name=columns_local[cz][subtitle]   
 ${Product_Subtitle_GR}   name=columns_local[gr][subtitle]
 ${Product_Subtitle_DE}   name=columns_local[de][subtitle]
 ${Product_Subtitle_ES}   name=columns_local[es][subtitle]   
@@ -317,7 +360,7 @@ ${Deleteproduct}    (//button[@onclick='deleteProduct(this);'])[2]
 ${yes_delete}    //button[contains(@class,'swal2-confirm swal2-styled')]
 
 
-${setzeelandiaproduct}    (//span[contains(@class,'switchery switchery-small')])[2]
+${setzeelandiaproduct}    (//span[contains(@class,'switchery switchery-small')])[1]
 ${inputprice_zeelandiaproduct}    (//input[contains(@type,'number')])[1]
 
 ${editzeelandiaproducttitle_EN}    columns_local[nl][title]
@@ -325,9 +368,16 @@ ${editzeelandiaproductsubtitle_EN}    columns_local[nl][subtitle]
 
 ${editzeelandiaproducttitle_CZ}    columns_local[cz][title]
 ${editzeelandiaproductsubtitle_CZ}    columns_local[cz][subtitle]
+
+${editzeelandiaproducttitle_RO}    columns_local[ro][title]
+${editzeelandiaproductsubtitle_RO}    columns_local[ro][subtitle]
+
+
 #My Location
 
 ${MyLocations}        (//a[contains(@class,'list-group-item ')])[4]
+${ManagerMyLocations}    (//a[contains(@class,'list-group-item ')])[2]
+
 
 ${btn_Submit_NL}    //input[contains(@type,'submit')] 
 ${btn_Submit_EN}    //input[contains(@type,'submit')] 
@@ -348,10 +398,10 @@ ${newlocationchooseproduct2}    (//button[contains(.,'Choose product')])[2]
 #shop address
 ${newlocationshoptitle_EN}    localized[nl][title]
 ${newlocationshopaddress1_EN}    localized[nl][address_1]
-${newlocationshopzip}    localized[nl][zip]
-${newlocationshopcity}    localized[nl][city]
-${newlocationshopregion}    localized[nl][region]
-${newlocationshopcountry}    localized[nl][country]
+${newlocationshopzip_EN}    localized[nl][zip]
+${newlocationshopcity_EN}    localized[nl][city]
+${newlocationshopregion_EN}    localized[nl][region]
+${newlocationshopcountry_EN}    localized[nl][country]
 ${newlocationemailorders}    columns[emailOrders]
 ${newlocationphoneorders}    columns[phoneOrders]
 ${newlocationphone2}    columns[telephone_2]
@@ -363,34 +413,53 @@ ${newlocationshopcity_CZ}    localized[cz][city]
 ${newlocationshopregion_CZ}    localized[cz][region]
 ${newlocationshopcountry_CZ}    localized[cz][country]
 
+${newlocationshoptitle_RO}    localized[ro][title]
+${newlocationshopaddress1_RO}    localized[ro][address_1]
+${newlocationshopzip_RO}    localized[ro][zip]
+${newlocationshopcity_RO}    localized[ro][city]
+${newlocationshopregion_RO}    localized[ro][region]
+${newlocationshopcountry_RO}    localized[ro][country]
+
+
 
 ${enablenotificationbyphone}    columns[notifications_phone]
 ${enablenotificationbyemail}    columns[notifications_email]
 
 ${saveShopAddress}    (//button[@type='submit'])[1]
 
+
+${viewshop}    (//a[contains(@class,'btn btn-template')])[3]
+
+
 #products
-${products}    //a[contains(.,'Products')]
+${products}    //a[contains(@data-smallstep,'2')]
 ${unchooseproduct1}    (//span[contains(@class,'switchery switchery-small')])[1]
 ${saveproducts}    (//button[@type='submit'])[2]
 
+#Opening Hours
+${OpeningHours}    //a[@data-smallstep='4']
+
+${saveOpeninginformation}    (//button[@type='submit'])[3]
+
 #Pickup
-${pickup}    //a[contains(.,'Pick-up')]
+${pickup}    //a[@data-smallstep='5']
 ${setpickupactive}    acceptance_methods[pickup][active]
 ${pickuppreparationtime}    acceptance_methods[pickup][preparation_time]
 ${pickupfee}    acceptance_methods[pickup][fee]
-${MondayOpening}    pickupTimes[0][start]
-${MondayClosing}    pickupTimes[0][end]
-${pickupbreaktime - from}    pickupBreakTimes[0][start]
-${pickupbreaktime - To}    pickupBreakTimes[0][end]
-${pickupapplytoall}    (//button[@class='btn btn-xs btn-info wrap'])[1]
+
+# ${MondayPickupOpening}    pickupTimes[1][start]    
+# ${MondayPickupClosing}    pickupTimes[1][end]
+# ${pickupbreaktime - from}    pickupBreakTimes[1][start]
+# ${pickupbreaktime - To}    pickupBreakTimes[1][end]
+${pickupapplytoall}    (//button[@type='button'])[10]
+
 ${setpickuponlinepayment}    id=acceptance-methods-pickup-payment-Online
 ${setpickupcashpayment}    id=acceptance-methods-pickup-payment-Cash
 ${setpickupcardpayment}    id=acceptance-methods-pickup-payment-Card
-${savepickupinformation}    (//button[@type='submit'])[3]
+${savepickupinformation}    (//button[@type='submit'])[4]
 
 #Delivery
-${delivery}    //a[contains(.,'Delivery')]
+${delivery}    //a[@data-smallstep='6']
 ${setdeliveryactive}    acceptance_methods[deliver][active]
 ${deliveryprice}    acceptance_methods[deliver][price]
 ${minimumprice_for_delivery}    acceptance_methods[deliver][minimum]
@@ -398,21 +467,25 @@ ${deliveryrange}    acceptance-methods-deliver-range
 ${deliveryfreeabove}    acceptance_methods[deliver][free_above]
 ${deliverypreparationtime}    acceptance_methods[deliver][preparation_time]
 ${deliveryhandlingfee}    acceptance_methods[deliver][fee]
-${Mondaydelivery - from}    deliveryTimes[0][start]
-${Mondaydelivery - to}    deliveryTimes[0][end]
-${deliverybreaktime - from}    deliveryBreakTimes[0][start]
-${deliverybreaktime - to}    deliveryBreakTimes[0][end]
-${deliveryapplytoall}    (//button[contains(@class,'btn btn-xs btn-info wrap')])[8]
+
+# ${Mondaydelivery - from}    deliveryTimes[1][start]
+# ${Mondaydelivery - to}    deliveryTimes[1][end]
+# ${deliverybreaktime - from}    deliveryBreakTimes[1][start]
+# ${deliverybreaktime - to}    deliveryBreakTimes[1][end]
+
+${deliveryapplytoall}    (//button[@type='button'])[18]
+
 ${setdeliveryonlinepayment}   id=acceptance-methods-deliver-payment-Online
 ${setdeliverycashpayment}    id=acceptance-methods-deliver-payment-Cash
 ${setdeliverycardpayment}    id=acceptance-methods-deliver-payment-Card
-${savedeliveryinformation}    (//button[@type='submit'])[4]
+${savedeliveryinformation}     (//button[@type='submit'])[5]
+
 
 #ShopPageInformation
 
-${shoppageinformation}    //a[contains(.,'Shop-page information')]
+${shoppageinformation}    //a[contains(@data-smallstep,'7')]
 ${locationtitle}    localized[nl][text]
-${saveshoppageinformation}    (//button[@type='submit'])[5]
+${saveshoppageinformation}    (//button[@type='submit'])[6]
 ${websitecolumn}     columns[website]
 
 
@@ -443,6 +516,10 @@ ${Pickedup}    pickedUp
 ${LabelRefund}    refunded
 ${RefundStatus}       refunded 
 ${RefundOrderButton}     refundOrderButton
+${Refundamount}     partial_price
+${refund_comment}    refund_comment
+${Partialrefundcomment}    refund_comment
+${proceedbutton}    //button[contains(@type,'submit')]
 ${Input REFUND}    //input[contains(@class,'swal2-input')]
 ${RefundButton}    //button[@type='button'][contains(.,'Refund')]
 
@@ -459,7 +536,7 @@ ${savepaymentstatus}    //button[contains(@onclick,'setOrderLastStatus(this);')]
 
 #Team
 ${Myteam}    (//a[contains(@class,'list-group-item ')])[6]
-${Addmanager}    //div[contains(@class,'btn btn-default')]
+${Addmanager}    //i[contains(@class,'fas fa-plus-circle fa-2x')]
 ${managerfirstname}    firstname
 ${managerlastname}    lastname
 ${manageremail}    email
@@ -490,7 +567,7 @@ ${AccountOption}    //i[contains(@class,'fas fa-check-double fa-fw')]
 #CUSTOMER SITE
 
 ${BapachoLOGO}    //img[@src='/img/original/Bapacho-white.svg']
-${carticon}    //i[contains(@class,'fas fa-shopping-cart')]
+${carticon}    //a[@class='toCartBtn']
 
 ${FBLoginButton}    //a[contains(text(),'Login using Facebook')]
 ${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
@@ -562,6 +639,7 @@ ${submitaccountdetails}    (//button[contains(@type,'button')])[2]
 ${Fav_tab}    (//a[contains(@class,'list-group-item ')])[2]
 ${view fav}    (//div[contains(@class,'info')])[1]
 ${myorder_tab}    (//a[contains(@class,'list-group-item ')])[5]
+${Managermyorder_tab}    //i[contains(@class,'fas fa-euro-sign fa-fw')]
 ${view myorder}    //a[contains(@class,'btn btn-template-inverse')]
 ${download_orderconfirmation}    //i[contains(@class,'far fa-file-pdf fa-fw')]
 ${repeatorder}    //button[contains(@onclick,'repeatOrder();')]
@@ -602,15 +680,16 @@ ${-}    //div[@id="cartSummaryBody"]/div[2]/table/tbody/tr/td[2]/div[3]/i
 ${inputproductprice}    //input[contains(@type,'number')]
 ${deleteproduct_in_cart}    //i[contains(@class,'fas fa-trash fa-lgf fa-fw text-lightmuted')]
 
-
 #Checkout Page
 
 ${inputproductpricecheckout}    (//div[contains(@class,'updateQButton')])[3]
 ${orderacceptance}    orderAcceptance
 ${ChooseDeliver}    //input[contains(@value,'deliver')]
 ${AboutUs_EN}    //a[contains(text(),'About us')]     
-${T&C_EN}    //a[contains(text(),'Terms and conditions')]  
-${T&C_CZ}    (//a[contains(@target,'_blank')])[1] 
+#${T&C_EN}    //a[contains(text(),'Terms and conditions')]  
+#${T&C_CZ}    (//a[contains(@target,'_blank')])[1] 
+${T&C_MerchantOnboarding}    (//a[contains(@target,'_blank')])[1] 
+
 ${T$C Checkbox}    //input[contains(@name,'terms')]
 ${PrivacyStatement_EN}    //a[contains(text(),'Privacy statement')]
 ${Checkout_LoginButton}    //button[contains(@class,'btn btn-white')]
@@ -685,8 +764,12 @@ ${inputgmailid}    identifierId
 ${gmailid_submit}    //div[contains(@class,'VfPpkd-RLmnJb')]
 ${inputgmailpassword}    //input[contains(@type,'password')]
 ${gmailpwd_submit}    (//div[contains(@class,'VfPpkd-RLmnJb')])[1]
-${activation mail}    id=:1z
- 
+
+${choosemail_EN}    //tr[contains(@id,':27')]
+${choosemail_CZ}    //tr[contains(@id,':1u')] 
+${choosemail_RO}    (//tr[contains(@role,'row')])[1]
+
+
 ${scrollup}      window.scrollTo(document.body.scrollHeight,0)
 ${scrolldown}    window.scrollTo(0, document.body.scrollHeight)
 

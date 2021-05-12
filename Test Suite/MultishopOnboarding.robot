@@ -12,6 +12,8 @@ Resource    MultishopOnboardingkeywords.robot
 Resource    SalesAgentkeywords.robot
 Resource    CMSkeywords.robot
 
+Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Multishop Merchant Onboarding Screenshots
+
 
 *** Test Cases ***
 

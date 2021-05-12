@@ -12,11 +12,12 @@ Resource    MultishopOnboardingkeywords.robot
 Resource    SalesAgentkeywords.robot
 Resource    CMSkeywords.robot
 
+Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Multishop Merchant Site Screenshots
 
 *** Test Cases ***
 
 Merchant Portal End to End 
-        
+#PART 1        
     Open MultishopHomePage
     Login as MultishopMerchant
     Connect to Online payment
@@ -32,14 +33,19 @@ Merchant Portal End to End
     Add Zeelandia product from library
     Choose Plan
     Add New Location
-    Open Location1 - my page 
+    Open Location - my page 
     Close All Browsers
+
+PART 2
+    
     Open MultishopHomePage
     Login as MultishopMerchant
     View My locations
     My Orders
     Accept and view Order
     My Teams
+    OpenGmailManager
+    Activate Manager
     Online payment Settings
     View Multishop plan
     Close Browser
@@ -49,7 +55,7 @@ Decline order
     Login as MultishopMerchant   
     My Orders
     Decline the new order
-    
+    Close Browser
 
 Edit Zeelandia product from library
     Open MultishopHomePage
@@ -85,8 +91,37 @@ Refund and Partial Order
     Login as MultishopMerchant
     My Orders
     Refund order
-    Partial Order
+    Partial Order Refund
     Close Browser
     
+Filter Location and Orders
+    Open MultishopHomePage
+    Login as Manager
+    Filter location by Name
+    Go Back
+    Filter location by Option
+    My Orders
+    Filter Orders by Period
+    Filter Orders by Location
+    Filter Orders by Status
+    Accept and view Order
+    Close Browser
 
+
+Manager End to End
+    
+    Open MultishopHomePage
+    Login as Manager
+    Manager View My locations
+    Filter location by Name
+    Go Back
+    Filter location by Option
+    Manager My Orders
+    Filter Orders by Period
+    Filter Orders by Location
+    Filter Orders by Status
+    Accept and view Order
+    Close Browser
+    
+    
     

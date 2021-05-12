@@ -9,7 +9,7 @@ Resource     Customerkeywords.robot
 Resource    SalesAgentkeywords.robot
 Resource    Bapacho Credentials.robot
 
-Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Customer Site Screenshots
+Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/CMS Screenshots
 
 *** Test Cases ***
 
@@ -105,9 +105,11 @@ SalesAgent
     CMSAdmin_Login
     CMS Sales Agent
     Add bakery salesagent
+    
 
 Sales Agent portal
     Open SalesagentPortal
     Login as SalesAgent
+    My merchant
     Search Merchant
     Close Browser

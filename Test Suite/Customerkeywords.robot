@@ -293,8 +293,10 @@ Select a bakery from list
 
          
 PDP_AddtoCart
+        
       
         #Scroll Element Into View    (//div[@class='productCard'])[1]  
+        Run Keyword If    '${Language}'=='RO'    Repeat Keyword    15    Click Element    ${Addtocart +}        
         Click Element    ${Addtocart +}  
         BuiltIn.Sleep    1   
         Click Element    ${Addtocart +} 
@@ -304,7 +306,19 @@ PDP_AddtoCart
         Click Element    ${Addtocart +}
         BuiltIn.Sleep    2  
         Click Element    ${Addtocart +}
-        Capture Page Screenshot   
+        BuiltIn.Sleep    2  
+        Click Element    ${Addtocart +}
+        BuiltIn.Sleep    2  
+        Click Element    ${Addtocart +}
+        BuiltIn.Sleep    2  
+        Click Element    ${Addtocart +}
+        BuiltIn.Sleep    2  
+        Click Element    ${Addtocart +}
+        BuiltIn.Sleep    2  
+        Click Element    ${Addtocart +}
+        Sleep    3
+        Capture Page Screenshot  
+        Click Element    ${carticon}    
 
         
 
@@ -383,6 +397,7 @@ Delete Product Quantity
 PDP_Click_Checkout
         
          Click Element    ${+}
+         Sleep    2
          Click Element    ${btn_Checkout}
          Capture Page Screenshot
          Get Window Titles    CURRENT
@@ -772,6 +787,25 @@ View bakery in landingpage
 
                        # Other
 
+OpenGmailForgotpassword
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    ${inputgmailid}    nisha@inqadigital.com  
+        Click Element    ${gmailid_submit}    
+        Sleep    2
+        Input Password    ${inputgmailpassword}    Vinikrish_1   
+        Sleep    2 
+        Click Element    ${gmailpwd_submit}    
+        Sleep    20
+        Page Should Contain Element     ${choosemail_${Language}}      
+        Click Element    ${choosemail_${Language}}   
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Click Link       ${activationmailManager_${Language}}
+        Sleep    2
+
+
 
 
     
@@ -786,10 +820,29 @@ OpenGmail
         Sleep    2 
         Click Element    ${gmailpwd_submit}    
         Sleep    20
-        Click Element    ${activation mail}    
+        Page Should Contain Element     ${choosemail_${Language}}      
+        Click Element    ${choosemail_${Language}}   
         BuiltIn.Sleep    2    
         Capture Page Screenshot
         Click Link       ${activationmail_${Language}}
+        Sleep    2
+        
+OpenGmailManager
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    ${inputgmailid}    nisha@inqadigital.com  
+        Click Element    ${gmailid_submit}    
+        Sleep    2
+        Input Password    ${inputgmailpassword}    Vinikrish_1   
+        Sleep    2 
+        Click Element    ${gmailpwd_submit}    
+        Sleep    20
+        Page Should Contain Element     ${choosemail_${Language}}      
+        Click Element    ${choosemail_${Language}}   
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Click Link       ${activationmailManager_${Language}}
         Sleep    2
 
 

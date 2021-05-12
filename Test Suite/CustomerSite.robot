@@ -28,7 +28,7 @@ CS001TC002   #User must be able to enter valid email id, first name, last name a
 	
        # OpenYopMailinchrome
        # Check_CustomerActivation_mail 
-       # Close Browser
+        # Close Browser
        
 
 CS001TC004_User must be able to login with newly registered email id
@@ -110,32 +110,32 @@ CS003TC005
          Capture Page Screenshot    
          Close Browser            
 
-CS004TC001_User must be able to click on forgot password
+# CS004TC001_User must be able to click on forgot password
        
-        Open MultishopHomePage
-        Click_login
-        Click_ForgotPassword  
-        Close Browser 
+        # Open MultishopHomePage
+        # Click_login
+        # Click_ForgotPassword  
+        # Close Browser 
               
-CS004TC002_User must receive mail for resetting the password and able to set new password
+# CS004TC002_User must receive mail for resetting the password and able to set new password
         
-         OpenYopMailinchrome
-         Check_ForgtPassword_mail
-         ResetPassword  
-         Close All Browsers
+         # OpenGmail
+         # Check_ForgtPassword_mail
+         # ResetPassword  
+         # Close All Browsers
 
-CS005TC001_User must be able to login with the new password
+# CS005TC001_User must be able to login with the new password
       
-       Open MultishopHomePage
-       Click_login
-       login_Using_RegisteredMailid
-       Close Browser       
+       # Open MultishopHomePage
+       # Click_login
+       # login_Using_RegisteredMailid
+       # Close Browser       
 
-CS005TC002_User must not be able to login with old password
-       Open MultishopHomePage
-       Click_login
-       login_Using_RegisteredMailid_with old password   
-       Close Browser
+# CS005TC002_User must not be able to login with old password
+       # Open MultishopHomePage
+       # Click_login
+       # login_Using_RegisteredMailid_with old password   
+       # Close Browser
    
 CS006TC001_User must be able to visit Bapacho site as guest
 

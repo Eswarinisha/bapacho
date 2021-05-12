@@ -86,7 +86,7 @@ Send activation mail from CMS to Merchant
     Capture Page Screenshot  
     Sleep     2
     Click Element    //button[contains(.,'Yes, send it!')]  
-    Sleep     2
+    Sleep     6
     Wait Until Page Contains Element    //button[contains(.,'OK')]       
     Click Element    //button[contains(.,'OK')]    
    
@@ -152,7 +152,8 @@ CMS Language
      
 CMS Sales Agent
     Click Element    //a[contains(.,'Sales agents')]    
-    Capture Page Screenshot    
+    Capture Page Screenshot  
+    Sleep    4  
     
 CMS Users
     Click Element    (//a[contains(.,'CMS users')])[1]    
@@ -182,10 +183,13 @@ Payment Methods
 #Sales Agent
 Add bakery salesagent 
     Click Element     //a[@href='/admin/accountmanagers/edit/46E63596-DABD-4DD2-312C-9E6CFE029DB2']
-    Input Text    suppliers    ${MultishopMerchantName}     
-   # Click Element      merchantresult
-
-
+    Sleep     3
+    Input Text    //input[contains(@class,'select2-search__field')]    ${MultishopMerchantName} 
+    Sleep    2    
+    Click Element      (//li[contains(@role,'treeitem')])[1]
+    Capture Page Screenshot    
+    Click Element    //button[contains(.,'Save')]    
+    Capture Page Screenshot   
 
 #ARCHIEVE
 

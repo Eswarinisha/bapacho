@@ -12,6 +12,8 @@ Resource    MultishopOnboardingkeywords.robot
 Resource    SalesAgentkeywords.robot
 Resource    CMSkeywords.robot
 
+Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/BapachoScreenshots/Multishop Basic Regression Screenshots
+
 
 *** Test Cases ***
 Merchant onboarding
@@ -20,7 +22,8 @@ Merchant onboarding
     CMSAdmin_Login
     Click_Outlets/Stores
     Create_NewMultishopMerchant
-    #Search MultishopBakery in CMS  
+    Click_Outlets/Stores
+    Search MultishopBakery in CMS  
     Send activation mail from CMS to Merchant  
     Capture Page Screenshot
     Sleep    2
@@ -29,11 +32,12 @@ Merchant onboarding
     Close All Browsers
     Open MultishopHomePage
     Login as MultishopMerchant
-    #TEMP:Step1
     Step 2: Business information
     Step 4 : Shop  
     Step 5 : Products
     Step 6 : Done
+    Close Browser
+    Check onboarded mail received
     Close Browser
     
 Customer placing order by cash
@@ -72,29 +76,31 @@ Customer placing order by Card
 Merchant Portal End to End
     Open MultishopHomePage
     Login as MultishopMerchant
-    # Connect to Online payment
-    # Print all Orders for TODAY
-    # Order/Product Details TODAY
-    # Create new product category    
-    # Create new Product Category
-    # Delete product category
-    # Create new Product Category
-    # Create new own product
-    # Delete product category Failing
-    # Delete created own category product
-    # Delete product category
-    # Add Zeelandia product from library
-    Edit Zeelandia product from library
-    # Choose Plan
-    # Add New Location
-    # Open Location1 - my page 
-    # Close All Browsers
-    # Open MultishopHomePage
-    # Login as MultishopMerchant
-    # View My locations
-    # My Orders
-    # My Teams
-    # Online payment Settings
+    Connect to Online payment
+    Print all Orders for TODAY
+    Order/Product Details TODAY
+    Create new product category    
+    Delete product category
+    Create new Product Category
+    Create new own product
+    Delete product category Failing
+    Delete created own category product
+    Delete product category
+    Add Zeelandia product from library
+    Choose Plan
+    Add New Location
+    Open Location1 - my page 
+    Close All Browsers
+    Open MultishopHomePage
+    Login as MultishopMerchant
+    View My locations
+    My Orders
+    Accept and view Order
+    My Teams
+    Online payment Settings
+    View Multishop plan
+    Close Browser
+     
     
 
 Sales Agent Portal
