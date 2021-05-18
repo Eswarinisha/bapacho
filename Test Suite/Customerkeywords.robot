@@ -293,86 +293,94 @@ Select a bakery from list
 
          
 PDP_AddtoCart
-        
       
         #Scroll Element Into View    (//div[@class='productCard'])[1]  
-        Run Keyword If    '${Language}'=='RO'    Repeat Keyword    15    Click Element    ${Addtocart +}        
-        Click Element    ${Addtocart +}  
-        BuiltIn.Sleep    1   
-        Click Element    ${Addtocart +} 
-        BuiltIn.Sleep    1    
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
-        BuiltIn.Sleep    2  
-        Click Element    ${Addtocart +}
+        Run Keyword If    '${Language}'=='RO'    Repeat Keyword    15    Click Element    ${Addtocart +}    
+        Repeat Keyword    2    Click Element    ${Addtocart +}            
         Sleep    3
         Capture Page Screenshot  
         Click Element    ${carticon}    
-
+       
         
 
                         # Product Display page
 Capture show more information
       Capture Element Screenshot     ${ShowmoreInfo}                    
    
-Click show more information
+# Click show more information
     
-        Execute JavaScript    window.scrollTo(155,869)  
-        Scroll Element Into View    ${ShowmoreInfo}
-        Set Focus To Element    ${ShowmoreInfo}
-        Capture Element Screenshot     ${ShowmoreInfo}    
-        Capture Page Screenshot    
-        Click Element    ${ShowmoreInfo}
-        BuiltIn.Sleep    2      
-        Capture Page Screenshot    
-        Set Browser Implicit Wait    5
-        Click Element  ${btn_Close}     
+        # Execute JavaScript    window.scrollTo(155,869)  
+        # Scroll Element Into View    ${ShowmoreInfo}
+        # Set Focus To Element    ${ShowmoreInfo}
+        # Capture Element Screenshot     ${ShowmoreInfo}    
+        # Capture Page Screenshot    
+        # Click Element    ${ShowmoreInfo}
+        # BuiltIn.Sleep    2      
+        # Capture Page Screenshot    
+        # Set Browser Implicit Wait    5
+        # Click Element  ${btn_Close}     
        
+View shop page information
+        Sleep    2    
+        Click Element    ${bakerypageinformation}    
+        Sleep    2    
+        Capture Page Screenshot    
+        Click Element    ${viewpickuphours}    
+        Sleep    2    
+        Capture Page Screenshot  
+        Click Element    ${viewdeliveryhours}
+        Sleep    2    
+        Capture Page Screenshot  
+        Click Element    ${bakeryproductspage}    
+        Sleep    2    
+        Capture Page Screenshot  
+        
 Click bakery phone number
+        Sleep    2    
+        Click Element    ${bakerypageinformation}    
+        Sleep    2    
+        Capture Page Screenshot
+        Click Element    ${clickbakersphonenumber}
+        BuiltIn.Sleep    5  
+        Capture Page Screenshot                  
+
+# Click 'i' for product information
+        # Click Element    ${i}     
+        # # Click Element    (//i[contains(@class,'fas fa-info fa-fw')])[1]        
+        # BuiltIn.Sleep    2  
+        # Capture Page Screenshot 
+        # Execute JavaScript    ${scrolldown}
+        # Capture Page Screenshot   
     
-         Click Element    ${clickbakersphonenumber}
-         BuiltIn.Sleep    5  
-         Capture Page Screenshot                  
-    
+Click Product for product information
+         Sleep    2
+         Click Element    ${producttitle}    
+         Capture Page Screenshot   
+
 Filter Products by Category
         Capture Page Screenshot                
         Click Element    ${filterproductbycategory}        
         BuiltIn.Sleep    2         
         Capture Page Screenshot  
-         
-Click 'i' for product information
-        Click Element    ${i}     
-        # Click Element    (//i[contains(@class,'fas fa-info fa-fw')])[1]        
-        BuiltIn.Sleep    2  
-        Capture Page Screenshot 
-        Execute JavaScript    ${scrolldown}
-        Capture Page Screenshot   
+
 
 Click add to cart button
-         Set Browser Implicit Wait    5
+         Sleep    2
+         Click Element    ${producttitle}    
+         Capture Page Screenshot    
          Click Element    ${Addtocartproductlevel}
-          BuiltIn.Sleep    2 
+         BuiltIn.Sleep    2 
          Capture Page Screenshot        
-
+         Page Should Contain Element    ${Addtocart -}    
 
                       # Cart 
 
 
 
-PDP_Add product Quantity
+PDP_Add/Delete product Quantity
          Set Browser Implicit Wait    5
-         Click Element    ${+}
+         Repeat Keyword     2     Click Element    ${+}
+         Sleep    2    
          Click Element    ${-}
          Capture Page Screenshot    
 
@@ -807,9 +815,64 @@ OpenGmailForgotpassword
 
 
 
+OpenGmailCustomer
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    ${inputgmailid}    nisha@inqadigital.com  
+        Click Element    ${gmailid_submit}    
+        Sleep    2
+        Input Password    ${inputgmailpassword}    Vinikrish_1   
+        Sleep    2 
+        Click Element    ${gmailpwd_submit}    
+        Sleep    20
+        Page Should Contain Element     ${choosemailcustomermail_${Language}}      
+        Click Element    ${choosemailcustomermail_${Language}}   
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Click Link       ${customerwelcomemail_${Language}}
+        Sleep    2
+        
+OpenGmailCustomerMailchimp
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    ${inputgmailid}    nisha@inqadigital.com  
+        Click Element    ${gmailid_submit}    
+        Sleep    2
+        Input Password    ${inputgmailpassword}    Vinikrish_1   
+        Sleep    2 
+        Click Element    ${gmailpwd_submit}    
+        Sleep    20
+        Page Should Contain Element     ${choosemailcustomermailchimp_${Language}}      
+        Click Element    ${choosemailcustomermailchimp_${Language}}    
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Click Link       ${customerwelcomemailchimp_${Language}}
+        Sleep    2
 
-    
-OpenGmail
+OpenGmailForgotPaasword
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    ${inputgmailid}    nisha@inqadigital.com  
+        Click Element    ${gmailid_submit}    
+        Sleep    2
+        Input Password    ${inputgmailpassword}    Vinikrish_1   
+        Sleep    2 
+        Click Element    ${gmailpwd_submit}    
+        Sleep    20
+        Page Should Contain Element     ${choosemailforgotpassword_${Language}}      
+        Click Element    ${choosemailforgotpassword_${Language}}    
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Click Link       ${customerforgotpassword_${Language}}
+        Sleep    2        
+
+
+
+
+OpenGmailActivationmail
         Open Browser    http://gmail.com    ${Chrome}
         Maximize Browser Window
         Sleep     4

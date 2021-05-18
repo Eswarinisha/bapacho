@@ -45,7 +45,7 @@ Print all Orders for TODAY
 Order/Product Details TODAY
     BuiltIn.Sleep    2  
     Capture Page Screenshot   
-    Click Element    ${oredr/product_details}    
+    Click Element    ${order/product_details}    
     BuiltIn.Sleep    2  
     Capture Page Screenshot 
         
@@ -193,7 +193,7 @@ Delete created own category product
      Capture Page Screenshot    
      Click Element    ${yes_delete}    
      Capture Page Screenshot         
-     Click 'i' for product information
+     #Click 'i' for product information - old version
      Page Should Not Contain    ${Productname}  
      
 Add Zeelandia product from library

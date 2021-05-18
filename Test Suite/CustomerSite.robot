@@ -22,14 +22,13 @@ CS001TC002   #User must be able to enter valid email id, first name, last name a
         Click_login   
         Email_Registration 
         Close Browser
-              
-#CS001TC003
-	# Once account is created check user must get activation mail to registered id
-	
-       # OpenYopMailinchrome
-       # Check_CustomerActivation_mail 
-        # Close Browser
-       
+
+        
+#Check Welcome Mail by Customer       
+        OpenGmailCustomer
+        Close Browser
+        OpenGmailCustomerMailchimp
+        Close Browser
 
 CS001TC004_User must be able to login with newly registered email id
 	          
@@ -37,7 +36,7 @@ CS001TC004_User must be able to login with newly registered email id
         Click_login         
         EmailLogin       
         Close Browser 
-
+        
 #CS002TC001_User must be able to click on Login icon and click login using Facebook
 CS002TC002_User must be directed to Facebook login page and able to login successfully       
         Open MultishopHomePage
@@ -110,19 +109,19 @@ CS003TC005
          Capture Page Screenshot    
          Close Browser            
 
-# CS004TC001_User must be able to click on forgot password
+CS004TC001_User must be able to click on forgot password
        
-        # Open MultishopHomePage
-        # Click_login
-        # Click_ForgotPassword  
-        # Close Browser 
+        Open MultishopHomePage
+        Click_login
+        Click_ForgotPassword  
+        Close Browser 
               
-# CS004TC002_User must receive mail for resetting the password and able to set new password
+CS004TC002_User must receive mail for resetting the password and able to set new password
         
-         # OpenGmail
-         # Check_ForgtPassword_mail
-         # ResetPassword  
-         # Close All Browsers
+         OpenGmailForgotPaasword
+         
+         ResetPassword  
+         Close All Browsers
 
 # CS005TC001_User must be able to login with the new password
       
@@ -136,6 +135,8 @@ CS003TC005
        # Click_login
        # login_Using_RegisteredMailid_with old password   
        # Close Browser
+
+
    
 CS006TC001_User must be able to visit Bapacho site as guest
 
@@ -485,7 +486,8 @@ CS018TC002_On clicking the link, all information including payment method must b
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
-        Click show more information     
+        # Click show more information - old version
+        View shop page information     
         Close Browser
     
 CS018TC003_Phone number under other information must be clickable
@@ -525,7 +527,8 @@ CS020TC001_On clicking on "i " the product details must be displayed
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
-        Click 'i' for product information  
+       # Click 'i' for product information  -old version
+        Click Product for product information
         Close Browser
         
            # FCS006	    CART
@@ -537,7 +540,8 @@ CS021TC001_User must be able to add produts using Add to cart button in the prod
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
-        Click 'i' for product information
+        # Click 'i' for product information - old version
+        # Click add to cart button
         Click add to cart button
         Close Browser
         
@@ -548,9 +552,8 @@ CS021TC002_User must be able to change the quantity of product using + and - but
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
-        PDP_Add product Quantity
+        PDP_Add/Delete product Quantity
         Capture Page Screenshot    
-       # PDP_Minus product Quantity
         Capture Page Screenshot    
         Close Browser
 
@@ -994,9 +997,49 @@ CS040TC001_User can view landing page and subscribe to newsletter
         Click Download App - Appstore
         Get Window Titles    browser=ALL
         Close All Browsers
+        
+
    
 CS042TC001_New merchant can click on Open your shop and submit the support form  
         testhomepage   
         Open your shop
         Close Browser
+        
+
+
+#ARCHIEVE
+              
+#CS001TC003
+	# Once account is created check user must get activation mail to registered id
+	
+       # OpenYopMailinchrome
+       # Check_CustomerActivation_mail 
+        # Close Browser
        
+
+# CS004TC001_User must be able to click on forgot password
+       
+        # Open MultishopHomePage
+        # Click_login
+        # Click_ForgotPassword  
+        # Close Browser 
+              
+# CS004TC002_User must receive mail for resetting the password and able to set new password
+        
+         # OpenGmail
+         # Check_ForgtPassword_mail
+         # ResetPassword  
+         # Close All Browsers
+
+# CS005TC001_User must be able to login with the new password
+      
+       # Open MultishopHomePage
+       # Click_login
+       # login_Using_RegisteredMailid
+       # Close Browser       
+
+# CS005TC002_User must not be able to login with old password
+       # Open MultishopHomePage
+       # Click_login
+       # login_Using_RegisteredMailid_with old password   
+       # Close Browser

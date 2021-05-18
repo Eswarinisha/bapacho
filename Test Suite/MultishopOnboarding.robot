@@ -28,7 +28,7 @@ Multishop Merchant Onboarding_without Online Payment
     Send activation mail from CMS to Merchant  
     Capture Page Screenshot
     Sleep    2
-    OpenGmail
+    OpenGmailActivationmail
     Step1 : Account
     Close All Browsers
     Open MultishopHomePage

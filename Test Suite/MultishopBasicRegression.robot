@@ -27,7 +27,7 @@ Merchant onboarding
     Send activation mail from CMS to Merchant  
     Capture Page Screenshot
     Sleep    2
-    OpenGmail
+    OpenGmailActivationmail
     Step1 : Account
     Close All Browsers
     Open MultishopHomePage
@@ -89,7 +89,7 @@ Merchant Portal End to End
     Add Zeelandia product from library
     Choose Plan
     Add New Location
-    Open Location1 - my page 
+    Open Location - my page 
     Close All Browsers
     Open MultishopHomePage
     Login as MultishopMerchant

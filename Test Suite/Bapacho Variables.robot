@@ -58,6 +58,14 @@ ${OK_Button}    //button[contains(.,'OK')]
 #MERCHANT ONBOARDING
 
 #Merchant activation link in Mail
+
+${customerwelcomemail_EN}    //a[contains(.,'https://multishop.bapacho.com/activateAccount.php?gu')]
+
+
+${customerwelcomemailchimp_EN}    //a[contains(.,'Wanna see more?')]
+
+${customerforgotpassword_EN}    //a[contains(.,'https://multishop.bapacho.com/nl/reset-password/customer')]
+
 ${activationmail_NL}      //a[contains(.,'{activeAccountURL}')]
 ${activationmail_EN}     //a[contains(.,'https://multishop.bapacho.com/activateShop.php?gu')]
 ${activationmail_IT}     //a[contains(.,'https://staging.bapacho.it/activateShop.php?')]
@@ -69,12 +77,8 @@ ${activationmail_RO}      //a[contains(.,'https://staging.bapacho.ro/activateSho
 ${activationmail_PT}      //a[contains(.,'https://staging.bapacho.pt/activateShop.php?')]
 ${activationmail_PL}     //a[contains(.,'https://staging.bapacho.pl/activateShop.php?')]
 
-
-
 ${activationmailManager_CZ}    //a[contains(.,'https://staging.bapacho.cz/activateManager.php?gu')]
 ${activationmailManager_RO}    //a[contains(.,'https://staging.bapacho.ro/activateManager.php?gu')]
-
-
 
 ${Onboardingsavebutton}    //button[contains(@type,'button')]
 
@@ -193,14 +197,12 @@ ${btn_Location_PL}     locationColumns_local[pl][text]
 
 ${AddOpeninghoursLunchbreak}    (//span[contains(.,'buttons.addLunchBreak')])[1]
 
-
 ${OpeninghoursSetActive}    operationTimes_day_active[1]
 ${OpeninghoursStartingtime}     operationTimes[1][start]
 ${OpeneninghoursEndtime}    operationTimes[1][end]
 ${OpeninghoursBreakStartingtime}     operationBreakTimes[1][start]
 ${OpeninghoursBreakEndtime}     operationBreakTimes[1][end]
 ${Openinghoursapplytoall}      (//button[@type='button'])[2]    
-
 
 ${AddPickupLunchbreak}    (//a[contains(.,'buttons.addLunchBreak')])[8]
 
@@ -210,7 +212,6 @@ ${PickuphoursEndtime}    pickupTimes[1][end]
 ${PickuphoursBreakStartingtime}    pickupBreakTimes[1][start]
 ${PickuphoursBreakEndtime}    pickupBreakTimes[1][end]
 
-
 ${AddDeliveryLunchbreak}    (//a[contains(.,'buttons.addLunchBreak')])[15]
 
 ${DeliveryhoursSetActive}    deliveryTimes_day_active[1]
@@ -218,10 +219,6 @@ ${DeliveryhoursStartingtime}    deliveryTimes[1][start]
 ${DeliveryhoursEndtime}    deliveryTimes[1][end]
 ${DeliveryhoursBreakStartingtime}    deliveryBreakTimes[1][start]
 ${DeliveryhoursBreakEndtime}    deliveryBreakTimes[1][end]
-
-
-
-
 
 #Step 4
 ${category_EN}       7
@@ -264,7 +261,7 @@ ${Step10_Nextbutton}    (//button[contains(@class,'btn btn-success btn-lg showLo
 ${Onlinepaymentsettings}    //i[contains(@class,'fas fa-cog fa-fw')]
 ${connect to online payment}    //a[contains(@class,'btn btn-info btn-lg')]
 ${printallorders}    //a[contains(@class,'btn btn-info btn-block wrap')]
-${oredr/product_details}    //a[contains(@class,'btn btn-default btn-block wrap')]
+${order/product_details}    //a[contains(@class,'btn btn-default btn-block wrap')]
 
 
 #My Categories
@@ -488,6 +485,11 @@ ${locationtitle}    localized[nl][text]
 ${saveshoppageinformation}    (//button[@type='submit'])[6]
 ${websitecolumn}     columns[website]
 
+${bakeryproductspage}    //div[contains(@data-target,'products')]
+
+${bakerypageinformation}    //div[contains(@data-target,'fullinfo')]
+${viewpickuphours}    (//a[contains(@role,'tab')])[2]
+${viewdeliveryhours}    (//a[contains(@role,'tab')])[3]
 
 ${Mypage}    //a[contains(@class,'btn btn-default')]
 
@@ -594,12 +596,6 @@ ${inputpassword}      //input[@id='password']
 ${inputpasswordcheck}     password_chk
 ${CreateAccount_SubmitButton}    //button[@onclick="$('#loginForm').submit()"]
 
-${ForgotPasswordMailLink_EN}    //a[contains(text(),'https://staging.bapacho.com/nl/reset-password/cust')] 
-${ForgotPasswordMailLink_NL}     //a[contains(text(),'https://staging.bapacho.nl/nl/reset-password/cust')]
-${ForgotPasswordMailLink_IT}     //a[contains(text(),'https://staging.bapacho.it/it/reset-password/cust')]
-${ForgotPasswordMailLink_CZ}    //a[contains(text(),'https://staging.bapacho.cz/cz/reset-password/cust')]
-${ForgotPasswordMailLink_DE}    //a[contains(text(),'https://staging.bapacho.de/de/reset-password/cust')]
-
 #Home Page
 
 ${homelocationtitle}    //input[@id='homeLocationTitle']
@@ -663,11 +659,16 @@ ${choosebakery}    (//div[@class='text-success'])[1]
 
 #Bakery display Page
 
-${clickbakersphonenumber}    (//a[contains(@role,'button')])[3]
+${clickbakersphonenumber}    (//div[contains(@class,'form-field')])[2]
 ${filterproductbycategory}    (//a[contains(@class,'supplierCategoriesFilter ')])[2]
 ${i}    (//div[contains(@class,'title')])[3]
-${Addtocart +}    (//i[@class='fas fa-plus fa-fw'])
+${Addtocart +}    (//span[contains(@onclick,'quickAddToCart(this)')])[1]
+${Addtocart -}    (//span[contains(@onclick,'quickDeductFromCart(this)')])[1]
+
+${producttitle}    (//div[contains(@onclick,'showProductInfo(this)')])[1]
 ${Addtocartproductlevel}    //button[@onclick='addToCart(this)']
+
+
 ${btn_Close}    (//button[contains(@type,'button')])[5]
 ${btn_Checkout}    //button[@id='toCheckoutBtn']
 ${closeloginpopup}    //button[@aria-label='Close']
@@ -675,8 +676,8 @@ ${closeloginpopup}    //button[@aria-label='Close']
 
 #Cart
 
-${+}    //div[@id='cartSummaryBody']/div[2]/table/tbody/tr/td[2]/div[4]/i
-${-}    //div[@id="cartSummaryBody"]/div[2]/table/tbody/tr/td[2]/div[3]/i
+${+}    //span[contains(@onclick,'addQuantity(this)')]
+${-}    //span[contains(@onclick,'deductQuantity(this)')]
 ${inputproductprice}    //input[contains(@type,'number')]
 ${deleteproduct_in_cart}    //i[contains(@class,'fas fa-trash fa-lgf fa-fw text-lightmuted')]
 
@@ -768,6 +769,12 @@ ${gmailpwd_submit}    (//div[contains(@class,'VfPpkd-RLmnJb')])[1]
 ${choosemail_EN}    //tr[contains(@id,':27')]
 ${choosemail_CZ}    //tr[contains(@id,':1u')] 
 ${choosemail_RO}    (//tr[contains(@role,'row')])[1]
+
+${choosemailcustomermail_EN}    //tr[contains(@id,':mn')]
+${choosemailcustomermailchimp_EN}    //tr[contains(@id,':m6')]
+
+${choosemailforgotpassword_EN}     //tr[contains(@id,':167')]   
+
 
 
 ${scrollup}      window.scrollTo(document.body.scrollHeight,0)
