@@ -6,7 +6,7 @@ ${Edge}    edge
 
 #CustomerSite
 
-@{LoginCredentials}    testemailcustomer001@gmail.com    bapachocustomerpwd
+@{LoginCredentials}    nisha@inqadigital.com    Nishabalki@123
 
 @{GuestUser_EN}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com    Justine de Gouwerhof,54     Haarlem     2011GP     Netherlands     +31612809787
 @{GuestUser_NL}    Eswari Nisha    Balakrishnan    nisha@inqadigital.com    Justine de Gouwerhof,54     Haarlem     2011GP     Netherlands     +31612809787
@@ -56,12 +56,13 @@ ${MerchantName without payment}    Nisha's Automated Bakery006
 
 #MultishopMerchant details
 
-@{MultishopMerchantCredentials}    nishamultishop1@gmail.com     bapachomerchantpwd    31612809787    Netherlands
-@{MultishopLocation1Credentials}     nisha+automatedmultishop4+loc2@inqadigital.com     bapachomanagerpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
-${MultishopMerchantName}    Nisha's Automated Multishop4
-${MultishopMerchantLoc1}    Nisha's Automated Multishop4+ Loc2
+@{MultishopMerchantCredentials}    nisha+coffeeshop2@inqadigital.com     bapachomerchantpwd    31612809787    Netherlands
+@{MultishopLocation1Credentials}     nisha+coffeeshop2+loc1@inqadigital.com     bapachomanagerpwd    31612809787    54,Justine de Gouwerhof    2011GP    Haarlem Netherlands
+${MultishopMerchantName}    Nisha's Automated Coffeeshop2
+${MultishopMerchantLoc1}    Nisha's Automated Coffeeshop2+ Loc1
 
 ${COC}    000000000  
+${VAT_EN}    123456789B12 
 ${VAT_NL}    123456789B12  
 ${VAT_CZ}    54416485
 ${VAT_IT}    12345678901

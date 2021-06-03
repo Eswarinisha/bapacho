@@ -38,14 +38,15 @@ Step 2: Business information
     Input Text    ${newlocationZip}    ${MerchantAddress_${Language}}[2]
     Input Text    ${newlocationcity}    ${MerchantAddress_${Language}}[1]
     Input Text    ${newlocationphone}   ${MultishopMerchantCredentials}[2]  
-    Input Text    tax_id    ${COC}    
+    Input Text    columns[tax_id]    ${COC}    
     Input Text    vat_id    ${VAT_${Language}}
     Select Radio Button    setupOnlinePayment    0    
     # Input Text    account_holder_name    ${MultishopMerchantName}
     # Input Text    account_number    ${IBAN}
     #Click Element    tos            
     Sleep    2 
-    Click Element    //button[contains(@type,'button')]                  
+    Click Element    //button[contains(@type,'button')]     
+     Sleep    2              
     
 # Step 3: Ownership Information
     # Sleep    10

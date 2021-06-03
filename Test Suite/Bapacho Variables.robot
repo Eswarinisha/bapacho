@@ -83,7 +83,7 @@ ${activationmailManager_RO}    //a[contains(.,'https://staging.bapacho.ro/activa
 ${Onboardingsavebutton}    //button[contains(@type,'button')]
 
 #Step 1 
-${LoginasMerchant}    (//a[contains(@role,'button')])[4]
+${LoginasMerchant}    (//a[contains(@role,'button')])[5]
 #${LoginasMerchant_EN}     (//a[contains(.,'Login as Merchant')])[1]
 
 
@@ -202,7 +202,7 @@ ${OpeninghoursStartingtime}     operationTimes[1][start]
 ${OpeneninghoursEndtime}    operationTimes[1][end]
 ${OpeninghoursBreakStartingtime}     operationBreakTimes[1][start]
 ${OpeninghoursBreakEndtime}     operationBreakTimes[1][end]
-${Openinghoursapplytoall}      (//button[@type='button'])[2]    
+${Openinghoursapplytoall}      (//button[contains(@type,'button')])[1]    
 
 ${AddPickupLunchbreak}    (//a[contains(.,'buttons.addLunchBreak')])[8]
 
@@ -258,7 +258,7 @@ ${Step10_Nextbutton}    (//button[contains(@class,'btn btn-success btn-lg showLo
 
 #Dashboard
 
-${Onlinepaymentsettings}    //i[contains(@class,'fas fa-cog fa-fw')]
+${Onlinepaymentsettings}    (//a[contains(@class,'list-group-item ')])[7]
 ${connect to online payment}    //a[contains(@class,'btn btn-info btn-lg')]
 ${printallorders}    //a[contains(@class,'btn btn-info btn-block wrap')]
 ${order/product_details}    //a[contains(@class,'btn btn-default btn-block wrap')]
@@ -280,7 +280,7 @@ ${DeleteCategory}    //div[contains(@onclick,'assertDeleteCategory(this)')]
 ${DeleteCategory_failing}    //div[contains(@data-toggle,'tooltip')]
 ${delete}    (//button[contains(@type,'button')])[2]
 
-${CopyfromEnglish}    //button[contains(@class,'btn btn-xs btn-info')]
+${CopyfromEnglish}    //span[contains(@class,'btn-icon bp-strong bp-default-text-color')]
 
 #My Products
 ${MyProduct}    (//a[contains(@class,'list-group-item ')])[3]
@@ -427,6 +427,7 @@ ${saveShopAddress}    (//button[@type='submit'])[1]
 
 ${viewshop}    (//a[contains(@class,'btn btn-template')])[3]
 
+${newlocationterms}    terms
 
 #products
 ${products}    //a[contains(@data-smallstep,'2')]
@@ -448,7 +449,7 @@ ${pickupfee}    acceptance_methods[pickup][fee]
 # ${MondayPickupClosing}    pickupTimes[1][end]
 # ${pickupbreaktime - from}    pickupBreakTimes[1][start]
 # ${pickupbreaktime - To}    pickupBreakTimes[1][end]
-${pickupapplytoall}    (//button[@type='button'])[10]
+${pickupapplytoall}    (//button[contains(@type,'button')])[2]
 
 ${setpickuponlinepayment}    id=acceptance-methods-pickup-payment-Online
 ${setpickupcashpayment}    id=acceptance-methods-pickup-payment-Cash
@@ -470,7 +471,7 @@ ${deliveryhandlingfee}    acceptance_methods[deliver][fee]
 # ${deliverybreaktime - from}    deliveryBreakTimes[1][start]
 # ${deliverybreaktime - to}    deliveryBreakTimes[1][end]
 
-${deliveryapplytoall}    (//button[@type='button'])[18]
+${deliveryapplytoall}    (//button[contains(@type,'button')])[3]
 
 ${setdeliveryonlinepayment}   id=acceptance-methods-deliver-payment-Online
 ${setdeliverycashpayment}    id=acceptance-methods-deliver-payment-Cash
@@ -504,7 +505,7 @@ ${Settings}    (//a[contains(@class,'list-group-item ')])[6]
 ${MyOrders}    (//a[contains(@class,'list-group-item ')])[8]
 
 ${Acceptorder}    (//a[contains(@role,'button')])[4]
-${viewOrder}    //a[contains(@class,'btn btn-template-inverse')]  
+${viewOrder}    (//a[@class='btn btn-template-inverse btn-lg btn-lg-wide'])[1]  
 ${Declineorder}    (//a[contains(@role,'button')])[5]
 ${orderstatus}    orderStatus
 ${orderstatuscomment}    status_comment
@@ -538,7 +539,7 @@ ${savepaymentstatus}    //button[contains(@onclick,'setOrderLastStatus(this);')]
 
 #Team
 ${Myteam}    (//a[contains(@class,'list-group-item ')])[6]
-${Addmanager}    //i[contains(@class,'fas fa-plus-circle fa-2x')]
+${Addmanager}    //div[contains(@class,'btn btn-default')]
 ${managerfirstname}    firstname
 ${managerlastname}    lastname
 ${manageremail}    email
@@ -564,7 +565,7 @@ ${ShowmoreInfo}    (//a[contains(@role,'button')])[2]
 
 
 #Account option
-${AccountOption}    //i[contains(@class,'fas fa-check-double fa-fw')]
+${AccountOption}    //a[contains(@class,'list-group-item active')]
 
 #CUSTOMER SITE
 
@@ -572,8 +573,8 @@ ${BapachoLOGO}    //img[@src='/img/original/Bapacho-white.svg']
 ${carticon}    //a[@class='toCartBtn']
 
 ${FBLoginButton}    //a[contains(text(),'Login using Facebook')]
-${Login_Button}    (//i[contains(@class,'fas fa-user')])[1] 
-${LoginSubmit_Button}    //button[contains(@class,'btn btn-block btn-success')]
+${Login_Button}    //span[contains(@class,'icon-account')] 
+${LoginSubmit_Button}    //button[@class='btn btn-template']
 ${forgotpassword}    (//a[contains(@role,'button')])[4]
 ${newpassword}    name=password
 ${newpasswordcheck}    name=password_chk
@@ -619,7 +620,7 @@ ${btn_Bakeries_PT}    //a[contains(.,'Lojas')]
 ${favhearticon}    //i[@class='far fa-heart'] 
 ${guestclickfav}    //i[contains(@class,'far fa-heart fa-2x')]
 ${viewfavorites}    (//i[contains(@class,'far fa-heart text-muted')])[1]
-${search_button}    (//span[contains(@class,'hidden-xs')])[2]
+${search_button}    //button[@class='btn btn-template trigger-filter']
 ${btn_MyAccount}    (//span[contains(@class,'hidden-xs')])[1]
 
 ${Open your shop}    (//a[@role='button'])[3]
@@ -654,7 +655,7 @@ ${nowopencheckbox}    //input[@name='nowOpen']
 ${noworderonline}    //input[@name='orderOnline']
 
 ${choosebakery_multiplefilter}    (//a[contains(@class,'quickAddToCart')])[1]
-${choosebakery}    (//div[@class='text-success'])[1]
+${choosebakery}    (//a[@class='btn btn-template btn-lg btn-lg-wide'])[1]
 
 
 #Bakery display Page
@@ -735,7 +736,7 @@ ${cardExpiry}    name=cardExpiry
 ${cvc}    name=cardCvc
 ${billingcountry}    //select[@id='billingCountry']
     
-${savecard}    //div[contains(@class,'SubmitButton-CheckmarkIcon')]
+${savecard}    //span[contains(.,'Save card')]
 
 #Footer
 
@@ -766,10 +767,12 @@ ${gmailid_submit}    //div[contains(@class,'VfPpkd-RLmnJb')]
 ${inputgmailpassword}    //input[contains(@type,'password')]
 ${gmailpwd_submit}    (//div[contains(@class,'VfPpkd-RLmnJb')])[1]
 
-${choosemail_EN}    //tr[contains(@id,':27')]
+${choosemail_EN}    (//span[contains(.,'Your account at Bapacho')])[2]
 ${choosemail_CZ}    //tr[contains(@id,':1u')] 
 ${choosemail_RO}    (//tr[contains(@role,'row')])[1]
 
+
+${choosemailcustomerorderreceived_EN}    //tr[contains(@id,':1m')]
 ${choosemailcustomermail_EN}    //tr[contains(@id,':mn')]
 ${choosemailcustomermailchimp_EN}    //tr[contains(@id,':m6')]
 

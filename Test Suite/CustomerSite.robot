@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
    
 
-Default tags     RegressionTest
+Default tags     Basic Regression
 
 Resource    Bapacho Variables.robot
 Resource    Bapacho Credentials.robot
@@ -14,52 +14,41 @@ Test Setup    Set Screenshot Directory    C:/Users/Nisha/git/ta-bapacho/Bapacho/
 
 #FCS001	CUSTOMER LOGIN
 
-#CS001TC00_User must be able to click on Login icon and click create account
-CS001TC002   #User must be able to enter valid email id, first name, last name and confirm password
-	     
+Test case 1 
+    # User creates account and check his welcome mail
+    Set Tags    Basic Regression	     
         Open MultishopHomePage
         Capture Page Screenshot    
         Click_login   
         Email_Registration 
         Close Browser
-
-        
+  
 #Check Welcome Mail by Customer       
         OpenGmailCustomer
         Close Browser
         OpenGmailCustomerMailchimp
         Close Browser
 
-CS001TC004_User must be able to login with newly registered email id
-	          
+Test case 2
+    
+    #User must be able to login with newly registered email id
+	Set Tags    Basic Regression          
 	    Open MultishopHomePage
         Click_login         
         EmailLogin       
         Close Browser 
         
-#CS002TC001_User must be able to click on Login icon and click login using Facebook
-CS002TC002_User must be directed to Facebook login page and able to login successfully       
+
+Test case 3
+    #User must be directed to Facebook login page and able to login successfully       
         Open MultishopHomePage
         Click_login
         Click_FacebookLogin
         FacebookLogin
         Close Browser
-
-CS003TC001_User must be able to login using his credentials
-        Set Tags    Sanity
-       
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Capture Page Screenshot
-        Close Browser
-            
-CS003TC002_User must be able to login using his facebook credentials
-      
-        FacebookLogin
-        Close Browser
         
-CS003TC003_User must be able to login during checkout 
+Test case 4
+    #User must be able to login during checkout 
     
          Open MultishopHomePage
          Click_bakeries
@@ -76,7 +65,8 @@ CS003TC003_User must be able to login during checkout
          Capture Page Screenshot    
          Close Browser
          
-CS003TC004_User must be able to register during checkout 
+Test case 5
+    #User must be able to register during checkout 
          Open MultishopHomePage
          Click_bakeries
          Change_CurrentLoction_BDP
@@ -92,8 +82,8 @@ CS003TC004_User must be able to register during checkout
          Capture Page Screenshot    
          Close Browser 
          
-CS003TC005
-     # User must be able to register during checkout 
+Test case 6
+     # User must be able to login using Facebook during checkout 
          Open MultishopHomePage
          Click_bakeries
          Change_CurrentLoction_BDP
@@ -109,75 +99,47 @@ CS003TC005
          Capture Page Screenshot    
          Close Browser            
 
-CS004TC001_User must be able to click on forgot password
+Test case 7
+   #User give forgot password and reset with new password
        
         Open MultishopHomePage
         Click_login
         Click_ForgotPassword  
         Close Browser 
-              
-CS004TC002_User must receive mail for resetting the password and able to set new password
-        
-         OpenGmailForgotPaasword
-         
-         ResetPassword  
-         Close All Browsers
+        OpenGmailForgotPaasword
+        ResetPassword  
+        Close All Browsers
 
-# CS005TC001_User must be able to login with the new password
+#User must be able to login with the new password
       
-       # Open MultishopHomePage
-       # Click_login
-       # login_Using_RegisteredMailid
-       # Close Browser       
+       Open MultishopHomePage
+       Click_login
+       login_Using_RegisteredMailid
+       Close Browser       
 
-# CS005TC002_User must not be able to login with old password
-       # Open MultishopHomePage
-       # Click_login
-       # login_Using_RegisteredMailid_with old password   
-       # Close Browser
+Test case 8
+    #User must not be able to login with old password
+       Open MultishopHomePage
+       Click_login
+       login_Using_RegisteredMailid_with old password   
+       Close Browser
 
-
-   
-CS006TC001_User must be able to visit Bapacho site as guest
-
-         Open MultishopHomePage
-         Click_bakeries
-         Capture Page Screenshot
-         Close Browser
-
-CS006TC002_User must be able to search bakeries by name on the search bar
-
+      
+Test case 9
+    #Guest User must not be able to add bakeries to favorites
+          
           Open MultishopHomePage
           Click_bakeries
           Change_CurrentLoction_BDP
           Type_To_Search_bakery with Online payment
           Select a bakery from list
-          Capture Page Screenshot
-          Close Browser
-      
-CS006TC003_Guest User must not be able to add bakeries to favorites
-          
-          Open MultishopHomePage
-          Click_bakeries
-         Change_CurrentLoction_BDP
-          Type_To_Search_bakery with Online payment
-          Select a bakery from list
           Guestuser_Click_favourites 
           Close Browser
 
-CS006TC004_Guest User must be able to add products to cart
-
-        Open MultishopHomePage
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        Capture Page Screenshot    
-        Close Browser
        
-CS006TC005_Guest User must be able to checkout and place order
-         Set Tags    Sanity
+Test case 10
+    #Guest User must be able to checkout and place order
+         
          Open MultishopHomePage
          Click_bakeries
          Change_CurrentLoction_BDP
@@ -192,24 +154,18 @@ CS006TC005_Guest User must be able to checkout and place order
          
     #FCS002	CUSTOMER DASHBOARD
 
-CS007TC001_User must login to view on the Account icon
-
+Test case 11
+    #User must login to view on the Account icon & edit his details
+    Set Tags    Basic Regression
        Open MultishopHomePage
        Click_login
        EmailLogin
        Click_MyAccount    
+       Edit_Mydetails
        Close Browser
-       
-CS007TC002_User must be able to edit and save all the information in my data
-
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_MyAccount
-        Edit_Mydetails
-        Close Browser
         
-CS007TC003_While placing order, all the information must be populated correctly after checkout
+Test case 12
+    #While placing order, all the information must be populated correctly after checkout
         Set Tags    Sanity
         Open MultishopHomePage
         Click_login
@@ -225,16 +181,9 @@ CS007TC003_While placing order, all the information must be populated correctly 
         Cashpay_OrderNow
         Close Browser
         
-CS008TC001_User must be able to view his favorites bakery by clicking on the favorites icon
+Test case 13
+    #User must be able to view his favorites bakery by clicking on the favorites icon <3
 
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_favourites
-        Capture Page Screenshot
-        Close Browser
-
-CS008TC002_User must be able to view his favorites bakery by clicking on the favorites icon
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -242,17 +191,8 @@ CS008TC002_User must be able to view his favorites bakery by clicking on the fav
         View_favourites
         Close Browser
       
-CS008TC003_User must be able to view Favorites from My Account
-
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_MyAccount
-        Click_MyFavorites
-        Capture Page Screenshot
-        Close Browser
-    
-CS008TC004_User must be able to click and view any of his favorite bakeries
+Test case 14
+    #User must be able to view Favorites from My Account
 
         Open MultishopHomePage
         Click_login
@@ -262,16 +202,8 @@ CS008TC004_User must be able to click and view any of his favorite bakeries
         View_MyFavorites
         Close Browser
         
-CS009TC001_User can view his order history under My orders in My account
-
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_MyAccount
-        Click_Myorders
-        Close Browser
-        
-CS009TC002_User can select any of his previous orders
+Test case 15
+    #User can view his order history under My orders in My account
 
         Open MultishopHomePage
         Click_login
@@ -281,7 +213,8 @@ CS009TC002_User can select any of his previous orders
         View_MyOrders
         Close Browser
         
-CS009TC003_User must be able to Download order confirmation for the selected order
+Test case 16
+    #User must be able to Download order confirmation for the selected order
 
         Open MultishopHomePage
         Click_login
@@ -292,7 +225,8 @@ CS009TC003_User must be able to Download order confirmation for the selected ord
         Download_OrderConfirmation
         Close Browser
         
-CS009TC004_User must be able to click repeat order and place the same
+Test case 17
+     #User must be able to click repeat order and place the same
 
         Open MultishopHomePage
         Click_login
@@ -303,7 +237,8 @@ CS009TC004_User must be able to click repeat order and place the same
         Repeat_Order               
         Close Browser
         
-CS010TC001_On clicking logout, user must be logged out of site
+Test case 18
+    #On clicking logout, user must be logged out of site
 
         Open MultishopHomePage
         Click_login
@@ -315,7 +250,8 @@ CS010TC001_On clicking logout, user must be logged out of site
         Close Browser
 
         
-CS010TC003_User must be able to login with another credentials
+Test case 19 
+    #User must be able to login with another credentials
     #CS010TC002	 #Login icon must appear in the header
         Open MultishopHomePage
         Click_login
@@ -329,8 +265,9 @@ CS010TC003_User must be able to login with another credentials
         
     #FCS003    SEARCH
 
-CS011TC001_User must be able to type the location to find his bakery needed
-      
+Test case 20
+    #Home Screen_User must be able to type the location to find his bakery needed
+     Set Tags    Basic Regression
         Open MultishopHomePage
         Change_CurrentLocation_Home
         BuiltIn.Sleep    2  
@@ -339,20 +276,16 @@ CS011TC001_User must be able to type the location to find his bakery needed
         Capture Page Screenshot
         Close Browser
 
-CS011TC002_On clicking on the arrow near the search tab, current location must be populated
+Test case 21
+    #Home Screen_On clicking on the arrow near the search tab, current location must be populated
       
         Open MultishopHomePage
         Get_CurrrentLocation_Home
         Close Browser
         
-CS012TC001_User must be able to click on Bakeries and view bakery listing page
-      
-        Open MultishopHomePage
-        Click_bakeries
-        Close Browser
-        
-CS013TC001_User must be able to search bakeries by name on the search bar
-      
+Test case 22
+    #User must be able to search bakeries by name on the search bar
+  Set Tags    Basic Regression    
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -360,7 +293,8 @@ CS013TC001_User must be able to search bakeries by name on the search bar
         Capture Page Screenshot
         Close Browser
         
-CS013TC002_When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
+Test case 23
+    #When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
       
         Open MultishopHomePage
         Click_bakeries
@@ -369,26 +303,29 @@ CS013TC002_When no relevant result is available, "We're sorry, we couldn't find 
         Capture Page Screenshot
         Close Browser
         
-CS013TC003_User must be able to clear search by clicking on the X button
+Test case 24
+    #User must be able to clear search by clicking on the X button
       
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
-       Type_to_search_bakery_nonhappy
-       Clear search bakery field
+        Type_to_search_bakery_nonhappy
+        Clear search bakery field
         BuiltIn.Sleep    2  
         Capture Page Screenshot
         Close Browser
         
-CS014TC001_User must be able to use "Filter by Category" and get relevent result in the bakery listing page
+Test case 25
+    #User must be able to use "Filter by Category" and get relevent result in the bakery listing page
       
         Open MultishopHomePage
         Click_bakeries
         Filter Bakeries by Category         
         Close Browser
         
-CS014TC002_User must be able to use filter "Range from my location" and get relevent result in the bakery listing page
-    
+Test case 26
+    #User must be able to use filter "Range from my location" and get relevent result in the bakery listing page
+  Set Tags    Basic Regression  
         Open MultishopHomePage
         Click_bakeries
         Filter_by_Range from my location
@@ -396,8 +333,9 @@ CS014TC002_User must be able to use filter "Range from my location" and get rele
         Pass Execution    "Failure expected because of drag and drop offset but works as expected" 
         
         
-CS014TC003_User must be able to use filter deliver/pickup and get relevent result in the bakery listing page
-        
+Test case 27
+    #User must be able to use filter deliver/pickup and get relevent result in the bakery listing page
+   Set Tags    Basic Regression     
         Open MultishopHomePage
         Click_bakeries
       #  Change_CurrentLoction_BDP
@@ -406,8 +344,9 @@ CS014TC003_User must be able to use filter deliver/pickup and get relevent resul
         Filter_by_Deliver    
         Close Browser
             
-CS014TC004_User must be able to use filter "other filter" and get relevent result in the bakery listing page
-    
+Test case 28 
+    #User must be able to use filter "other filter" and get relevent result in the bakery listing page
+    Set Tags    Basic Regression
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -419,8 +358,9 @@ CS014TC004_User must be able to use filter "other filter" and get relevent resul
         Capture Page Screenshot
         Close Browser
         
-CS015TC001_User must be able to use one or many filters and get relevant result in the bakery listing page
-        
+Test case 29
+    #User must be able to use one or many filters and get relevant result in the bakery listing page
+   Set Tags    Basic Regression     
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -433,8 +373,9 @@ CS015TC001_User must be able to use one or many filters and get relevant result 
         Cashpay_OrderNow
         Close Browser
         
-CS015TC002_User must be able to deselect Category filter and get relevent result in the bakery listing page
-        
+Test case 30
+    #User must be able to deselect Category filter and get relevent result in the bakery listing page
+    Set Tags    Basic Regression    
         Open MultishopHomePage
         Click_bakeries
         Filter Bakeries by Category
@@ -443,7 +384,8 @@ CS015TC002_User must be able to deselect Category filter and get relevent result
 
 
 
-CS016TC001_User must be able to remove the filters and all the result must be reset
+Test case 31
+    #User must be able to remove the filters and all the result must be reset
         
         Open MultishopHomePage
         Click_bakeries
@@ -458,29 +400,20 @@ CS016TC001_User must be able to remove the filters and all the result must be re
         Close Browser
         
     #FCS005	BAKERY DISPLAY PAGE
-
-CS017TC001_On clicking on any bakery, the bakery details page must be displayed
         
-        Open MultishopHomePage
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        BuiltIn.Sleep    2  
-        Capture Page Screenshot
-        Close Browser
-        
-CS018TC001_In the bakery display page, under the About Bakery, show more information link must be available
+# Test case 
+    # #In the bakery display page, under the About Bakery, show more information link must be available
 
-        Open MultishopHomePage
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        Capture show more information            
-        Close Browser
+        # Open MultishopHomePage
+        # Click_bakeries
+        # Change_CurrentLoction_BDP
+        # Type_To_Search_bakery with Online payment
+        # Select a bakery from list
+        # Capture show more information            
+        # Close Browser
  
-CS018TC002_On clicking the link, all information including payment method must be displayed       
+Test case 32
+    #Show Bakery Information      
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -490,7 +423,8 @@ CS018TC002_On clicking the link, all information including payment method must b
         View shop page information     
         Close Browser
     
-CS018TC003_Phone number under other information must be clickable
+Test case 33
+    #Phone number under other information must be clickable
 
         Open MultishopHomePage
         Click_bakeries
@@ -501,7 +435,8 @@ CS018TC003_Phone number under other information must be clickable
         Capture Page Screenshot      
         Close Browser
         
-CS019TC001_Products must be listed according to the product type 
+Test case 34
+    #Filter products by product category
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -511,7 +446,8 @@ CS019TC001_Products must be listed according to the product type
         Capture Page Screenshot   
         Close Browser
       
-CS019TC002_On clicking on "+" product must get added to cart
+Test case 35
+    #On clicking on "+" product must get added to cart(product level)
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -521,7 +457,8 @@ CS019TC002_On clicking on "+" product must get added to cart
         Capture Page Screenshot    
         Close Browser
         
-CS020TC001_On clicking on "i " the product details must be displayed
+Test case 36
+    #Click product and view Product information
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -534,18 +471,19 @@ CS020TC001_On clicking on "i " the product details must be displayed
            # FCS006	    CART
 
 
-CS021TC001_User must be able to add produts using Add to cart button in the product information       
+Test case 37
+    #User must be able to add produts(product information level)      
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         # Click 'i' for product information - old version
-        # Click add to cart button
         Click add to cart button
         Close Browser
         
-CS021TC002_User must be able to change the quantity of product using + and - buttons
+Test case 38
+    #User must be able to change the quantity of product using + and - buttons(cart level)
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -558,7 +496,8 @@ CS021TC002_User must be able to change the quantity of product using + and - but
         Close Browser
 
         
-CS021TC003_User must be able to directly type the quantity of product in the box
+Test case 39
+    #User must be able to directly type the quantity of product in the box(cart level)
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -569,7 +508,8 @@ CS021TC003_User must be able to directly type the quantity of product in the box
         Capture Page Screenshot    
         Close Browser
         
-CS022TC001_User must be able to remove the products from cart with delete button
+Test case 40
+    #User must be able to remove the products from cart with delete button(cart level)
         Open MultishopHomePage
         Click_bakeries
         Change_CurrentLoction_BDP
@@ -586,35 +526,10 @@ CS022TC001_User must be able to remove the products from cart with delete button
 
     
 
-CS023TC001_On clicking Favorites icon, the list of favorite bakeries must be displayed
-    
-#CS023TC002	 #Any of the favorite bakeries can be clicked and result to bakery display page
 
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_favourites
-        View_favourites
-        Close Browser
-        
 
-               # FCS008	        CHECKOUT
-               
-Get checkout url when customer goes to homepage and click cart
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        Click Image    ${BapachoLOGO}    
-        Click Element    ${carticon}    
-        Get Locations    
-        Close Browser
-
-CS024TC001_User must be able to enter mandatory details in the Choose pickup and delivery page after checkout
+Test case 41
+    #Pickup + Cash pay Order
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -631,7 +546,8 @@ CS024TC001_User must be able to enter mandatory details in the Choose pickup and
         Close Browser
         
 
-CS024TC002_User must be able to choose pickup 
+Test case 42
+    #Delivery + Card pay order + Type product quanity during checkout
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -640,49 +556,18 @@ CS024TC002_User must be able to choose pickup
         Type_To_Search_bakery with Online payment
         Select a bakery from list
         PDP_AddtoCart
-        Set Browser Implicit Wait    5
-        PDP_Click_Checkout
-        User_Fill_Checkoutpage
-        Capture Page Screenshot    
-        Close Browser
-        
-
-CS024TC003_User must be able to choose date and time for Deliver
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-       # Type Product quantity
         BuiltIn.Sleep    2    
         PDP_Click_Checkout
         Type Product quantity_Checkout
         Choose_delivery
         User_Fill_Checkoutpage
-        Capture Page Screenshot    
-        Close Browser
-        
-CS024TC004_User must be able to choose payment method in the Choose pickup and delivery page
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        BuiltIn.Sleep    2  
-        PDP_Click_Checkout
-        Choose_delivery
-        User_Fill_Checkoutpage    
         Cardpay_OrderNow
         Capture Page Screenshot    
         Close Browser
+  
         
-CS025TC001_User must be able to read Terms & conditions on clicking the link
+Test case 43
+    #Read Terms & conditions
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -696,7 +581,8 @@ CS025TC001_User must be able to read Terms & conditions on clicking the link
         Click_Terms&Condition
         Close Browser  
         
-CS025TC002_User must be able to check the Terms & conditions box
+Test case 44
+    #Filter delivery,open now + Pickup + cash pay order
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -709,10 +595,12 @@ CS025TC002_User must be able to check the Terms & conditions box
         BuiltIn.Sleep    2  
         PDP_Click_Checkout
         User_Fill_Checkoutpage
-        Click_T&C_Checkbox
+        Cashpay_OrderNow
+        Capture Page Screenshot    
         Close Browser
         
-CS025TC003_Without checking the Terms &Conditions check box, user must not be able to place order
+Test case 45
+    #Without checking the Terms &Conditions check box, user must not be able to place order
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -729,77 +617,11 @@ CS025TC003_Without checking the Terms &Conditions check box, user must not be ab
         Click Submit button  
         Close Browser
         Pass Execution    "Non Happy test script - Failure is expected"    
-        
-
-        #  FCS009	PAYMENT
-
-CS026TC001_User must be able to do online payment using iDeal     
-        Open MultishopHomePage
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        BuiltIn.Sleep    2    
-        PDP_Click_Checkout
-        #Choose_delivery
-        User_Fill_Checkoutpage    
-        Onlinepay_Ordernow
-        iDEAL_Online_payment_process
-        Close Browser   
-        
-CS026TC002_User must be able to do online payment using card
-        Open MultishopHomePage
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        BuiltIn.Sleep    2  
-        PDP_Click_Checkout
-        #Choose_delivery
-        User_Fill_Checkoutpage    
-        Onlinepay_Ordernow
-        Card_Online_payment_process
-        Close Browser
-        OpenYopMailinchrome
-        Check_OrderReceived_mail
-        Close Browser
-
-        
-CS026TC003_User must be able to do online payment using giropay
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        BuiltIn.Sleep    2  
-        PDP_Click_Checkout
-        Choose_delivery
-        User_Fill_Checkoutpage    
-        Onlinepay_Ordernow
-        Giropay_Online_payment_process
-        Close Browser
-        
-CS026TC004_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
-        Open MultishopHomePage
-        Click_login
-        EmailLogin
-        Click_bakeries
-        Change_CurrentLoction_BDP
-        Type_To_Search_bakery with Online payment
-        Select a bakery from list
-        PDP_AddtoCart
-        BuiltIn.Sleep    2  
-        PDP_Click_Checkout
-        Choose_delivery
-        User_Fill_Checkoutpage    
-        Onlinepay_Ordernow
-        iDEAL_Online_payment_process
-        Add to Calender
-        Close Browser
-        
-CS027TC001_User must be able to choose cash payment method and click on Order now
-        Open MultishopHomePage
+               
+Test case 46
+    #Pickup+ Cash pay + Customer checks order received mail
+    Set Tags    Basic Regression
+        Open_Bapachosite
         Click_login
         EmailLogin
         Click_bakeries
@@ -812,9 +634,12 @@ CS027TC001_User must be able to choose cash payment method and click on Order no
         Choose_delivery
         User_Fill_Checkoutpage   
         Cashpay_OrderNow
+        Customer Order received Mail
         Close Browser
         
-CS027TC002_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
+
+Test case 47
+    #Delivery + Card order + Add to calender
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -830,7 +655,8 @@ CS027TC002_User must be able to add date and time of delivery to his calender by
         Add to Calender
         Close Browser
         
-CS028TC001_User must be able to choose Card payment method and click on Order now
+Test case 48
+    #Pickup + Card order
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -846,7 +672,8 @@ CS028TC001_User must be able to choose Card payment method and click on Order no
         Cardpay_OrderNow
         Close Browser
         
-CS028TC002_User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
+Test case 49
+    #Delivery + Cash pay order + Add to calender
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -859,7 +686,7 @@ CS028TC002_User must be able to add date and time of delivery to his calender by
         PDP_Click_Checkout
         Choose_delivery
         User_Fill_Checkoutpage 
-        Cardpay_OrderNow
+        Cashpay_OrderNow
         BuiltIn.Sleep    2  
         Add to Calender
         Close Browser
@@ -868,7 +695,9 @@ CS028TC002_User must be able to add date and time of delivery to his calender by
 #  FCS010	PAYMENT FAILURE
 
         
-CS029TC001_User must be able to click on back button without paying and redirected to Order incomplete page
+Test case 50
+    #Delivery + Online payment failure(clicked back button)
+    Set Tags    Basic Regression
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -886,7 +715,8 @@ CS029TC001_User must be able to click on back button without paying and redirect
         Close Browser
         
 
-CS030TC001_Order incomplete page must have details regarding the failed payment
+Test case 51
+    #Pickup +  Online payment failure(clicked back button) + File complaint using Support form
         Open MultishopHomePage
         Click_login
         EmailLogin
@@ -897,7 +727,6 @@ CS030TC001_Order incomplete page must have details regarding the failed payment
         PDP_AddtoCart
         BuiltIn.Sleep    2  
         PDP_Click_Checkout
-        Choose_delivery
         User_Fill_Checkoutpage    
         Onlinepay_Ordernow
         Click back while Online pay
@@ -907,78 +736,71 @@ CS030TC001_Order incomplete page must have details regarding the failed payment
 
   # FCS011	DISCOVER BAPACHO
  
-CS031TC001_User must be able to view About us static page
+Test case 52
+    #About us static page
          Open MultishopHomePage
          About us
          Close Browser
          Pass Execution    "Failure expected in local staging" 
                
-CS032TC001_User must be able to click on "Login as Merchant"
+Test case 53
+   #User must be able to use the website as Merchant
         Open MultishopHomePage
-        Login As Merchant_Footer
-        Capture Page Screenshot    
-        Close Browser
-         
-
-CS032TC002_User must enter valid Merchant email id and password
-        Open MultishopHomePage
-        Login As Merchant_Footer
-        MerchantLogin_Form
-        Close Browser
-    
-CS032TC003_User must be able to use the website as Merchant
-        Open MultishopHomePage
-        Login As Merchant_Footer
-        MerchantLogin_Form
-        Capture Page Screenshot 
+        Login As Merchant_Footer    
         Click_bakeries
         Capture Page Screenshot  
         Close Browser
         
-CS033TC001_User must be able to click and read on Terms and Conditions in the footer 
+Test case 54
+    #T&C Footer 
         Open MultishopHomePage
         Terms and Condition
         Close Browser
          Pass Execution    "Failure expected in local staging" 
         
-CS034TC001_User must be able to click and read on Privacy statement in the footer
+Test case 55
+    #Privacy statement in the footer
         Open MultishopHomePage
         Privacy Statement
         Close Browser
         Pass Execution    "Failure expected in local staging"         
 
-CS035TC001_User must be able to click and read on FAQ in the footer
+Test case 56
+    #FAQ in the footer
         Open MultishopHomePage
         FAQ
         Close Browser
         
-CS036TC001_User must be able to click and fill in the Support form and submit
+Test case 57
+    #Support form in the footer
         Open MultishopHomePage
         Support_Footer
         Support_Form_Footer
         Capture Page Screenshot    
         Close Browser
 
-CS041TC001_User must be able to view blog page    
+Test case 58
+    #Blog in the footer   
        Open MultishopHomePage
        Blog
        Close Browser    
 
-
-CS037TC001_User must be able to click and view the Bapacho Facebook icon
+Test case 59
+    #Bapacho Facebook icon
         Open MultishopHomePage
         Bapacho_FB_icon       
         Capture Page Screenshot       
         Close All Browsers
         
-CS038TC001_User must be able to click and view on the Bapacho Instagram icon
+Test case 60
+    #Bapacho Instagram icon
         Open MultishopHomePage
         Bapacho_Instagram_icon
         Capture Page Screenshot       
         Close All Browsers
         
-CS039TC001_User must be able to click and view app in Playstore
-#CS039TC002	 #User must be able to click and view app in Appstore
+Test case 61
+    #View app in Playstore & App store
         Open MultishopHomePage
         Click Download App - playstore
         Select Window     MAIN
@@ -986,9 +808,11 @@ CS039TC001_User must be able to click and view app in Playstore
         Get Window Titles    browser=ALL
         Close All Browsers
         
-CS040TC001_User can view landing page and subscribe to newsletter
-#CS040TC002	User can view bakeries and choose one
-#CS040TC003	User must be able to click and view app in Playstore and Appstore
+Test case 62
+    #User can view landing page and subscribe to newsletter
+    #User can view bakeries and choose one
+    #CS040TC003	User must be able to click and view app in Playstore and Appstore
+    Set Tags    Basic Regression
         Open_Landingpage
         View bakery in landingpage
         Subscribe to Newsletter      
@@ -997,10 +821,28 @@ CS040TC001_User can view landing page and subscribe to newsletter
         Click Download App - Appstore
         Get Window Titles    browser=ALL
         Close All Browsers
-        
+      
+
+Test case 63
+    #Get checkout url when customer goes to homepage and click cart
+    Set Tags    Basic Regression
+        Open MultishopHomePage
+        Click_login
+        EmailLogin
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
+        Select a bakery from list
+        PDP_AddtoCart
+        Click Image    ${BapachoLOGO}    
+        Click Element    ${carticon}    
+        Get Locations    
+        Close Browser 
 
    
-CS042TC001_New merchant can click on Open your shop and submit the support form  
+Test case 64
+       #Home page_Open your shop
+    Set Tags    Basic Regression
         testhomepage   
         Open your shop
         Close Browser
@@ -1043,3 +885,56 @@ CS042TC001_New merchant can click on Open your shop and submit the support form
        # Click_login
        # login_Using_RegisteredMailid_with old password   
        # Close Browser
+       
+      #  FCS009	PAYMENT
+
+# Test case 
+    # #Pickup + Online pay    
+        # Open MultishopHomePage
+        # Type_To_Search_bakery with Online payment
+        # Select a bakery from list
+        # PDP_AddtoCart
+        # BuiltIn.Sleep    2    
+        # PDP_Click_Checkout
+        # #Choose_delivery
+        # User_Fill_Checkoutpage    
+        # Onlinepay_Ordernow
+        # iDEAL_Online_payment_process
+        # Close Browser   
+        
+# CS026TC003_User must be able to do online payment using giropay
+        # Open MultishopHomePage
+        # Click_login
+        # EmailLogin
+        # Click_bakeries
+        # Change_CurrentLoction_BDP
+        # Type_To_Search_bakery with Online payment
+        # Select a bakery from list
+        # PDP_AddtoCart
+        # BuiltIn.Sleep    2  
+        # PDP_Click_Checkout
+        # Choose_delivery
+        # User_Fill_Checkoutpage    
+        # Onlinepay_Ordernow
+        # Giropay_Online_payment_process
+        # Close Browser
+        
+# Test case
+    # #User must be able to add date and time of delivery to his calender by clicking on the Add to calender button
+        # Open MultishopHomePage
+        # Click_login
+        # EmailLogin
+        # Click_bakeries
+        # Change_CurrentLoction_BDP
+        # Type_To_Search_bakery with Online payment
+        # Select a bakery from list
+        # PDP_AddtoCart
+        # BuiltIn.Sleep    2  
+        # PDP_Click_Checkout
+        # Choose_delivery
+        # User_Fill_Checkoutpage    
+        # Onlinepay_Ordernow
+        # iDEAL_Online_payment_process
+        # Add to Calender
+        # Close Browser
+        

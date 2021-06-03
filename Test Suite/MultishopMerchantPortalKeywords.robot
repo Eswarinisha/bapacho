@@ -245,7 +245,7 @@ Choose Plan
     Input Text    ${cardExpiry}     02/22
     Input Text    ${cvc}        123
     Input Text    ${billingname}    Nisha 
-    Sleep    2           
+    Sleep    4          
     Click Element    ${savecard}   
     Sleep    5
      
@@ -258,11 +258,18 @@ Add New Location
      Input Text    ${newlocationZip}    ${MultishopLocation1Credentials}[4]
      Input Text    ${newlocationcity}    ${MultishopLocation1Credentials}[5]
      Input Text    ${newlocationphone}    ${MultishopLocation1Credentials}[2]
+     Select Checkbox    ${newlocationterms}
      Click Element    ${unchooseproduct1}    
      #Click Element    ${newlocationchooseproduct2}   
      Execute Javascript    ${scrolldown}
      Sleep    2             
      Click Element    ${btn_Save}  
+     Sleep    2   
+     Page Should Contain    Please check this box if you want to proceed.     
+     Capture Page Screenshot     
+     Select Checkbox    ${newlocationterms}
+     Sleep    2             
+     Click Element    ${btn_Save} 
                    
 #Shop Address
     Sleep    2 
@@ -467,9 +474,9 @@ Filter Orders by Status
 
 
 Accept and view Order
-    Click Element    ${Accept order} 
-    Sleep    2
-    Click Element    ${OK}    
+    # Click Element    ${Accept order} 
+    # Sleep    2
+    # Click Element    ${OK}    
     Sleep    2
     Click Element    ${viewOrder}    
     Sleep    2

@@ -79,7 +79,9 @@ FacebookLogin_in_Checkoutpage
 EmailLogin   
         Set Browser Implicit Wait    5    
         SeleniumLibrary.Input Text    ${emailid}    ${RegisterCredentialsnew}[0] 
+        BuiltIn.Sleep    2   
         Input Password    ${Registerpassword}    ${RegisterCredentialsnew}[3]
+        BuiltIn.Sleep    2   
         Capture Page Screenshot
         Click Button   ${LoginSubmit_Button}
         BuiltIn.Sleep    2    
@@ -216,6 +218,7 @@ Type_To_Search_bakery
 Type_To_Search_bakery with Online payment
         Sleep    4     
         Input Text      ${Searchbakeryinputfield}        ${MultishopMerchantName}
+        BuiltIn.Sleep    2
         Click Element          ${search_button}
         BuiltIn.Sleep    2    
 
@@ -296,7 +299,7 @@ PDP_AddtoCart
       
         #Scroll Element Into View    (//div[@class='productCard'])[1]  
         Run Keyword If    '${Language}'=='RO'    Repeat Keyword    15    Click Element    ${Addtocart +}    
-        Repeat Keyword    2    Click Element    ${Addtocart +}            
+        Repeat Keyword    15    Click Element    ${Addtocart +}            
         Sleep    3
         Capture Page Screenshot  
         Click Element    ${carticon}    
@@ -604,6 +607,23 @@ Click back while Online pay
         Wait Until Page Contains    ${label_Order incomplete}  
         Capture Page Screenshot      
         
+Customer Order received Mail
+        Open Browser    http://gmail.com    ${Chrome}
+        Maximize Browser Window
+        Sleep     4
+        Input Text    ${inputgmailid}    ${LoginCredentials}[0] 
+        Click Element    ${gmailid_submit}    
+        Sleep    2
+        Input Password    ${inputgmailpassword}     ${LoginCredentials}[1]    
+        Sleep    2 
+        Click Element    ${gmailpwd_submit}    
+        Sleep    20
+        Page Should Contain Element     ${choosemailcustomerorderreceived_${Language}}      
+        Click Element    ${choosemailcustomerorderreceived_${Language}}   
+        BuiltIn.Sleep    2    
+        Capture Page Screenshot
+        Sleep    2
+     
 
 
 
@@ -714,6 +734,10 @@ Login As Merchant_Footer
         Scroll Element Into View    ${loginmerchantfooter}
         Click Link    ${loginmerchantfooter}   
         BuiltIn.Sleep    2 
+        SeleniumLibrary.Input Text    email    ${MultishopMerchantCredentials}[0]
+        Input Password    password     ${MultishopMerchantCredentials}[1]  
+        Click Button  ${LoginSubmit_Button}
+        BuiltIn.Sleep    2  
         Capture Page Screenshot 
 
 Terms and Condition
@@ -879,7 +903,7 @@ OpenGmailActivationmail
         Input Text    ${inputgmailid}    nisha@inqadigital.com  
         Click Element    ${gmailid_submit}    
         Sleep    2
-        Input Password    ${inputgmailpassword}    Vinikrish_1   
+        Input Password    ${inputgmailpassword}    Nishabalki@123   
         Sleep    2 
         Click Element    ${gmailpwd_submit}    
         Sleep    20
