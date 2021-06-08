@@ -22,6 +22,9 @@ ${Edge}    edge
 
 @{FBCredentials}    eswarinisha.b@gmail.com    Nani@25032016
 
+${couponmailid}      nisha+customercoupon@inqadigital.com  
+
+
 ${Change_CurrentLoction_BDP_EN}    haarlem
 ${Change_CurrentLoction_BDP_NL}    haarlem
 ${Change_CurrentLoction_BDP_CZ}    prague

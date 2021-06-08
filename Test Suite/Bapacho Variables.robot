@@ -5,6 +5,7 @@ ${Language}     EN
 
 #URLs
 #Multishop Homepage
+${bapachoDev}    https://dev.bapacho.com/
 ${Multishop_URL_EN}    https://multishop.bapacho.com/nl
 
 #Stagings URL
@@ -681,6 +682,15 @@ ${+}    //span[contains(@onclick,'addQuantity(this)')]
 ${-}    //span[contains(@onclick,'deductQuantity(this)')]
 ${inputproductprice}    //input[contains(@type,'number')]
 ${deleteproduct_in_cart}    //i[contains(@class,'fas fa-trash fa-lgf fa-fw text-lightmuted')]
+
+
+#discount
+${discountCode}    discountCode
+${btn_Applydiscountcode}    //button[@onclick='checkDiscountCode()']
+${couponguestemail}     columns[username]
+${couponProceedbutton}     //button[contains(.,'buttons.Proceed')]
+
+
 
 #Checkout Page
 

@@ -15,7 +15,7 @@ Open_Bapachosite
         Change_CurrentLocation_Home
         
 Open MultishopHomePage
-        Open Browser   ${Multishop_URL_${Language}}     ${Chrome}
+        Open Browser   ${bapachoDev}    ${Chrome}
         Maximize Browser Window
         Sleep    2
         #Change_CurrentLocation_Home
@@ -294,7 +294,17 @@ Select a bakery from list
          BuiltIn.Sleep    2 
         Capture Page Screenshot    
 
-         
+PDP_AddtoCart_below cart value
+      
+        #Scroll Element Into View    (//div[@class='productCard'])[1]  
+        Run Keyword If    '${Language}'=='RO'    Repeat Keyword    1    Click Element    ${Addtocart +}    
+        Repeat Keyword    1    Click Element    ${Addtocart +}            
+        Sleep    3
+        Capture Page Screenshot  
+        Click Element    ${carticon} 
+ 
+
+        
 PDP_AddtoCart
       
         #Scroll Element Into View    (//div[@class='productCard'])[1]  
@@ -303,7 +313,74 @@ PDP_AddtoCart
         Sleep    3
         Capture Page Screenshot  
         Click Element    ${carticon}    
-       
+     
+Add coupon to empty cart
+        Click Element    ${carticon}    
+        Sleep    5
+        Input Text    ${discountCode}    PERC10
+        Capture Page Screenshot   
+        Click Element    ${btn_Applydiscountcode}  
+        Click Element    ${btn_Checkout}  
+        Sleep    2  
+        Page Should Contain    Error    
+        Sleep    2
+        Click Element    ${OK}   
+        Click Element    ${carticon}      
+             
+Add coupon to invalid cart    
+        Sleep    2
+        Input Text    ${discountCode}    PERC10
+        Capture Page Screenshot   
+        Click Element    ${btn_Applydiscountcode}  
+        Click Element    ${btn_Checkout}  
+        Sleep    2  
+        Page Should Contain    Warning    
+        Sleep    2
+        Click Element    ${OK} 
+
+Add incorrect coupon
+        Click Element    ${carticon} 
+        Sleep    2
+        Input Text    ${discountCode}    PER10
+        Capture Page Screenshot   
+        Click Element    ${btn_Applydiscountcode}    
+        Sleep    2  
+        Page Should Contain    Error    
+        Sleep    2
+        Click Element    ${OK} 
+        Sleep    2
+        Click Element    ${btn_Checkout}  
+  
+Creates account and Add Coupon in cart
+        Sleep    2
+        Input Text    ${discountCode}    PERC10
+        Capture Page Screenshot   
+        Sleep    2
+        Capture Page Screenshot   
+        Click Element    ${btn_Applydiscountcode}  
+        Sleep    5  
+        Input Text    ${firstname}     Nisha    
+        Input Text    ${lastname}    Bala    
+        Input Text    ${couponguestemail}    ${couponmailid}    
+        Input Text    ${inputpassword}    ${RegisterCredentialsnew}[3]   
+        Sleep    2
+        Click Element    ${couponProceedbutton} 
+        Sleep    2
+        Click Element    ${OK} 
+        Sleep    2 
+        Capture Page Screenshot   
+        Click Element    ${carticon}    
+        Click Element    ${btn_Checkout}   
+     
+Guest user adds coupon in checkout page
+        Sleep    2
+        Input Text    ${discountCode}    PERC10
+        Capture Page Screenshot   
+        Click Element    ${btn_Applydiscountcode}   
+         Sleep    2 
+        Click Element    ${OK} 
+        Sleep    2  
+    
         
 
                         # Product Display page
@@ -532,7 +609,7 @@ Cashpay_OrderNow
          BuiltIn.Sleep    2    
          Capture Page Screenshot
          Click Element    ${OK}  
-         BuiltIn.Sleep    5   
+         BuiltIn.Sleep    10   
          Capture Page Screenshot  
          
 

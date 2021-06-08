@@ -519,6 +519,8 @@ Test case 40
         Delete Product Quantity
         Capture Page Screenshot    
         Close Browser
+     
+
         
 
                 #  FCS007	FAVOURITES
@@ -733,17 +735,56 @@ Test case 51
         SupportForm
         Close Browser
         
+Test case 52
+    #Guest user Discount code in Bapacho site
+       
+        Open MultishopHomePage
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
+        Select a bakery from list
+        Add coupon to empty cart
+        PDP_AddtoCart_below cart value
+        Add coupon to invalid cart
+        PDP_AddtoCart
+        Add incorrect coupon
+        Guest user adds coupon in checkout page
+        #Creates account and Add Coupon in cart
+        Guestuser_Fill_Checkoutpage
+        BuiltIn.Sleep    2    
+        Cashpay_OrderNow
+        Close Browser
+        
 
+Test case 53
+     #Creates new account to apply discount
+        Open MultishopHomePage
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery with Online payment
+        Select a bakery from list
+        PDP_AddtoCart
+        Creates account and Add Coupon in cart         
+        Choose_delivery
+        Guestuser_Fill_Checkoutpage
+        BuiltIn.Sleep    2    
+        Cashpay_OrderNow
+        Close Browser
+        
+
+
+
+        
   # FCS011	DISCOVER BAPACHO
  
-Test case 52
+Test case footer_1
     #About us static page
          Open MultishopHomePage
          About us
          Close Browser
          Pass Execution    "Failure expected in local staging" 
                
-Test case 53
+Test case footer_2
    #User must be able to use the website as Merchant
         Open MultishopHomePage
         Login As Merchant_Footer    
@@ -751,27 +792,27 @@ Test case 53
         Capture Page Screenshot  
         Close Browser
         
-Test case 54
+Test case footer_3
     #T&C Footer 
         Open MultishopHomePage
         Terms and Condition
         Close Browser
          Pass Execution    "Failure expected in local staging" 
         
-Test case 55
+Test case footer_4
     #Privacy statement in the footer
         Open MultishopHomePage
         Privacy Statement
         Close Browser
         Pass Execution    "Failure expected in local staging"         
 
-Test case 56
+Test case footer_5
     #FAQ in the footer
         Open MultishopHomePage
         FAQ
         Close Browser
         
-Test case 57
+Test case footer_6
     #Support form in the footer
         Open MultishopHomePage
         Support_Footer
@@ -779,27 +820,27 @@ Test case 57
         Capture Page Screenshot    
         Close Browser
 
-Test case 58
+Test case footer_7
     #Blog in the footer   
        Open MultishopHomePage
        Blog
        Close Browser    
 
-Test case 59
+Test case footer_8
     #Bapacho Facebook icon
         Open MultishopHomePage
         Bapacho_FB_icon       
         Capture Page Screenshot       
         Close All Browsers
         
-Test case 60
+Test case footer_9
     #Bapacho Instagram icon
         Open MultishopHomePage
         Bapacho_Instagram_icon
         Capture Page Screenshot       
         Close All Browsers
         
-Test case 61
+Test case footer_10
     #View app in Playstore & App store
         Open MultishopHomePage
         Click Download App - playstore
